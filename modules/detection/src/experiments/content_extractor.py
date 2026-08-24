@@ -144,6 +144,27 @@ AUDIT_COUNT_FIELDS: Final[tuple[str, ...]] = (
 )
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
+#: The two entropy means are float divisions; the four ratios are exact quotients.
+ENTROPY_FEATURES: Final[frozenset[str]] = frozenset(
+    {
+        "source_payload_entropy_normalized",
+        "destination_payload_entropy_normalized",
+    }
+)
+ENTROPY_FLOAT_TOLERANCE: Final[float] = 1e-9
+
+#: Zeek stderr lines known to be benign. Only counts and a boolean derived from
+#: this allowlist are ever persisted; the text itself is never published.
+EXPECTED_STDERR_PATTERNS: Final[tuple[re.Pattern[str], ...]] = (
+    re.compile(r"received termination signal\s*$"),
+)
+
+#: Engineering guards, not inference thresholds. They exist to make a systematic
+#: join or extraction defect fail loudly instead of publishing a near-empty
+#: artifact, which is exactly how the first extraction attempt silently produced
+#: an all-missing header-template column.
+MINIMUM_PARTITION_MATCH_RATE: Final[float] = 0.90
+
 
 class ContentExtractionError(RuntimeError):
     """The content extraction failed a protocol, privacy, or integrity guard."""
@@ -302,23 +323,43 @@ def _docker_command(
     ]
 
 
-def _validate_zeek_record(record: dict[str, Any]) -> None:
+def _validate_zeek_record(record: dict[str, Any], clamps: dict[str, int] | None = None) -> None:
+    """Enforce the published schema exactly, in place.
+
+    Ratio features are exact quotients of counts and must satisfy ``0 <= v <= 1``
+    with no tolerance. The two entropy means are floating-point divisions whose
+    result may land a few ulps above 1.0; those are clamped to 1.0 and counted so
+    the correction is visible in the audit instead of being silently accepted.
+    """
     extra = set(record) - ALLOWED_ZEEK_FIELDS
     if extra:
         raise ContentExtractionError(f"forbidden Zeek output fields: {sorted(extra)}")
-    if not HEX64.fullmatch(str(record.get("window_key", ""))):
-        raise ContentExtractionError("window_key is not a 64-character pseudonym")
+    window_key = record.get("window_key")
+    if type(window_key) is not str or not HEX64.fullmatch(window_key):
+        raise ContentExtractionError(
+            f"window_key is not a 64-character hexadecimal pseudonym string: {window_key!r}"
+        )
     for name in FEATURE_NAMES:
         if name not in record:
             continue
         value = record[name]
-        if type(value) not in (int, float) or not math.isfinite(float(value)):
+        if type(value) not in (int, float) or type(value) is bool:
             raise ContentExtractionError(f"invalid numeric feature {name}: {value!r}")
-        if not 0.0 <= float(value) <= 1.0 + 1e-12:
+        numeric = float(value)
+        if not math.isfinite(numeric):
+            raise ContentExtractionError(f"invalid numeric feature {name}: {value!r}")
+        if numeric < 0.0:
             raise ContentExtractionError(f"out-of-range feature {name}: {value!r}")
+        if numeric > 1.0:
+            if name in ENTROPY_FEATURES and numeric <= 1.0 + ENTROPY_FLOAT_TOLERANCE:
+                record[name] = 1.0
+                if clamps is not None:
+                    clamps[name] += 1
+            else:
+                raise ContentExtractionError(f"out-of-range feature {name}: {value!r}")
     for name in AUDIT_COUNT_FIELDS:
         value = record.get(name)
-        if type(value) is not int or value < 0:
+        if type(value) is not int or type(value) is bool or value < 0:
             raise ContentExtractionError(f"invalid audit count {name}: {value!r}")
 
 
@@ -331,6 +372,7 @@ def run_partition(
     row_by_pseudonym: dict[str, str],
     stop_after_seconds: int = 0,
     timeout_seconds: int | None = None,
+    progress: Any = None,
 ) -> tuple[dict[str, dict[str, float]], dict[str, Any]]:
     """Run one isolated Zeek process and destroy all temporary logs afterward."""
     temp_parent = Path(tempfile.mkdtemp(prefix="cybersentinel-content-"))
@@ -369,6 +411,7 @@ def run_partition(
 
         emitted = matched = ignored = 0
         emitted_availability = {name: 0 for name in FEATURE_NAMES}
+        clamps = {name: 0 for name in ENTROPY_FEATURES}
         with log_path.open(encoding="utf-8") as handle:
             for line_number, line in enumerate(handle, start=1):
                 try:
@@ -379,7 +422,7 @@ def run_partition(
                     ) from error
                 if type(record) is not dict:
                     raise ContentExtractionError("Zeek output root is not an object")
-                _validate_zeek_record(record)
+                _validate_zeek_record(record, clamps)
                 emitted += 1
                 for feature_name in FEATURE_NAMES:
                     emitted_availability[feature_name] += int(feature_name in record)
@@ -408,24 +451,94 @@ def run_partition(
             raise ContentExtractionError(
                 f"unexpected Zeek temporary outputs: {sorted(unexpected)}"
             )
+        stderr_lines = [
+            line for line in (completed.stderr or "").splitlines() if line.strip()
+        ]
+        unexpected_stderr = [
+            line
+            for line in stderr_lines
+            if not any(pattern.search(line) for pattern in EXPECTED_STDERR_PATTERNS)
+        ]
+        if unexpected_stderr and progress:
+            # Shown to the operator for debugging; never written to an artifact.
+            progress(
+                f"  note: {len(unexpected_stderr)} unexpected Zeek stderr line(s) "
+                f"for {entry['partition']} (not persisted)"
+            )
         return output, {
             "partition": entry["partition"],
             "pcap": entry["pcap"],
             "bounded_seconds": stop_after_seconds,
             "zeek_rows_emitted": emitted,
             "zeek_feature_availability_rows": emitted_availability,
+            "entropy_values_clamped_to_one": dict(sorted(clamps.items())),
             "p1_rows_matched": matched,
             "non_p1_rows_ignored": ignored,
-            "stderr_tail": completed.stderr[-500:] if completed.stderr else "",
+            "zeek_stderr_lines": len(stderr_lines),
+            "zeek_stderr_unexpected_lines": len(unexpected_stderr),
+            "zeek_stderr_text_persisted": False,
             "temporary_output_fields": sorted(ALLOWED_ZEEK_FIELDS),
             "unexpected_temporary_files": [],
         }
     finally:
-        shutil.rmtree(temp_parent, ignore_errors=True)
+        cleanup_error: str | None = None
+        try:
+            shutil.rmtree(temp_parent)
+        except OSError as error:
+            cleanup_error = type(error).__name__
         if temp_parent.exists():
+            # Raised unconditionally: the directory holds config.zeek, which
+            # carries the ephemeral salt. A leak must never be silent, even while
+            # another exception is already propagating (it stays chained).
             raise ContentExtractionError(
-                f"temporary extraction directory survived cleanup: {temp_parent}"
+                f"temporary extraction directory survived cleanup "
+                f"({cleanup_error or 'still present'}); it may still contain the "
+                f"ephemeral salt: {temp_parent}"
             )
+
+
+def check_join_completeness(
+    *, partition: str, matched: int, expected: int, enforce: bool
+) -> dict[str, Any]:
+    """Refuse to continue when a partition matched too few frozen P1 rows.
+
+    A bounded preflight reads only part of a capture, so its match rate carries no
+    information and the floor is recorded but not enforced.
+    """
+    rate = matched / expected if expected else float("nan")
+    check = {
+        "partition": partition,
+        "expected": expected,
+        "matched": matched,
+        "rate": rate,
+        "floor": MINIMUM_PARTITION_MATCH_RATE,
+        "enforced": enforce,
+    }
+    if enforce and not rate >= MINIMUM_PARTITION_MATCH_RATE:
+        raise ContentExtractionError(
+            f"join completeness guard failed for {partition}: matched "
+            f"{matched}/{expected} frozen P1 rows ({rate:.4f} < "
+            f"{MINIMUM_PARTITION_MATCH_RATE}); refusing to publish"
+        )
+    return check
+
+
+def check_metric_availability(
+    availability: dict[str, int], *, enforce: bool
+) -> list[str]:
+    """Refuse to publish a pre-registered metric that no frozen row ever carried.
+
+    This is the guard the first extraction attempt lacked: the normalized header
+    template metric was absent from all 70,954 rows and would have entered the
+    benchmark as an all-missing column instead of failing.
+    """
+    missing = sorted(name for name in FEATURE_NAMES if availability.get(name, 0) == 0)
+    if enforce and missing:
+        raise ContentExtractionError(
+            "pre-registered metrics were never observed on any frozen P1 row: "
+            f"{missing}; refusing to publish"
+        )
+    return missing
 
 
 def extract(
@@ -446,8 +559,14 @@ def extract(
     salt = secrets.token_hex(32)
     row_by_hash = pseudonym_map(windows, salt)
     selected = PARTITIONS[1:2] if preflight else PARTITIONS
+    expected_by_partition: dict[str, int] = {}
+    for window in windows:
+        expected_by_partition[window.partition] = (
+            expected_by_partition.get(window.partition, 0) + 1
+        )
     all_features: dict[str, dict[str, float]] = {}
     runs = []
+    join_checks = []
     for entry in selected:
         if progress:
             progress(f"replaying {entry['partition']} with isolated Zeek")
@@ -459,12 +578,23 @@ def extract(
             row_by_pseudonym=row_by_hash,
             stop_after_seconds=preflight_seconds if preflight else 0,
             timeout_seconds=timeout_seconds,
+            progress=progress,
         )
+        expected = expected_by_partition.get(entry["partition"], 0)
+        audit["p1_rows_expected"] = expected
         if progress:
             progress(
                 f"completed {entry['partition']}: {audit['zeek_rows_emitted']} aggregate windows, "
-                f"{audit['p1_rows_matched']} P1 matches"
+                f"{audit['p1_rows_matched']}/{expected} P1 matches"
             )
+        check = check_join_completeness(
+            partition=entry["partition"],
+            matched=audit["p1_rows_matched"],
+            expected=expected,
+            enforce=not preflight,
+        )
+        audit["p1_match_rate"] = check["rate"]
+        join_checks.append(check)
         overlap = set(all_features) & set(found)
         if overlap:
             raise ContentExtractionError(
@@ -477,6 +607,8 @@ def extract(
         name: sum(name in values for values in all_features.values())
         for name in FEATURE_NAMES
     }
+    # The guard that the first extraction attempt lacked.
+    never_observed = check_metric_availability(availability, enforce=not preflight)
     return ExtractionResult(
         features_by_row_id=all_features,
         audit={
@@ -484,6 +616,13 @@ def extract(
             "p1_rows": len(windows),
             "rows_with_any_content_feature": len(all_features),
             "availability_rows": availability,
+            "join_completeness_checks": join_checks,
+            "minimum_partition_match_rate": MINIMUM_PARTITION_MATCH_RATE,
+            "guard_rationale": (
+                "match-rate and metric-availability guards are engineering "
+                "sanity checks against a systematic extraction or join defect; "
+                "they are not inference thresholds and select nothing"
+            ),
             "pcap_checks": pcap_checks,
             "partition_runs": runs,
             "zeek_image": ZEEK_IMAGE,

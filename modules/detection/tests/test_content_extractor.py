@@ -10,12 +10,18 @@ from modules.detection.src.experiments.content_extractor import (
     ARM_FEATURES,
     AUDIT_COUNT_FIELDS,
     ContentExtractionError,
+    ENTROPY_FEATURES,
+    ENTROPY_FLOAT_TOLERANCE,
+    EXPECTED_STDERR_PATTERNS,
     FEATURE_NAMES,
+    MINIMUM_PARTITION_MATCH_RATE,
     PARTITIONS,
     ZEEK_IMAGE,
     FrozenWindow,
     _docker_command,
     _validate_zeek_record,
+    check_join_completeness,
+    check_metric_availability,
     load_frozen_windows,
     pseudonym,
 )
@@ -168,3 +174,140 @@ def test_zeek_script_writes_only_aggregate_info_and_disables_standard_logs() -> 
     assert "c$http$uri" not in text
     assert "c$http$host" not in text
     assert "Log::enable_stream" not in text
+
+
+def test_window_key_must_be_a_hexadecimal_string_not_a_number() -> None:
+    for bad in (12345, None, True, "a" * 63, "A" * 64, "g" * 64, ["a" * 64]):
+        record = _valid_record()
+        record["window_key"] = bad
+        with pytest.raises(ContentExtractionError, match="window_key"):
+            _validate_zeek_record(record)
+
+
+def test_ratio_features_admit_no_tolerance_above_one() -> None:
+    ratio_features = [n for n in FEATURE_NAMES if n not in ENTROPY_FEATURES]
+    assert len(ratio_features) == 4
+    for name in ratio_features:
+        record = _valid_record()
+        record[name] = 1.0
+        _validate_zeek_record(record)  # exactly 1.0 is admissible
+        record[name] = 1.0 + 1e-12
+        with pytest.raises(ContentExtractionError, match="out-of-range"):
+            _validate_zeek_record(record)
+
+
+def test_entropy_float_overshoot_is_clamped_and_counted_not_silently_accepted() -> None:
+    for name in sorted(ENTROPY_FEATURES):
+        record = _valid_record()
+        record[name] = 1.0 + ENTROPY_FLOAT_TOLERANCE / 2
+        clamps = {feature: 0 for feature in ENTROPY_FEATURES}
+        _validate_zeek_record(record, clamps)
+        assert record[name] == 1.0
+        assert clamps[name] == 1
+
+        beyond = _valid_record()
+        beyond[name] = 1.0 + ENTROPY_FLOAT_TOLERANCE * 10
+        with pytest.raises(ContentExtractionError, match="out-of-range"):
+            _validate_zeek_record(beyond)
+
+
+def test_audit_counts_reject_booleans_and_non_integers() -> None:
+    for bad in (True, 1.0, "1", None, -1):
+        record = _valid_record()
+        record[AUDIT_COUNT_FIELDS[0]] = bad
+        with pytest.raises(ContentExtractionError, match="invalid audit count"):
+            _validate_zeek_record(record)
+
+
+def test_raw_zeek_stderr_is_never_a_published_audit_field() -> None:
+    source = (
+        ROOT / "modules/detection/src/experiments/content_extractor.py"
+    ).read_text(encoding="utf-8")
+    assert "stderr_tail" not in source
+    assert '"zeek_stderr_text_persisted": False' in source
+    assert "completed.stderr[-500:]" not in source
+    # The allowlist covers the bounded-preflight termination notice only.
+    assert any(
+        pattern.search("1499171612.372181 <params>, line 1: received termination signal")
+        for pattern in EXPECTED_STDERR_PATTERNS
+    )
+
+
+def test_cleanup_failure_is_reported_and_mentions_the_ephemeral_salt() -> None:
+    source = (
+        ROOT / "modules/detection/src/experiments/content_extractor.py"
+    ).read_text(encoding="utf-8")
+    assert "shutil.rmtree(temp_parent, ignore_errors=True)" not in source
+    assert "except OSError as error:" in source
+    assert "ephemeral salt" in source
+
+
+def test_join_and_availability_guards_are_declared_and_enforced() -> None:
+    assert MINIMUM_PARTITION_MATCH_RATE == 0.90
+
+    # Real counts observed on the four frozen partitions: the three attack days
+    # matched every frozen row, Monday matched 65,227 of 70,578.
+    for partition, matched, expected in (
+        ("2017-07-03_Monday-WorkingHours", 65_227, 70_578),
+        ("2017-07-04_Tuesday-WorkingHours", 121, 121),
+        ("2017-07-05_Wednesday-workingHours", 36, 36),
+        ("2017-07-07_Friday-WorkingHours", 219, 219),
+    ):
+        check = check_join_completeness(
+            partition=partition, matched=matched, expected=expected, enforce=True
+        )
+        assert check["rate"] >= MINIMUM_PARTITION_MATCH_RATE
+        assert check["enforced"] is True
+
+    # A systematic join failure must stop the run instead of publishing.
+    with pytest.raises(ContentExtractionError, match="join completeness guard failed"):
+        check_join_completeness(
+            partition="2017-07-04_Tuesday-WorkingHours",
+            matched=0,
+            expected=121,
+            enforce=True,
+        )
+    with pytest.raises(ContentExtractionError, match="join completeness guard failed"):
+        check_join_completeness(
+            partition="2017-07-03_Monday-WorkingHours",
+            matched=63_000,
+            expected=70_578,
+            enforce=True,
+        )
+    # A bounded preflight reads part of the capture, so the floor is not enforced.
+    preflight_check = check_join_completeness(
+        partition="2017-07-04_Tuesday-WorkingHours",
+        matched=14,
+        expected=121,
+        enforce=False,
+    )
+    assert preflight_check["enforced"] is False
+
+
+def test_availability_guard_rejects_the_exact_defect_of_the_first_extraction() -> None:
+    # The first full extraction produced these counts: the header-template metric
+    # was absent from all 70,954 frozen rows and must now fail loudly.
+    defective = {
+        "source_payload_entropy_normalized": 65_012,
+        "destination_payload_entropy_normalized": 62_767,
+        "source_non_printable_ratio": 65_020,
+        "destination_non_printable_ratio": 62_767,
+        "payload_prefix_repeat_ratio": 65_020,
+        "normalized_header_template_repeat_ratio": 0,
+    }
+    with pytest.raises(ContentExtractionError, match="never observed on any frozen P1 row"):
+        check_metric_availability(defective, enforce=True)
+    assert check_metric_availability(defective, enforce=False) == [
+        "normalized_header_template_repeat_ratio"
+    ]
+
+    healthy = dict(defective)
+    healthy["normalized_header_template_repeat_ratio"] = 1_317
+    assert check_metric_availability(healthy, enforce=True) == []
+
+    # Every pre-registered metric is covered by the guard, not just the sixth.
+    for name in FEATURE_NAMES:
+        single = dict(healthy)
+        single[name] = 0
+        with pytest.raises(ContentExtractionError, match=name):
+            check_metric_availability(single, enforce=True)
