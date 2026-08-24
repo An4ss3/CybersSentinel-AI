@@ -16,6 +16,7 @@ import csv
 from hashlib import sha256
 import json
 import math
+import os
 from pathlib import Path
 import re
 import secrets
@@ -363,6 +364,28 @@ def _validate_zeek_record(record: dict[str, Any], clamps: dict[str, int] | None 
             raise ContentExtractionError(f"invalid audit count {name}: {value!r}")
 
 
+def _purge_secret_file(path: Path) -> bool:
+    """Overwrite then unlink a salt-bearing file; report whether it is gone.
+
+    The overwrite is a best-effort defence-in-depth measure. On journalling or
+    flash-translated storage it does not guarantee the previous bytes are
+    unrecoverable, so the guarantee claimed in the audit is deliberately limited
+    to "the file no longer exists", which is what the return value reports.
+    """
+    try:
+        if path.is_file():
+            size = path.stat().st_size
+            if size:
+                with path.open("r+b", buffering=0) as stream:
+                    stream.write(b"\x00" * size)
+                    stream.flush()
+                    os.fsync(stream.fileno())
+            path.unlink()
+    except OSError:
+        pass
+    return not path.exists()
+
+
 def run_partition(
     *,
     repo_root: Path,
@@ -481,19 +504,29 @@ def run_partition(
             "unexpected_temporary_files": [],
         }
     finally:
+        # The salt-bearing config is purged first and independently of rmtree, so
+        # that a failure to remove any other temporary file cannot leave the
+        # ephemeral salt on disk.
+        salt_purged = _purge_secret_file(temp_parent / "config.zeek")
         cleanup_error: str | None = None
         try:
             shutil.rmtree(temp_parent)
         except OSError as error:
             cleanup_error = type(error).__name__
+        residue: list[str] = []
         if temp_parent.exists():
-            # Raised unconditionally: the directory holds config.zeek, which
-            # carries the ephemeral salt. A leak must never be silent, even while
-            # another exception is already propagating (it stays chained).
+            try:
+                residue = sorted(item.name for item in temp_parent.iterdir())
+            except OSError:
+                residue = ["<unreadable>"]
+        if residue or not salt_purged:
+            # Raised unconditionally. A surviving temporary file must never be
+            # silent, even while another exception is already propagating: Python
+            # keeps the original error chained as __context__.
             raise ContentExtractionError(
-                f"temporary extraction directory survived cleanup "
-                f"({cleanup_error or 'still present'}); it may still contain the "
-                f"ephemeral salt: {temp_parent}"
+                f"temporary extraction directory was not fully removed "
+                f"({cleanup_error or 'residue present'}): {temp_parent}; "
+                f"ephemeral salt file purged: {salt_purged}; residue: {residue}"
             )
 
 
@@ -653,9 +686,7 @@ def _atomic_publish(path: Path, payload: bytes) -> str:
         with temporary.open("xb") as stream:
             stream.write(payload)
             stream.flush()
-            import os
             os.fsync(stream.fileno())
-        import os
         os.replace(temporary, path)
     except BaseException:
         temporary.unlink(missing_ok=True)

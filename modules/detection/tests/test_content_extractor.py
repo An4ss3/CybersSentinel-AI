@@ -19,6 +19,7 @@ from modules.detection.src.experiments.content_extractor import (
     ZEEK_IMAGE,
     FrozenWindow,
     _docker_command,
+    _purge_secret_file,
     _validate_zeek_record,
     check_join_completeness,
     check_metric_availability,
@@ -233,13 +234,55 @@ def test_raw_zeek_stderr_is_never_a_published_audit_field() -> None:
     )
 
 
-def test_cleanup_failure_is_reported_and_mentions_the_ephemeral_salt() -> None:
+def test_salt_bearing_file_is_purged_independently_of_directory_removal(
+    tmp_path: Path,
+) -> None:
+    config = tmp_path / "config.zeek"
+    config.write_text(
+        'redef ContentFeature::pseudonym_salt = "deadbeefcafe";\n', encoding="ascii"
+    )
+    assert config.is_file()
+
+    assert _purge_secret_file(config) is True
+    assert not config.exists()
+    # No file in the directory still carries the salt.
+    assert all(
+        "deadbeefcafe" not in item.read_text(encoding="utf-8", errors="ignore")
+        for item in tmp_path.iterdir()
+        if item.is_file()
+    )
+    # Idempotent: purging an already absent file reports success.
+    assert _purge_secret_file(config) is True
+    # A path that cannot be removed is reported as not purged rather than raising.
+    assert _purge_secret_file(tmp_path) is False
+
+
+def test_cleanup_purges_the_salt_before_removing_the_directory() -> None:
     source = (
         ROOT / "modules/detection/src/experiments/content_extractor.py"
     ).read_text(encoding="utf-8")
+    block = source.split("    finally:", 1)[1]
+    purge_at = block.index('_purge_secret_file(temp_parent / "config.zeek")')
+    rmtree_at = block.index("shutil.rmtree(temp_parent)")
+    # The salt must be purged first so that a later rmtree failure cannot leave it.
+    assert purge_at < rmtree_at
     assert "shutil.rmtree(temp_parent, ignore_errors=True)" not in source
-    assert "except OSError as error:" in source
-    assert "ephemeral salt" in source
+    assert "salt_purged" in block and "residue" in block
+
+
+def test_every_value_surviving_validation_lies_inside_the_unit_interval() -> None:
+    """The published domain guarantee: nothing outside [0, 1] can reach an artifact."""
+    candidates = [0.0, 0.5, 1.0, 1.0 + ENTROPY_FLOAT_TOLERANCE / 2]
+    for name in FEATURE_NAMES:
+        for candidate in candidates:
+            record = _valid_record()
+            record[name] = candidate
+            clamps = {feature: 0 for feature in ENTROPY_FEATURES}
+            try:
+                _validate_zeek_record(record, clamps)
+            except ContentExtractionError:
+                continue  # rejected outright, so it never reaches an artifact
+            assert 0.0 <= record[name] <= 1.0, (name, candidate, record[name])
 
 
 def test_join_and_availability_guards_are_declared_and_enforced() -> None:
