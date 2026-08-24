@@ -1,0 +1,409 @@
+{
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 0,
+    "unit": "attack episode",
+    "window_level_bootstrap": "forbidden"
+  },
+  "completed_at": "2026-08-17T15:24:09.151451+00:00",
+  "experiment": "P3/D unsupervised anomaly benchmark, Monday benign only",
+  "features": [
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "forbidden_columns": [
+    "entity_source_ip",
+    "entity_destination_ip",
+    "entity_service",
+    "entity_transport",
+    "distinct_destination_ports",
+    "distinct_destination_ips",
+    "distinct_source_ips",
+    "output_partition",
+    "window_start_time",
+    "window_end_time",
+    "prediction_time",
+    "record_available_time",
+    "sensor_run_id",
+    "capture_id",
+    "dataset_snapshot_id",
+    "window_id",
+    "window_bytes_sha256",
+    "persisted_at"
+  ],
+  "model": {
+    "contamination": "auto",
+    "estimator": "IsolationForest",
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "note": "score_samples is negated so higher means more anomalous. predict() is never called because its operating point derives from contamination, whereas every threshold here comes from the calibration block alone.",
+    "predict_never_used": true,
+    "random_state": 0
+  },
+  "operating_points": [
+    {
+      "achieved_calibration_fpr": 0.00997506234413965,
+      "alert_rate_on_unlabelled": {
+        "alerts": 2514,
+        "interpretation": "NOT a false-positive rate, NOT an error rate. The true status of these windows is unknown; an alert may be a true positive no rule covers. Reading this as error would convert unknown into benign.",
+        "population": "M6 windows the M5 v2 policy leaves unknown",
+        "rate": 0.014584735339846378,
+        "windows": 172372
+      },
+      "attack_episode_bootstrap": {
+        "ci_high": 0.16666666666666666,
+        "ci_low": 0.018518518518518517,
+        "episodes": 54,
+        "point": 0.09259259259259259
+      },
+      "attack_episode_recall": 0.09259259259259259,
+      "attack_window_recall": 0.44680851063829785,
+      "measured_false_positive_rate": {
+        "flagged": 281,
+        "interpretation": "a genuine false-positive rate: every window here carries a benign_reference label from the frozen M5 v1 policy",
+        "population": "held-out benign_reference measurement block",
+        "rate": 0.015925191272315103,
+        "windows": 17645
+      },
+      "per_attack_type": [
+        {
+          "attack_type": "botnet/ares",
+          "episode_bootstrap": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "episodes": 40,
+            "point": 0.0
+          },
+          "episode_recall": 0.0,
+          "episodes": 40,
+          "episodes_missed": [
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+          ],
+          "window_recall": 0.0,
+          "windows": 177
+        },
+        {
+          "attack_type": "brute_force/ftp_patator",
+          "episode_bootstrap": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "episodes": 1,
+            "point": 1.0
+          },
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_missed": [],
+          "window_recall": 0.9672131147540983,
+          "windows": 61
+        },
+        {
+          "attack_type": "brute_force/ssh_patator",
+          "episode_bootstrap": {
+            "ci_high": 0.3333333333333333,
+            "ci_low": 0.0,
+            "episodes": 9,
+            "point": 0.1111111111111111
+          },
+          "episode_recall": 0.1111111111111111,
+          "episodes": 9,
+          "episodes_missed": [
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007"
+          ],
+          "window_recall": 0.8666666666666667,
+          "windows": 60
+        },
+        {
+          "attack_type": "ddos/loit",
+          "episode_bootstrap": {
+            "ci_high": 1.0,
+            "ci_low": 0.0,
+            "episodes": 2,
+            "point": 0.5
+          },
+          "episode_recall": 0.5,
+          "episodes": 2,
+          "episodes_missed": [
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+          ],
+          "window_recall": 0.5,
+          "windows": 42
+        },
+        {
+          "attack_type": "dos/hulk",
+          "episode_bootstrap": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "episodes": 2,
+            "point": 1.0
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_missed": [],
+          "window_recall": 1.0,
+          "windows": 36
+        }
+      ],
+      "target_calibration_fpr": 0.01,
+      "threshold": 0.7299569909771014
+    },
+    {
+      "achieved_calibration_fpr": 0.0009635003400589435,
+      "alert_rate_on_unlabelled": {
+        "alerts": 293,
+        "interpretation": "NOT a false-positive rate, NOT an error rate. The true status of these windows is unknown; an alert may be a true positive no rule covers. Reading this as error would convert unknown into benign.",
+        "population": "M6 windows the M5 v2 policy leaves unknown",
+        "rate": 0.0016998120344371476,
+        "windows": 172372
+      },
+      "attack_episode_bootstrap": {
+        "ci_high": 0.12962962962962962,
+        "ci_low": 0.0,
+        "episodes": 54,
+        "point": 0.05555555555555555
+      },
+      "attack_episode_recall": 0.05555555555555555,
+      "attack_window_recall": 0.14361702127659576,
+      "measured_false_positive_rate": {
+        "flagged": 30,
+        "interpretation": "a genuine false-positive rate: every window here carries a benign_reference label from the frozen M5 v1 policy",
+        "population": "held-out benign_reference measurement block",
+        "rate": 0.001700198356474922,
+        "windows": 17645
+      },
+      "per_attack_type": [
+        {
+          "attack_type": "botnet/ares",
+          "episode_bootstrap": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "episodes": 40,
+            "point": 0.0
+          },
+          "episode_recall": 0.0,
+          "episodes": 40,
+          "episodes_missed": [
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+          ],
+          "window_recall": 0.0,
+          "windows": 177
+        },
+        {
+          "attack_type": "brute_force/ftp_patator",
+          "episode_bootstrap": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "episodes": 1,
+            "point": 0.0
+          },
+          "episode_recall": 0.0,
+          "episodes": 1,
+          "episodes_missed": [
+            "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+          ],
+          "window_recall": 0.0,
+          "windows": 61
+        },
+        {
+          "attack_type": "brute_force/ssh_patator",
+          "episode_bootstrap": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "episodes": 9,
+            "point": 0.0
+          },
+          "episode_recall": 0.0,
+          "episodes": 9,
+          "episodes_missed": [
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007",
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+          ],
+          "window_recall": 0.0,
+          "windows": 60
+        },
+        {
+          "attack_type": "ddos/loit",
+          "episode_bootstrap": {
+            "ci_high": 1.0,
+            "ci_low": 0.0,
+            "episodes": 2,
+            "point": 0.5
+          },
+          "episode_recall": 0.5,
+          "episodes": 2,
+          "episodes_missed": [
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+          ],
+          "window_recall": 0.5,
+          "windows": 42
+        },
+        {
+          "attack_type": "dos/hulk",
+          "episode_bootstrap": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "episodes": 2,
+            "point": 1.0
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_missed": [],
+          "window_recall": 0.9166666666666666,
+          "windows": 36
+        }
+      ],
+      "target_calibration_fpr": 0.001,
+      "threshold": 0.8284811825843679
+    }
+  ],
+  "p1_dataset_content_sha256": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+  "pooled_episode_bootstrap_at_first_target": {
+    "ci_high": 0.16666666666666666,
+    "ci_low": 0.018518518518518517,
+    "episodes": 54,
+    "point": 0.09259259259259259
+  },
+  "populations": {
+    "attack_episodes": 54,
+    "attack_types": [
+      "botnet/ares",
+      "brute_force/ftp_patator",
+      "brute_force/ssh_patator",
+      "ddos/loit",
+      "dos/hulk"
+    ],
+    "attack_windows": 376,
+    "benign_reference_total": 70578,
+    "m6_unknown_windows": 172372
+  },
+  "postgresql_writes": 0,
+  "r11_note": "P3 removes attack diversity from the learning stage entirely: no positive is fitted. It does not make the 376 attacks a statistically independent sample. Recall uncertainty is still governed by the 54 episodes drawn from 9 entities and 6 host pairs.",
+  "started_at": "2026-08-17T15:24:03.310554+00:00",
+  "temporal_split": {
+    "blocks_disjoint": true,
+    "calibration_epoch_range": [
+      1499094120,
+      1499102820
+    ],
+    "calibration_windows": 17644,
+    "fit_epoch_range": [
+      1499083200,
+      1499094120
+    ],
+    "fit_windows": 35289,
+    "measurement_epoch_range": [
+      1499102820,
+      1499112000
+    ],
+    "measurement_windows": 17645,
+    "positives_in_training": 0,
+    "rule": "contiguous temporal blocks over the benign day, no randomness",
+    "unknown_in_calibration": 0,
+    "unknown_in_training": 0
+  },
+  "terminology": {
+    "alert_rate_on_unlabelled": "computed on M6 unknown windows; never a false-positive rate, never an error rate, never a false positive",
+    "measured_false_positive_rate": "computed on held-out benign_reference windows; a flag there is a genuine false positive"
+  },
+  "training_composition": {
+    "ambiguous_in_training": 0,
+    "benign_reference_windows_fitted": 35289,
+    "positives_in_training": 0,
+    "statement": "No positive, no unknown and no ambiguous window entered fitting, calibration or any hyper-parameter choice.",
+    "unknown_in_training": 0
+  }
+}

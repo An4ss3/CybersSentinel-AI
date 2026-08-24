@@ -1,0 +1,57 @@
+# ---- Secrets / environment ----
+.env
+*.env
+!.env.example
+*.pem
+*.key
+*credentials*
+*secret*
+id_rsa*
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- Raw datasets: ~50 GB, license-restricted, never committed ----
+# Identity is preserved by the frozen manifests instead of the bytes.
+datasets/**
+!datasets/.gitkeep
+!datasets/README.txt
+# ...but the data contracts ARE source and must be versioned.
+!datasets/manifests/
+!datasets/manifests/**
+
+# ---- Frozen Zeek replay output: ~2.2 GB ----
+# Regenerable byte-for-byte from the digest-pinned Zeek image, and already
+# verified by the published M2 tree fingerprint. The run reports are kept.
+artifacts/canonical/**/*.log
+artifacts/canonical/**/operational/
+
+# ---- Legacy proof-of-concept models (superseded track) ----
+models/**
+!models/.gitkeep
+
+# ---- Local scratch ----
+.volumes/
+mlruns/
+*.tmp
+.*.tmp
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# NOTE: artifacts/experiments/ and artifacts/reports/ are deliberately tracked.
+# They are the auditable scientific evidence (P1--P6, XGBoost baseline, feature
+# benchmarks) and are covered by SHA-256 manifests.

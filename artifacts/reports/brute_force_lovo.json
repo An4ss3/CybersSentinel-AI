@@ -1,0 +1,29 @@
+{
+  "attack": "brute_force",
+  "protocol": "lovo",
+  "threshold": 0.5,
+  "folds": [
+    {
+      "held_out": "FTP-Patator",
+      "n_test_pos": 7938,
+      "recall": 0.309,
+      "precision": 1.0,
+      "fpr": 0.0,
+      "auc_pr": 0.9318
+    },
+    {
+      "held_out": "SSH-Patator",
+      "n_test_pos": 5897,
+      "recall": 0.0014,
+      "precision": 0.8889,
+      "fpr": 0.0,
+      "auc_pr": 0.3969
+    }
+  ],
+  "average": {
+    "recall": 0.1552,
+    "precision": 0.9445,
+    "fpr": 0.0,
+    "auc_pr": 0.6643
+  }
+}

@@ -1,0 +1,62 @@
+# CyberSentinel AI — detection configuration
+# MVP scope (encadrant): 2 attack families = brute_force + ddos.
+# Extensions (itération 2+): malware (CNN, malware-as-image), insider_threat (UEBA).
+
+paths:
+  # Directory holding the raw CICIDS2017 CSVs (see scripts/download_datasets.py).
+  cicids2017_dir: "datasets/cicids2017"
+  # Where trained models and reports are written.
+  models_dir: "models"
+  reports_dir: "artifacts/reports"
+
+random_state: 42
+test_size: 0.2
+
+# Shared negative-class settings.
+benign_label: "BENIGN"
+benign_sample_size: 200000   # down-sample benign flows to stay tractable (0 = keep all)
+use_smote: true              # SMOTE the minority class (§6.2)
+
+# --- Evaluation hardening (encadrant KPI feedback) --------------------------
+# Identifier-like features leak lab specifics. CICIDS2017's ML CSVs expose
+# "Destination Port", which lets the model memorise WHICH ports the lab
+# attacks used (FTP=21, SSH=22, ...) instead of learning generalisable
+# behaviour. We drop it so detection relies on flow behaviour only.
+leaky_features:
+  - "Destination Port"
+
+# protocol:
+#   random  = stratified random split (optimistic baseline; can leak sessions)
+#   holdout = train on some attack variants, TEST ON UNSEEN variants
+#             (cross-tool / cross-day generalisation -> honest, harder)
+evaluation:
+  protocol: holdout
+
+# CICIDS2017 label values per MVP attack family.
+# decision_threshold: operating point for turning proba -> alert. Default 0.5;
+# the threshold analysis (threshold_analysis.py) showed these should be tuned
+# per attack on a validation set (the holdout models are poorly calibrated
+# across variants). Kept at 0.5 here until a calibration step is added.
+attacks:
+  brute_force:
+    positive_labels: ["FTP-Patator", "SSH-Patator"]
+    decision_threshold: 0.5
+    holdout:
+      train_labels: ["SSH-Patator"]   # learn on SSH brute force ...
+      test_labels:  ["FTP-Patator"]   # ... then detect FTP brute force (unseen tool)
+  ddos:
+    positive_labels:
+      ["DDoS", "DoS Hulk", "DoS GoldenEye", "DoS slowloris", "DoS Slowhttptest"]
+    decision_threshold: 0.5
+    holdout:
+      train_labels: ["DoS Hulk", "DoS GoldenEye", "DoS slowloris", "DoS Slowhttptest"]
+      test_labels:  ["DDoS"]           # Friday DDoS: unseen attack, different day
+
+xgboost:
+  n_estimators: 400
+  max_depth: 6
+  learning_rate: 0.1
+  subsample: 0.9
+  colsample_bytree: 0.9
+  eval_metric: "aucpr"      # AUC-PR is robust to class imbalance (§13)
+  n_jobs: -1

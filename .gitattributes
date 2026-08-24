@@ -1,0 +1,20 @@
+# CRITICAL: this project's scientific integrity rests on SHA-256 digests taken
+# over exact file bytes (frozen manifests, P1--P6 artifacts, benchmark outputs).
+# Any end-of-line normalisation by Git would silently change those bytes and
+# break every published identity. All EOL conversion is therefore disabled.
+* -text
+
+# Belt and braces: never treat published evidence as convertible text.
+*.csv   -text
+*.json  -text
+*.yaml  -text
+*.md    -text
+*.log   -text
+*.zeek  -text
+
+# Opaque binaries.
+*.joblib binary
+*.pkl    binary
+*.pcap   binary
+*.png    binary
+*.pdf    binary

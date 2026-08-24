@@ -1,0 +1,35 @@
+{
+  "dataset_name": "cicids2017",
+  "dataset_release": "CICIDS2017 PCAP",
+  "files": [
+    {
+      "capture_date": "2017-07-04",
+      "relative_path": "Tuesday-WorkingHours.pcap",
+      "sha256": "080c2250154c5a174c03660ed0f75a3858d41a27511ba716e780d7bcb1ec4c57",
+      "size_bytes": 11048283608
+    },
+    {
+      "capture_date": "2017-07-05",
+      "relative_path": "Wednesday-workingHours.pcap",
+      "sha256": "cd2674db7559a53f24bc03be3239b315700174ccaef72d10f5edc4c1a08f6186",
+      "size_bytes": 13420789612
+    },
+    {
+      "capture_date": "2017-07-07",
+      "relative_path": "Friday-WorkingHours.pcap",
+      "sha256": "beff0dcce1eebc9b2454582f4dc8ed0ba0112b2c619a710bf03af93147254cd0",
+      "size_bytes": 8839309056
+    }
+  ],
+  "manifest_sha256": "feab8d4fbd8454cd12723368704e1e7311853a4316efec7f94bf11726ebb984e",
+  "report_version": "1.0.0",
+  "selected_capture_days": [
+    "2017-07-04",
+    "2017-07-05",
+    "2017-07-07"
+  ],
+  "verification_method": "complete_inventory_size_sha256",
+  "verification_status": "verified",
+  "verified_file_count": 3,
+  "verified_total_size_bytes": 33308382276
+}

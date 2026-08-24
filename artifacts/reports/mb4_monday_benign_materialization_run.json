@@ -1,0 +1,44 @@
+{
+  "report_version": "1.0.0",
+  "verification_status": "verified",
+  "track": "monday_benign",
+  "run_id": "b043c624-c000-4037-b9c8-100a590ad97e",
+  "target_database": "cybersentinel_test",
+  "target_schema": "mb4_canonical",
+  "output_partition": "2017-07-03_Monday-WorkingHours",
+  "mb3_report_content_sha256": "de3146976148dc1d61e5690d6eb7b6acc6a446130787964d3b1bb4888c5ec6ab",
+  "mb3_report_file_sha256": "5afd957ee2e41d18ac604426759afe775f4eaccd84d6ff453dec162ea0d5aff9",
+  "mb3_protocol_sha256": "ea16017266042cc95bd36fcddbc34c917f7b66e3b98e9bed1c478be301810c7c",
+  "mb3_event_stream_sha256": "ed558ab37f984960816c2370fc3046a0c8d1d2bfbdd4dc353f7a6fbf95c7706a",
+  "mb3_rejection_audit_stream_sha256": "13e7538cc71a8492189e01aa4ad1ef1f29d16476cd82a3171156175d46f06342",
+  "mb1_manifest_sha256": "d56fd5261b0a42917f7fee5a447f2fa8429a12ac8d0456e1f32d7d5ac8b66a6e",
+  "mb2_specification_sha256": "6de09b2fa740fc7b3075e91abfbf056a89f938c43163d1cedf8d27dd28d6e38f",
+  "mb2_replay_report_content_sha256": "966ffc228f79c069c52f31baab814355ed28dce0d84f402906cc4857daae62db",
+  "mb3_event_id_namespace": "c81ae3e0-7738-5413-80f2-8c2755418232",
+  "materialized_event_stream_sha256": "ed558ab37f984960816c2370fc3046a0c8d1d2bfbdd4dc353f7a6fbf95c7706a",
+  "materialized_rejection_stream_sha256": "13e7538cc71a8492189e01aa4ad1ef1f29d16476cd82a3171156175d46f06342",
+  "record_available_time": "1786625789.3422550000000000000000",
+  "ingested_at": "1786627167.7888820000000000000000",
+  "total_processed_record_count": 375432,
+  "total_accepted_record_count": 368202,
+  "total_rejected_record_count": 7230,
+  "persisted_event_count": 368202,
+  "persisted_rejection_span_count": 3580,
+  "persisted_rejection_count_rows": 3,
+  "rejection_counts": [
+    [
+      "missing_required_field",
+      6724
+    ],
+    [
+      "unsupported_service_cardinality",
+      343
+    ],
+    [
+      "unsupported_transport",
+      163
+    ]
+  ],
+  "started_at": "2026-08-13T14:14:06.307918Z",
+  "completed_at": "2026-08-13T14:15:37.268093Z"
+}

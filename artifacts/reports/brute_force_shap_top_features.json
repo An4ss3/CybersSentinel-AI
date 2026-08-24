@@ -1,0 +1,17 @@
+{
+  "Destination Port":8.9890441895,
+  "min_seg_size_forward":1.5678032637,
+  "Init_Win_bytes_backward":0.7745783925,
+  "Flow IAT Min":0.6774834394,
+  "Fwd IAT Min":0.5457741618,
+  "Init_Win_bytes_forward":0.5339186788,
+  "Fwd IAT Std":0.5195137262,
+  "Packet Length Variance":0.4215307832,
+  "Packet Length Mean":0.4013079703,
+  "Fwd Packet Length Min":0.3269482851,
+  "Bwd Packets\/s":0.3237280548,
+  "Fwd Header Length":0.2821249068,
+  "Flow Duration":0.2338407189,
+  "Min Packet Length":0.2106357813,
+  "ACK Flag Count":0.1745572686
+}

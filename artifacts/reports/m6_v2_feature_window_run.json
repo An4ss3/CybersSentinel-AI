@@ -1,0 +1,54 @@
+{
+  "report_version": "1.0.0",
+  "run_id": "0d3a12c8-61fc-414c-a418-5ffecf4ad048",
+  "verification_status": "verified",
+  "protocol_sha256": "09e0f97797fd9b435c7d06427d18460281eac37b2adcab25f5bef554f106d277",
+  "m1_manifest_sha256": "feab8d4fbd8454cd12723368704e1e7311853a4316efec7f94bf11726ebb984e",
+  "m2_specification_sha256": "e52c183a315c1ac38cbf1e64155489f5f041e95aa5d2e5cbb82e31f03ac4c455",
+  "m3_protocol_sha256": "5286ddde937ad132afdeb8814e0e0af01745afbb7d1d446ae8860b7701fea210",
+  "m3_report_content_sha256": "6c9ef7aa545769d0e4b913b1227dc27f43ab1734227f9afeb8d1d642264848e0",
+  "m4_report_content_sha256": "70b4317f6619da00c6c9dc961dd37187da7afd3a4831e290efc35d6b85701433",
+  "dataset_name": "cicids2017",
+  "target_model": "FeatureWindowV2",
+  "schema_version": "2.0.0",
+  "event_version": "2.0.0",
+  "feature_version": "2.0.0",
+  "sensor_version": "8.0.9",
+  "entity_type": "source_destination_service",
+  "window_length_seconds": "60.0000000000000000000000",
+  "windowing_basis": "event_start_time",
+  "started_at": "2026-08-11T10:06:36.780095Z",
+  "completed_at": "2026-08-11T10:10:44.238615Z",
+  "total_source_event_count": 1353467,
+  "total_window_count": 172748,
+  "window_stream_sha256": "530c8363784f5ac84d612080b3e93b9261a0cebd651cb4feab85a4dd3b625bfa",
+  "partition_reports": [
+    {
+      "output_partition": "2017-07-04_Tuesday-WorkingHours",
+      "source_event_count": 319099,
+      "window_count": 59824,
+      "entity_count": 25257,
+      "first_window_id": "ab43955d-cdc2-5be6-a784-9a0f9beeb700",
+      "last_window_id": "0bea9aff-ebe4-5d91-9b78-5f089070c9bd",
+      "window_stream_sha256": "354915d7fb6920994e614fa03c36c39878a98222e50e0497b790e2776a4b9b0f"
+    },
+    {
+      "output_partition": "2017-07-05_Wednesday-workingHours",
+      "source_event_count": 491166,
+      "window_count": 58514,
+      "entity_count": 25141,
+      "first_window_id": "8212ec16-07e2-5e47-b300-579f8adef9e1",
+      "last_window_id": "fda654ce-36ec-5d36-8f23-ce0148b6b670",
+      "window_stream_sha256": "6579e86ae9d6dc3b36553824cfc79b93f00b420f692dc0855fc18a68eeed2660"
+    },
+    {
+      "output_partition": "2017-07-07_Friday-WorkingHours",
+      "source_event_count": 543202,
+      "window_count": 54410,
+      "entity_count": 22931,
+      "first_window_id": "f91ba7f1-1511-5054-9a92-39629bc0e9c0",
+      "last_window_id": "4f3fa06f-19e1-53a7-91b0-d4bdb1f33b04",
+      "window_stream_sha256": "c115abb61b216ccd8e9d1c0f35ef98edfcc3d2bfb40d1dd22ec91872ba922beb"
+    }
+  ]
+}

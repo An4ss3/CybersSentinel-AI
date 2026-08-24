@@ -1,0 +1,14 @@
+# Tells Grafana to load dashboard JSON files from a folder on disk.
+apiVersion: 1
+
+providers:
+  - name: CyberSentinel
+    orgId: 1
+    folder: CyberSentinel AI
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards
+      foldersFromFilesStructure: false

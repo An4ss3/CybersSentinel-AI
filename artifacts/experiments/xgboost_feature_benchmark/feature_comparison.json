@@ -1,0 +1,542 @@
+{
+  "arms": {
+    "A": {
+      "feature_importance_gain_botnet_fold": {
+        "distinct_payload_ratio": 1.0
+      },
+      "features": [
+        "distinct_payload_ratio"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [],
+        "episode_recall_delta": 0.0,
+        "fpr_delta": 0.0,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "episodes": 40,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "pr_auc_delta": 0.0,
+        "reference_only_episodes": [],
+        "roc_auc_delta": 0.0
+      },
+      "primary": {
+        "entities_detected": 5,
+        "entities_total": 5,
+        "episode_ci": [
+          0.19937500000000005,
+          0.475
+        ],
+        "episode_recall": 0.325,
+        "episodes_detected": 13,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.009873675039930304,
+        "pr_auc": 0.0670200698009214,
+        "roc_auc": 0.7615389758318096,
+        "roc_descriptively_above_chance": true,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.02265745960175991,
+        "window_recall": 0.13559322033898305
+      },
+      "single_feature_dependence": "by construction: ARM A has one feature",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.007365560640732265,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.03359005384846879,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.8881455855872754,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 0.04918032786885246
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.1111111111111111,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.009101251422070534,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.5534204511205815,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9199427616609784,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.55
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.01704236827810972,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.311283488991151,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9902849447763897,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 1.0
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.010265183917878529,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.16387869336761232,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.9680450606723062,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.5833333333333334
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 6,
+        "important": false
+      }
+    },
+    "B": {
+      "feature_importance_gain_botnet_fold": {
+        "distinct_payload_ratio": 0.7130415008779766,
+        "interarrival_mean": 0.2869584991220235
+      },
+      "features": [
+        "distinct_payload_ratio",
+        "interarrival_mean"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [
+          "192.168.10.14|205.174.165.73|tcp|http",
+          "192.168.10.15|205.174.165.73|tcp|http",
+          "192.168.10.5|205.174.165.73|tcp|http",
+          "192.168.10.8|205.174.165.73|tcp|http",
+          "192.168.10.9|205.174.165.73|tcp|http"
+        ],
+        "episode_recall_delta": -0.325,
+        "fpr_delta": 0.0027588209670393483,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.1993750000000034,
+          "ci_low": -0.475,
+          "episodes": 40,
+          "point": -0.325,
+          "reference_only_detections": 13
+        },
+        "pr_auc_delta": -0.0493295783969018,
+        "reference_only_episodes": [
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010"
+        ],
+        "roc_auc_delta": -0.22941897409267775
+      },
+      "primary": {
+        "entities_detected": 0,
+        "entities_total": 5,
+        "episode_ci": [
+          0.0,
+          0.0
+        ],
+        "episode_recall": 0.0,
+        "episodes_detected": 0,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.012632496006969652,
+        "pr_auc": 0.0176904914040196,
+        "roc_auc": 0.5321200017391319,
+        "roc_descriptively_above_chance": false,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.0056553613394498825,
+        "window_recall": 0.0
+      },
+      "single_feature_dependence": "marginal attribution is identified only by comparison with the registered ablation arms; gain importance is descriptive, not causal",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.0,
+            "episode_recall_delta": -1.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.009796910755148741,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.006463275274586459,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.34663327174850883,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 0.0
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.1111111111111111,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.008319112627986349,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.3973928223410414,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9452728005309065,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.75
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.013579576317218903,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.5096255616479587,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9927995913194176,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 0.8095238095238095
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.5,
+            "episode_recall_delta": -0.5,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.0124750499001996,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.024245493733456344,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.6196248376263347,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.08333333333333333
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 4,
+        "important": true
+      }
+    },
+    "C": {
+      "feature_importance_gain_botnet_fold": {
+        "bytes_per_packet_destination": 0.28302721751242477,
+        "distinct_payload_ratio": 0.7169727824875752
+      },
+      "features": [
+        "distinct_payload_ratio",
+        "bytes_per_packet_destination"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [
+          "192.168.10.14|205.174.165.73|tcp|http",
+          "192.168.10.15|205.174.165.73|tcp|http",
+          "192.168.10.5|205.174.165.73|tcp|http",
+          "192.168.10.8|205.174.165.73|tcp|http",
+          "192.168.10.9|205.174.165.73|tcp|http"
+        ],
+        "episode_recall_delta": -0.3,
+        "fpr_delta": 0.0008712066211703211,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.175,
+          "ci_low": -0.45,
+          "episodes": 40,
+          "point": -0.3,
+          "reference_only_detections": 12
+        },
+        "pr_auc_delta": -0.027581689570276624,
+        "reference_only_episodes": [
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010"
+        ],
+        "roc_auc_delta": 0.05382346499053725
+      },
+      "primary": {
+        "entities_detected": 1,
+        "entities_total": 5,
+        "episode_ci": [
+          0.0,
+          0.075
+        ],
+        "episode_recall": 0.025,
+        "episodes_detected": 1,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.010744881661100625,
+        "pr_auc": 0.039438380230644776,
+        "roc_auc": 0.8153624408223469,
+        "roc_descriptively_above_chance": true,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.0020976548548787832,
+        "window_recall": 0.011299435028248588
+      },
+      "single_feature_dependence": "marginal attribution is identified only by comparison with the registered ablation arms; gain importance is descriptive, not causal",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.00607837528604119,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.9910692439442135,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.999915594402971,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 1.0
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.0,
+            "episode_recall_delta": -0.1111111111111111,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.007750284414106939,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.08429372476287192,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9209127322715207,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.0
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.014665942422596416,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.8316463213568202,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9995311812938102,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 1.0
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.5,
+            "episode_recall_delta": -0.5,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.010978043912175649,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.18222575301384444,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.8625497021829358,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.5
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 4,
+        "important": true
+      }
+    },
+    "D": {
+      "feature_importance_gain_botnet_fold": {
+        "bytes_per_packet_destination": 0.1847664141949542,
+        "distinct_payload_ratio": 0.7301391775089437,
+        "interarrival_mean": 0.08509440829610199
+      },
+      "features": [
+        "distinct_payload_ratio",
+        "interarrival_mean",
+        "bytes_per_packet_destination"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [
+          "192.168.10.14|205.174.165.73|tcp|http",
+          "192.168.10.15|205.174.165.73|tcp|http",
+          "192.168.10.5|205.174.165.73|tcp|http",
+          "192.168.10.8|205.174.165.73|tcp|http",
+          "192.168.10.9|205.174.165.73|tcp|http"
+        ],
+        "episode_recall_delta": -0.3,
+        "fpr_delta": 0.004138231450559023,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.175,
+          "ci_low": -0.45,
+          "episodes": 40,
+          "point": -0.3,
+          "reference_only_detections": 12
+        },
+        "pr_auc_delta": -0.03763680222896952,
+        "reference_only_episodes": [
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010"
+        ],
+        "roc_auc_delta": -0.01620263839428915
+      },
+      "primary": {
+        "entities_detected": 1,
+        "entities_total": 5,
+        "episode_ci": [
+          0.0,
+          0.075
+        ],
+        "episode_recall": 0.025,
+        "episodes_detected": 1,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.014011906490489327,
+        "pr_auc": 0.029383267571951876,
+        "roc_auc": 0.7453363374375205,
+        "roc_descriptively_above_chance": true,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.0013671409105882049,
+        "window_recall": 0.011299435028248588
+      },
+      "single_feature_dependence": "marginal attribution is identified only by comparison with the registered ablation arms; gain importance is descriptive, not causal",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.009153318077803204,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.8688189196835054,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.9995732828150203,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 1.0
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.0,
+            "episode_recall_delta": -0.1111111111111111,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.006257110352673493,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.1667407704199638,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9354611063708761,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.0
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.011271048343291689,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.9297602262133154,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9998173223662088,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 1.0
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.5,
+            "episode_recall_delta": -0.5,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.011976047904191617,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.17350361339496248,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.7831875930678327,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.5
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 4,
+        "important": true
+      }
+    }
+  },
+  "causal_scope": "arm contrasts identify the effect of changing the feature budget under this protocol, not universal causal feature effects",
+  "classification_rule": "RETAIN requires paired episode-delta CI strictly above zero, stable FPR (absolute delta <=0.0025 and observed <=0.0125), ROC and PR non-inferior, gain across multiple entities with 5/5 retained, and no important volumetric episode cost; REJECT applies whenever the paired primary-endpoint delta interval is strictly negative, regardless of a global ROC gain, or when there is no episode or discrimination gain; otherwise INCONCLUSIVE",
+  "classifications": {
+    "A": {
+      "reason": "registered baseline and previously demonstrated signal; retained as the minimal reference",
+      "status": "RETAIN"
+    },
+    "B": {
+      "reason": "paired episode-delta interval is strictly negative on the pre-registered primary endpoint; a global ROC gain cannot override that loss",
+      "rules": {
+        "distributed_and_5_of_5_entities": false,
+        "no_important_volumetric_episode_cost": false,
+        "paired_delta_ci_strictly_positive": false,
+        "roc_and_pr_noninferior": false,
+        "stable_fpr": false
+      },
+      "status": "REJECT"
+    },
+    "C": {
+      "reason": "paired episode-delta interval is strictly negative on the pre-registered primary endpoint; a global ROC gain cannot override that loss",
+      "rules": {
+        "distributed_and_5_of_5_entities": false,
+        "no_important_volumetric_episode_cost": false,
+        "paired_delta_ci_strictly_positive": false,
+        "roc_and_pr_noninferior": false,
+        "stable_fpr": true
+      },
+      "status": "REJECT"
+    },
+    "D": {
+      "reason": "paired episode-delta interval is strictly negative on the pre-registered primary endpoint; a global ROC gain cannot override that loss",
+      "rules": {
+        "distributed_and_5_of_5_entities": false,
+        "no_important_volumetric_episode_cost": false,
+        "paired_delta_ci_strictly_positive": false,
+        "roc_and_pr_noninferior": false,
+        "stable_fpr": false
+      },
+      "status": "REJECT"
+    }
+  },
+  "content_sha256": "c79ebfe01ff6fe1f685115eeadccfbd6fb84cf735304b6636bf0b2e352f42f8a",
+  "experiment": "controlled XGBoost feature benchmark",
+  "minimal_best_compromise": {
+    "all_features_online_under_p6_convention": true,
+    "arm": "A",
+    "features": [
+      "distinct_payload_ratio"
+    ],
+    "rationale": "among arms meeting the conservative RETAIN rule, maximize observed botnet episode recall; break ties by ROC-AUC, PR-AUC, lower FPR, then fewer features"
+  },
+  "reference_arm": "A"
+}

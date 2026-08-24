@@ -1,0 +1,21 @@
+{
+  "dataset_name": "cicids2017",
+  "dataset_release": "CICIDS2017 PCAP",
+  "files": [
+    {
+      "capture_date": "2017-07-03",
+      "relative_path": "Monday-WorkingHours.pcap",
+      "sha256": "f6eac599358f216b074338813a1cf7be3cc4e91d116e13efc0dc71f2cca11972",
+      "size_bytes": 10822507416
+    }
+  ],
+  "manifest_sha256": "d56fd5261b0a42917f7fee5a447f2fa8429a12ac8d0456e1f32d7d5ac8b66a6e",
+  "report_version": "1.0.0",
+  "selected_capture_days": [
+    "2017-07-03"
+  ],
+  "verification_method": "complete_inventory_size_sha256",
+  "verification_status": "verified",
+  "verified_file_count": 1,
+  "verified_total_size_bytes": 10822507416
+}

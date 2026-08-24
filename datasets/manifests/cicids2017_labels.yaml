@@ -1,0 +1,316 @@
+manifest_version: "1.0.0"
+rule_version: "1.0.0"
+dataset_name: "cicids2017"
+authoritative_source:
+  name: "UNB Canadian Institute for Cybersecurity CICIDS2017 official attack schedule"
+  url: "https://www.unb.ca/cic/datasets/ids-2017.html"
+  retrieved_at: "2026-07-20"
+timezone: "America/Moncton"
+source_time_precision: "minute"
+source_end_semantics: "inclusive_minute_to_half_open"
+default_disposition: "unknown"
+rules:
+  - rule_id: "monday-benign-reference"
+    disposition: "benign_reference"
+    attack_family: null
+    attack_subtype: null
+    target_profiles: []
+    intervals:
+      - date: "2017-07-03"
+        start_time: "09:00:00"
+        end_time_inclusive: "17:00:00"
+    selector:
+      mode: "any_network"
+      attacker_ips: []
+      victim_ips: []
+      victim_ports: []
+      protocols: []
+    notes: "Official schedule identifies Monday as normal activity only."
+
+  - rule_id: "tuesday-ftp-patator"
+    disposition: "target_attack"
+    attack_family: "brute_force"
+    attack_subtype: "ftp_patator"
+    target_profiles: ["connection_attempt_proxy"]
+    intervals:
+      - date: "2017-07-04"
+        start_time: "09:20:00"
+        end_time_inclusive: "10:20:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [21]
+      protocols: ["tcp"]
+    notes: "FTP-Patator from Kali to the web server through documented firewall and NAT aliases."
+
+  - rule_id: "tuesday-ssh-patator"
+    disposition: "target_attack"
+    attack_family: "brute_force"
+    attack_subtype: "ssh_patator"
+    target_profiles: ["connection_attempt_proxy"]
+    intervals:
+      - date: "2017-07-04"
+        start_time: "14:00:00"
+        end_time_inclusive: "15:00:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [22]
+      protocols: ["tcp"]
+    notes: "SSH-Patator from Kali to the web server through documented firewall and NAT aliases."
+
+  - rule_id: "wednesday-slowloris"
+    disposition: "known_other_attack"
+    attack_family: "dos"
+    attack_subtype: "slowloris"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-05"
+        start_time: "09:47:00"
+        end_time_inclusive: "10:10:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [80]
+      protocols: ["tcp"]
+    notes: "Known slow application DoS; excluded from the M5 project target because active-flow telemetry is future work."
+
+  - rule_id: "wednesday-slowhttptest"
+    disposition: "known_other_attack"
+    attack_family: "dos"
+    attack_subtype: "slowhttptest"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-05"
+        start_time: "10:14:00"
+        end_time_inclusive: "10:35:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [80]
+      protocols: ["tcp"]
+    notes: "Known slow application DoS; excluded from the M5 project target because active-flow telemetry is future work."
+
+  - rule_id: "wednesday-hulk"
+    disposition: "target_attack"
+    attack_family: "dos"
+    attack_subtype: "hulk"
+    target_profiles: ["fast_dos_ddos"]
+    intervals:
+      - date: "2017-07-05"
+        start_time: "10:43:00"
+        end_time_inclusive: "11:00:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [80]
+      protocols: ["tcp"]
+    notes: "Fast HTTP DoS target for the future completed-flow volumetric profile."
+
+  - rule_id: "wednesday-goldeneye"
+    disposition: "target_attack"
+    attack_family: "dos"
+    attack_subtype: "goldeneye"
+    target_profiles: ["fast_dos_ddos"]
+    intervals:
+      - date: "2017-07-05"
+        start_time: "11:10:00"
+        end_time_inclusive: "11:23:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [80]
+      protocols: ["tcp"]
+    notes: "Fast HTTP DoS target for the future completed-flow volumetric profile."
+
+  - rule_id: "wednesday-heartbleed"
+    disposition: "known_other_attack"
+    attack_family: "heartbleed"
+    attack_subtype: "heartbleed"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-05"
+        start_time: "15:12:00"
+        end_time_inclusive: "15:32:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.11", "172.16.0.1", "205.174.165.66", "192.168.10.51"]
+      victim_ports: [444]
+      protocols: ["tcp"]
+    notes: "Known non-target attack. Both documented public/private and NAT aliases are retained despite source-page NAT inconsistency."
+
+  - rule_id: "thursday-web-bruteforce"
+    disposition: "known_other_attack"
+    attack_family: "web_attack"
+    attack_subtype: "web_bruteforce"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-06"
+        start_time: "09:20:00"
+        end_time_inclusive: "10:00:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [80]
+      protocols: ["tcp"]
+    notes: "Application-layer web brute force is known-other, not the network connection-attempt target."
+
+  - rule_id: "thursday-xss"
+    disposition: "known_other_attack"
+    attack_family: "web_attack"
+    attack_subtype: "xss"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-06"
+        start_time: "10:15:00"
+        end_time_inclusive: "10:35:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [80]
+      protocols: ["tcp"]
+    notes: "Known non-target cross-site scripting interval."
+
+  - rule_id: "thursday-sql-injection"
+    disposition: "known_other_attack"
+    attack_family: "web_attack"
+    attack_subtype: "sql_injection"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-06"
+        start_time: "10:40:00"
+        end_time_inclusive: "10:42:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: [80]
+      protocols: ["tcp"]
+    notes: "Known non-target SQL injection interval."
+
+  - rule_id: "thursday-infiltration-vista"
+    disposition: "known_other_attack"
+    attack_family: "infiltration"
+    attack_subtype: "vista_infiltration"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-06"
+        start_time: "14:19:00"
+        end_time_inclusive: "14:19:00"
+      - date: "2017-07-06"
+        start_time: "14:20:00"
+        end_time_inclusive: "14:21:00"
+      - date: "2017-07-06"
+        start_time: "14:33:00"
+        end_time_inclusive: "14:35:00"
+      - date: "2017-07-06"
+        start_time: "15:04:00"
+        end_time_inclusive: "15:45:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["192.168.10.8"]
+      victim_ports: []
+      protocols: []
+    notes: "Known non-target Windows Vista infiltration intervals, including the official single-minute 14:19 entry."
+
+  - rule_id: "thursday-infiltration-mac"
+    disposition: "known_other_attack"
+    attack_family: "infiltration"
+    attack_subtype: "mac_infiltration"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-06"
+        start_time: "14:53:00"
+        end_time_inclusive: "15:00:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["192.168.10.25"]
+      victim_ports: []
+      protocols: []
+    notes: "Known non-target Mac infiltration interval."
+
+  - rule_id: "friday-botnet-ares"
+    disposition: "known_other_attack"
+    attack_family: "botnet"
+    attack_subtype: "ares"
+    target_profiles: []
+    intervals:
+      - date: "2017-07-07"
+        start_time: "10:02:00"
+        end_time_inclusive: "11:02:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["192.168.10.15", "192.168.10.9", "192.168.10.14", "192.168.10.5", "192.168.10.8"]
+      victim_ports: []
+      protocols: []
+    notes: "Known non-target ARES botnet interval and listed victim hosts."
+
+  - rule_id: "friday-portscan"
+    disposition: "known_other_attack"
+    attack_family: "port_scan"
+    attack_subtype: "nmap_scan"
+    target_profiles: []
+    intervals:
+      - {date: "2017-07-07", start_time: "13:55:00", end_time_inclusive: "13:57:00"}
+      - {date: "2017-07-07", start_time: "13:58:00", end_time_inclusive: "14:00:00"}
+      - {date: "2017-07-07", start_time: "14:01:00", end_time_inclusive: "14:04:00"}
+      - {date: "2017-07-07", start_time: "14:05:00", end_time_inclusive: "14:07:00"}
+      - {date: "2017-07-07", start_time: "14:08:00", end_time_inclusive: "14:10:00"}
+      - {date: "2017-07-07", start_time: "14:11:00", end_time_inclusive: "14:13:00"}
+      - {date: "2017-07-07", start_time: "14:14:00", end_time_inclusive: "14:16:00"}
+      - {date: "2017-07-07", start_time: "14:17:00", end_time_inclusive: "14:19:00"}
+      - {date: "2017-07-07", start_time: "14:20:00", end_time_inclusive: "14:21:00"}
+      - {date: "2017-07-07", start_time: "14:22:00", end_time_inclusive: "14:24:00"}
+      - {date: "2017-07-07", start_time: "14:33:00", end_time_inclusive: "14:33:00"}
+      - {date: "2017-07-07", start_time: "14:35:00", end_time_inclusive: "14:35:00"}
+      - {date: "2017-07-07", start_time: "14:51:00", end_time_inclusive: "14:53:00"}
+      - {date: "2017-07-07", start_time: "14:54:00", end_time_inclusive: "14:56:00"}
+      - {date: "2017-07-07", start_time: "14:57:00", end_time_inclusive: "14:59:00"}
+      - {date: "2017-07-07", start_time: "15:00:00", end_time_inclusive: "15:02:00"}
+      - {date: "2017-07-07", start_time: "15:03:00", end_time_inclusive: "15:05:00"}
+      - {date: "2017-07-07", start_time: "15:06:00", end_time_inclusive: "15:07:00"}
+      - {date: "2017-07-07", start_time: "15:08:00", end_time_inclusive: "15:10:00"}
+      - {date: "2017-07-07", start_time: "15:11:00", end_time_inclusive: "15:12:00"}
+      - {date: "2017-07-07", start_time: "15:13:00", end_time_inclusive: "15:15:00"}
+      - {date: "2017-07-07", start_time: "15:16:00", end_time_inclusive: "15:18:00"}
+      - {date: "2017-07-07", start_time: "15:19:00", end_time_inclusive: "15:21:00"}
+      - {date: "2017-07-07", start_time: "15:22:00", end_time_inclusive: "15:24:00"}
+      - {date: "2017-07-07", start_time: "15:25:00", end_time_inclusive: "15:25:00"}
+      - {date: "2017-07-07", start_time: "15:26:00", end_time_inclusive: "15:27:00"}
+      - {date: "2017-07-07", start_time: "15:28:00", end_time_inclusive: "15:29:00"}
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.73"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: []
+      protocols: ["tcp"]
+    notes: "Known non-target port-scan intervals with firewall-on and firewall-off periods preserved individually."
+
+  - rule_id: "friday-ddos-loit"
+    disposition: "target_attack"
+    attack_family: "ddos"
+    attack_subtype: "loit"
+    target_profiles: ["fast_dos_ddos"]
+    intervals:
+      - date: "2017-07-07"
+        start_time: "15:56:00"
+        end_time_inclusive: "16:16:00"
+    selector:
+      mode: "role_constrained"
+      attacker_ips: ["205.174.165.69", "205.174.165.70", "205.174.165.71"]
+      victim_ips: ["205.174.165.80", "172.16.0.1", "205.174.165.68", "192.168.10.50"]
+      victim_ports: []
+      protocols: []
+    notes: "LOIT DDoS from the three officially listed Windows attacker hosts to the Ubuntu web server aliases."

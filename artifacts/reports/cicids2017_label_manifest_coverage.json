@@ -1,0 +1,38 @@
+{
+  "report_version": "1.0.0",
+  "report_scope": "manifest_schedule_only_no_canonical_events",
+  "dataset_name": "cicids2017",
+  "manifest_hash": "7ff2e52bf3485929b6a4260a7f4451fbaa8119273500f0b9a27f5a1c5b48c676",
+  "rule_version": "1.0.0",
+  "authoritative_source": {
+    "name": "UNB Canadian Institute for Cybersecurity CICIDS2017 official attack schedule",
+    "url": "https://www.unb.ca/cic/datasets/ids-2017.html",
+    "retrieved_at": "2026-07-20"
+  },
+  "timezone": "America/Moncton",
+  "total_rules": 16,
+  "total_intervals": 45,
+  "total_scheduled_seconds": 58560,
+  "rules_by_disposition": {
+    "benign_reference": 1,
+    "known_other_attack": 10,
+    "target_attack": 5
+  },
+  "rules_by_family": {
+    "botnet": 1,
+    "brute_force": 2,
+    "ddos": 1,
+    "dos": 4,
+    "heartbleed": 1,
+    "infiltration": 2,
+    "port_scan": 1,
+    "web_attack": 3
+  },
+  "intervals_by_date": {
+    "2017-07-03": 1,
+    "2017-07-04": 2,
+    "2017-07-05": 5,
+    "2017-07-06": 8,
+    "2017-07-07": 29
+  }
+}

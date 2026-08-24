@@ -1,0 +1,20 @@
+manifest_version: 1.0.0
+dataset_name: cicids2017
+dataset_release: CICIDS2017 PCAP
+source:
+  publisher: Canadian Institute for Cybersecurity
+  landing_page_url: https://www.unb.ca/cic/datasets/ids-2017.html
+  download_url: https://cicresearch.ca/CICDataset/CIC-IDS-2017/
+  retrieved_at: '2026-07-28T13:08:25.402744Z'
+frozen_at: '2026-08-13T12:19:23.073762Z'
+selection_rationale: Complete Monday CICIDS2017 capture frozen as the independent
+  benign reference day of the parallel Monday Benign track; the official schedule
+  and label distribution identify Monday as normal activity only. This freeze is additive
+  and leaves the M1 three-day canonical freeze unchanged.
+selected_capture_days:
+- '2017-07-03'
+files:
+- relative_path: Monday-WorkingHours.pcap
+  capture_date: '2017-07-03'
+  size_bytes: 10822507416
+  sha256: f6eac599358f216b074338813a1cf7be3cc4e91d116e13efc0dc71f2cca11972

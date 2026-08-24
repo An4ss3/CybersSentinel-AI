@@ -1,0 +1,200 @@
+protocol_version: 2.0.0
+milestone: m6
+frozen_at: '2026-08-10T14:30:00.000000Z'
+dataset_name: cicids2017
+
+# ---------------------------------------------------------------------------
+# Upstream identity binding (D4). The frozen M2 evidence remains the
+# independent reproducibility reference; the M4 PostgreSQL materialization is
+# an operational projection that must be reconstructible from it.
+# ---------------------------------------------------------------------------
+m1_manifest_sha256: feab8d4fbd8454cd12723368704e1e7311853a4316efec7f94bf11726ebb984e
+m2_specification_sha256: e52c183a315c1ac38cbf1e64155489f5f041e95aa5d2e5cbb82e31f03ac4c455
+m3_protocol_sha256: 5286ddde937ad132afdeb8814e0e0af01745afbb7d1d446ae8860b7701fea210
+m3_report_content_sha256: 6c9ef7aa545769d0e4b913b1227dc27f43ab1734227f9afeb8d1d642264848e0
+m3_report_file_sha256: 62426406249a96eb991a0c6bdcde78cd0b730afaa7de057d7740c2d5f62a8032
+m3_event_stream_sha256: ce71a3401f606ecedac11007fdd9d649d32d10b969c53e961db6b96710b1d82f
+m3_rejection_audit_stream_sha256: b443b14c9894ea342b199e9c9880360a9cf3d00cf490164e7d2cf2f2d2f09b5f
+m4_report_content_sha256: 70b4317f6619da00c6c9dc961dd37187da7afd3a4831e290efc35d6b85701433
+m4_report_file_sha256: 6b4252a12c3de76935c49a15a5bfb849769ffdcb8ed7090358cd4457ec2d28e0
+
+# ---------------------------------------------------------------------------
+# Source events (D1, D4)
+# ---------------------------------------------------------------------------
+source_event_model: FlowEndV2
+source_event_feature_version: 1.0.0
+operational_source: m4_canonical.flow_end_events
+evidence_source: frozen_m2_conn_log_via_m3_v2_protocol
+postgresql_is_independent_evidence: false
+
+# ---------------------------------------------------------------------------
+# Output contract (D2/D3, D19)
+# ---------------------------------------------------------------------------
+target_model: FeatureWindowV2
+window_contract_versions:
+  schema_version: 2.0.0
+  event_version: 2.0.0
+  feature_version: 2.0.0
+  sensor_version_source: inherited_from_source_events
+feature_window_v1_status: preserved_unchanged
+
+# ---------------------------------------------------------------------------
+# Temporal policy (D2/D3, D5, D7, D12)
+# ---------------------------------------------------------------------------
+temporal:
+  canonical_type: DECIMAL(38,22)
+  json_encoding: fixed_scale_string_22_fractional_digits
+  arithmetic: unscaled_integer
+  float_conversion: forbidden
+  rounding: forbidden
+  truncation: forbidden
+  datetime_conversion: forbidden
+  timedelta_bounds: forbidden
+  windowing_basis: event_start_time
+  forbidden_windowing_fields: [ingested_at, record_available_time]
+  prediction_time_rule: equals_window_end_time
+  record_available_time_rule: inherited_from_source_events
+  required_order: window_start_lt_window_end_le_prediction_le_record_available
+
+# ---------------------------------------------------------------------------
+# Window geometry (D5, D12, D13, D15)
+# ---------------------------------------------------------------------------
+window:
+  type: tumbling
+  length_seconds: '60.0000000000000000000000'
+  slide_seconds: '60.0000000000000000000000'
+  boundary_semantics: half_open_start_inclusive_end_exclusive
+  alignment: floor_to_multiple_of_length_from_unix_epoch
+  partition_policy: strictly_intra_partition
+  cross_partition_windows: false
+  empty_windows: forbidden
+  overlapping_windows: false
+
+# ---------------------------------------------------------------------------
+# Entity policy (D6)
+# ---------------------------------------------------------------------------
+entity:
+  entity_type: source_destination_service
+  key_components: [source_ip, destination_ip, transport, service]
+  key_encoding: ordered_tuple_of_strict_identifiers_one_element_per_component
+  null_service_sentinel: none
+  null_service_sentinel_collision_scope: verified_only_for_this_dataset_snapshot
+  forbidden_entity_types: [sensor, custom]
+
+# ---------------------------------------------------------------------------
+# Authorized features (D11) — exactly eight, all integral counts or sums
+# ---------------------------------------------------------------------------
+features:
+  count: 8
+  container_type: mapping_of_strict_identifier_to_finite_float
+  names:
+  - destination_bytes_total
+  - destination_packets_total
+  - distinct_destination_ips
+  - distinct_destination_ports
+  - distinct_source_ips
+  - event_count
+  - source_bytes_total
+  - source_packets_total
+  definitions:
+    event_count: cardinality_of_source_event_ids
+    source_packets_total: sum_of_counters_source_packets
+    destination_packets_total: sum_of_counters_destination_packets
+    source_bytes_total: sum_of_counters_source_bytes
+    destination_bytes_total: sum_of_counters_destination_bytes
+    distinct_destination_ports: cardinality_of_distinct_destination_port
+    distinct_destination_ips: cardinality_of_distinct_destination_ip
+    distinct_source_ips: cardinality_of_distinct_source_ip
+  forbidden:
+  - rates_or_ratios
+  - averages_requiring_division
+  - normalized_features
+  - scaled_features
+  - learned_features
+  - label_derived_features
+  - attack_signatures
+  - attack_specific_thresholds
+  - target_variables
+  - features_from_non_conn_zeek_logs
+
+# ---------------------------------------------------------------------------
+# Deterministic identity (D14, D6)
+# ---------------------------------------------------------------------------
+identity:
+  algorithm: uuid5
+  namespace: f787c08a-290e-5b79-a8cb-5bc19ae633dc
+  namespace_derivation: uuid5_of_namespace_url_and_https_cybersentinel_local_m6_feature_window_v2
+  components:
+  - protocol_sha256
+  - output_partition
+  - entity_type
+  - entity_key_components_in_declared_order
+  - window_start_time
+  - window_length_seconds
+  name_encoding: utf8_component_values_joined_by_single_ascii_pipe
+  window_id_rule: text_form_of_the_uuid5
+  provenance_event_id_rule: same_uuid5_as_uuid
+  random_identifiers: forbidden
+
+# ---------------------------------------------------------------------------
+# Provenance derivation (D5) — inherited only, never fabricated
+# ---------------------------------------------------------------------------
+provenance:
+  sensor_id: inherited_from_source_events
+  sensor_run_id: inherited_from_source_events
+  capture_id: inherited_from_source_events
+  dataset_snapshot_id: inherited_from_source_events
+  model_release_id: inherited_from_source_events
+  normalizer_version: inherited_from_source_events
+  pipeline_version: inherited_from_source_events
+  event_id: derived_uuid5_per_identity_policy
+  fabricated_placeholder_values: forbidden
+  homogeneity_requirement: all_inherited_fields_must_be_identical_across_window_events
+
+# ---------------------------------------------------------------------------
+# Label policy (D16)
+# ---------------------------------------------------------------------------
+labels:
+  m5_interaction: none
+  label_fields_in_window_contract: forbidden
+  forbidden_fields: [label, labels, attack_family, attack_subtype, target_profiles, disposition]
+  m5_contract_modification: forbidden
+
+# ---------------------------------------------------------------------------
+# Deferred policies (D8, D9) — explicitly not introduced by M6
+# ---------------------------------------------------------------------------
+deferred:
+  watermark_policy: deferred_not_introduced_by_m6
+  late_arrival_policy: deferred_not_introduced_by_m6
+  revision_policy: deferred_not_introduced_by_m6
+
+# ---------------------------------------------------------------------------
+# Canonical ordering (D20)
+# ---------------------------------------------------------------------------
+ordering:
+  keys: [output_partition, entity_type, entity_key, window_start_time]
+  partition_order: m3_replay_report_binding_order
+  window_start_comparison: unscaled_integer
+  sort_by_feature_value: false
+  dictionary_or_set_iteration_order: forbidden
+
+# ---------------------------------------------------------------------------
+# Persistence and governance (D17, D18, C1-a)
+# ---------------------------------------------------------------------------
+persistence:
+  canonical_evidence: immutable_published_report
+  operational_projection: postgresql_schema_m6_canonical
+  projection_is_reconstructible: true
+  destructive_modification_of_m4_canonical: forbidden
+  test_isolation: dedicated_test_database_required
+governance:
+  manifest_frozen_before_materialization: true
+  run_identity_in_manifest: false
+  run_identity_location: materialization_report_only
+  run_identity_algorithm: uuid4_at_execution
+  immutable_publication: fail_if_exists_fsync_atomic_rename
+  deterministic_rerun_requirement: identical_content_sha256
+
+authoritative_sources:
+- https://docs.python.org/3/library/uuid.html
+- https://www.postgresql.org/docs/16/datatype-numeric.html

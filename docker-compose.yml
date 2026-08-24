@@ -1,0 +1,153 @@
+# CyberSentinel AI — development lab (Couche 1/2 + supervision)
+# Reference: cahier des charges section 7 (stack technologique).
+#
+# Usage:
+#   cp .env.example .env   (then edit passwords)
+#   docker compose up -d
+#
+# NOTE: security is intentionally relaxed for a local demo lab
+#       (xpack.security disabled). Never expose these ports publicly.
+
+name: cybersentinel-lab
+
+services:
+  # ---- Couche 2 : stockage des événements (logs) ----
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+    container_name: cs-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+    ulimits:
+      memlock: { soft: -1, hard: -1 }
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.14.3
+    container_name: cs-kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
+  # ---- Couche 2 : alertes / métadonnées ----
+  postgres:
+    image: postgres:16-alpine
+    container_name: cs-postgres
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-cybersentinel}
+      - POSTGRES_USER=${POSTGRES_USER:-cybersentinel}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-cybersentinel}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      # schema.sql runs automatically on first init
+      - ./modules/storage/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cybersentinel}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---- Cache + message bus (Redis Streams) ----
+  # MVP decision (encadrant): Redis Streams is the message bus — no Kafka.
+  redis:
+    image: redis:7-alpine
+    container_name: cs-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # ---- Supervision + dashboard (Grafana; Kibana above) ----
+  grafana:
+    image: grafana/grafana:11.1.0
+    container_name: cs-grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      # Auto-provisioned datasource + alerts dashboard.
+      - ./infra/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./infra/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - elasticsearch
+      - postgres
+
+  # ---- Canonical offline telemetry replay (M2, opt-in only) ----
+  zeek-replay:
+    profiles: ["zeek-replay"]
+    image: zeek/zeek@sha256:c7dfad9ab8296b2994d113222e77a22ebc9c8963b2b1200b798484ac923bc94f
+    platform: linux/amd64
+    network_mode: none
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - TZ=UTC
+      - LC_ALL=C
+      - LANG=C
+    working_dir: /output
+    volumes:
+      - ./datasets/cicids2017/pcap:/input:ro
+      - ./artifacts/canonical/cicids2017/m2/zeek-8.0.9:/output
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+
+  # ---- Canonical offline telemetry replay (MB2 Monday Benign, opt-in only) ----
+  # Additive service, strictly isolated from the frozen M2 service above, which
+  # is left byte-for-byte unchanged. Image digest, platform, determinism
+  # environment, hardening, working directory and tmpfs are identical to
+  # `zeek-replay` so MB2 provenance stays comparable to M2. The ONLY difference
+  # is the /output bind mount, which targets the independent MB2 tree.
+  #
+  # MANDATORY PAIRING: any runner using this service MUST bind a specification
+  # whose output.output_root equals
+  # artifacts/canonical/cicids2017/mb2/zeek-8.0.9.
+  # The host staging directory and the container's /output must denote the same
+  # directory. Never invoke this service with the frozen M2 specification, and
+  # never invoke `zeek-replay` with an MB specification: the runner computes the
+  # staging path from the specification, not from this file, so a mismatched
+  # pairing would write Zeek logs into the wrong tree.
+  zeek-replay-mb:
+    profiles: ["zeek-replay-mb"]
+    image: zeek/zeek@sha256:c7dfad9ab8296b2994d113222e77a22ebc9c8963b2b1200b798484ac923bc94f
+    platform: linux/amd64
+    network_mode: none
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - TZ=UTC
+      - LC_ALL=C
+      - LANG=C
+    working_dir: /output
+    volumes:
+      - ./datasets/cicids2017/pcap:/input:ro
+      - ./artifacts/canonical/cicids2017/mb2/zeek-8.0.9:/output
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+
+volumes:
+  es_data:
+  pg_data:
+  redis_data:
+  grafana_data:

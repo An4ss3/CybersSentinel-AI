@@ -1,0 +1,563 @@
+{
+  "byte_direction_ratio": {
+    "attack": {
+      "available": 376,
+      "distinct": 188,
+      "max": 1.0,
+      "median": 0.602484,
+      "min": 0.001722,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 0.292271
+    },
+    "benign": {
+      "available": 65225,
+      "distinct": 40976,
+      "max": 1.0,
+      "median": 0.273081,
+      "min": 0.0,
+      "missing_rate": 0.075845,
+      "n": 70578,
+      "stdev": 0.246215
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 55,
+      "max": 0.998252,
+      "median": 0.604938,
+      "min": 0.602484,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.160296
+    },
+    "range_disjoint": false
+  },
+  "bytes_per_packet_destination": {
+    "attack": {
+      "available": 376,
+      "distinct": 174,
+      "max": 2387.205882,
+      "median": 32.0,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 793.720046
+    },
+    "benign": {
+      "available": 68082,
+      "distinct": 33976,
+      "max": 2787.111936,
+      "median": 232.291005,
+      "min": 0.0,
+      "missing_rate": 0.035365,
+      "n": 70578,
+      "stdev": 367.443659
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 44,
+      "max": 32.0,
+      "median": 32.0,
+      "min": 3.708333,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 8.820731
+    },
+    "range_disjoint": false
+  },
+  "bytes_per_packet_source": {
+    "attack": {
+      "available": 376,
+      "distinct": 250,
+      "max": 3644644.744556,
+      "median": 39.0,
+      "min": 2.358079,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 398662.538868
+    },
+    "benign": {
+      "available": 70493,
+      "distinct": 29238,
+      "max": 4613.126904,
+      "median": 52.944444,
+      "min": 0.0,
+      "missing_rate": 0.001204,
+      "n": 70578,
+      "stdev": 112.989866
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 55,
+      "max": 4153.384615,
+      "median": 39.2,
+      "min": 38.8,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 968.670709
+    },
+    "range_disjoint": false
+  },
+  "distinct_connection_states": {
+    "attack": {
+      "available": 376,
+      "distinct": 5,
+      "max": 5.0,
+      "median": 1.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 0.554462
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 3,
+      "max": 3.0,
+      "median": 1.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 0.176106
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 1,
+      "max": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.0
+    },
+    "range_disjoint": false
+  },
+  "distinct_conversations": {
+    "attack": {
+      "available": 376,
+      "distinct": 114,
+      "max": 9955.0,
+      "median": 17.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 2088.054638
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 400,
+      "max": 824.0,
+      "median": 1.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 27.206023
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 13,
+      "max": 13.0,
+      "median": 5.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 2.795851
+    },
+    "range_disjoint": false
+  },
+  "distinct_source_ports": {
+    "attack": {
+      "available": 376,
+      "distinct": 115,
+      "max": 9927.0,
+      "median": 16.5,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 2076.06747
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 393,
+      "max": 810.0,
+      "median": 1.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 26.866385
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 13,
+      "max": 13.0,
+      "median": 5.0,
+      "min": 1.0,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 2.795851
+    },
+    "range_disjoint": false
+  },
+  "duration_cv": {
+    "attack": {
+      "available": 313,
+      "distinct": 313,
+      "max": 10.857992,
+      "median": 0.161652,
+      "min": 0.003489,
+      "missing_rate": 0.167553,
+      "n": 376,
+      "stdev": 2.493183
+    },
+    "benign": {
+      "available": 29167,
+      "distinct": 29040,
+      "max": 12.23923,
+      "median": 0.290113,
+      "min": 0.0,
+      "missing_rate": 0.586741,
+      "n": 70578,
+      "stdev": 0.885215
+    },
+    "botnet": {
+      "available": 122,
+      "distinct": 122,
+      "max": 1.013235,
+      "median": 0.283434,
+      "min": 0.003489,
+      "missing_rate": 0.310734,
+      "n": 177,
+      "stdev": 0.228872
+    },
+    "range_disjoint": false
+  },
+  "duration_max": {
+    "attack": {
+      "available": 376,
+      "distinct": 376,
+      "max": 221.735478,
+      "median": 9.291089,
+      "min": 0.001828,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 36.066333
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 66732,
+      "max": 5079.142389,
+      "median": 6.09105,
+      "min": 1e-06,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 94.088259
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 177,
+      "max": 0.716115,
+      "median": 0.093482,
+      "min": 0.06182,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.092154
+    },
+    "range_disjoint": false
+  },
+  "duration_mean": {
+    "attack": {
+      "available": 376,
+      "distinct": 376,
+      "max": 15.403961,
+      "median": 0.582237,
+      "min": 0.001828,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 4.94384
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 67197,
+      "max": 5079.142389,
+      "median": 5.868022,
+      "min": 1e-06,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 79.682944
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 177,
+      "max": 0.201566,
+      "median": 0.082815,
+      "min": 0.06182,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.028903
+    },
+    "range_disjoint": false
+  },
+  "duration_sum": {
+    "attack": {
+      "available": 376,
+      "distinct": 376,
+      "max": 36412.385204,
+      "median": 29.80978,
+      "min": 0.001828,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 7318.457226
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 67141,
+      "max": 6400.330382,
+      "median": 11.008279,
+      "min": 1e-06,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 159.386717
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 177,
+      "max": 1.785476,
+      "median": 0.384351,
+      "min": 0.06182,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.325885
+    },
+    "range_disjoint": false
+  },
+  "empty_flow_fraction": {
+    "attack": {
+      "available": 376,
+      "distinct": 16,
+      "max": 0.548148,
+      "median": 0.0,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 0.029135
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 6,
+      "max": 1.0,
+      "median": 0.0,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 0.264833
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 1,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.0
+    },
+    "range_disjoint": false
+  },
+  "interarrival_cv": {
+    "attack": {
+      "available": 294,
+      "distinct": 294,
+      "max": 48.602487,
+      "median": 1.100786,
+      "min": 2e-06,
+      "missing_rate": 0.218085,
+      "n": 376,
+      "stdev": 10.753469
+    },
+    "benign": {
+      "available": 14776,
+      "distinct": 14742,
+      "max": 15.268464,
+      "median": 1.154298,
+      "min": 0.0,
+      "missing_rate": 0.790643,
+      "n": 70578,
+      "stdev": 1.293362
+    },
+    "botnet": {
+      "available": 103,
+      "distinct": 103,
+      "max": 1.302725,
+      "median": 0.425001,
+      "min": 2e-06,
+      "missing_rate": 0.418079,
+      "n": 177,
+      "stdev": 0.323403
+    },
+    "range_disjoint": false
+  },
+  "interarrival_mean": {
+    "attack": {
+      "available": 313,
+      "distinct": 313,
+      "max": 25.787569,
+      "median": 1.233997,
+      "min": 0.004733,
+      "missing_rate": 0.167553,
+      "n": 376,
+      "stdev": 5.507918
+    },
+    "benign": {
+      "available": 29167,
+      "distinct": 23600,
+      "max": 59.044842,
+      "median": 0.167091,
+      "min": 0.0,
+      "missing_rate": 0.586741,
+      "n": 70578,
+      "stdev": 5.959165
+    },
+    "botnet": {
+      "available": 122,
+      "distinct": 122,
+      "max": 25.787569,
+      "median": 8.497779,
+      "min": 0.250819,
+      "missing_rate": 0.310734,
+      "n": 177,
+      "stdev": 5.182109
+    },
+    "range_disjoint": false
+  },
+  "interarrival_stdev": {
+    "attack": {
+      "available": 294,
+      "distinct": 294,
+      "max": 11.365279,
+      "median": 1.267867,
+      "min": 1.7e-05,
+      "missing_rate": 0.218085,
+      "n": 376,
+      "stdev": 1.602412
+    },
+    "benign": {
+      "available": 14776,
+      "distinct": 14390,
+      "max": 28.586117,
+      "median": 0.528182,
+      "min": 0.0,
+      "missing_rate": 0.790643,
+      "n": 70578,
+      "stdev": 3.453487
+    },
+    "botnet": {
+      "available": 103,
+      "distinct": 103,
+      "max": 11.365279,
+      "median": 3.600569,
+      "min": 1.7e-05,
+      "missing_rate": 0.418079,
+      "n": 177,
+      "stdev": 2.275208
+    },
+    "range_disjoint": false
+  },
+  "packet_asymmetry": {
+    "attack": {
+      "available": 376,
+      "distinct": 161,
+      "max": 15631,
+      "median": 50.0,
+      "min": 0,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 3821.713481
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 574,
+      "max": 345235,
+      "median": 2.0,
+      "min": 0,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 1642.272836
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 31,
+      "max": 80,
+      "median": 5,
+      "min": 0,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 11.454008
+    },
+    "range_disjoint": false
+  },
+  "packet_direction_ratio": {
+    "attack": {
+      "available": 376,
+      "distinct": 182,
+      "max": 0.616505,
+      "median": 0.553222,
+      "min": 0.345455,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 0.07977
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 5566,
+      "max": 1.0,
+      "median": 0.520548,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 0.107859
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 46,
+      "max": 0.555556,
+      "median": 0.555556,
+      "min": 0.345455,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.054684
+    },
+    "range_disjoint": false
+  },
+  "zero_response_fraction": {
+    "attack": {
+      "available": 376,
+      "distinct": 24,
+      "max": 1.0,
+      "median": 0.0,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 376,
+      "stdev": 0.093378
+    },
+    "benign": {
+      "available": 70578,
+      "distinct": 27,
+      "max": 1.0,
+      "median": 0.0,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 70578,
+      "stdev": 0.319796
+    },
+    "botnet": {
+      "available": 177,
+      "distinct": 1,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "missing_rate": 0.0,
+      "n": 177,
+      "stdev": 0.0
+    },
+    "range_disjoint": false
+  }
+}

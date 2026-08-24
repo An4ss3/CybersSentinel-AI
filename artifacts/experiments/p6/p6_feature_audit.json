@@ -1,0 +1,2909 @@
+{
+  "audits": [
+    {
+      "definition": "number of flow-end events in the window",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 400,
+        "max": 824.0,
+        "mean": 5.201593,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 2.0,
+        "p95": 10.0,
+        "stdev": 27.206023
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 13,
+        "max": 13.0,
+        "mean": 4.158192,
+        "median": 5.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 6.0,
+        "p95": 8.0,
+        "stdev": 2.795851
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 103,
+        "max": 9955.0,
+        "mean": 1311.18593,
+        "median": 64.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 15.8,
+        "p25": 47.5,
+        "p75": 183.5,
+        "p95": 7813.4,
+        "stdev": 2726.489897
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 4,
+        "max_auc": 0.749635,
+        "min_auc": 0.620667,
+        "spread": 0.128968,
+        "verdict": "4 of 5 entities reach 0.65; spread 0.1290"
+      },
+      "episode_coverage": {
+        "benign_cut": 105.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "A_volume",
+      "feature": "event_count",
+      "findings": [
+        "family A is the historical P1 budget, recomputed for comparison only"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.630334,
+        "mean_pairwise_auc": 0.56002,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.509875,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.534648,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.501241,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.623534,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.555933,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.524725,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.630334,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.539174,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.585017,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.595717
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.742257,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.749635,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.688822,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.672254,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.620667
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.742257,
+        "192.168.10.15->205.174.165.73": 0.749635,
+        "192.168.10.5->205.174.165.73": 0.688822,
+        "192.168.10.8->205.174.165.73": 0.672254,
+        "192.168.10.9->205.174.165.73": 0.620667
+      },
+      "r11_question_behaviour_or_identity": "probably behaviour, not established: 4 of 5 entities separate from benign, so the signal is not carried by a single host, but it is not uniform either",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.69564,
+        "direction": "higher on attack",
+        "oriented_auc": 0.69564
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.959378,
+        "direction": "higher on attack",
+        "oriented_auc": 0.959378
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "REFERENCE",
+      "transfer_sign_agreement": {
+        "agrees": true,
+        "botnet_auc": 0.69564,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.959378,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "same sign as the volumetric attacks, so a model trained on them learns a sign that also helps on the botnet"
+      }
+    },
+    {
+      "definition": "sum of source_packets",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 1031,
+        "max": 1044522.0,
+        "mean": 76.379679,
+        "median": 18.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 1.0,
+        "p25": 8.0,
+        "p75": 34.0,
+        "p95": 150.0,
+        "stdev": 5024.118925
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 37,
+        "max": 95.0,
+        "mean": 27.050847,
+        "median": 25.0,
+        "min": 5.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 5.0,
+        "p25": 5.0,
+        "p75": 38.0,
+        "p95": 63.0,
+        "stdev": 21.791584
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 146,
+        "max": 78007.0,
+        "mean": 10578.417085,
+        "median": 976.0,
+        "min": 4.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 136.8,
+        "p25": 705.0,
+        "p75": 1366.5,
+        "p95": 60699.6,
+        "stdev": 21340.469476
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 0,
+        "max_auc": 0.592792,
+        "min_auc": 0.503711,
+        "spread": 0.089081,
+        "verdict": "0 of 5 entities reach 0.65; spread 0.0891"
+      },
+      "episode_coverage": {
+        "benign_cut": 540.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "A_volume",
+      "feature": "source_packets_total",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared",
+        "family A is the historical P1 budget, recomputed for comparison only"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.604106,
+        "mean_pairwise_auc": 0.550182,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.529954,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.534648,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.539082,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.604106,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.52192,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.536107,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.596011,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.51567,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.563131,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.561189
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.592792,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.551017,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.530826,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.503711,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.519753
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.592792,
+        "192.168.10.15->205.174.165.73": 0.551017,
+        "192.168.10.5->205.174.165.73": 0.530826,
+        "192.168.10.8->205.174.165.73": 0.503711,
+        "192.168.10.9->205.174.165.73": 0.519753
+      },
+      "r11_question_behaviour_or_identity": "cannot be established: only 0 of 5 botnet entities separate from benign, so the signal may describe one host rather than the family",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.530712,
+        "direction": "higher on attack",
+        "oriented_auc": 0.530712
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.969555,
+        "direction": "higher on attack",
+        "oriented_auc": 0.969555
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "REFERENCE",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.530712,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.969555,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: botnet AUC 0.5307 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "sum of destination_packets",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 1168,
+        "max": 1389757.0,
+        "mean": 87.80144,
+        "median": 16.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 1.0,
+        "p25": 6.0,
+        "p75": 31.0,
+        "p95": 150.15,
+        "stdev": 6662.605553
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 48,
+        "max": 171.0,
+        "mean": 28.717514,
+        "median": 20.0,
+        "min": 4.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 4.0,
+        "p25": 4.0,
+        "p75": 33.0,
+        "p95": 97.6,
+        "stdev": 31.509471
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 140,
+        "max": 62840.0,
+        "mean": 8375.427136,
+        "median": 1190.0,
+        "min": 4.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 100.5,
+        "p25": 1071.0,
+        "p75": 1677.5,
+        "p95": 49169.6,
+        "stdev": 16440.326242
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 0,
+        "max_auc": 0.598336,
+        "min_auc": 0.510101,
+        "spread": 0.088235,
+        "verdict": "0 of 5 entities reach 0.65; spread 0.0882"
+      },
+      "episode_coverage": {
+        "benign_cut": 641.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "A_volume",
+      "feature": "destination_packets_total",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared",
+        "family A is the historical P1 budget, recomputed for comparison only"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.605572,
+        "mean_pairwise_auc": 0.554571,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.534891,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.53644,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.575682,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.605572,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.521164,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.545918,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.593692,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.529202,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.556818,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.546329
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.598336,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.552817,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.540842,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.511297,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.510101
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.598336,
+        "192.168.10.15->205.174.165.73": 0.552817,
+        "192.168.10.5->205.174.165.73": 0.540842,
+        "192.168.10.8->205.174.165.73": 0.511297,
+        "192.168.10.9->205.174.165.73": 0.510101
+      },
+      "r11_question_behaviour_or_identity": "cannot be established: only 0 of 5 botnet entities separate from benign, so the signal may describe one host rather than the family",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.537223,
+        "direction": "higher on attack",
+        "oriented_auc": 0.537223
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.973335,
+        "direction": "higher on attack",
+        "oriented_auc": 0.973335
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "REFERENCE",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.537223,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.973335,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: botnet AUC 0.5372 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "sum of source_bytes",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 11327,
+        "max": 2797371.0,
+        "mean": 3513.319547,
+        "median": 1170.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.0,
+        "p25": 389.0,
+        "p75": 2626.0,
+        "p95": 12138.9,
+        "stdev": 20741.71061
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 76,
+        "max": 377958.0,
+        "mean": 29302.514124,
+        "median": 975.0,
+        "min": 194.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 194.0,
+        "p25": 196.0,
+        "p75": 2828.0,
+        "p95": 172773.2,
+        "stdev": 63771.417633
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 175,
+        "max": 103794239489.0,
+        "mean": 5356247190.959799,
+        "median": 82424.0,
+        "min": 24.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 478.0,
+        "p25": 7741.5,
+        "p75": 100416.0,
+        "p95": 56349693486.29998,
+        "stdev": 18290066145.876484
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 0,
+        "max_auc": 0.572606,
+        "min_auc": 0.50476,
+        "spread": 0.067846,
+        "verdict": "0 of 5 entities reach 0.65; spread 0.0678"
+      },
+      "episode_coverage": {
+        "benign_cut": 34773.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 15,
+        "fraction": 0.375,
+        "side": "above benign p99"
+      },
+      "family": "A_volume",
+      "feature": "source_bytes_total",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared",
+        "family A is the historical P1 budget, recomputed for comparison only"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.675953,
+        "mean_pairwise_auc": 0.572327,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.530612,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.523297,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.51737,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.675953,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.527589,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.511774,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.634972,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.531339,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.652357,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.618007
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.572606,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.50476,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.524722,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.511092,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.528502
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.572606,
+        "192.168.10.15->205.174.165.73": 0.50476,
+        "192.168.10.5->205.174.165.73": 0.524722,
+        "192.168.10.8->205.174.165.73": 0.511092,
+        "192.168.10.9->205.174.165.73": 0.528502
+      },
+      "r11_question_behaviour_or_identity": "cannot be established: only 0 of 5 botnet entities separate from benign, so the signal may describe one host rather than the family",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.512349,
+        "direction": "higher on attack",
+        "oriented_auc": 0.512349
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.871754,
+        "direction": "higher on attack",
+        "oriented_auc": 0.871754
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "REFERENCE",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.512349,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.871754,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: botnet AUC 0.5123 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "sum of destination_bytes",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 21732,
+        "max": 3067906638.0,
+        "mean": 134062.516138,
+        "median": 4367.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.0,
+        "p25": 275.0,
+        "p75": 10301.75,
+        "p95": 90476.75,
+        "stdev": 14877877.559821
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 33,
+        "max": 1675.0,
+        "mean": 535.536723,
+        "median": 640.0,
+        "min": 128.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 128.0,
+        "p25": 128.0,
+        "p75": 779.0,
+        "p95": 1038.0,
+        "stdev": 360.275554
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 102,
+        "max": 115428225.0,
+        "mean": 14848552.201005,
+        "median": 137250.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 11167.2,
+        "p25": 12596.0,
+        "p75": 1936365.0,
+        "p95": 90596373.0,
+        "stdev": 31773646.618574
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.728726,
+        "min_auc": 0.709382,
+        "spread": 0.019344,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0193"
+      },
+      "episode_coverage": {
+        "benign_cut": 0.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "A_volume",
+      "feature": "destination_bytes_total",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign",
+        "family A is the historical P1 budget, recomputed for comparison only"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.625696,
+        "mean_pairwise_auc": 0.555926,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.500329,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.52509,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.501241,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.622434,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.542328,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.523548,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.625696,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5349,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.587542,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.596154
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.709382,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.711775,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.71765,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.715403,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.728726
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.709382,
+        "192.168.10.15->205.174.165.73": 0.711775,
+        "192.168.10.5->205.174.165.73": 0.71765,
+        "192.168.10.8->205.174.165.73": 0.715403,
+        "192.168.10.9->205.174.165.73": 0.728726
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.283001,
+        "direction": "higher on benign",
+        "oriented_auc": 0.716999
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.890236,
+        "direction": "higher on attack",
+        "oriented_auc": 0.890236
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "REFERENCE",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.283001,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.890236,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "mean of event_duration",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 67197,
+        "max": 5079.142389,
+        "mean": 42.148528,
+        "median": 5.868022,
+        "min": 1e-06,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.000717,
+        "p25": 0.204286,
+        "p75": 61.775354,
+        "p95": 180.536153,
+        "stdev": 79.682944
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 177,
+        "max": 0.201566,
+        "mean": 0.092557,
+        "median": 0.082815,
+        "min": 0.06182,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 0.06451,
+        "p25": 0.072039,
+        "p75": 0.105609,
+        "p95": 0.14963,
+        "stdev": 0.028903
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 199,
+        "max": 15.403961,
+        "mean": 7.964175,
+        "median": 8.895683,
+        "min": 0.001828,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 0.546748,
+        "p25": 6.627363,
+        "p75": 11.562196,
+        "p95": 13.272258,
+        "stdev": 4.124541
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.828399,
+        "min_auc": 0.820326,
+        "spread": 0.008073,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0081"
+      },
+      "episode_coverage": {
+        "benign_cut": 1.9e-05,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "B_temporal",
+      "feature": "duration_mean",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.656328,
+        "mean_pairwise_auc": 0.573923,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.58262,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.53644,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.656328,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.582845,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.525321,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.620094,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.503711,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.612536,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.53367,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.585664
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.828399,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.825473,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.823741,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.820326,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.822375
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.828399,
+        "192.168.10.15->205.174.165.73": 0.825473,
+        "192.168.10.5->205.174.165.73": 0.823741,
+        "192.168.10.8->205.174.165.73": 0.820326,
+        "192.168.10.9->205.174.165.73": 0.822375
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.175805,
+        "direction": "higher on benign",
+        "oriented_auc": 0.824195
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.505338,
+        "direction": "higher on attack",
+        "oriented_auc": 0.505338
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.175805,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.505338,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: volumetric reference AUC 0.5053 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "mean of consecutive start-time differences; undefined for n<2",
+      "distribution_benign": {
+        "available": 29167,
+        "distinct": 23600,
+        "max": 59.044842,
+        "mean": 2.343166,
+        "median": 0.167091,
+        "min": 0.0,
+        "missing_rate": 0.586741,
+        "n": 70578,
+        "p05": 5.7e-05,
+        "p25": 0.000526,
+        "p75": 1.421132,
+        "p95": 13.038707,
+        "stdev": 5.959165
+      },
+      "distribution_botnet": {
+        "available": 122,
+        "distinct": 122,
+        "max": 25.787569,
+        "mean": 9.95205,
+        "median": 8.497779,
+        "min": 0.250819,
+        "missing_rate": 0.310734,
+        "n": 177,
+        "p05": 4.765275,
+        "p25": 7.638338,
+        "p75": 10.081455,
+        "p95": 24.232167,
+        "stdev": 5.182109
+      },
+      "distribution_target_attack": {
+        "available": 191,
+        "distinct": 191,
+        "max": 3.508368,
+        "mean": 0.87064,
+        "median": 0.898416,
+        "min": 0.004733,
+        "missing_rate": 0.040201,
+        "n": 199,
+        "p05": 0.005308,
+        "p25": 0.264136,
+        "p75": 1.198628,
+        "p95": 2.100907,
+        "stdev": 0.645138
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.92307,
+        "min_auc": 0.897458,
+        "spread": 0.025612,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0256"
+      },
+      "episode_coverage": {
+        "benign_cut": 30.999846,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "B_temporal",
+      "feature": "interarrival_mean",
+      "findings": [],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.57971,
+        "mean_pairwise_auc": 0.543552,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.546739,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.57971,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.529412,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.57971,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.520833,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.548529,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.538542,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.545752,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.50463,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.541667
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online (start times only)",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.915858,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.91709,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.897458,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.92307,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.915902
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.915858,
+        "192.168.10.15->205.174.165.73": 0.91709,
+        "192.168.10.5->205.174.165.73": 0.897458,
+        "192.168.10.8->205.174.165.73": 0.92307,
+        "192.168.10.9->205.174.165.73": 0.915902
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.914561,
+        "direction": "higher on attack",
+        "oriented_auc": 0.914561
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.616911,
+        "direction": "higher on attack",
+        "oriented_auc": 0.616911
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": true,
+        "botnet_auc": 0.914561,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.616911,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "same sign as the volumetric attacks, so a model trained on them learns a sign that also helps on the botnet"
+      }
+    },
+    {
+      "definition": "pstdev(gaps)/mean(gaps); undefined for n<3 or mean(gaps)=0",
+      "distribution_benign": {
+        "available": 14776,
+        "distinct": 14742,
+        "max": 15.268464,
+        "mean": 1.4312,
+        "median": 1.154298,
+        "min": 0.0,
+        "missing_rate": 0.790643,
+        "n": 70578,
+        "p05": 0.094942,
+        "p25": 0.784057,
+        "p75": 1.751589,
+        "p95": 3.585654,
+        "stdev": 1.293362
+      },
+      "distribution_botnet": {
+        "available": 103,
+        "distinct": 103,
+        "max": 1.302725,
+        "mean": 0.34617,
+        "median": 0.425001,
+        "min": 2e-06,
+        "missing_rate": 0.418079,
+        "n": 177,
+        "p05": 0.000218,
+        "p25": 0.001173,
+        "p75": 0.497251,
+        "p95": 0.931461,
+        "stdev": 0.323403
+      },
+      "distribution_target_attack": {
+        "available": 191,
+        "distinct": 191,
+        "max": 48.602487,
+        "mean": 6.501417,
+        "median": 1.379564,
+        "min": 0.691755,
+        "missing_rate": 0.040201,
+        "n": 199,
+        "p05": 0.805569,
+        "p25": 1.103312,
+        "p75": 5.769643,
+        "p95": 46.154111,
+        "stdev": 12.832249
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.888189,
+        "min_auc": 0.855811,
+        "spread": 0.032378,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0324"
+      },
+      "episode_coverage": {
+        "benign_cut": 0.002859,
+        "episodes": 40,
+        "episodes_touching_the_tail": 14,
+        "fraction": 0.35,
+        "side": "below benign p01"
+      },
+      "family": "B_temporal",
+      "feature": "interarrival_cv",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.682692,
+        "mean_pairwise_auc": 0.571062,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.534483,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.568182,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.590909,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.511858,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.599138,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.559682,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.530735,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.682692,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.554348,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.578595
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online (start times only)",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.875895,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.871565,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.888189,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.855811,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.878566
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.875895,
+        "192.168.10.15->205.174.165.73": 0.871565,
+        "192.168.10.5->205.174.165.73": 0.888189,
+        "192.168.10.8->205.174.165.73": 0.855811,
+        "192.168.10.9->205.174.165.73": 0.878566
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.125353,
+        "direction": "higher on benign",
+        "oriented_auc": 0.874647
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.659194,
+        "direction": "higher on attack",
+        "oriented_auc": 0.659194
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.125353,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.659194,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "sum(destination_bytes)/sum(destination_packets); undefined when no packet returns",
+      "distribution_benign": {
+        "available": 68082,
+        "distinct": 33976,
+        "max": 2787.111936,
+        "mean": 332.727067,
+        "median": 232.291005,
+        "min": 0.0,
+        "missing_rate": 0.035365,
+        "n": 70578,
+        "p05": 0.0,
+        "p25": 53.375,
+        "p75": 456.943481,
+        "p95": 1159.492929,
+        "stdev": 367.443659
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 44,
+        "max": 32.0,
+        "mean": 27.297332,
+        "median": 32.0,
+        "min": 3.708333,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 7.553332,
+        "p25": 31.0,
+        "p75": 32.0,
+        "p95": 32.0,
+        "stdev": 8.820731
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 130,
+        "max": 2387.205882,
+        "mean": 803.846801,
+        "median": 83.376168,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 11.058824,
+        "p25": 11.058824,
+        "p75": 1844.165244,
+        "p95": 2150.5652,
+        "stdev": 952.047155
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.887064,
+        "min_auc": 0.884301,
+        "spread": 0.002763,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0028"
+      },
+      "episode_coverage": {
+        "benign_cut": 0.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "C_direction",
+      "feature": "bytes_per_packet_destination",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.569783,
+        "mean_pairwise_auc": 0.536578,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.569783,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.524492,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.558933,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.54912,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.542706,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.53022,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.517857,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.531339,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.527778,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.513549
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.887064,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.884301,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.886205,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.884719,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.884734
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.887064,
+        "192.168.10.15->205.174.165.73": 0.884301,
+        "192.168.10.5->205.174.165.73": 0.886205,
+        "192.168.10.8->205.174.165.73": 0.884719,
+        "192.168.10.9->205.174.165.73": 0.884734
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.114756,
+        "direction": "higher on benign",
+        "oriented_auc": 0.885244
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.510891,
+        "direction": "higher on attack",
+        "oriented_auc": 0.510891
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.114756,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.510891,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: volumetric reference AUC 0.5109 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "sum(source_bytes)/(sum(source_bytes)+sum(destination_bytes)); undefined when both are 0",
+      "distribution_benign": {
+        "available": 65225,
+        "distinct": 40976,
+        "max": 1.0,
+        "mean": 0.329204,
+        "median": 0.273081,
+        "min": 0.0,
+        "missing_rate": 0.075845,
+        "n": 70578,
+        "p05": 0.021397,
+        "p25": 0.143756,
+        "p75": 0.5,
+        "p95": 0.869355,
+        "stdev": 0.246215
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 55,
+        "max": 0.998252,
+        "mean": 0.702806,
+        "median": 0.604938,
+        "min": 0.602484,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 0.602484,
+        "p25": 0.603715,
+        "p75": 0.770722,
+        "p95": 0.996068,
+        "stdev": 0.160296
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 133,
+        "max": 1.0,
+        "mean": 0.40249,
+        "median": 0.39515,
+        "min": 0.001722,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 0.001722,
+        "p25": 0.3743,
+        "p75": 0.422555,
+        "p95": 0.998978,
+        "stdev": 0.309985
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.904978,
+        "min_auc": 0.895592,
+        "spread": 0.009386,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0094"
+      },
+      "episode_coverage": {
+        "benign_cut": 1.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "C_direction",
+      "feature": "byte_direction_ratio",
+      "findings": [
+        "separates botnet entities from each other at AUC 0.7914: cannot be distinguished from identity",
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.791383,
+        "mean_pairwise_auc": 0.719163,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.564516,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.678614,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.653846,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.769795,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.791383,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.78022,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.758813,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.668091,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.76936,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.756993
+        },
+        "verdict": "separates entities from each other: signal cannot be distinguished from identity or provenance"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.904978,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.895592,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.90394,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.902894,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.898012
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.904978,
+        "192.168.10.15->205.174.165.73": 0.895592,
+        "192.168.10.5->205.174.165.73": 0.90394,
+        "192.168.10.8->205.174.165.73": 0.902894,
+        "192.168.10.9->205.174.165.73": 0.898012
+      },
+      "r11_question_behaviour_or_identity": "identity or provenance: the feature tells the botnet entities apart, so its apparent C2 signal cannot be separated from which host is speaking",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.900184,
+        "direction": "higher on attack",
+        "oriented_auc": 0.900184
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.548486,
+        "direction": "higher on attack",
+        "oriented_auc": 0.548486
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.900184,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.548486,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: volumetric reference AUC 0.5485 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "1 - (seconds covered by the union of flow active intervals)/60, floored at 0",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 42953,
+        "max": 1.0,
+        "mean": 0.583675,
+        "median": 0.874351,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.992398,
+        "p95": 0.999951,
+        "stdev": 0.448042
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 177,
+        "max": 0.99897,
+        "mean": 0.993178,
+        "median": 0.993594,
+        "min": 0.970242,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 0.98324,
+        "p25": 0.989404,
+        "p75": 0.998503,
+        "p95": 0.998919,
+        "stdev": 0.005431
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 30,
+        "max": 0.99997,
+        "mean": 0.074973,
+        "median": 0.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.0,
+        "p95": 0.807493,
+        "stdev": 0.232291
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.798083,
+        "min_auc": 0.776616,
+        "spread": 0.021467,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0215"
+      },
+      "episode_coverage": {
+        "benign_cut": 1.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "idle_ratio",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.61014,
+        "mean_pairwise_auc": 0.540105,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.507571,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.512545,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.532258,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.541789,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.534392,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.506279,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.583488,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.549858,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.522727,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.61014
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.778979,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.776616,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.786271,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.783606,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.798083
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.778979,
+        "192.168.10.15->205.174.165.73": 0.776616,
+        "192.168.10.5->205.174.165.73": 0.786271,
+        "192.168.10.8->205.174.165.73": 0.783606,
+        "192.168.10.9->205.174.165.73": 0.798083
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.784866,
+        "direction": "higher on attack",
+        "oriented_auc": 0.784866
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.213646,
+        "direction": "higher on benign",
+        "oriented_auc": 0.786354
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.784866,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.213646,
+        "target_attack_direction": "higher on benign",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "sum(event_duration)/60; may exceed 1 when flows overlap",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 67141,
+        "max": 106.672173,
+        "mean": 1.231947,
+        "median": 0.183471,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 5.9e-05,
+        "p25": 0.008569,
+        "p75": 1.922256,
+        "p95": 4.956748,
+        "stdev": 2.656445
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 177,
+        "max": 0.029758,
+        "mean": 0.006822,
+        "median": 0.006406,
+        "min": 0.00103,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 0.001081,
+        "p25": 0.001497,
+        "p75": 0.010596,
+        "p95": 0.01676,
+        "stdev": 0.005431
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 199,
+        "max": 606.873087,
+        "mean": 70.066341,
+        "median": 9.833275,
+        "min": 3e-05,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 0.486358,
+        "p25": 9.196155,
+        "p75": 10.315041,
+        "p95": 546.960412,
+        "stdev": 160.624115
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.803521,
+        "min_auc": 0.782836,
+        "spread": 0.020685,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0207"
+      },
+      "episode_coverage": {
+        "benign_cut": 0.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "duty_cycle",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.61014,
+        "mean_pairwise_auc": 0.540105,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.507571,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.512545,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.532258,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.541789,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.534392,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.506279,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.583488,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.549858,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.522727,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.61014
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.784914,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.782836,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.792111,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.789892,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.803521
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.784914,
+        "192.168.10.15->205.174.165.73": 0.782836,
+        "192.168.10.5->205.174.165.73": 0.792111,
+        "192.168.10.8->205.174.165.73": 0.789892,
+        "192.168.10.9->205.174.165.73": 0.803521
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.209206,
+        "direction": "higher on benign",
+        "oriented_auc": 0.790794
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.932207,
+        "direction": "higher on attack",
+        "oriented_auc": 0.932207
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.209206,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.932207,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "largest number of flows simultaneously active at any instant in the window",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 33,
+        "max": 96.0,
+        "mean": 1.7993,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 2.0,
+        "p95": 6.0,
+        "stdev": 1.894023
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 1,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.0
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 52,
+        "max": 944.0,
+        "mean": 132.557789,
+        "median": 10.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 5.0,
+        "p25": 10.0,
+        "p75": 13.0,
+        "p95": 825.4,
+        "stdev": 264.647894
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.667602,
+        "min_auc": 0.667602,
+        "spread": 0.0,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0000"
+      },
+      "episode_coverage": {
+        "benign_cut": 1.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "max_concurrency",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.5,
+        "mean_pairwise_auc": 0.5,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.667602,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.667602,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.667602,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.667602,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.667602
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.667602,
+        "192.168.10.15->205.174.165.73": 0.667602,
+        "192.168.10.5->205.174.165.73": 0.667602,
+        "192.168.10.8->205.174.165.73": 0.667602,
+        "192.168.10.9->205.174.165.73": 0.667602
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.332398,
+        "direction": "higher on benign",
+        "oriented_auc": 0.667602
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.964576,
+        "direction": "higher on attack",
+        "oriented_auc": 0.964576
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.332398,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.964576,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "(max(start+duration) - min(start))/60",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 67223,
+        "max": 84.652373,
+        "mean": 0.88288,
+        "median": 0.210987,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.000269,
+        "p25": 0.016835,
+        "p75": 1.320997,
+        "p95": 3.021736,
+        "stdev": 1.55627
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 177,
+        "max": 0.953411,
+        "mean": 0.45779,
+        "median": 0.506403,
+        "min": 0.00103,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 0.001081,
+        "p25": 0.001497,
+        "p75": 0.841503,
+        "p95": 0.853969,
+        "stdev": 0.3706
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 199,
+        "max": 4.556758,
+        "mean": 1.308062,
+        "median": 1.133539,
+        "min": 3e-05,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 0.262617,
+        "p25": 1.100247,
+        "p75": 1.19937,
+        "p95": 2.529715,
+        "stdev": 0.7027
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 0,
+        "max_auc": 0.620216,
+        "min_auc": 0.502182,
+        "spread": 0.118034,
+        "verdict": "0 of 5 entities reach 0.65; spread 0.1180"
+      },
+      "episode_coverage": {
+        "benign_cut": 0.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "active_span_ratio",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.637238,
+        "mean_pairwise_auc": 0.560159,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.533904,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.506571,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.545906,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.570381,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.563114,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.503925,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.633581,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.559829,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.547138,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.637238
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.526867,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.502182,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.57304,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.558351,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.620216
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.526867,
+        "192.168.10.15->205.174.165.73": 0.502182,
+        "192.168.10.5->205.174.165.73": 0.57304,
+        "192.168.10.8->205.174.165.73": 0.558351,
+        "192.168.10.9->205.174.165.73": 0.620216
+      },
+      "r11_question_behaviour_or_identity": "cannot be established: only 0 of 5 botnet entities separate from benign, so the signal may describe one host rather than the family",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.445093,
+        "direction": "higher on benign",
+        "oriented_auc": 0.554907
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.732341,
+        "direction": "higher on attack",
+        "oriented_auc": 0.732341
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.445093,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.732341,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "(sum(source_bytes)+sum(destination_bytes))/sum(event_duration); undefined when total duration is 0",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 62527,
+        "max": 172302008.32,
+        "mean": 1217776.572896,
+        "median": 547.140924,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.0,
+        "p25": 68.703668,
+        "p75": 4112.021286,
+        "p95": 578774.772374,
+        "stdev": 9555862.513926
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 177,
+        "max": 477977.084837,
+        "mean": 44219.38789,
+        "median": 4577.447673,
+        "min": 2442.260786,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 3304.338271,
+        "p25": 4022.785902,
+        "p75": 5241.019762,
+        "p95": 236662.031402,
+        "stdev": 92132.286417
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 199,
+        "max": 14795018.621522,
+        "mean": 1511571.416065,
+        "median": 402.114671,
+        "min": 31.48897,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 33.135295,
+        "p25": 34.980933,
+        "p75": 1752.583249,
+        "p95": 11151911.898206,
+        "stdev": 3761081.870005
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.81103,
+        "min_auc": 0.781887,
+        "spread": 0.029143,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0291"
+      },
+      "episode_coverage": {
+        "benign_cut": 36621908.059701,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "bytes_per_second",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.723325,
+        "mean_pairwise_auc": 0.620303,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.688611,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.53405,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.723325,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.624633,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.643991,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.577708,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.546846,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.676638,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5867,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.600524
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.81103,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.781887,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.801734,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.786551,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.78436
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.81103,
+        "192.168.10.15->205.174.165.73": 0.781887,
+        "192.168.10.5->205.174.165.73": 0.801734,
+        "192.168.10.8->205.174.165.73": 0.786551,
+        "192.168.10.9->205.174.165.73": 0.78436
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.791319,
+        "direction": "higher on attack",
+        "oriented_auc": 0.791319
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.505229,
+        "direction": "higher on attack",
+        "oriented_auc": 0.505229
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.791319,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.505229,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: volumetric reference AUC 0.5052 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "(sum(source_packets)+sum(destination_packets))/sum(event_duration); undefined when total duration is 0",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 67357,
+        "max": 2097152.0,
+        "mean": 14665.86077,
+        "median": 2.11776,
+        "min": 0.01136,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.270609,
+        "p25": 0.52539,
+        "p75": 48.749381,
+        "p95": 11910.655366,
+        "stdev": 95837.418166
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 177,
+        "max": 357.875189,
+        "mean": 130.69782,
+        "median": 122.727789,
+        "min": 48.726503,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 82.316939,
+        "p25": 106.456993,
+        "p75": 137.146943,
+        "p95": 220.925598,
+        "stdev": 45.826822
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 199,
+        "max": 5470.593452,
+        "mean": 75.565439,
+        "median": 3.252057,
+        "min": 0.599653,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 1.846927,
+        "p25": 2.998367,
+        "p75": 4.728991,
+        "p95": 25.785599,
+        "stdev": 557.257348
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.885299,
+        "min_auc": 0.862876,
+        "spread": 0.022423,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0224"
+      },
+      "episode_coverage": {
+        "benign_cut": 645277.538462,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "packets_per_second",
+      "findings": [
+        "separates botnet entities from each other at AUC 0.7792: cannot be distinguished from identity"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.779156,
+        "mean_pairwise_auc": 0.631214,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.688611,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.566308,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.779156,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.662023,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.616024,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.610675,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.508349,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.692308,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.594276,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.594406
+        },
+        "verdict": "separates entities from each other: signal cannot be distinguished from identity or provenance"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.885299,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.870128,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.876549,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.862876,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.869847
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.885299,
+        "192.168.10.15->205.174.165.73": 0.870128,
+        "192.168.10.5->205.174.165.73": 0.876549,
+        "192.168.10.8->205.174.165.73": 0.862876,
+        "192.168.10.9->205.174.165.73": 0.869847
+      },
+      "r11_question_behaviour_or_identity": "identity or provenance: the feature tells the botnet entities apart, so its apparent C2 signal cannot be separated from which host is speaking",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.872629,
+        "direction": "higher on attack",
+        "oriented_auc": 0.872629
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.571979,
+        "direction": "higher on attack",
+        "oriented_auc": 0.571979
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": true,
+        "botnet_auc": 0.872629,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.571979,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "same sign as the volumetric attacks, so a model trained on them learns a sign that also helps on the botnet"
+      }
+    },
+    {
+      "definition": "(sum(source_packets)+sum(destination_packets))/event_count",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 3981,
+        "max": 2434279.0,
+        "mean": 102.206319,
+        "median": 22.0,
+        "min": 2.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 2.0,
+        "p25": 9.0,
+        "p75": 35.0,
+        "p95": 86.5,
+        "stdev": 11549.520975
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 44,
+        "max": 55.0,
+        "mean": 12.476488,
+        "median": 9.0,
+        "min": 9.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 9.0,
+        "p25": 9.0,
+        "p75": 9.285714,
+        "p95": 28.453333,
+        "stdev": 8.289996
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 136,
+        "max": 62.795918,
+        "mean": 29.876973,
+        "median": 28.0,
+        "min": 8.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 13.256834,
+        "p25": 13.726667,
+        "p75": 54.791961,
+        "p95": 55.502,
+        "stdev": 17.269785
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.723953,
+        "min_auc": 0.67132,
+        "spread": 0.052633,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0526"
+      },
+      "episode_coverage": {
+        "benign_cut": 2.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "packets_per_flow",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.570441,
+        "mean_pairwise_auc": 0.536657,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.570441,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.523895,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.558933,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.549487,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.54195,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.53022,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.518553,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.531339,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.528199,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.513549
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.67132,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.693705,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.679889,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.723953,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.676877
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.67132,
+        "192.168.10.15->205.174.165.73": 0.693705,
+        "192.168.10.5->205.174.165.73": 0.679889,
+        "192.168.10.8->205.174.165.73": 0.723953,
+        "192.168.10.9->205.174.165.73": 0.676877
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.312063,
+        "direction": "higher on benign",
+        "oriented_auc": 0.687937
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.586186,
+        "direction": "higher on attack",
+        "oriented_auc": 0.586186
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.312063,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.586186,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "fraction of flows in the window with destination_packets > 0",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 23,
+        "max": 1.0,
+        "mean": 0.964372,
+        "median": 1.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.185073
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 1,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.0
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 1,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.0
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 0,
+        "max_auc": 0.517994,
+        "min_auc": 0.517994,
+        "spread": 0.0,
+        "verdict": "0 of 5 entities reach 0.65; spread 0.0000"
+      },
+      "episode_coverage": {
+        "benign_cut": 1.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "response_ratio",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.5,
+        "mean_pairwise_auc": 0.5,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.517994,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.517994,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.517994,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.517994,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.517994
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.517994,
+        "192.168.10.15->205.174.165.73": 0.517994,
+        "192.168.10.5->205.174.165.73": 0.517994,
+        "192.168.10.8->205.174.165.73": 0.517994,
+        "192.168.10.9->205.174.165.73": 0.517994
+      },
+      "r11_question_behaviour_or_identity": "cannot be established: only 0 of 5 botnet entities separate from benign, so the signal may describe one host rather than the family",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.517994,
+        "direction": "higher on attack",
+        "oriented_auc": 0.517994
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.517994,
+        "direction": "higher on attack",
+        "oriented_auc": 0.517994
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.517994,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.517994,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: volumetric reference AUC 0.5180 and botnet AUC 0.5180 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    },
+    {
+      "definition": "1 - |distinct (source_bytes, destination_bytes) pairs| / event_count; undefined for n<2",
+      "distribution_benign": {
+        "available": 29167,
+        "distinct": 1249,
+        "max": 0.995215,
+        "mean": 0.192024,
+        "median": 0.0,
+        "min": 0.0,
+        "missing_rate": 0.586741,
+        "n": 70578,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.427878,
+        "p95": 0.75,
+        "stdev": 0.264402
+      },
+      "distribution_botnet": {
+        "available": 122,
+        "distinct": 21,
+        "max": 0.916667,
+        "mean": 0.601533,
+        "median": 0.571429,
+        "min": 0.0,
+        "missing_rate": 0.310734,
+        "n": 177,
+        "p05": 0.0,
+        "p25": 0.5,
+        "p75": 0.833333,
+        "p95": 0.857143,
+        "stdev": 0.233967
+      },
+      "distribution_target_attack": {
+        "available": 191,
+        "distinct": 135,
+        "max": 0.999802,
+        "mean": 0.829805,
+        "median": 0.94,
+        "min": 0.142857,
+        "missing_rate": 0.040201,
+        "n": 199,
+        "p05": 0.533657,
+        "p25": 0.679289,
+        "p75": 0.967204,
+        "p95": 0.999795,
+        "stdev": 0.173319
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.881063,
+        "min_auc": 0.833359,
+        "spread": 0.047704,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.0477"
+      },
+      "episode_coverage": {
+        "benign_cut": 0.888889,
+        "episodes": 40,
+        "episodes_touching_the_tail": 2,
+        "fraction": 0.05,
+        "side": "above benign p99"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "payload_repeat_ratio",
+      "findings": [],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.550521,
+        "mean_pairwise_auc": 0.521649,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.51087,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.503623,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.519182,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.537138,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.513889,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.523529,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.550521,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.51634,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.525463,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.515931
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.854103,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.861771,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.842541,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.881063,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.833359
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.854103,
+        "192.168.10.15->205.174.165.73": 0.861771,
+        "192.168.10.5->205.174.165.73": 0.842541,
+        "192.168.10.8->205.174.165.73": 0.881063,
+        "192.168.10.9->205.174.165.73": 0.833359
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.854587,
+        "direction": "higher on attack",
+        "oriented_auc": 0.854587
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.960522,
+        "direction": "higher on attack",
+        "oriented_auc": 0.960522
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "SAFE",
+      "transfer_sign_agreement": {
+        "agrees": true,
+        "botnet_auc": 0.854587,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.960522,
+        "target_attack_direction": "higher on attack",
+        "undetermined": false,
+        "verdict": "same sign as the volumetric attacks, so a model trained on them learns a sign that also helps on the botnet"
+      }
+    },
+    {
+      "definition": "|distinct (source_bytes, destination_bytes) pairs| / event_count",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 1249,
+        "max": 1.0,
+        "mean": 0.920644,
+        "median": 1.0,
+        "min": 0.004785,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.5,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.194502
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 21,
+        "max": 1.0,
+        "mean": 0.585384,
+        "median": 0.5,
+        "min": 0.083333,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 0.142857,
+        "p25": 0.230769,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.339455
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 136,
+        "max": 1.0,
+        "mean": 0.203554,
+        "median": 0.0625,
+        "min": 0.000198,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 0.000206,
+        "p25": 0.034524,
+        "p75": 0.333333,
+        "p95": 0.577686,
+        "stdev": 0.235373
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": true,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 5,
+        "max_auc": 0.833726,
+        "min_auc": 0.682653,
+        "spread": 0.151073,
+        "verdict": "5 of 5 entities reach 0.65; spread 0.1511"
+      },
+      "episode_coverage": {
+        "benign_cut": 0.166667,
+        "episodes": 40,
+        "episodes_touching_the_tail": 6,
+        "fraction": 0.15,
+        "side": "below benign p01"
+      },
+      "family": "D_flow_behaviour",
+      "feature": "distinct_payload_ratio",
+      "findings": [],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.652829,
+        "mean_pairwise_auc": 0.568034,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.544437,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.538232,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.542184,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.604472,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.582389,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.586735,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.652829,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.500712,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.560606,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.567745
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "online",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.785065,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.833726,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.739492,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.764951,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.682653
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.785065,
+        "192.168.10.15->205.174.165.73": 0.833726,
+        "192.168.10.5->205.174.165.73": 0.739492,
+        "192.168.10.8->205.174.165.73": 0.764951,
+        "192.168.10.9->205.174.165.73": 0.682653
+      },
+      "r11_question_behaviour_or_identity": "behaviour: every botnet entity separates from benign to a similar degree, which is what shared C2 mechanics would produce",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.236829,
+        "direction": "higher on benign",
+        "oriented_auc": 0.763171
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.039224,
+        "direction": "higher on benign",
+        "oriented_auc": 0.960776
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "SAFE",
+      "transfer_sign_agreement": {
+        "agrees": true,
+        "botnet_auc": 0.236829,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.039224,
+        "target_attack_direction": "higher on benign",
+        "undetermined": false,
+        "verdict": "same sign as the volumetric attacks, so a model trained on them learns a sign that also helps on the botnet"
+      }
+    },
+    {
+      "definition": "fraction of flows whose connection_state is SF",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 91,
+        "max": 1.0,
+        "mean": 0.895456,
+        "median": 1.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 0.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.29518
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 1,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.0
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 43,
+        "max": 1.0,
+        "mean": 0.668501,
+        "median": 1.0,
+        "min": 0.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 0.0,
+        "p25": 0.360656,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.423175
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 0,
+        "max_auc": 0.560373,
+        "min_auc": 0.560373,
+        "spread": 0.0,
+        "verdict": "0 of 5 entities reach 0.65; spread 0.0000"
+      },
+      "episode_coverage": {
+        "benign_cut": 1.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "above benign p99"
+      },
+      "family": "E_states_flags",
+      "feature": "state_sf_ratio",
+      "findings": [
+        "deviates from benign in the OPPOSITE direction to the volumetric attacks, so leave-one-attack-type-out training learns a harmful sign"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.5,
+        "mean_pairwise_auc": 0.5,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.560373,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.560373,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.560373,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.560373,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.560373
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.560373,
+        "192.168.10.15->205.174.165.73": 0.560373,
+        "192.168.10.5->205.174.165.73": 0.560373,
+        "192.168.10.8->205.174.165.73": 0.560373,
+        "192.168.10.9->205.174.165.73": 0.560373
+      },
+      "r11_question_behaviour_or_identity": "cannot be established: only 0 of 5 botnet entities separate from benign, so the signal may describe one host rather than the family",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.560373,
+        "direction": "higher on attack",
+        "oriented_auc": 0.560373
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.342873,
+        "direction": "higher on benign",
+        "oriented_auc": 0.657127
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": false,
+        "botnet_auc": 0.560373,
+        "botnet_direction": "higher on attack",
+        "target_attack_auc": 0.342873,
+        "target_attack_direction": "higher on benign",
+        "undetermined": false,
+        "verdict": "OPPOSITE sign to the volumetric attacks: a model trained on them learns a sign that pushes botnet windows towards benign"
+      }
+    },
+    {
+      "definition": "number of distinct connection_state values",
+      "distribution_benign": {
+        "available": 70578,
+        "distinct": 3,
+        "max": 3.0,
+        "mean": 1.031072,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 70578,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.176106
+      },
+      "distribution_botnet": {
+        "available": 177,
+        "distinct": 1,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 177,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "stdev": 0.0
+      },
+      "distribution_target_attack": {
+        "available": 199,
+        "distinct": 5,
+        "max": 5.0,
+        "mean": 1.356784,
+        "median": 1.0,
+        "min": 1.0,
+        "missing_rate": 0.0,
+        "n": 199,
+        "p05": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "p95": 3.0,
+        "stdev": 0.721766
+      },
+      "entity_consistency": {
+        "carried_by_all_entities": false,
+        "entities": 5,
+        "entities_with_auc_at_least_0_65": 0,
+        "max_auc": 0.515309,
+        "min_auc": 0.515309,
+        "spread": 0.0,
+        "verdict": "0 of 5 entities reach 0.65; spread 0.0000"
+      },
+      "episode_coverage": {
+        "benign_cut": 1.0,
+        "episodes": 40,
+        "episodes_touching_the_tail": 0,
+        "fraction": 0.0,
+        "side": "below benign p01"
+      },
+      "family": "E_states_flags",
+      "feature": "state_distinct_count",
+      "findings": [
+        "transferability undetermined: the volumetric reference is at chance on this feature, so no sign can be compared"
+      ],
+      "identity_dependence": {
+        "entities_compared": 5,
+        "max_pairwise_auc": 0.5,
+        "mean_pairwise_auc": 0.5,
+        "pairwise_auc": {
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.15|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.14|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.5|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.15|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.8|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.5|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5,
+          "192.168.10.8|205.174.165.73|tcp|http vs 192.168.10.9|205.174.165.73|tcp|http": 0.5
+        },
+        "verdict": "entities look alike on this feature, consistent with shared behaviour rather than identity"
+      },
+      "online_availability": "requires completed flows",
+      "per_botnet_entity_auc": {
+        "192.168.10.14|205.174.165.73|tcp|http": 0.515309,
+        "192.168.10.15|205.174.165.73|tcp|http": 0.515309,
+        "192.168.10.5|205.174.165.73|tcp|http": 0.515309,
+        "192.168.10.8|205.174.165.73|tcp|http": 0.515309,
+        "192.168.10.9|205.174.165.73|tcp|http": 0.515309
+      },
+      "per_botnet_host_pair_auc": {
+        "192.168.10.14->205.174.165.73": 0.515309,
+        "192.168.10.15->205.174.165.73": 0.515309,
+        "192.168.10.5->205.174.165.73": 0.515309,
+        "192.168.10.8->205.174.165.73": 0.515309,
+        "192.168.10.9->205.174.165.73": 0.515309
+      },
+      "r11_question_behaviour_or_identity": "cannot be established: only 0 of 5 botnet entities separate from benign, so the signal may describe one host rather than the family",
+      "ranges_disjoint": false,
+      "screening_botnet_vs_benign": {
+        "auc": 0.484691,
+        "direction": "higher on benign",
+        "oriented_auc": 0.515309
+      },
+      "screening_target_attack_vs_benign": {
+        "auc": 0.601911,
+        "direction": "higher on attack",
+        "oriented_auc": 0.601911
+      },
+      "source": "aggregated over m4_canonical.flow_end_events and mb4_canonical.flow_end_events within the frozen M6/MB6 windows",
+      "status": "NEEDS_REVIEW",
+      "transfer_sign_agreement": {
+        "agrees": null,
+        "botnet_auc": 0.484691,
+        "botnet_direction": "higher on benign",
+        "target_attack_auc": 0.601911,
+        "target_attack_direction": "higher on attack",
+        "undetermined": true,
+        "verdict": "undetermined: botnet AUC 0.4847 is within 0.05 of chance, so its direction carries no information and transferability cannot be established"
+      }
+    }
+  ],
+  "completed_at": "2026-08-18T10:50:55.054936+00:00",
+  "content_sha256": "5f4acbf089f5d2a6a83f898f914c8624cbebae0b9148ccc0175ab920de994e3f",
+  "dropped_as_redundant": {
+    "payload_repeat_ratio": "restates distinct_payload_ratio at rho -1.0; distinct_payload_ratio is kept because it is defined on 1.0000 of windows against 0.4133, and the two screening AUCs are not comparable across different defined subpopulations"
+  },
+  "excluded_columns_and_why": {
+    "all provenance columns": "already in FORBIDDEN_COLUMNS",
+    "conversation_id": "per-flow unique id; counting it restates event_count",
+    "physical_line_number": "position in the capture file, a capture artefact",
+    "record_available_time / ingested_at / persisted_at": "pipeline clocks, absolute and not properties of the traffic",
+    "source_ip / destination_ip / source_port / destination_port / transport / service": "identity or a direct proxy (constraint 8)"
+  },
+  "experiment": "P6 targeted behavioural feature audit",
+  "family_verdicts": [
+    {
+      "best_oriented_screening_auc": 0.716999,
+      "candidates": 5,
+      "constraint": null,
+      "family": "A_volume",
+      "may_enter_xgboost": "no - reference budget only",
+      "needs_review": [],
+      "rejected": [],
+      "safe": [],
+      "signal_found": false
+    },
+    {
+      "best_oriented_screening_auc": 0.914561,
+      "candidates": 3,
+      "constraint": "already tested in P5 and NOT a new discovery; P5 did not confirm the endpoint, so these are reported for continuity only",
+      "family": "B_temporal",
+      "may_enter_xgboost": "no - already tested in P5 and NOT a new discovery; P5 did not confirm the endpoint, so these are reported for continuity only",
+      "needs_review": [
+        "duration_mean",
+        "interarrival_mean",
+        "interarrival_cv"
+      ],
+      "rejected": [],
+      "safe": [],
+      "signal_found": false
+    },
+    {
+      "best_oriented_screening_auc": 0.900184,
+      "candidates": 2,
+      "constraint": null,
+      "family": "C_direction",
+      "may_enter_xgboost": "no - no SAFE member",
+      "needs_review": [
+        "bytes_per_packet_destination",
+        "byte_direction_ratio"
+      ],
+      "rejected": [],
+      "safe": [],
+      "signal_found": false
+    },
+    {
+      "best_oriented_screening_auc": 0.872629,
+      "candidates": 10,
+      "constraint": null,
+      "family": "D_flow_behaviour",
+      "may_enter_xgboost": "yes, for the SAFE members only",
+      "needs_review": [
+        "idle_ratio",
+        "duty_cycle",
+        "max_concurrency",
+        "active_span_ratio",
+        "bytes_per_second",
+        "packets_per_second",
+        "packets_per_flow",
+        "response_ratio"
+      ],
+      "rejected": [],
+      "safe": [
+        "payload_repeat_ratio",
+        "distinct_payload_ratio"
+      ],
+      "signal_found": true
+    },
+    {
+      "best_oriented_screening_auc": 0.560373,
+      "candidates": 2,
+      "constraint": "standing constraint 10: flag-derived signal is dominated by the single pair 172.16.0.1 -> 192.168.10.50 and may not enter a principal benchmark without an explicit R11 review",
+      "family": "E_states_flags",
+      "may_enter_xgboost": "no - standing constraint 10: flag-derived signal is dominated by the single pair 172.16.0.1 -> 192.168.10.50 and may not enter a principal benchmark without an explicit R11 review",
+      "needs_review": [
+        "state_sf_ratio",
+        "state_distinct_count"
+      ],
+      "rejected": [],
+      "safe": [],
+      "signal_found": false
+    }
+  ],
+  "features_selected": false,
+  "forbidden_columns_unchanged": [
+    "entity_source_ip",
+    "entity_destination_ip",
+    "entity_service",
+    "entity_transport",
+    "distinct_destination_ports",
+    "distinct_destination_ips",
+    "distinct_source_ips",
+    "output_partition",
+    "window_start_time",
+    "window_end_time",
+    "prediction_time",
+    "record_available_time",
+    "sensor_run_id",
+    "capture_id",
+    "dataset_snapshot_id",
+    "window_id",
+    "window_bytes_sha256",
+    "persisted_at"
+  ],
+  "labels_modified": false,
+  "limitations": [
+    "R11 is unchanged: the botnet is 5 entities reaching a single destination, so nothing here licenses a claim of general capability",
+    "screening AUC is descriptive; it is not a model performance and no generalisation follows from it",
+    "no threshold was calibrated and no recall was computed",
+    "family E is withheld by standing constraint, not by measurement"
+  ],
+  "model_trained": false,
+  "p1_folds_used": false,
+  "populations": {
+    "benign_reference_windows": 70578,
+    "botnet_entities": 5,
+    "botnet_episodes": 40,
+    "botnet_host_pairs": 5,
+    "botnet_windows": 177,
+    "target_attack_windows": 199
+  },
+  "postgresql_writes": 0,
+  "question": "which behavioural information already present in the data actually distinguishes low-intensity Ares C2 from benign traffic, without introducing leakage or an identity proxy?",
+  "redundancy_among_safe": {
+    "ceiling": 0.95,
+    "pairwise_spearman": {
+      "distinct_payload_ratio ~ payload_repeat_ratio": -1.0
+    },
+    "redundant_pairs": {
+      "distinct_payload_ratio ~ payload_repeat_ratio": -1.0
+    },
+    "verdict": "1 pair(s) at |rho| >= 0.95 restate one another"
+  },
+  "safe_features": [
+    "distinct_payload_ratio",
+    "payload_repeat_ratio"
+  ],
+  "smallest_justified_set": [
+    "distinct_payload_ratio"
+  ],
+  "started_at": "2026-08-18T10:50:29.734626+00:00",
+  "thresholds": {
+    "identity_auc_ceiling": 0.75,
+    "near_perfect_auc_triggers_leakage_hunt": 0.98
+  },
+  "unknown_or_ambiguous_used": false,
+  "xgboost_trained": false
+}

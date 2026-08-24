@@ -1,0 +1,47 @@
+{
+  "report_version": "1.0.0",
+  "run_id": "b1bd37dd-28ce-47e7-b8a0-4205d3062394",
+  "verification_status": "verified",
+  "m3_report_content_sha256": "6c9ef7aa545769d0e4b913b1227dc27f43ab1734227f9afeb8d1d642264848e0",
+  "m3_report_file_sha256": "62426406249a96eb991a0c6bdcde78cd0b730afaa7de057d7740c2d5f62a8032",
+  "m3_protocol_sha256": "5286ddde937ad132afdeb8814e0e0af01745afbb7d1d446ae8860b7701fea210",
+  "m3_event_stream_sha256": "ce71a3401f606ecedac11007fdd9d649d32d10b969c53e961db6b96710b1d82f",
+  "m3_rejection_audit_stream_sha256": "b443b14c9894ea342b199e9c9880360a9cf3d00cf490164e7d2cf2f2d2f09b5f",
+  "total_processed_record_count": 1380057,
+  "total_accepted_record_count": 1353467,
+  "total_rejected_record_count": 26590,
+  "total_persisted_event_count": 1353467,
+  "materialized_event_stream_sha256": "ce71a3401f606ecedac11007fdd9d649d32d10b969c53e961db6b96710b1d82f",
+  "materialized_rejection_stream_sha256": "b443b14c9894ea342b199e9c9880360a9cf3d00cf490164e7d2cf2f2d2f09b5f",
+  "started_at": "2026-08-10T11:38:50.455341Z",
+  "completed_at": "2026-08-10T11:44:37.041012Z",
+  "partition_counts": [
+    {
+      "output_partition": "2017-07-04_Tuesday-WorkingHours",
+      "source_log_sha256": "5a828bcb809ad6ee8e6e83d5334c9082b38b4d20e4df41f1249639416973b860",
+      "reported_record_count": 323342,
+      "processed_record_count": 323342,
+      "accepted_record_count": 319099,
+      "rejected_record_count": 4243,
+      "persisted_event_count": 319099
+    },
+    {
+      "output_partition": "2017-07-05_Wednesday-workingHours",
+      "source_log_sha256": "f4aae4520456deaec725ab110a3760c83e9d52e78d8069a83819e18c7cd5ccd5",
+      "reported_record_count": 509362,
+      "processed_record_count": 509362,
+      "accepted_record_count": 491166,
+      "rejected_record_count": 18196,
+      "persisted_event_count": 491166
+    },
+    {
+      "output_partition": "2017-07-07_Friday-WorkingHours",
+      "source_log_sha256": "1b42468fe419047a009925e03b9ff51b04417a4f5bee6e54cec3c1799f7dec47",
+      "reported_record_count": 547353,
+      "processed_record_count": 547353,
+      "accepted_record_count": 543202,
+      "rejected_record_count": 4151,
+      "persisted_event_count": 543202
+    }
+  ]
+}

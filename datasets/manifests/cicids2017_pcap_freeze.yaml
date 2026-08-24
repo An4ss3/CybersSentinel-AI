@@ -1,0 +1,29 @@
+manifest_version: 1.0.0
+dataset_name: cicids2017
+dataset_release: CICIDS2017 PCAP
+source:
+  publisher: Canadian Institute for Cybersecurity
+  landing_page_url: https://www.unb.ca/cic/datasets/ids-2017.html
+  download_url: https://cicresearch.ca/CICDataset/CIC-IDS-2017/
+  retrieved_at: '2026-07-28T13:08:25.402744Z'
+frozen_at: '2026-07-28T13:16:05.362756Z'
+selection_rationale: Complete Tuesday, Wednesday, and Friday CICIDS2017 captures selected
+  before Zeek replay, feature engineering, or canonical model inspection; Monday and
+  Thursday are excluded from the initial canonical freeze.
+selected_capture_days:
+- '2017-07-04'
+- '2017-07-05'
+- '2017-07-07'
+files:
+- relative_path: Tuesday-WorkingHours.pcap
+  capture_date: '2017-07-04'
+  size_bytes: 11048283608
+  sha256: 080c2250154c5a174c03660ed0f75a3858d41a27511ba716e780d7bcb1ec4c57
+- relative_path: Wednesday-workingHours.pcap
+  capture_date: '2017-07-05'
+  size_bytes: 13420789612
+  sha256: cd2674db7559a53f24bc03be3239b315700174ccaef72d10f5edc4c1a08f6186
+- relative_path: Friday-WorkingHours.pcap
+  capture_date: '2017-07-07'
+  size_bytes: 8839309056
+  sha256: beff0dcce1eebc9b2454582f4dc8ed0ba0112b2c619a710bf03af93147254cd0

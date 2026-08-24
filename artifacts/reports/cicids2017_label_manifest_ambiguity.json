@@ -1,0 +1,8 @@
+{
+  "report_version": "1.0.0",
+  "report_scope": "manifest_rule_overlap_audit",
+  "dataset_name": "cicids2017",
+  "manifest_hash": "7ff2e52bf3485929b6a4260a7f4451fbaa8119273500f0b9a27f5a1c5b48c676",
+  "overlap_count": 0,
+  "overlaps": []
+}

@@ -1,0 +1,171 @@
+protocol_version: 2.0.0
+milestone: mb6
+track: monday_benign
+frozen_at: '2026-08-13T14:50:35.022791Z'
+dataset_name: cicids2017
+mb1_manifest_sha256: d56fd5261b0a42917f7fee5a447f2fa8429a12ac8d0456e1f32d7d5ac8b66a6e
+mb2_specification_sha256: 6de09b2fa740fc7b3075e91abfbf056a89f938c43163d1cedf8d27dd28d6e38f
+mb2_replay_report_content_sha256: 966ffc228f79c069c52f31baab814355ed28dce0d84f402906cc4857daae62db
+mb3_protocol_sha256: ea16017266042cc95bd36fcddbc34c917f7b66e3b98e9bed1c478be301810c7c
+mb3_report_content_sha256: de3146976148dc1d61e5690d6eb7b6acc6a446130787964d3b1bb4888c5ec6ab
+mb3_report_file_sha256: 5afd957ee2e41d18ac604426759afe775f4eaccd84d6ff453dec162ea0d5aff9
+mb3_event_stream_sha256: ed558ab37f984960816c2370fc3046a0c8d1d2bfbdd4dc353f7a6fbf95c7706a
+mb3_rejection_audit_stream_sha256: 13e7538cc71a8492189e01aa4ad1ef1f29d16476cd82a3171156175d46f06342
+mb4_report_content_sha256: 27896bbbc49940c2c245bc3aac2062cd6d5d78304c009008c1741313f1061034
+mb4_report_file_sha256: 52aec252884bdb902464fd1ed7aa06e8a645501c2a2c7c424b4af9b95285cf81
+mb4_run_id: b043c624-c000-4037-b9c8-100a590ad97e
+output_partition: 2017-07-03_Monday-WorkingHours
+source_event_model: FlowEndV2
+source_event_feature_version: 1.0.0
+operational_source: mb4_canonical.flow_end_events
+evidence_source: mb2_monday_conn_log_via_mb3_protocol
+postgresql_is_independent_evidence: false
+target_model: FeatureWindowV2
+window_contract_versions:
+  schema_version: 2.0.0
+  event_version: 2.0.0
+  feature_version: 2.0.0
+  sensor_version_source: inherited_from_source_events
+m_chain_status: untouched_and_frozen
+temporal:
+  canonical_type: DECIMAL(38,22)
+  json_encoding: fixed_scale_string_22_fractional_digits
+  arithmetic: unscaled_integer
+  float_conversion: forbidden
+  rounding: forbidden
+  truncation: forbidden
+  datetime_conversion: forbidden
+  timedelta_bounds: forbidden
+  windowing_basis: event_start_time
+  forbidden_windowing_fields:
+  - ingested_at
+  - record_available_time
+  prediction_time_rule: equals_window_end_time
+  record_available_time_rule: inherited_from_source_events
+  required_order: window_start_lt_window_end_le_prediction_le_record_available
+window:
+  type: tumbling
+  length_seconds: '60.0000000000000000000000'
+  slide_seconds: '60.0000000000000000000000'
+  boundary_semantics: half_open_start_inclusive_end_exclusive
+  alignment: floor_to_multiple_of_length_from_unix_epoch
+  partition_policy: strictly_intra_partition
+  cross_partition_windows: false
+  empty_windows: forbidden
+  overlapping_windows: false
+entity:
+  entity_type: source_destination_service
+  key_components:
+  - source_ip
+  - destination_ip
+  - transport
+  - service
+  key_encoding: ordered_tuple_of_strict_identifiers_one_element_per_component
+  null_service_sentinel: none
+  null_service_sentinel_collision_scope: verified_only_for_this_dataset_snapshot
+  forbidden_entity_types:
+  - sensor
+  - custom
+features:
+  count: 8
+  container_type: mapping_of_strict_identifier_to_finite_float
+  names:
+  - destination_bytes_total
+  - destination_packets_total
+  - distinct_destination_ips
+  - distinct_destination_ports
+  - distinct_source_ips
+  - event_count
+  - source_bytes_total
+  - source_packets_total
+  definitions:
+    event_count: cardinality_of_source_event_ids
+    source_packets_total: sum_of_counters_source_packets
+    destination_packets_total: sum_of_counters_destination_packets
+    source_bytes_total: sum_of_counters_source_bytes
+    destination_bytes_total: sum_of_counters_destination_bytes
+    distinct_destination_ports: cardinality_of_distinct_destination_port
+    distinct_destination_ips: cardinality_of_distinct_destination_ip
+    distinct_source_ips: cardinality_of_distinct_source_ip
+  forbidden:
+  - rates_or_ratios
+  - averages_requiring_division
+  - normalized_features
+  - scaled_features
+  - learned_features
+  - label_derived_features
+  - attack_signatures
+  - attack_specific_thresholds
+  - target_variables
+  - features_from_non_conn_zeek_logs
+identity:
+  algorithm: uuid5
+  namespace: 5cd6a350-cf38-5b3a-ab35-9b5128cdede3
+  namespace_derivation: https://cybersentinel.invalid/mb6/monday-benign/feature-window/2.0.0
+  components:
+  - protocol_sha256
+  - output_partition
+  - entity_type
+  - entity_key_components_in_declared_order
+  - window_start_time
+  - window_length_seconds
+  name_encoding: utf8_component_values_joined_by_single_ascii_pipe
+  window_id_rule: text_form_of_the_uuid5
+  provenance_event_id_rule: same_uuid5_as_uuid
+  random_identifiers: forbidden
+provenance:
+  sensor_id: inherited_from_source_events
+  sensor_run_id: inherited_from_source_events
+  capture_id: inherited_from_source_events
+  dataset_snapshot_id: inherited_from_source_events
+  model_release_id: inherited_from_source_events
+  normalizer_version: inherited_from_source_events
+  pipeline_version: inherited_from_source_events
+  event_id: derived_uuid5_per_identity_policy
+  fabricated_placeholder_values: forbidden
+  homogeneity_requirement: all_inherited_fields_must_be_identical_across_window_events
+labels:
+  m5_interaction: none
+  label_fields_in_window_contract: forbidden
+  forbidden_fields:
+  - label
+  - labels
+  - attack_family
+  - attack_subtype
+  - target_profiles
+  - disposition
+  m5_contract_modification: forbidden
+deferred:
+  watermark_policy: deferred_not_introduced_by_m6
+  late_arrival_policy: deferred_not_introduced_by_m6
+  revision_policy: deferred_not_introduced_by_m6
+ordering:
+  keys:
+  - output_partition
+  - entity_type
+  - entity_key
+  - window_start_time
+  partition_order: mb3_replay_report_binding_order
+  window_start_comparison: unscaled_integer
+  sort_by_feature_value: false
+  dictionary_or_set_iteration_order: forbidden
+persistence:
+  canonical_evidence: immutable_published_report
+  operational_projection: postgresql_schema_mb6_canonical
+  projection_is_reconstructible: true
+  destructive_modification_of_mb4_canonical: forbidden
+  destructive_modification_of_m_chain: forbidden
+  foreign_keys_outside_mb6_canonical: forbidden
+  test_isolation: read_only_tests_against_the_mb_database
+governance:
+  manifest_frozen_before_materialization: true
+  run_identity_in_manifest: false
+  run_identity_location: materialization_report_only
+  run_identity_algorithm: deterministic_uuid5_over_protocol_and_mb4_run_id
+  random_identifiers: forbidden
+  wall_clock_in_identity: forbidden
+  immutable_publication: fail_if_exists_fsync_atomic_rename
+  deterministic_rerun_requirement: identical_content_sha256
+authoritative_sources:
+- https://docs.python.org/3/library/uuid.html
+- https://www.postgresql.org/docs/16/datatype-numeric.html

@@ -1,0 +1,95 @@
+{
+  "attack": "ddos",
+  "protocol": "holdout",
+  "auc_pr": 0.9664,
+  "default_0.5": {
+    "threshold": 0.5,
+    "precision": 0.54,
+    "recall": 0.0002,
+    "fpr": 0.0006,
+    "f1": 0.0004,
+    "tp": 27,
+    "fp": 23,
+    "fn": 128000,
+    "tn": 39977
+  },
+  "best_f1": {
+    "threshold": 0.0,
+    "precision": 0.924,
+    "recall": 0.9786,
+    "fpr": 0.2578,
+    "f1": 0.9505,
+    "tp": 125292,
+    "fp": 10310,
+    "fn": 2735,
+    "tn": 29690
+  },
+  "target_recall_0.9": {
+    "threshold": 0.0,
+    "precision": 0.9408,
+    "recall": 0.9017,
+    "fpr": 0.1817,
+    "f1": 0.9208,
+    "tp": 115437,
+    "fp": 7267,
+    "fn": 12590,
+    "tn": 32733
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.5,
+      "precision": 0.54,
+      "recall": 0.0002,
+      "fpr": 0.0006,
+      "f1": 0.0004,
+      "tp": 27,
+      "fp": 23,
+      "fn": 128000,
+      "tn": 39977
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.5192,
+      "recall": 0.0002,
+      "fpr": 0.0006,
+      "f1": 0.0004,
+      "tp": 27,
+      "fp": 25,
+      "fn": 128000,
+      "tn": 39975
+    },
+    {
+      "threshold": 0.1,
+      "precision": 0.7105,
+      "recall": 0.0006,
+      "fpr": 0.0008,
+      "f1": 0.0013,
+      "tp": 81,
+      "fp": 33,
+      "fn": 127946,
+      "tn": 39967
+    },
+    {
+      "threshold": 0.05,
+      "precision": 0.8693,
+      "recall": 0.0021,
+      "fpr": 0.001,
+      "f1": 0.0041,
+      "tp": 266,
+      "fp": 40,
+      "fn": 127761,
+      "tn": 39960
+    },
+    {
+      "threshold": 0.01,
+      "precision": 0.989,
+      "recall": 0.0568,
+      "fpr": 0.002,
+      "f1": 0.1075,
+      "tp": 7274,
+      "fp": 81,
+      "fn": 120753,
+      "tn": 39919
+    }
+  ]
+}

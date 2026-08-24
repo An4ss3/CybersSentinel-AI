@@ -1,0 +1,245 @@
+{
+  "command": [
+    "zeek",
+    "-D",
+    "-C",
+    "-r",
+    "/input/Friday-WorkingHours.pcap",
+    "local",
+    "LogAscii::use_json=T",
+    "Log::default_rotation_interval=0secs"
+  ],
+  "excluded_operational_logs": [
+    "packet_filter.log",
+    "stats.log",
+    "telemetry.log"
+  ],
+  "input": {
+    "capture_date": "2017-07-07",
+    "relative_path": "Friday-WorkingHours.pcap",
+    "sha256": "beff0dcce1eebc9b2454582f4dc8ed0ba0112b2c619a710bf03af93147254cd0",
+    "size_bytes": 8839309056
+  },
+  "logs": [
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "analyzer.log",
+      "record_count": 82,
+      "sha256": "b2d65d68616eee72542b2fadd079989e4e73ec11a98b1d922094e63d90581bc3",
+      "size_bytes": 25877
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "capture_loss.log",
+      "record_count": 34,
+      "sha256": "3315c91912ee78d7e693f68ed1737f3ad6ad8f0a6b966c7407c49d308fc6a4d1",
+      "size_bytes": 4291
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "conn.log",
+      "record_count": 547353,
+      "sha256": "1b42468fe419047a009925e03b9ff51b04417a4f5bee6e54cec3c1799f7dec47",
+      "size_bytes": 218393867
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "dce_rpc.log",
+      "record_count": 603,
+      "sha256": "f6c25ba5a965d4d242b322ffa3c1bbdf6ea7dd776f66fb44ba5e9e07be5239ff",
+      "size_bytes": 144816
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "dns.log",
+      "record_count": 373802,
+      "sha256": "40a6adcb2e7cffe23cd0bebc9613f91858b0a285ca019e0b1b961fa538872340",
+      "size_bytes": 170086178
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "files.log",
+      "record_count": 156191,
+      "sha256": "6e5c42f5bd81e9d49ffcfa26338f2b36c93099ad43f0aeea2a0cfb5ac2c7331f",
+      "size_bytes": 75729704
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ftp.log",
+      "record_count": 1039,
+      "sha256": "c794cdee5cb71cd2a397dff39b4a4c75433d9dc3d13b4ce981653d1b75f717ca",
+      "size_bytes": 400743
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "http.log",
+      "record_count": 150630,
+      "sha256": "f3658dab3b4fd3d322114ebd01f5dd9d81d1ad5a57bc4dc1674dfedceddaa921",
+      "size_bytes": 69490269
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "kerberos.log",
+      "record_count": 955,
+      "sha256": "a04e2d51ea39cb60c09ca09996203285d3cef7420f19d2683b307e4e0b178bdb",
+      "size_bytes": 282393
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "known_hosts.log",
+      "record_count": 14,
+      "sha256": "c02a8c58bb4d720eac2ec84d1d8ce8283940b1a26e718828c4409258a9c0776a",
+      "size_bytes": 665
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "known_services.log",
+      "record_count": 43,
+      "sha256": "abe16c0ac12cb3fa25c228aad11e57584ea23f2e2bc526c8c14085585595322b",
+      "size_bytes": 4295
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ldap.log",
+      "record_count": 1465,
+      "sha256": "66f573db74192ed6a343cd262e3c64ffe887118cbdfb7f46931a89335de40d5c",
+      "size_bytes": 332522
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ldap_search.log",
+      "record_count": 1714,
+      "sha256": "98b8260ebcc9c90df9aebe9c0d64bbf1198dab4fafaa825999c1503def02e243",
+      "size_bytes": 474141
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "loaded_scripts.log",
+      "record_count": 541,
+      "sha256": "59cf2590818e23f27c1a3ceee5852f1c6bec74080f80ab218f116ad104078b4e",
+      "size_bytes": 43597
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "notice.log",
+      "record_count": 5008,
+      "sha256": "adb743a53738cb0c07adfa8c40843d5a459a90c3b89c419672f66abd3ea39887",
+      "size_bytes": 2536986
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ntlm.log",
+      "record_count": 33,
+      "sha256": "38d8961884967434902020adf265e3591eba31f839b0771fc0368c7abe0860ac",
+      "size_bytes": 9428
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ntp.log",
+      "record_count": 13917,
+      "sha256": "136f25c62b75ed763e0afed2791b87bec06f2fe52dba9163633a0aed5cbe9be6",
+      "size_bytes": 6006941
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ocsp.log",
+      "record_count": 18981,
+      "sha256": "40dd737eb743bb6b3ba96a7fa45e2096c31d70c565c663e7dd04b525692ca66d",
+      "size_bytes": 5886564
+    },
+    {
+      "classification": "operational_runtime",
+      "log_name": "packet_filter.log",
+      "record_count": 1,
+      "sha256": "d1fac4c00153fe9064a30cc0f34cfc21b336e9cd8851d1ae6ec232209d682812",
+      "size_bytes": 90
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "pe.log",
+      "record_count": 7,
+      "sha256": "5e3885758fc9ede3050b6d36d79e44554be644ccbb82df0107712d3747489193",
+      "size_bytes": 2817
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "smb_files.log",
+      "record_count": 365,
+      "sha256": "25fdc030ebf823d7baf6ba8d5afd46d508a5efdcc8b647aade3053507d2476d7",
+      "size_bytes": 121644
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "smb_mapping.log",
+      "record_count": 362,
+      "sha256": "0898a3d6a037959055e705688792c240a3b61f1f143486d5776d063f9b0dbca8",
+      "size_bytes": 72827
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "software.log",
+      "record_count": 71,
+      "sha256": "ab1a284a622ef6e43f45a61ce884b9555016c49f53f1b31191cf09a237d26601",
+      "size_bytes": 14954
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ssh.log",
+      "record_count": 1011,
+      "sha256": "12f852701d12d0dd492828d420e23bb8c04d737a3307b2367d0afa7533a98ad6",
+      "size_bytes": 467789
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "ssl.log",
+      "record_count": 52547,
+      "sha256": "1b4f7f660c1884e7b0178914cd6cd9c8a7e316736b027c0f7c05c3db00d9effa",
+      "size_bytes": 25780721
+    },
+    {
+      "classification": "operational_runtime",
+      "log_name": "stats.log",
+      "record_count": 98,
+      "sha256": "8422c3b2d2f69dcf5a806bcda8e1f391c0238e7fc62a6bf6250b75f290fa6f73",
+      "size_bytes": 43743
+    },
+    {
+      "classification": "operational_runtime",
+      "log_name": "telemetry.log",
+      "record_count": 149762,
+      "sha256": "c261a3b8fcdaad5c1df6bea6132e223ee61fddba9d69262024816ce0e4ff667d",
+      "size_bytes": 28044327
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "weird.log",
+      "record_count": 64581,
+      "sha256": "6dacfcb55cc32d5f5073ad79231f8cdf0b7a494f4e2ebef1c1ce6f2f15eda11c",
+      "size_bytes": 13465422
+    },
+    {
+      "classification": "canonical_telemetry",
+      "log_name": "x509.log",
+      "record_count": 2237,
+      "sha256": "ec15ffc720ad35d70a545df695f0d2158e3c3a5d37aa75a0de0af0e86b4645a7",
+      "size_bytes": 2029855
+    }
+  ],
+  "m1_manifest_sha256": "feab8d4fbd8454cd12723368704e1e7311853a4316efec7f94bf11726ebb984e",
+  "operational_log_directory": "operational",
+  "output_partition": "2017-07-07_Friday-WorkingHours",
+  "report_version": "1.0.0",
+  "required_logs": [
+    "conn.log"
+  ],
+  "runtime": {
+    "image_index_digest": "sha256:c7dfad9ab8296b2994d113222e77a22ebc9c8963b2b1200b798484ac923bc94f",
+    "image_repository": "zeek/zeek",
+    "image_tag": "8.0.9",
+    "platform": "linux/amd64",
+    "platform_manifest_digest": "sha256:65c79e9e641a90488e303a464bf063288b3f656fa73cd7d6aefe6d119c0bf9d5",
+    "zeek_version": "8.0.9"
+  },
+  "specification_sha256": "e52c183a315c1ac38cbf1e64155489f5f041e95aa5d2e5cbb82e31f03ac4c455",
+  "verification_status": "verified"
+}

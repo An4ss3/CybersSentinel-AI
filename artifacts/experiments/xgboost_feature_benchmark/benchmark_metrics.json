@@ -1,0 +1,4325 @@
+{
+  "arms": {
+    "A": {
+      "features": [
+        "distinct_payload_ratio"
+      ],
+      "folds": [
+        {
+          "arm": "A",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 1.0
+          },
+          "features": [
+            "distinct_payload_ratio"
+          ],
+          "fold": 0,
+          "held_out_attack_type": "botnet/ares",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009964087036124216,
+              "episode_bootstrap": {
+                "ci_high": 0.475,
+                "ci_low": 0.19937500000000005,
+                "episodes": 40,
+                "point": 0.325
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": true,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": true,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": true,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": true,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": true,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": true,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": true,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": true,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": true,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": true,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": true,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": true,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.325,
+              "episodes_detected": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010"
+              ],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 136,
+              "observed_test_fpr": 0.009873675039930304,
+              "target_train_fpr": 0.01,
+              "threshold": 0.02265745960175991,
+              "true_positives": 24,
+              "window_precision": 0.15,
+              "window_recall": 0.13559322033898305
+            },
+            {
+              "achieved_train_fpr": 0.0009506372790648546,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 40,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 10,
+              "observed_test_fpr": 0.000726005517641934,
+              "target_train_fpr": 0.001,
+              "threshold": 0.322966992855072,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.0670200698009214,
+          "roc_auc": 0.7615389758318096,
+          "test_episodes": 40,
+          "test_negatives": 13774,
+          "test_positives": 177,
+          "train_negatives": 56804,
+          "train_positives": 199
+        },
+        {
+          "arm": "A",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 1.0
+          },
+          "features": [
+            "distinct_payload_ratio"
+          ],
+          "fold": 1,
+          "held_out_attack_type": "brute_force/ftp_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.007544969431388486,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 1,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 103,
+              "observed_test_fpr": 0.007365560640732265,
+              "target_train_fpr": 0.01,
+              "threshold": 0.06538153439760208,
+              "true_positives": 3,
+              "window_precision": 0.02830188679245283,
+              "window_recall": 0.04918032786885246
+            },
+            {
+              "achieved_train_fpr": 0.0004947520938615401,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 1,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "false_positives": 9,
+              "observed_test_fpr": 0.0006435926773455377,
+              "target_train_fpr": 0.001,
+              "threshold": 0.32604479789733887,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.03359005384846879,
+          "roc_auc": 0.8881455855872754,
+          "test_episodes": 1,
+          "test_negatives": 13984,
+          "test_positives": 61,
+          "train_negatives": 56594,
+          "train_positives": 315
+        },
+        {
+          "arm": "A",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 1.0
+          },
+          "features": [
+            "distinct_payload_ratio"
+          ],
+          "fold": 2,
+          "held_out_attack_type": "brute_force/ssh_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.00928973351735853,
+              "episode_bootstrap": {
+                "ci_high": 0.3333333333333333,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.1111111111111111
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": true
+              },
+              "episode_recall": 0.1111111111111111,
+              "episodes_detected": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007"
+              ],
+              "false_positives": 128,
+              "observed_test_fpr": 0.009101251422070534,
+              "target_train_fpr": 0.01,
+              "threshold": 0.06050660088658333,
+              "true_positives": 33,
+              "window_precision": 0.20496894409937888,
+              "window_recall": 0.55
+            },
+            {
+              "achieved_train_fpr": 0.0009201259864812259,
+              "episode_bootstrap": {
+                "ci_high": 0.3333333333333333,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.1111111111111111
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": true
+              },
+              "episode_recall": 0.1111111111111111,
+              "episodes_detected": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007"
+              ],
+              "false_positives": 17,
+              "observed_test_fpr": 0.001208759954493743,
+              "target_train_fpr": 0.001,
+              "threshold": 0.37091100215911865,
+              "true_positives": 26,
+              "window_precision": 0.6046511627906976,
+              "window_recall": 0.43333333333333335
+            }
+          ],
+          "pr_auc": 0.5534204511205815,
+          "roc_auc": 0.9199427616609784,
+          "test_episodes": 9,
+          "test_negatives": 14064,
+          "test_positives": 60,
+          "train_negatives": 56514,
+          "train_positives": 316
+        },
+        {
+          "arm": "A",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 1.0
+          },
+          "features": [
+            "distinct_payload_ratio"
+          ],
+          "fold": 3,
+          "held_out_attack_type": "ddos/loit",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009937332139659803,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 251,
+              "observed_test_fpr": 0.01704236827810972,
+              "target_train_fpr": 0.01,
+              "threshold": 0.06192473694682121,
+              "true_positives": 42,
+              "window_precision": 0.14334470989761092,
+              "window_recall": 1.0
+            },
+            {
+              "achieved_train_fpr": 0.0009131602506714414,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 0.0,
+                "episodes": 2,
+                "point": 0.5
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": false,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 0.5,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000"
+              ],
+              "false_positives": 32,
+              "observed_test_fpr": 0.0021727322107550242,
+              "target_train_fpr": 0.001,
+              "threshold": 0.30871063470840454,
+              "true_positives": 10,
+              "window_precision": 0.23809523809523808,
+              "window_recall": 0.23809523809523808
+            }
+          ],
+          "pr_auc": 0.311283488991151,
+          "roc_auc": 0.9902849447763897,
+          "test_episodes": 2,
+          "test_negatives": 14728,
+          "test_positives": 42,
+          "train_negatives": 55850,
+          "train_positives": 334
+        },
+        {
+          "arm": "A",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 1.0
+          },
+          "features": [
+            "distinct_payload_ratio"
+          ],
+          "fold": 4,
+          "held_out_attack_type": "dos/hulk",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009036251105216622,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000",
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 144,
+              "observed_test_fpr": 0.010265183917878529,
+              "target_train_fpr": 0.01,
+              "threshold": 0.07683727145195007,
+              "true_positives": 21,
+              "window_precision": 0.12727272727272726,
+              "window_recall": 0.5833333333333334
+            },
+            {
+              "achieved_train_fpr": 0.0004951370468611848,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000",
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 26,
+              "observed_test_fpr": 0.0018534359851725122,
+              "target_train_fpr": 0.001,
+              "threshold": 0.32481494545936584,
+              "true_positives": 12,
+              "window_precision": 0.3157894736842105,
+              "window_recall": 0.3333333333333333
+            }
+          ],
+          "pr_auc": 0.16387869336761232,
+          "roc_auc": 0.9680450606723062,
+          "test_episodes": 2,
+          "test_negatives": 14028,
+          "test_positives": 36,
+          "train_negatives": 56550,
+          "train_positives": 340
+        }
+      ]
+    },
+    "B": {
+      "features": [
+        "distinct_payload_ratio",
+        "interarrival_mean"
+      ],
+      "folds": [
+        {
+          "arm": "B",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 0.7130415008779766,
+            "interarrival_mean": 0.2869584991220235
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean"
+          ],
+          "fold": 0,
+          "held_out_attack_type": "botnet/ares",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.00999929582423773,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 40,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 174,
+              "observed_test_fpr": 0.012632496006969652,
+              "target_train_fpr": 0.01,
+              "threshold": 0.0056553613394498825,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            },
+            {
+              "achieved_train_fpr": 0.0009858460671783678,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 40,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 14,
+              "observed_test_fpr": 0.0010164077246987077,
+              "target_train_fpr": 0.001,
+              "threshold": 0.1392427682876587,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.0176904914040196,
+          "roc_auc": 0.5321200017391319,
+          "test_episodes": 40,
+          "test_negatives": 13774,
+          "test_positives": 177,
+          "train_negatives": 56804,
+          "train_positives": 199
+        },
+        {
+          "arm": "B",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 0.7857859550406318,
+            "interarrival_mean": 0.21421404495936824
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean"
+          ],
+          "fold": 1,
+          "held_out_attack_type": "brute_force/ftp_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009983390465420362,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 1,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "false_positives": 137,
+              "observed_test_fpr": 0.009796910755148741,
+              "target_train_fpr": 0.01,
+              "threshold": 0.025545572862029076,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            },
+            {
+              "achieved_train_fpr": 0.000971834470085168,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 1,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "false_positives": 12,
+              "observed_test_fpr": 0.0008581235697940503,
+              "target_train_fpr": 0.001,
+              "threshold": 0.1729557067155838,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.006463275274586459,
+          "roc_auc": 0.34663327174850883,
+          "test_episodes": 1,
+          "test_negatives": 13984,
+          "test_positives": 61,
+          "train_negatives": 56594,
+          "train_positives": 315
+        },
+        {
+          "arm": "B",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 0.7215841277453651,
+            "interarrival_mean": 0.2784158722546349
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean"
+          ],
+          "fold": 2,
+          "held_out_attack_type": "brute_force/ssh_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009802880702126907,
+              "episode_bootstrap": {
+                "ci_high": 0.3333333333333333,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.1111111111111111
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": true
+              },
+              "episode_recall": 0.1111111111111111,
+              "episodes_detected": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007"
+              ],
+              "false_positives": 117,
+              "observed_test_fpr": 0.008319112627986349,
+              "target_train_fpr": 0.01,
+              "threshold": 0.029211126267910004,
+              "true_positives": 45,
+              "window_precision": 0.2777777777777778,
+              "window_recall": 0.75
+            },
+            {
+              "achieved_train_fpr": 0.0009555154474997346,
+              "episode_bootstrap": {
+                "ci_high": 0.3333333333333333,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.1111111111111111
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": true
+              },
+              "episode_recall": 0.1111111111111111,
+              "episodes_detected": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007"
+              ],
+              "false_positives": 15,
+              "observed_test_fpr": 0.0010665529010238908,
+              "target_train_fpr": 0.001,
+              "threshold": 0.20947588980197906,
+              "true_positives": 3,
+              "window_precision": 0.16666666666666666,
+              "window_recall": 0.05
+            }
+          ],
+          "pr_auc": 0.3973928223410414,
+          "roc_auc": 0.9452728005309065,
+          "test_episodes": 9,
+          "test_negatives": 14064,
+          "test_positives": 60,
+          "train_negatives": 56514,
+          "train_positives": 316
+        },
+        {
+          "arm": "B",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 0.6795695157818273,
+            "interarrival_mean": 0.32043048421817266
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean"
+          ],
+          "fold": 3,
+          "held_out_attack_type": "ddos/loit",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.00999104744852283,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 200,
+              "observed_test_fpr": 0.013579576317218903,
+              "target_train_fpr": 0.01,
+              "threshold": 0.02897045575082302,
+              "true_positives": 34,
+              "window_precision": 0.1452991452991453,
+              "window_recall": 0.8095238095238095
+            },
+            {
+              "achieved_train_fpr": 0.0009847806624888092,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 20,
+              "observed_test_fpr": 0.0013579576317218902,
+              "target_train_fpr": 0.001,
+              "threshold": 0.19947589933872223,
+              "true_positives": 22,
+              "window_precision": 0.5238095238095238,
+              "window_recall": 0.5238095238095238
+            }
+          ],
+          "pr_auc": 0.5096255616479587,
+          "roc_auc": 0.9927995913194176,
+          "test_episodes": 2,
+          "test_negatives": 14728,
+          "test_positives": 42,
+          "train_negatives": 55850,
+          "train_positives": 334
+        },
+        {
+          "arm": "B",
+          "feature_importance_gain": {
+            "distinct_payload_ratio": 0.6546555015560555,
+            "interarrival_mean": 0.34534449844394455
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean"
+          ],
+          "fold": 4,
+          "held_out_attack_type": "dos/hulk",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.00986737400530504,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 0.0,
+                "episodes": 2,
+                "point": 0.5
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": false
+              },
+              "episode_recall": 0.5,
+              "episodes_detected": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000"
+              ],
+              "episodes_missed": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "false_positives": 175,
+              "observed_test_fpr": 0.0124750499001996,
+              "target_train_fpr": 0.01,
+              "threshold": 0.022900352254509926,
+              "true_positives": 3,
+              "window_precision": 0.016853932584269662,
+              "window_recall": 0.08333333333333333
+            },
+            {
+              "achieved_train_fpr": 0.0009195402298850574,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 2,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": false,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000",
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "false_positives": 44,
+              "observed_test_fpr": 0.003136583974907328,
+              "target_train_fpr": 0.001,
+              "threshold": 0.1731647104024887,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.024245493733456344,
+          "roc_auc": 0.6196248376263347,
+          "test_episodes": 2,
+          "test_negatives": 14028,
+          "test_positives": 36,
+          "train_negatives": 56550,
+          "train_positives": 340
+        }
+      ]
+    },
+    "C": {
+      "features": [
+        "distinct_payload_ratio",
+        "bytes_per_packet_destination"
+      ],
+      "folds": [
+        {
+          "arm": "C",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.28302721751242477,
+            "distinct_payload_ratio": 0.7169727824875752
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 0,
+          "held_out_attack_type": "botnet/ares",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009295120061967466,
+              "episode_bootstrap": {
+                "ci_high": 0.075,
+                "ci_low": 0.0,
+                "episodes": 40,
+                "point": 0.025
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.025,
+              "episodes_detected": [
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002"
+              ],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 148,
+              "observed_test_fpr": 0.010744881661100625,
+              "target_train_fpr": 0.01,
+              "threshold": 0.0020976548548787832,
+              "true_positives": 2,
+              "window_precision": 0.013333333333333334,
+              "window_recall": 0.011299435028248588
+            },
+            {
+              "achieved_train_fpr": 0.0009858460671783678,
+              "episode_bootstrap": {
+                "ci_high": 0.075,
+                "ci_low": 0.0,
+                "episodes": 40,
+                "point": 0.025
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.025,
+              "episodes_detected": [
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002"
+              ],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 14,
+              "observed_test_fpr": 0.0010164077246987077,
+              "target_train_fpr": 0.001,
+              "threshold": 0.025471830740571022,
+              "true_positives": 2,
+              "window_precision": 0.125,
+              "window_recall": 0.011299435028248588
+            }
+          ],
+          "pr_auc": 0.039438380230644776,
+          "roc_auc": 0.8153624408223469,
+          "test_episodes": 40,
+          "test_negatives": 13774,
+          "test_positives": 177,
+          "train_negatives": 56804,
+          "train_positives": 199
+        },
+        {
+          "arm": "C",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.393030170165753,
+            "distinct_payload_ratio": 0.606969829834247
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 1,
+          "held_out_attack_type": "brute_force/ftp_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009241262324628052,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 1,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 85,
+              "observed_test_fpr": 0.00607837528604119,
+              "target_train_fpr": 0.01,
+              "threshold": 0.00744282640516758,
+              "true_positives": 61,
+              "window_precision": 0.4178082191780822,
+              "window_recall": 1.0
+            },
+            {
+              "achieved_train_fpr": 0.000971834470085168,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 1,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 15,
+              "observed_test_fpr": 0.001072654462242563,
+              "target_train_fpr": 0.001,
+              "threshold": 0.08393541723489761,
+              "true_positives": 60,
+              "window_precision": 0.8,
+              "window_recall": 0.9836065573770492
+            }
+          ],
+          "pr_auc": 0.9910692439442135,
+          "roc_auc": 0.999915594402971,
+          "test_episodes": 1,
+          "test_negatives": 13984,
+          "test_positives": 61,
+          "train_negatives": 56594,
+          "train_positives": 315
+        },
+        {
+          "arm": "C",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.4896730264294475,
+            "distinct_payload_ratio": 0.5103269735705526
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 2,
+          "held_out_attack_type": "brute_force/ssh_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009643628127543618,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "false_positives": 109,
+              "observed_test_fpr": 0.007750284414106939,
+              "target_train_fpr": 0.01,
+              "threshold": 0.00477640749886632,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            },
+            {
+              "achieved_train_fpr": 0.0008670417949534629,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "false_positives": 15,
+              "observed_test_fpr": 0.0010665529010238908,
+              "target_train_fpr": 0.001,
+              "threshold": 0.08870894461870193,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.08429372476287192,
+          "roc_auc": 0.9209127322715207,
+          "test_episodes": 9,
+          "test_negatives": 14064,
+          "test_positives": 60,
+          "train_negatives": 56514,
+          "train_positives": 316
+        },
+        {
+          "arm": "C",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.4149657585791692,
+            "distinct_payload_ratio": 0.5850342414208308
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 3,
+          "held_out_attack_type": "ddos/loit",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009668755595344674,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 216,
+              "observed_test_fpr": 0.014665942422596416,
+              "target_train_fpr": 0.01,
+              "threshold": 0.008883454836905003,
+              "true_positives": 42,
+              "window_precision": 0.16279069767441862,
+              "window_recall": 1.0
+            },
+            {
+              "achieved_train_fpr": 0.0009847806624888092,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 14,
+              "observed_test_fpr": 0.0009505703422053232,
+              "target_train_fpr": 0.001,
+              "threshold": 0.09375815093517303,
+              "true_positives": 41,
+              "window_precision": 0.7454545454545455,
+              "window_recall": 0.9761904761904762
+            }
+          ],
+          "pr_auc": 0.8316463213568202,
+          "roc_auc": 0.9995311812938102,
+          "test_episodes": 2,
+          "test_negatives": 14728,
+          "test_positives": 42,
+          "train_negatives": 55850,
+          "train_positives": 334
+        },
+        {
+          "arm": "C",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.40821471280295907,
+            "distinct_payload_ratio": 0.5917852871970409
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 4,
+          "held_out_attack_type": "dos/hulk",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.00986737400530504,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 0.0,
+                "episodes": 2,
+                "point": 0.5
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": false
+              },
+              "episode_recall": 0.5,
+              "episodes_detected": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000"
+              ],
+              "episodes_missed": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "false_positives": 154,
+              "observed_test_fpr": 0.010978043912175649,
+              "target_train_fpr": 0.01,
+              "threshold": 0.008622005581855774,
+              "true_positives": 18,
+              "window_precision": 0.10465116279069768,
+              "window_recall": 0.5
+            },
+            {
+              "achieved_train_fpr": 0.0009372236958443855,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 2,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": false,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000",
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "false_positives": 20,
+              "observed_test_fpr": 0.00142571998859424,
+              "target_train_fpr": 0.001,
+              "threshold": 0.09163874387741089,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.18222575301384444,
+          "roc_auc": 0.8625497021829358,
+          "test_episodes": 2,
+          "test_negatives": 14028,
+          "test_positives": 36,
+          "train_negatives": 56550,
+          "train_positives": 340
+        }
+      ]
+    },
+    "D": {
+      "features": [
+        "distinct_payload_ratio",
+        "interarrival_mean",
+        "bytes_per_packet_destination"
+      ],
+      "folds": [
+        {
+          "arm": "D",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.1847664141949542,
+            "distinct_payload_ratio": 0.7301391775089437,
+            "interarrival_mean": 0.08509440829610199
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 0,
+          "held_out_attack_type": "botnet/ares",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009911273853953947,
+              "episode_bootstrap": {
+                "ci_high": 0.075,
+                "ci_low": 0.0,
+                "episodes": 40,
+                "point": 0.025
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.025,
+              "episodes_detected": [
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002"
+              ],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 193,
+              "observed_test_fpr": 0.014011906490489327,
+              "target_train_fpr": 0.01,
+              "threshold": 0.0013671409105882049,
+              "true_positives": 2,
+              "window_precision": 0.010256410256410256,
+              "window_recall": 0.011299435028248588
+            },
+            {
+              "achieved_train_fpr": 0.0009154284909513415,
+              "episode_bootstrap": {
+                "ci_high": 0.075,
+                "ci_low": 0.0,
+                "episodes": 40,
+                "point": 0.025
+              },
+              "episode_detection": {
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+              },
+              "episode_recall": 0.025,
+              "episodes_detected": [
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002"
+              ],
+              "episodes_missed": [
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+                "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+              ],
+              "false_positives": 16,
+              "observed_test_fpr": 0.0011616088282270945,
+              "target_train_fpr": 0.001,
+              "threshold": 0.016889605671167374,
+              "true_positives": 1,
+              "window_precision": 0.058823529411764705,
+              "window_recall": 0.005649717514124294
+            }
+          ],
+          "pr_auc": 0.029383267571951876,
+          "roc_auc": 0.7453363374375205,
+          "test_episodes": 40,
+          "test_negatives": 13774,
+          "test_positives": 177,
+          "train_negatives": 56804,
+          "train_positives": 199
+        },
+        {
+          "arm": "D",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.3183130061402239,
+            "distinct_payload_ratio": 0.5659411303183127,
+            "interarrival_mean": 0.11574586354146332
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 1,
+          "held_out_attack_type": "brute_force/ftp_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.00996572074778245,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 1,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 128,
+              "observed_test_fpr": 0.009153318077803204,
+              "target_train_fpr": 0.01,
+              "threshold": 0.005551927722990513,
+              "true_positives": 61,
+              "window_precision": 0.32275132275132273,
+              "window_recall": 1.0
+            },
+            {
+              "achieved_train_fpr": 0.0009895041877230801,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 1,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 12,
+              "observed_test_fpr": 0.0008581235697940503,
+              "target_train_fpr": 0.001,
+              "threshold": 0.05138484388589859,
+              "true_positives": 61,
+              "window_precision": 0.8356164383561644,
+              "window_recall": 1.0
+            }
+          ],
+          "pr_auc": 0.8688189196835054,
+          "roc_auc": 0.9995732828150203,
+          "test_episodes": 1,
+          "test_negatives": 13984,
+          "test_positives": 61,
+          "train_negatives": 56594,
+          "train_positives": 315
+        },
+        {
+          "arm": "D",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.4362753316568318,
+            "distinct_payload_ratio": 0.43571962819274007,
+            "interarrival_mean": 0.12800504015042813
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 2,
+          "held_out_attack_type": "brute_force/ssh_patator",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009997522737728705,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "false_positives": 88,
+              "observed_test_fpr": 0.006257110352673493,
+              "target_train_fpr": 0.01,
+              "threshold": 0.00171353027690202,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            },
+            {
+              "achieved_train_fpr": 0.0009909049085182432,
+              "episode_bootstrap": {
+                "ci_high": 0.0,
+                "ci_low": 0.0,
+                "episodes": 9,
+                "point": 0.0
+              },
+              "episode_detection": {
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": false
+              },
+              "episode_recall": 0.0,
+              "episodes_detected": [],
+              "episodes_missed": [
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007",
+                "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+              ],
+              "false_positives": 4,
+              "observed_test_fpr": 0.0002844141069397042,
+              "target_train_fpr": 0.001,
+              "threshold": 0.054734524339437485,
+              "true_positives": 0,
+              "window_precision": 0.0,
+              "window_recall": 0.0
+            }
+          ],
+          "pr_auc": 0.1667407704199638,
+          "roc_auc": 0.9354611063708761,
+          "test_episodes": 9,
+          "test_negatives": 14064,
+          "test_positives": 60,
+          "train_negatives": 56514,
+          "train_positives": 316
+        },
+        {
+          "arm": "D",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.3594015628442236,
+            "distinct_payload_ratio": 0.5176724628201449,
+            "interarrival_mean": 0.12292597433563152
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 3,
+          "held_out_attack_type": "ddos/loit",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.009811996418979408,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 166,
+              "observed_test_fpr": 0.011271048343291689,
+              "target_train_fpr": 0.01,
+              "threshold": 0.004705559927970171,
+              "true_positives": 42,
+              "window_precision": 0.20192307692307693,
+              "window_recall": 1.0
+            },
+            {
+              "achieved_train_fpr": 0.0009847806624888092,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 1.0,
+                "episodes": 2,
+                "point": 1.0
+              },
+              "episode_detection": {
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+              },
+              "episode_recall": 1.0,
+              "episodes_detected": [
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+                "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "episodes_missed": [],
+              "false_positives": 17,
+              "observed_test_fpr": 0.0011542639869636068,
+              "target_train_fpr": 0.001,
+              "threshold": 0.05931128188967705,
+              "true_positives": 42,
+              "window_precision": 0.711864406779661,
+              "window_recall": 1.0
+            }
+          ],
+          "pr_auc": 0.9297602262133154,
+          "roc_auc": 0.9998173223662088,
+          "test_episodes": 2,
+          "test_negatives": 14728,
+          "test_positives": 42,
+          "train_negatives": 55850,
+          "train_positives": 334
+        },
+        {
+          "arm": "D",
+          "feature_importance_gain": {
+            "bytes_per_packet_destination": 0.25800597112972845,
+            "distinct_payload_ratio": 0.5886112239416815,
+            "interarrival_mean": 0.15338280492859002
+          },
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean",
+            "bytes_per_packet_destination"
+          ],
+          "fold": 4,
+          "held_out_attack_type": "dos/hulk",
+          "operating_points": [
+            {
+              "achieved_train_fpr": 0.00951370468611848,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 0.0,
+                "episodes": 2,
+                "point": 0.5
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": false
+              },
+              "episode_recall": 0.5,
+              "episodes_detected": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000"
+              ],
+              "episodes_missed": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "false_positives": 168,
+              "observed_test_fpr": 0.011976047904191617,
+              "target_train_fpr": 0.01,
+              "threshold": 0.00479364488273859,
+              "true_positives": 18,
+              "window_precision": 0.0967741935483871,
+              "window_recall": 0.5
+            },
+            {
+              "achieved_train_fpr": 0.0009902740937223697,
+              "episode_bootstrap": {
+                "ci_high": 1.0,
+                "ci_low": 0.0,
+                "episodes": 2,
+                "point": 0.5
+              },
+              "episode_detection": {
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": false
+              },
+              "episode_recall": 0.5,
+              "episodes_detected": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000"
+              ],
+              "episodes_missed": [
+                "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+              ],
+              "false_positives": 34,
+              "observed_test_fpr": 0.002423723980610208,
+              "target_train_fpr": 0.001,
+              "threshold": 0.04233918711543083,
+              "true_positives": 18,
+              "window_precision": 0.34615384615384615,
+              "window_recall": 0.5
+            }
+          ],
+          "pr_auc": 0.17350361339496248,
+          "roc_auc": 0.7831875930678327,
+          "test_episodes": 2,
+          "test_negatives": 14028,
+          "test_positives": 36,
+          "train_negatives": 56550,
+          "train_positives": 340
+        }
+      ]
+    }
+  },
+  "arms_registered": {
+    "A": [
+      "distinct_payload_ratio"
+    ],
+    "B": [
+      "distinct_payload_ratio",
+      "interarrival_mean"
+    ],
+    "C": [
+      "distinct_payload_ratio",
+      "bytes_per_packet_destination"
+    ],
+    "D": [
+      "distinct_payload_ratio",
+      "interarrival_mean",
+      "bytes_per_packet_destination"
+    ]
+  },
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 0,
+    "unit": "episode",
+    "window_level_intervals": "forbidden"
+  },
+  "class_rebalancing": false,
+  "comparisons_vs_arm_a": {
+    "A": {
+      "feature_importance_gain_botnet_fold": {
+        "distinct_payload_ratio": 1.0
+      },
+      "features": [
+        "distinct_payload_ratio"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [],
+        "episode_recall_delta": 0.0,
+        "fpr_delta": 0.0,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "episodes": 40,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "pr_auc_delta": 0.0,
+        "reference_only_episodes": [],
+        "roc_auc_delta": 0.0
+      },
+      "primary": {
+        "entities_detected": 5,
+        "entities_total": 5,
+        "episode_ci": [
+          0.19937500000000005,
+          0.475
+        ],
+        "episode_recall": 0.325,
+        "episodes_detected": 13,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.009873675039930304,
+        "pr_auc": 0.0670200698009214,
+        "roc_auc": 0.7615389758318096,
+        "roc_descriptively_above_chance": true,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.02265745960175991,
+        "window_recall": 0.13559322033898305
+      },
+      "single_feature_dependence": "by construction: ARM A has one feature",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.007365560640732265,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.03359005384846879,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.8881455855872754,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 0.04918032786885246
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.1111111111111111,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.009101251422070534,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.5534204511205815,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9199427616609784,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.55
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.01704236827810972,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.311283488991151,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9902849447763897,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 1.0
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.010265183917878529,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.16387869336761232,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.9680450606723062,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.5833333333333334
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 6,
+        "important": false
+      }
+    },
+    "B": {
+      "feature_importance_gain_botnet_fold": {
+        "distinct_payload_ratio": 0.7130415008779766,
+        "interarrival_mean": 0.2869584991220235
+      },
+      "features": [
+        "distinct_payload_ratio",
+        "interarrival_mean"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [
+          "192.168.10.14|205.174.165.73|tcp|http",
+          "192.168.10.15|205.174.165.73|tcp|http",
+          "192.168.10.5|205.174.165.73|tcp|http",
+          "192.168.10.8|205.174.165.73|tcp|http",
+          "192.168.10.9|205.174.165.73|tcp|http"
+        ],
+        "episode_recall_delta": -0.325,
+        "fpr_delta": 0.0027588209670393483,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.1993750000000034,
+          "ci_low": -0.475,
+          "episodes": 40,
+          "point": -0.325,
+          "reference_only_detections": 13
+        },
+        "pr_auc_delta": -0.0493295783969018,
+        "reference_only_episodes": [
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010"
+        ],
+        "roc_auc_delta": -0.22941897409267775
+      },
+      "primary": {
+        "entities_detected": 0,
+        "entities_total": 5,
+        "episode_ci": [
+          0.0,
+          0.0
+        ],
+        "episode_recall": 0.0,
+        "episodes_detected": 0,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.012632496006969652,
+        "pr_auc": 0.0176904914040196,
+        "roc_auc": 0.5321200017391319,
+        "roc_descriptively_above_chance": false,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.0056553613394498825,
+        "window_recall": 0.0
+      },
+      "single_feature_dependence": "marginal attribution is identified only by comparison with the registered ablation arms; gain importance is descriptive, not causal",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.0,
+            "episode_recall_delta": -1.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.009796910755148741,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.006463275274586459,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.34663327174850883,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 0.0
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.1111111111111111,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.008319112627986349,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.3973928223410414,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9452728005309065,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.75
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.013579576317218903,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.5096255616479587,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9927995913194176,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 0.8095238095238095
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.5,
+            "episode_recall_delta": -0.5,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.0124750499001996,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.024245493733456344,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.6196248376263347,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.08333333333333333
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 4,
+        "important": true
+      }
+    },
+    "C": {
+      "feature_importance_gain_botnet_fold": {
+        "bytes_per_packet_destination": 0.28302721751242477,
+        "distinct_payload_ratio": 0.7169727824875752
+      },
+      "features": [
+        "distinct_payload_ratio",
+        "bytes_per_packet_destination"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [
+          "192.168.10.14|205.174.165.73|tcp|http",
+          "192.168.10.15|205.174.165.73|tcp|http",
+          "192.168.10.5|205.174.165.73|tcp|http",
+          "192.168.10.8|205.174.165.73|tcp|http",
+          "192.168.10.9|205.174.165.73|tcp|http"
+        ],
+        "episode_recall_delta": -0.3,
+        "fpr_delta": 0.0008712066211703211,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.175,
+          "ci_low": -0.45,
+          "episodes": 40,
+          "point": -0.3,
+          "reference_only_detections": 12
+        },
+        "pr_auc_delta": -0.027581689570276624,
+        "reference_only_episodes": [
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010"
+        ],
+        "roc_auc_delta": 0.05382346499053725
+      },
+      "primary": {
+        "entities_detected": 1,
+        "entities_total": 5,
+        "episode_ci": [
+          0.0,
+          0.075
+        ],
+        "episode_recall": 0.025,
+        "episodes_detected": 1,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.010744881661100625,
+        "pr_auc": 0.039438380230644776,
+        "roc_auc": 0.8153624408223469,
+        "roc_descriptively_above_chance": true,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.0020976548548787832,
+        "window_recall": 0.011299435028248588
+      },
+      "single_feature_dependence": "marginal attribution is identified only by comparison with the registered ablation arms; gain importance is descriptive, not causal",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.00607837528604119,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.9910692439442135,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.999915594402971,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 1.0
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.0,
+            "episode_recall_delta": -0.1111111111111111,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.007750284414106939,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.08429372476287192,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9209127322715207,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.0
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.014665942422596416,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.8316463213568202,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9995311812938102,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 1.0
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.5,
+            "episode_recall_delta": -0.5,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.010978043912175649,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.18222575301384444,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.8625497021829358,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.5
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 4,
+        "important": true
+      }
+    },
+    "D": {
+      "feature_importance_gain_botnet_fold": {
+        "bytes_per_packet_destination": 0.1847664141949542,
+        "distinct_payload_ratio": 0.7301391775089437,
+        "interarrival_mean": 0.08509440829610199
+      },
+      "features": [
+        "distinct_payload_ratio",
+        "interarrival_mean",
+        "bytes_per_packet_destination"
+      ],
+      "gain_vs_arm_a": {
+        "candidate_only_episodes": [],
+        "entities_with_candidate_only_detections": [],
+        "entities_with_reference_only_detections": [
+          "192.168.10.14|205.174.165.73|tcp|http",
+          "192.168.10.15|205.174.165.73|tcp|http",
+          "192.168.10.5|205.174.165.73|tcp|http",
+          "192.168.10.8|205.174.165.73|tcp|http",
+          "192.168.10.9|205.174.165.73|tcp|http"
+        ],
+        "episode_recall_delta": -0.3,
+        "fpr_delta": 0.004138231450559023,
+        "gain_is_distributed_over_multiple_entities": false,
+        "paired_episode_bootstrap": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.175,
+          "ci_low": -0.45,
+          "episodes": 40,
+          "point": -0.3,
+          "reference_only_detections": 12
+        },
+        "pr_auc_delta": -0.03763680222896952,
+        "reference_only_episodes": [
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+          "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+          "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+          "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+          "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010"
+        ],
+        "roc_auc_delta": -0.01620263839428915
+      },
+      "primary": {
+        "entities_detected": 1,
+        "entities_total": 5,
+        "episode_ci": [
+          0.0,
+          0.075
+        ],
+        "episode_recall": 0.025,
+        "episodes_detected": 1,
+        "episodes_total": 40,
+        "observed_test_fpr": 0.014011906490489327,
+        "pr_auc": 0.029383267571951876,
+        "roc_auc": 0.7453363374375205,
+        "roc_descriptively_above_chance": true,
+        "roc_inference_caveat": "point estimate only; no window bootstrap was performed",
+        "threshold": 0.0013671409105882049,
+        "window_recall": 0.011299435028248588
+      },
+      "single_feature_dependence": "marginal attribution is identified only by comparison with the registered ablation arms; gain importance is descriptive, not causal",
+      "volumetric_cost": {
+        "by_type": {
+          "brute_force/ftp_patator": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.007365560640732265,
+            "observed_test_fpr_arm": 0.009153318077803204,
+            "pr_auc_a": 0.03359005384846879,
+            "pr_auc_arm": 0.8688189196835054,
+            "roc_auc_a": 0.8881455855872754,
+            "roc_auc_arm": 0.9995732828150203,
+            "window_recall_a": 0.04918032786885246,
+            "window_recall_arm": 1.0
+          },
+          "brute_force/ssh_patator": {
+            "episode_recall_a": 0.1111111111111111,
+            "episode_recall_arm": 0.0,
+            "episode_recall_delta": -0.1111111111111111,
+            "observed_test_fpr_a": 0.009101251422070534,
+            "observed_test_fpr_arm": 0.006257110352673493,
+            "pr_auc_a": 0.5534204511205815,
+            "pr_auc_arm": 0.1667407704199638,
+            "roc_auc_a": 0.9199427616609784,
+            "roc_auc_arm": 0.9354611063708761,
+            "window_recall_a": 0.55,
+            "window_recall_arm": 0.0
+          },
+          "ddos/loit": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 1.0,
+            "episode_recall_delta": 0.0,
+            "observed_test_fpr_a": 0.01704236827810972,
+            "observed_test_fpr_arm": 0.011271048343291689,
+            "pr_auc_a": 0.311283488991151,
+            "pr_auc_arm": 0.9297602262133154,
+            "roc_auc_a": 0.9902849447763897,
+            "roc_auc_arm": 0.9998173223662088,
+            "window_recall_a": 1.0,
+            "window_recall_arm": 1.0
+          },
+          "dos/hulk": {
+            "episode_recall_a": 1.0,
+            "episode_recall_arm": 0.5,
+            "episode_recall_delta": -0.5,
+            "observed_test_fpr_a": 0.010265183917878529,
+            "observed_test_fpr_arm": 0.011976047904191617,
+            "pr_auc_a": 0.16387869336761232,
+            "pr_auc_arm": 0.17350361339496248,
+            "roc_auc_a": 0.9680450606723062,
+            "roc_auc_arm": 0.7831875930678327,
+            "window_recall_a": 0.5833333333333334,
+            "window_recall_arm": 0.5
+          }
+        },
+        "episodes_detected_a": 6,
+        "episodes_detected_arm": 4,
+        "important": true
+      }
+    }
+  },
+  "completed_at": "2026-08-24T10:50:32.717414+00:00",
+  "conservative_decisions": [
+    {
+      "decision": "four fixed arms A--D; the model parameters are byte-for-byte the published XGBoost baseline parameters",
+      "id": "D24",
+      "reason": "only the feature budget may vary, so no model search, validation split, early stopping, rebalancing, or threshold search is introduced"
+    },
+    {
+      "decision": "P6 undefined values remain NaN and use XGBoost's native missing branch",
+      "id": "D25",
+      "reason": "imputation, a fitted fill value, or a missingness indicator would modify the audited feature and widen the registered budget"
+    },
+    {
+      "decision": "P1 folds are reconstructed to recover P1's authentic training-row order and then proven equal to the frozen folds",
+      "id": "D26",
+      "reason": "p1_folds.json preserves membership but sorts ids; all arms must share P1's actual order and exactly the same ordered test rows"
+    },
+    {
+      "decision": "online validity is assessed from the exact P6 formulas and their source quantities, without using absolute time",
+      "id": "D27",
+      "reason": "interarrival_mean uses differences of relative starts only; the two byte features use counters available by window close; historical extraction is from FlowEnd evidence, so deployment latency itself is not measured"
+    },
+    {
+      "decision": "candidate-minus-ARM-A recall deltas use a paired bootstrap over the same episode ids",
+      "id": "D28",
+      "reason": "all arms see the same 40 botnet episodes; resampling windows would be pseudoreplication and comparing marginal intervals alone would discard the pairing"
+    }
+  ],
+  "content_sha256": "4fc5457f4c2b738a4c90d466b40cbb70ca8eafa1f40ac43e14ba383e41afd5a4",
+  "cross_arm_test_identity": [
+    {
+      "check": "fold0_ordered_test_row_and_label_signature_identical_across_all_arms",
+      "detail": {
+        "A": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651",
+        "B": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651",
+        "C": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651",
+        "D": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold1_ordered_test_row_and_label_signature_identical_across_all_arms",
+      "detail": {
+        "A": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714",
+        "B": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714",
+        "C": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714",
+        "D": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold2_ordered_test_row_and_label_signature_identical_across_all_arms",
+      "detail": {
+        "A": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7",
+        "B": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7",
+        "C": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7",
+        "D": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold3_ordered_test_row_and_label_signature_identical_across_all_arms",
+      "detail": {
+        "A": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc",
+        "B": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc",
+        "C": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc",
+        "D": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold4_ordered_test_row_and_label_signature_identical_across_all_arms",
+      "detail": {
+        "A": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe",
+        "B": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe",
+        "C": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe",
+        "D": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold0_arm_a_reproduces_published_xgboost_baseline_scores",
+      "detail": "13951 ordered predictions",
+      "passed": true
+    },
+    {
+      "check": "fold1_arm_a_reproduces_published_xgboost_baseline_scores",
+      "detail": "14045 ordered predictions",
+      "passed": true
+    },
+    {
+      "check": "fold2_arm_a_reproduces_published_xgboost_baseline_scores",
+      "detail": "14124 ordered predictions",
+      "passed": true
+    },
+    {
+      "check": "fold3_arm_a_reproduces_published_xgboost_baseline_scores",
+      "detail": "14770 ordered predictions",
+      "passed": true
+    },
+    {
+      "check": "fold4_arm_a_reproduces_published_xgboost_baseline_scores",
+      "detail": "14064 ordered predictions",
+      "passed": true
+    },
+    {
+      "check": "fold0_prediction_row_and_label_stream_identical_across_all_arms",
+      "detail": {
+        "A": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651",
+        "B": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651",
+        "C": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651",
+        "D": "d2fcb3113b16faa00876278450822faa4fbdffe06a381ed15b46865974997651"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold1_prediction_row_and_label_stream_identical_across_all_arms",
+      "detail": {
+        "A": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714",
+        "B": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714",
+        "C": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714",
+        "D": "7677c885d73a079ae25f3912bc38813871bf7b7a61a9f479365b9cec66a38714"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold2_prediction_row_and_label_stream_identical_across_all_arms",
+      "detail": {
+        "A": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7",
+        "B": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7",
+        "C": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7",
+        "D": "32f1cabd1c5c49ba47ed6819ffae60a36d48afa6b93f075c613cf08ef007a8f7"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold3_prediction_row_and_label_stream_identical_across_all_arms",
+      "detail": {
+        "A": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc",
+        "B": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc",
+        "C": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc",
+        "D": "c5c74fda9a12132bcdec3e0c9498c63d18c0a7aae399483e7c31fc2858eb74dc"
+      },
+      "passed": true
+    },
+    {
+      "check": "fold4_prediction_row_and_label_stream_identical_across_all_arms",
+      "detail": {
+        "A": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe",
+        "B": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe",
+        "C": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe",
+        "D": "0ccdcb34d4db9567fa98f064c2dd6ab5a24c5295d0bf54bca928c2e87506bffe"
+      },
+      "passed": true
+    }
+  ],
+  "early_stopping": false,
+  "ensembling": false,
+  "experiment": "controlled four-arm XGBoost feature benchmark",
+  "feature_derivation": {
+    "checks": [
+      {
+        "check": "feature_functions_are_exactly_the_p6_implementations",
+        "detail": [
+          "distinct_payload_ratio",
+          "interarrival_mean",
+          "bytes_per_packet_destination"
+        ],
+        "passed": true
+      },
+      {
+        "check": "no_feature_source_is_a_label_or_provenance_column",
+        "detail": {
+          "bytes_per_packet_destination": [
+            "destination_bytes",
+            "destination_packets"
+          ],
+          "distinct_payload_ratio": [
+            "source_bytes",
+            "destination_bytes"
+          ],
+          "interarrival_mean": [
+            "event_start_time_relative_to_window"
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "all_registered_features_are_p6_online",
+        "detail": {
+          "bytes_per_packet_destination": "online",
+          "distinct_payload_ratio": "online",
+          "interarrival_mean": "online (start times only)"
+        },
+        "passed": true
+      },
+      {
+        "check": "event_start_time_is_reduced_to_a_relative_offset_inside_the_window",
+        "detail": "all retained offsets are in [0, 60); absolute timestamps do not reach a feature",
+        "passed": true
+      },
+      {
+        "check": "no_absolute_timestamp_is_reachable_from_a_feature",
+        "detail": {
+          "largest_finite_feature": 2787.1119362995832,
+          "smallest_epoch": 1499083200
+        },
+        "passed": true
+      },
+      {
+        "check": "arm_A_preserves_all_row_and_label_metadata",
+        "detail": "70954 rows",
+        "passed": true
+      },
+      {
+        "check": "arm_A_has_exactly_the_registered_feature_width",
+        "detail": {
+          "features": [
+            "distinct_payload_ratio"
+          ],
+          "width": 1
+        },
+        "passed": true
+      },
+      {
+        "check": "arm_B_preserves_all_row_and_label_metadata",
+        "detail": "70954 rows",
+        "passed": true
+      },
+      {
+        "check": "arm_B_has_exactly_the_registered_feature_width",
+        "detail": {
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean"
+          ],
+          "width": 2
+        },
+        "passed": true
+      },
+      {
+        "check": "arm_C_preserves_all_row_and_label_metadata",
+        "detail": "70954 rows",
+        "passed": true
+      },
+      {
+        "check": "arm_C_has_exactly_the_registered_feature_width",
+        "detail": {
+          "features": [
+            "distinct_payload_ratio",
+            "bytes_per_packet_destination"
+          ],
+          "width": 2
+        },
+        "passed": true
+      },
+      {
+        "check": "arm_D_preserves_all_row_and_label_metadata",
+        "detail": "70954 rows",
+        "passed": true
+      },
+      {
+        "check": "arm_D_has_exactly_the_registered_feature_width",
+        "detail": {
+          "features": [
+            "distinct_payload_ratio",
+            "interarrival_mean",
+            "bytes_per_packet_destination"
+          ],
+          "width": 3
+        },
+        "passed": true
+      },
+      {
+        "check": "distinct_payload_ratio_missingness_matches_p6",
+        "detail": {
+          "observed_benign": 0.0,
+          "observed_botnet": 0.0,
+          "p6_benign": 0.0,
+          "p6_botnet": 0.0
+        },
+        "passed": true
+      },
+      {
+        "check": "interarrival_mean_missingness_matches_p6",
+        "detail": {
+          "observed_benign": 0.5867409107653944,
+          "observed_botnet": 0.3107344632768362,
+          "p6_benign": 0.586741,
+          "p6_botnet": 0.310734
+        },
+        "passed": true
+      },
+      {
+        "check": "bytes_per_packet_destination_missingness_matches_p6",
+        "detail": {
+          "observed_benign": 0.035365127943551816,
+          "observed_botnet": 0.0,
+          "p6_benign": 0.035365,
+          "p6_botnet": 0.0
+        },
+        "passed": true
+      }
+    ],
+    "missingness": {
+      "bytes_per_packet_destination": {
+        "benign_missing": 2496,
+        "benign_rate": 0.035365127943551816,
+        "benign_total": 70578,
+        "botnet_missing": 0,
+        "botnet_rate": 0.0,
+        "botnet_total": 177,
+        "policy": "native NaN; no imputation and no indicator"
+      },
+      "distinct_payload_ratio": {
+        "benign_missing": 0,
+        "benign_rate": 0.0,
+        "benign_total": 70578,
+        "botnet_missing": 0,
+        "botnet_rate": 0.0,
+        "botnet_total": 177,
+        "policy": "native NaN; no imputation and no indicator"
+      },
+      "interarrival_mean": {
+        "benign_missing": 41411,
+        "benign_rate": 0.5867409107653944,
+        "benign_total": 70578,
+        "botnet_missing": 55,
+        "botnet_rate": 0.3107344632768362,
+        "botnet_total": 177,
+        "policy": "native NaN; no imputation and no indicator"
+      }
+    },
+    "online_validity": {
+      "features": {
+        "bytes_per_packet_destination": {
+          "derivation": "sum(destination_bytes)/sum(destination_packets); undefined when no packet returns",
+          "future_information": false,
+          "guard": "uses destination byte and packet counters available by window close; undefined denominator remains NaN",
+          "status": "online"
+        },
+        "distinct_payload_ratio": {
+          "derivation": "|distinct (source_bytes, destination_bytes) pairs| / event_count",
+          "future_information": false,
+          "status": "online"
+        },
+        "interarrival_mean": {
+          "derivation": "mean of consecutive start-time differences; undefined for n<2",
+          "future_information": false,
+          "guard": "only consecutive differences of relative starts in [0,60) are used",
+          "status": "online (start times only)"
+        }
+      },
+      "historical_evidence_caveat": "values are reconstructed from persisted FlowEnd evidence; the formulas use no future window, but this benchmark does not measure streaming ingestion latency or availability of late flow records",
+      "status": "ONLINE formulas under the P6 window-close convention"
+    },
+    "p6_implementation_reused": true,
+    "source_columns": {
+      "bytes_per_packet_destination": [
+        "destination_bytes",
+        "destination_packets"
+      ],
+      "distinct_payload_ratio": [
+        "source_bytes",
+        "destination_bytes"
+      ],
+      "interarrival_mean": [
+        "event_start_time_relative_to_window"
+      ]
+    }
+  },
+  "frozen_file_checks": [
+    {
+      "check": "p1_dataset.csv_file_digest_frozen",
+      "detail": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+      "passed": true
+    },
+    {
+      "check": "p1_folds.json_file_digest_frozen",
+      "detail": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+      "passed": true
+    },
+    {
+      "check": "p1_metrics.json_file_digest_frozen",
+      "detail": "2a51e618397c42b742a289216d3cd89b255c4ccd96a8f985a5ad1c5c4783a447",
+      "passed": true
+    },
+    {
+      "check": "p6_feature_audit.json_file_digest_frozen",
+      "detail": "d028e8476df66c2827e534281fdda6c994c6e1023ba42bb57461c34316a9d1ac",
+      "passed": true
+    },
+    {
+      "check": "xgb_metrics.json_file_digest_frozen",
+      "detail": "4b841773bbe34d62153dfbd69cc9c5f2a480b781f842ed0c59a1efe3a21a1263",
+      "passed": true
+    },
+    {
+      "check": "xgb_model_params.json_file_digest_frozen",
+      "detail": "d6d33ca0b7a6d42f5bd059ac1e8a2c11fe6b47f8e7104ee1da6ac6a139a03521",
+      "passed": true
+    }
+  ],
+  "hyperparameter_search": false,
+  "labels_modified": false,
+  "model_parameters": {
+    "colsample_bytree": 1.0,
+    "eval_metric": "logloss",
+    "learning_rate": 0.1,
+    "max_depth": 3,
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "objective": "binary:logistic",
+    "random_state": 0,
+    "scale_pos_weight": 1,
+    "subsample": 1.0,
+    "tree_method": "exact",
+    "verbosity": 0
+  },
+  "new_split_created": false,
+  "p1_dataset_content_sha256": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+  "p1_folds_content_sha256": "e463ea7b0eb4985f51369dc3ae19c09821040675aa4b9f9689f8e02545fed95a",
+  "per_entity_recall": {
+    "A": {
+      "botnet/ares": {
+        "target_0.001": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 31,
+            "windows_flagged": 0
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 49,
+            "windows_flagged": 0
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 7,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 27,
+            "windows_flagged": 0
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 2,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 26,
+            "windows_flagged": 0
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 15,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 44,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.5,
+            "episodes": 8,
+            "episodes_detected": 4,
+            "window_recall": 0.1935483870967742,
+            "windows": 31,
+            "windows_flagged": 6
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.25,
+            "episodes": 8,
+            "episodes_detected": 2,
+            "window_recall": 0.08163265306122448,
+            "windows": 49,
+            "windows_flagged": 4
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.42857142857142855,
+            "episodes": 7,
+            "episodes_detected": 3,
+            "window_recall": 0.18518518518518517,
+            "windows": 27,
+            "windows_flagged": 5
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 2,
+            "episodes_detected": 2,
+            "window_recall": 0.19230769230769232,
+            "windows": 26,
+            "windows_flagged": 5
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.13333333333333333,
+            "episodes": 15,
+            "episodes_detected": 2,
+            "window_recall": 0.09090909090909091,
+            "windows": 44,
+            "windows_flagged": 4
+          }
+        }
+      },
+      "brute_force/ftp_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 61,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.04918032786885246,
+            "windows": 61,
+            "windows_flagged": 3
+          }
+        }
+      },
+      "brute_force/ssh_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.5,
+            "windows": 52,
+            "windows_flagged": 26
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.6346153846153846,
+            "windows": 52,
+            "windows_flagged": 33
+          }
+        }
+      },
+      "ddos/loit": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 21,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.47619047619047616,
+            "windows": 21,
+            "windows_flagged": 10
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          }
+        }
+      },
+      "dos/hulk": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.6111111111111112,
+            "windows": 18,
+            "windows_flagged": 11
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.05555555555555555,
+            "windows": 18,
+            "windows_flagged": 1
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 18,
+            "windows_flagged": 18
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.16666666666666666,
+            "windows": 18,
+            "windows_flagged": 3
+          }
+        }
+      }
+    },
+    "B": {
+      "botnet/ares": {
+        "target_0.001": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 31,
+            "windows_flagged": 0
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 49,
+            "windows_flagged": 0
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 7,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 27,
+            "windows_flagged": 0
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 2,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 26,
+            "windows_flagged": 0
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 15,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 44,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 31,
+            "windows_flagged": 0
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 49,
+            "windows_flagged": 0
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 7,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 27,
+            "windows_flagged": 0
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 2,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 26,
+            "windows_flagged": 0
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 15,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 44,
+            "windows_flagged": 0
+          }
+        }
+      },
+      "brute_force/ftp_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 61,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 61,
+            "windows_flagged": 0
+          }
+        }
+      },
+      "brute_force/ssh_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.057692307692307696,
+            "windows": 52,
+            "windows_flagged": 3
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.8653846153846154,
+            "windows": 52,
+            "windows_flagged": 45
+          }
+        }
+      },
+      "ddos/loit": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.047619047619047616,
+            "windows": 21,
+            "windows_flagged": 1
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.6190476190476191,
+            "windows": 21,
+            "windows_flagged": 13
+          }
+        }
+      },
+      "dos/hulk": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.16666666666666666,
+            "windows": 18,
+            "windows_flagged": 3
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          }
+        }
+      }
+    },
+    "C": {
+      "botnet/ares": {
+        "target_0.001": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 31,
+            "windows_flagged": 0
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 49,
+            "windows_flagged": 0
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.14285714285714285,
+            "episodes": 7,
+            "episodes_detected": 1,
+            "window_recall": 0.07407407407407407,
+            "windows": 27,
+            "windows_flagged": 2
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 2,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 26,
+            "windows_flagged": 0
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 15,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 44,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 31,
+            "windows_flagged": 0
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 49,
+            "windows_flagged": 0
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.14285714285714285,
+            "episodes": 7,
+            "episodes_detected": 1,
+            "window_recall": 0.07407407407407407,
+            "windows": 27,
+            "windows_flagged": 2
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 2,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 26,
+            "windows_flagged": 0
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 15,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 44,
+            "windows_flagged": 0
+          }
+        }
+      },
+      "brute_force/ftp_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.9836065573770492,
+            "windows": 61,
+            "windows_flagged": 60
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 61,
+            "windows_flagged": 61
+          }
+        }
+      },
+      "brute_force/ssh_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 52,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 52,
+            "windows_flagged": 0
+          }
+        }
+      },
+      "ddos/loit": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 0.9523809523809523,
+            "windows": 21,
+            "windows_flagged": 20
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          }
+        }
+      },
+      "dos/hulk": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 18,
+            "windows_flagged": 18
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          }
+        }
+      }
+    },
+    "D": {
+      "botnet/ares": {
+        "target_0.001": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 31,
+            "windows_flagged": 0
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 49,
+            "windows_flagged": 0
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.14285714285714285,
+            "episodes": 7,
+            "episodes_detected": 1,
+            "window_recall": 0.037037037037037035,
+            "windows": 27,
+            "windows_flagged": 1
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 2,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 26,
+            "windows_flagged": 0
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 15,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 44,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "192.168.10.14|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 31,
+            "windows_flagged": 0
+          },
+          "192.168.10.15|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 49,
+            "windows_flagged": 0
+          },
+          "192.168.10.5|205.174.165.73|tcp|http": {
+            "episode_recall": 0.14285714285714285,
+            "episodes": 7,
+            "episodes_detected": 1,
+            "window_recall": 0.07407407407407407,
+            "windows": 27,
+            "windows_flagged": 2
+          },
+          "192.168.10.8|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 2,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 26,
+            "windows_flagged": 0
+          },
+          "192.168.10.9|205.174.165.73|tcp|http": {
+            "episode_recall": 0.0,
+            "episodes": 15,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 44,
+            "windows_flagged": 0
+          }
+        }
+      },
+      "brute_force/ftp_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 61,
+            "windows_flagged": 61
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|ftp": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 61,
+            "windows_flagged": 61
+          }
+        }
+      },
+      "brute_force/ssh_patator": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 52,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 8,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 8,
+            "windows_flagged": 0
+          },
+          "172.16.0.1|192.168.10.50|tcp|ssh": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 52,
+            "windows_flagged": 0
+          }
+        }
+      },
+      "ddos/loit": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 21,
+            "windows_flagged": 21
+          }
+        }
+      },
+      "dos/hulk": {
+        "target_0.001": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 18,
+            "windows_flagged": 18
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          }
+        },
+        "target_0.01": {
+          "172.16.0.1|192.168.10.50|tcp|http": {
+            "episode_recall": 1.0,
+            "episodes": 1,
+            "episodes_detected": 1,
+            "window_recall": 1.0,
+            "windows": 18,
+            "windows_flagged": 18
+          },
+          "172.16.0.1|192.168.10.50|tcp|none": {
+            "episode_recall": 0.0,
+            "episodes": 1,
+            "episodes_detected": 0,
+            "window_recall": 0.0,
+            "windows": 18,
+            "windows_flagged": 0
+          }
+        }
+      }
+    }
+  },
+  "postgresql_writes": 0,
+  "protocol_verification": [
+    {
+      "check": "population_content_digest_matches_p1",
+      "detail": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+      "passed": true
+    },
+    {
+      "check": "folds_content_digest_matches_p1",
+      "detail": "e463ea7b0eb4985f51369dc3ae19c09821040675aa4b9f9689f8e02545fed95a",
+      "passed": true
+    },
+    {
+      "check": "no_unknown_or_ambiguous_anywhere",
+      "detail": "dispositions present: ['benign_reference', 'known_other_attack', 'target_attack']",
+      "passed": true
+    },
+    {
+      "check": "negatives_are_only_benign_reference",
+      "detail": "every negative is benign_reference",
+      "passed": true
+    },
+    {
+      "check": "fold_count_matches_published_file",
+      "detail": "5 folds",
+      "passed": true
+    },
+    {
+      "check": "fold0_holds_out_the_published_attack_type",
+      "detail": "botnet/ares",
+      "passed": true
+    },
+    {
+      "check": "fold0_train_membership_identical_to_published",
+      "detail": "57003 training rows",
+      "passed": true
+    },
+    {
+      "check": "fold0_test_membership_identical_to_published",
+      "detail": "13951 test rows",
+      "passed": true
+    },
+    {
+      "check": "fold1_holds_out_the_published_attack_type",
+      "detail": "brute_force/ftp_patator",
+      "passed": true
+    },
+    {
+      "check": "fold1_train_membership_identical_to_published",
+      "detail": "56909 training rows",
+      "passed": true
+    },
+    {
+      "check": "fold1_test_membership_identical_to_published",
+      "detail": "14045 test rows",
+      "passed": true
+    },
+    {
+      "check": "fold2_holds_out_the_published_attack_type",
+      "detail": "brute_force/ssh_patator",
+      "passed": true
+    },
+    {
+      "check": "fold2_train_membership_identical_to_published",
+      "detail": "56830 training rows",
+      "passed": true
+    },
+    {
+      "check": "fold2_test_membership_identical_to_published",
+      "detail": "14124 test rows",
+      "passed": true
+    },
+    {
+      "check": "fold3_holds_out_the_published_attack_type",
+      "detail": "ddos/loit",
+      "passed": true
+    },
+    {
+      "check": "fold3_train_membership_identical_to_published",
+      "detail": "56184 training rows",
+      "passed": true
+    },
+    {
+      "check": "fold3_test_membership_identical_to_published",
+      "detail": "14770 test rows",
+      "passed": true
+    },
+    {
+      "check": "fold4_holds_out_the_published_attack_type",
+      "detail": "dos/hulk",
+      "passed": true
+    },
+    {
+      "check": "fold4_train_membership_identical_to_published",
+      "detail": "56890 training rows",
+      "passed": true
+    },
+    {
+      "check": "fold4_test_membership_identical_to_published",
+      "detail": "14064 test rows",
+      "passed": true
+    },
+    {
+      "check": "fold0_test_set_identical_to_p1_predictions",
+      "detail": "13951 rows, labels agree",
+      "passed": true
+    },
+    {
+      "check": "fold1_test_set_identical_to_p1_predictions",
+      "detail": "14045 rows, labels agree",
+      "passed": true
+    },
+    {
+      "check": "fold2_test_set_identical_to_p1_predictions",
+      "detail": "14124 rows, labels agree",
+      "passed": true
+    },
+    {
+      "check": "fold3_test_set_identical_to_p1_predictions",
+      "detail": "14770 rows, labels agree",
+      "passed": true
+    },
+    {
+      "check": "fold4_test_set_identical_to_p1_predictions",
+      "detail": "14064 rows, labels agree",
+      "passed": true
+    },
+    {
+      "check": "fold0_no_shared_window",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold0_no_shared_attack_type",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold0_no_shared_episode",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold0_no_shared_benign_entity",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold1_no_shared_window",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold1_no_shared_attack_type",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold1_no_shared_episode",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold1_no_shared_benign_entity",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold2_no_shared_window",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold2_no_shared_attack_type",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold2_no_shared_episode",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold2_no_shared_benign_entity",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold3_no_shared_window",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold3_no_shared_attack_type",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold3_no_shared_episode",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold3_no_shared_benign_entity",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold4_no_shared_window",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold4_no_shared_attack_type",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold4_no_shared_episode",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check": "fold4_no_shared_benign_entity",
+      "detail": "0",
+      "passed": true
+    }
+  ],
+  "question": "do interarrival_mean and/or bytes_per_packet_destination improve botnet/Ares detection beyond distinct_payload_ratio?",
+  "r11": {
+    "botnet_entities": 5,
+    "botnet_episodes": 40,
+    "demonstrates": "within-protocol transfer to held-out Ares windows and marginal feature-budget differences on the same episodes",
+    "destination": "205.174.165.73",
+    "destinations": 1,
+    "does_not_demonstrate": "generalisation to other victims, attackers, captures, botnet families, or operational streaming latency"
+  },
+  "read_only_transactions": true,
+  "references": {
+    "P1": {
+      "episode_recall": 0.075,
+      "episodes": 40,
+      "episodes_detected": 3,
+      "roc_auc": 0.5037
+    },
+    "published_P6_XGBoost_ARM_A": {
+      "episode_recall": 0.325,
+      "episodes": 40,
+      "episodes_detected": 13,
+      "observed_test_fpr": 0.009874,
+      "pr_auc": 0.067,
+      "roc_auc": 0.7615
+    }
+  },
+  "resampling_or_smote": false,
+  "started_at": "2026-08-24T10:49:20.423177+00:00",
+  "threshold_rule": "training negatives only at 1% and 0.1%; no test observation selects a threshold",
+  "unknown_or_ambiguous_as_negative": false
+}

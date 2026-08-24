@@ -1,0 +1,11 @@
+# CyberSentinel AI — backend API (Couche 7). Simplified stack: FastAPI only.
+fastapi==0.115.0
+uvicorn==0.30.6
+pydantic==2.9.2
+joblib==1.4.2
+pandas==2.2.2
+xgboost==2.1.0
+scikit-learn==1.5.1
+httpx==0.27.2          # FastAPI TestClient
+pytest==8.3.2
+psycopg[binary]==3.2.1  # PostgreSQL alert sink (client only; server via docker-compose)

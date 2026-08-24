@@ -1,0 +1,172 @@
+protocol_version: 2.0.0
+frozen_at: '2026-07-31T15:46:36.173000Z'
+supersedes_protocol_path: datasets/manifests/cicids2017_zeek_normalization.yaml
+supersedes_protocol_sha256: 99ab724a3d245a352e888e2f4771b5a354b5855180af4a72c36980c9296897d4
+revision_reason: microsecond_temporal_representation_empirically_incompatible_with_frozen_m2_evidence
+dataset_name: cicids2017
+m1_manifest_sha256: feab8d4fbd8454cd12723368704e1e7311853a4316efec7f94bf11726ebb984e
+m2_specification_path: datasets/manifests/cicids2017_zeek_replay.yaml
+m2_specification_sha256: e52c183a315c1ac38cbf1e64155489f5f041e95aa5d2e5cbb82e31f03ac4c455
+m2_output_root: artifacts/canonical/cicids2017/m2/zeek-8.0.9
+sensor_type: zeek
+sensor_version: 8.0.9
+input_format: json_lines
+replay_reports:
+- report_relative_path: artifacts/canonical/cicids2017/m2/zeek-8.0.9/2017-07-04_Tuesday-WorkingHours/replay_run.json
+  report_file_sha256: e8908003c583fd5fb148521266b065289f17ba9003d701ea5323208e6534e00b
+  report_content_sha256: 8d7b3e8d3090b93f90df50e77d48f1a33f587dca2982a3d5cdf17623c01c1314
+  output_partition: 2017-07-04_Tuesday-WorkingHours
+  input:
+    relative_path: Tuesday-WorkingHours.pcap
+    capture_date: '2017-07-04'
+    size_bytes: 11048283608
+    sha256: 080c2250154c5a174c03660ed0f75a3858d41a27511ba716e780d7bcb1ec4c57
+  supported_log:
+    log_name: conn.log
+    classification: canonical_telemetry
+    size_bytes: 130683765
+    sha256: 5a828bcb809ad6ee8e6e83d5334c9082b38b4d20e4df41f1249639416973b860
+    record_count: 323342
+- report_relative_path: artifacts/canonical/cicids2017/m2/zeek-8.0.9/2017-07-05_Wednesday-workingHours/replay_run.json
+  report_file_sha256: 56f49ee0c9abda9f9cf05346b8db91f82b7de67c9f65701f35cfb10c34079bb0
+  report_content_sha256: 8bd688deff24280dca33548295e7261a4aadeedc2b8f658e811eefd37d361a10
+  output_partition: 2017-07-05_Wednesday-workingHours
+  input:
+    relative_path: Wednesday-workingHours.pcap
+    capture_date: '2017-07-05'
+    size_bytes: 13420789612
+    sha256: cd2674db7559a53f24bc03be3239b315700174ccaef72d10f5edc4c1a08f6186
+  supported_log:
+    log_name: conn.log
+    classification: canonical_telemetry
+    size_bytes: 205786448
+    sha256: f4aae4520456deaec725ab110a3760c83e9d52e78d8069a83819e18c7cd5ccd5
+    record_count: 509362
+- report_relative_path: artifacts/canonical/cicids2017/m2/zeek-8.0.9/2017-07-07_Friday-WorkingHours/replay_run.json
+  report_file_sha256: f59ed149e2582fc93a51667b70b4791f5ba0cb2f3e1df4d0bb133b51d7f8f8ae
+  report_content_sha256: df81b14b28ba54597097dde1f8414e4868a9dcee28430189393727c2747453aa
+  output_partition: 2017-07-07_Friday-WorkingHours
+  input:
+    relative_path: Friday-WorkingHours.pcap
+    capture_date: '2017-07-07'
+    size_bytes: 8839309056
+    sha256: beff0dcce1eebc9b2454582f4dc8ed0ba0112b2c619a710bf03af93147254cd0
+  supported_log:
+    log_name: conn.log
+    classification: canonical_telemetry
+    size_bytes: 218393867
+    sha256: 1b42468fe419047a009925e03b9ff51b04417a4f5bee6e54cec3c1799f7dec47
+    record_count: 547353
+log_mappings:
+- log_name: conn.log
+  classification: canonical_telemetry
+  target_model: FlowEndV2
+  target_event_type: flow_end
+  required_fields: [conn_state, duration, id.orig_h, id.orig_p, id.resp_h, id.resp_p, orig_bytes, orig_pkts, proto, resp_bytes, resp_pkts, ts, uid]
+  optional_mapped_fields: [service]
+  optional_ignored_fields: [history, ip_proto, local_orig, local_resp, missed_bytes, orig_ip_bytes, resp_ip_bytes, tunnel_parents]
+  unknown_field_policy: reject_record
+  field_mappings:
+  - {source_field: conn_state, target_fields: [connection_state], presence: required, source_type: string, transform: strict_identifier, null_policy: reject}
+  - {source_field: duration, target_fields: [event_duration, event_end_time], presence: required, source_type: json_number_decimal, transform: decimal38_22_exact_duration_and_end, null_policy: reject}
+  - {source_field: id.orig_h, target_fields: [source.ip], presence: required, source_type: string, transform: ip_address, null_policy: reject}
+  - {source_field: id.orig_p, target_fields: [source.port], presence: required, source_type: integer, transform: port, null_policy: reject}
+  - {source_field: id.resp_h, target_fields: [destination.ip], presence: required, source_type: string, transform: ip_address, null_policy: reject}
+  - {source_field: id.resp_p, target_fields: [destination.port], presence: required, source_type: integer, transform: port, null_policy: reject}
+  - {source_field: orig_bytes, target_fields: [counters.source_bytes], presence: required, source_type: integer, transform: non_negative_integer, null_policy: reject}
+  - {source_field: orig_pkts, target_fields: [counters.source_packets], presence: required, source_type: integer, transform: non_negative_integer, null_policy: reject}
+  - {source_field: proto, target_fields: [transport], presence: required, source_type: string, transform: closed_tcp_udp_transport, null_policy: reject}
+  - {source_field: resp_bytes, target_fields: [counters.destination_bytes], presence: required, source_type: integer, transform: non_negative_integer, null_policy: reject}
+  - {source_field: resp_pkts, target_fields: [counters.destination_packets], presence: required, source_type: integer, transform: non_negative_integer, null_policy: reject}
+  - {source_field: service, target_fields: [service], presence: optional, source_type: string, transform: single_strict_identifier_or_null, null_policy: map_missing_to_null}
+  - {source_field: ts, target_fields: [event_start_time], presence: required, source_type: json_number_decimal, transform: decimal38_22_exact_timestamp, null_policy: reject}
+  - {source_field: uid, target_fields: [conversation_id], presence: required, source_type: string, transform: strict_identifier, null_policy: reject}
+temporal:
+  source_decoder: decimal_from_json_lexeme
+  canonical_type: DECIMAL(38,22)
+  json_encoding: fixed_scale_string_22_fractional_digits
+  epoch: unix
+  time_scale: posix
+  display_timezone: UTC
+  unit: seconds
+  precision: 38
+  scale: 22
+  conversion: append_zeros_only
+  arithmetic: unscaled_integer
+  float_conversion: forbidden
+  rounding: forbidden
+  truncation: forbidden
+  event_end_rule: exact_start_plus_duration
+  exact_temporal_order: start_le_end_le_record_available_le_ingested
+evidence:
+  scanned_record_count: 1380057
+  records_with_duration: 1355131
+  timestamp_max_significant_digits: 17
+  timestamp_max_fractional_digits: 7
+  duration_max_significant_digits: 17
+  duration_max_fractional_digits: 22
+  exact_end_max_significant_digits: 32
+  exact_end_max_fractional_digits: 22
+  expected_accepted_record_count: 1353467
+  expected_rejected_record_count: 26590
+  expected_acceptance_rate: 98.073267988%
+  analytical_projection: DECIMAL(38,22)
+event_envelope:
+  event_type: flow_end
+  target_model: FlowEndV2
+  sensor_type: zeek
+  versions: {schema_version: 2.0.0, event_version: 2.0.0, feature_version: 1.0.0, sensor_version: 8.0.9}
+  normalizer_version: 2.0.0
+  pipeline_version: 2.0.0
+  termination_reason_policy: explicit_null
+  byte_counter_semantics: zeek_payload_bytes
+  supported_transports: [tcp, udp]
+  service_policy: missing_or_null_to_null_single_identifier_only_reject_comma_list
+provenance:
+  event_id_algorithm: uuid5
+  event_id_namespace: f7dad188-04cb-5859-81a0-014329de2899
+  event_id_components: [protocol_sha256, replay_report_content_sha256, source_log_sha256, output_partition, log_name, physical_line_number]
+  event_id_name_encoding: utf8_component_values_joined_by_single_ascii_pipe_line_number_base10
+  sensor_id: zeek
+  sensor_run_id_source: replay_report_content_sha256
+  capture_id_source: input_pcap_sha256
+  dataset_snapshot_id_source: m1_manifest_sha256
+  model_release_id_policy: explicit_null
+unsupported_records:
+  malformed_json: reject_record_with_audit
+  non_object_json: reject_record_with_audit
+  missing_required_field: reject_record_with_audit
+  null_required_field: reject_record_with_audit
+  unknown_field: reject_record_with_audit
+  invalid_field_type: reject_record_with_audit
+  non_finite_number: reject_record_with_audit
+  decimal38_22_range_or_scale: reject_record_with_audit
+  unsupported_transport: reject_record_with_audit
+  unsupported_service_cardinality: reject_record_with_audit
+  source_binding_mismatch: reject_source_with_audit
+  continue_after_record_rejection: true
+  silent_defaults_forbidden: true
+  partial_events_forbidden: true
+ordering:
+  partition_order: replay_report_binding_order
+  record_order: physical_jsonl_line_number_ascending
+  line_number_base: 1
+  cross_partition_order: concatenate_partitions
+  sort_by_event_time: false
+  sort_by_uid: false
+  deduplicate_records: false
+  rejected_records_retain_coordinates: true
+boundaries:
+  parser_input: one_utf8_json_object_line_plus_source_coordinate
+  parser_output: raw_sensor_record_or_explicit_rejection
+  normalizer_input: raw_sensor_record_plus_normalization_context
+  normalizer_output: FlowEndV2_or_explicit_rejection
+  parser_creates_events: false
+  parser_persists_output: false
+  normalizer_reads_files: false
+  normalizer_persists_output: false
+  feature_engineering_allowed: false
+authoritative_sources:
+- https://arrow.apache.org/docs/python/generated/pyarrow.decimal128.html
+- https://docs.zeek.org/en/v8.0.0/scripts/base/protocols/conn/main.zeek.html
+- https://www.rfc-editor.org/rfc/rfc8259.html

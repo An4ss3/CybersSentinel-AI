@@ -1,0 +1,17 @@
+{
+  "Bwd Packet Length Std":3.5128006935,
+  "Destination Port":2.4429278374,
+  "Init_Win_bytes_backward":2.1279699802,
+  "Init_Win_bytes_forward":1.179294467,
+  "Bwd Packets\/s":1.0179440975,
+  "Fwd Header Length":0.7466441989,
+  "Total Length of Bwd Packets":0.5654265285,
+  "Fwd IAT Min":0.5155786276,
+  "Bwd Packet Length Mean":0.4505013227,
+  "min_seg_size_forward":0.4317628443,
+  "Flow IAT Min":0.3668002188,
+  "Flow IAT Mean":0.3496421874,
+  "Average Packet Size":0.2957247496,
+  "FIN Flag Count":0.2711406946,
+  "Idle Min":0.2656953633
+}

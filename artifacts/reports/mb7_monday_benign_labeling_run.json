@@ -1,0 +1,104 @@
+{
+  "report_version": "1.0.0",
+  "verification_status": "verified",
+  "track": "monday_benign",
+  "run_id": "c756da09-3a58-54e8-97e3-34645b87f064",
+  "run_id_derivation": "deterministic_uuid5_over_protocol_and_mb6_run_id",
+  "protocol_sha256": "775c50454b851681e5e25655eee3530db8ff9c010804eb50cf778cf9180f3df9",
+  "mb3_report_content_sha256": "de3146976148dc1d61e5690d6eb7b6acc6a446130787964d3b1bb4888c5ec6ab",
+  "mb4_report_content_sha256": "27896bbbc49940c2c245bc3aac2062cd6d5d78304c009008c1741313f1061034",
+  "mb4_run_id": "b043c624-c000-4037-b9c8-100a590ad97e",
+  "mb6_report_content_sha256": "a9600fcd64112e041b86e478f6bd5b9a96a2a8d40f881106d9729488d7371bb7",
+  "mb6_run_id": "55b0f291-e321-5d41-8bdd-50a257581480",
+  "mb6_window_stream_sha256": "e1efc5fca09c9763a4939b485456461ef362faa93bf2330cb69fd201c86cedd2",
+  "label_identity_namespace": "1cef710b-751b-584e-b361-d264c8a70eeb",
+  "target_database": "cybersentinel_test",
+  "target_schema": "mb7_canonical",
+  "output_partition": "2017-07-03_Monday-WorkingHours",
+  "dataset_name": "cicids2017",
+  "policy": {
+    "policy_version": "1.0.0",
+    "policy_variant": "m5_v1_unchanged",
+    "manifest_relative_path": "datasets/manifests/cicids2017_labels.yaml",
+    "manifest_hash": "7ff2e52bf3485929b6a4260a7f4451fbaa8119273500f0b9a27f5a1c5b48c676",
+    "rule_version": "1.0.0",
+    "authoritative_source": {
+      "name": "UNB Canadian Institute for Cybersecurity CICIDS2017 official attack schedule",
+      "url": "https://www.unb.ca/cic/datasets/ids-2017.html",
+      "retrieved_at": "2026-07-20"
+    },
+    "timezone": "America/Moncton",
+    "applicable_rule_id": "monday-benign-reference",
+    "applicable_rule_hash": "092756ab0def352e64889c19672905146f01f052bc10df6f2da2f4420e12ee09",
+    "applicable_rule_mode": "any_network",
+    "applicable_rule_disposition": "benign_reference",
+    "compiled_interval_start_epoch_seconds": 1499083200,
+    "compiled_interval_end_epoch_seconds": 1499112060,
+    "m5_v2_injected": false,
+    "unknown_to_benign_conversion": "forbidden",
+    "ambiguous_to_benign_conversion": "forbidden",
+    "ambiguous_to_unknown_conversion": "forbidden",
+    "m5_v1_is_normative_source": true,
+    "m5_v1_modified": false,
+    "ambiguous_is_valid_disposition": true,
+    "boundary_crossing_semantics": "label_ledger_partial_overlap_yields_ambiguous",
+    "ml_dataset_constructed": false
+  },
+  "label_provenance": {
+    "rule_version": "1.0.0",
+    "rule_hash": "092756ab0def352e64889c19672905146f01f052bc10df6f2da2f4420e12ee09",
+    "manifest_hash": "7ff2e52bf3485929b6a4260a7f4451fbaa8119273500f0b9a27f5a1c5b48c676",
+    "authoritative_source": {
+      "name": "UNB Canadian Institute for Cybersecurity CICIDS2017 official attack schedule",
+      "url": "https://www.unb.ca/cic/datasets/ids-2017.html",
+      "retrieved_at": "2026-07-20"
+    },
+    "timezone": "America/Moncton"
+  },
+  "total_event_label_count": 368202,
+  "total_window_label_count": 70921,
+  "event_disposition_counts": [
+    {
+      "disposition": "ambiguous",
+      "count": 218
+    },
+    {
+      "disposition": "benign_reference",
+      "count": 367171
+    },
+    {
+      "disposition": "unknown",
+      "count": 813
+    }
+  ],
+  "window_disposition_counts": [
+    {
+      "disposition": "ambiguous",
+      "count": 127
+    },
+    {
+      "disposition": "benign_reference",
+      "count": 70578
+    },
+    {
+      "disposition": "unknown",
+      "count": 216
+    }
+  ],
+  "unknown_window_interval_split": {
+    "windows_inside_interval": 70697,
+    "windows_outside_interval": 224,
+    "windows_before_interval": 198,
+    "windows_after_interval": 26,
+    "inside_benign_reference": 70578,
+    "inside_ambiguous": 119,
+    "outside_unknown": 216,
+    "outside_ambiguous": 8,
+    "earliest_window_start_time": "1499082900.0000000000000000000000",
+    "latest_window_start_time": "1499112060.0000000000000000000000"
+  },
+  "event_label_stream_sha256": "da43a8e4c50cf2888736ea8dba62450fe95d5aca548c288614d306c5fbff8a7f",
+  "window_label_stream_sha256": "a8cc4a5a4994a93178e89196a6015eecd9ec429ecdf394948343792cd23a2dce",
+  "started_at": "2026-08-13T16:09:08.825697Z",
+  "completed_at": "2026-08-13T16:09:45.330011Z"
+}

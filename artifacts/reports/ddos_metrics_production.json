@@ -1,0 +1,15 @@
+{
+  "attack": "ddos",
+  "protocol": "production",
+  "auc_pr": 0.9999956926771438,
+  "recall": 0.999776721216738,
+  "confusion_matrix": {
+    "tn": 39988,
+    "fp": 12,
+    "fn": 17,
+    "tp": 76121
+  },
+  "false_positive_rate": 0.0003,
+  "false_discovery_rate": 0.00015761890376052434,
+  "classification_report": "              precision    recall  f1-score   support\n\n      benign     0.9996    0.9997    0.9996     40000\n        ddos     0.9998    0.9998    0.9998     76138\n\n    accuracy                         0.9998    116138\n   macro avg     0.9997    0.9997    0.9997    116138\nweighted avg     0.9998    0.9998    0.9998    116138\n"
+}

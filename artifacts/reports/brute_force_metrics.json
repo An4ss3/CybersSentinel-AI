@@ -1,0 +1,13 @@
+{
+  "attack": "brute_force",
+  "auc_pr": 0.9999996085896311,
+  "confusion_matrix": {
+    "tn": 39998,
+    "fp": 2,
+    "fn": 1,
+    "tp": 2766
+  },
+  "false_positive_rate": 5e-05,
+  "false_discovery_rate": 0.000722543352601156,
+  "classification_report": "              precision    recall  f1-score   support\n\n      benign     1.0000    1.0000    1.0000     40000\n brute_force     0.9993    0.9996    0.9995      2767\n\n    accuracy                         0.9999     42767\n   macro avg     0.9996    0.9998    0.9997     42767\nweighted avg     0.9999    0.9999    0.9999     42767\n"
+}

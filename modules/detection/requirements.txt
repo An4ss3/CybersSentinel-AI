@@ -1,0 +1,12 @@
+# CyberSentinel AI — detection module (Couche 3)
+# Pinned to keep experiments reproducible (deliverable §10: rapport de performance).
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+xgboost==2.1.0
+imbalanced-learn==0.12.3      # SMOTE / class balancing (§6.2)
+shap==0.46.0                  # Explainable AI (§6.4)
+matplotlib==3.9.4            # confusion matrix / SHAP plots (3.9.1 was yanked on Windows)
+joblib==1.4.2                 # model persistence
+PyYAML==6.0.1                 # config loading
+pydantic==2.9.2              # strict canonical event/feature contracts

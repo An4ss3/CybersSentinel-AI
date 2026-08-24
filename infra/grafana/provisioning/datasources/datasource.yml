@@ -1,0 +1,20 @@
+# Auto-provisioned PostgreSQL datasource for Grafana.
+# Matches the credentials/defaults in docker-compose.yml.
+apiVersion: 1
+
+datasources:
+  - name: PostgreSQL
+    uid: cybersentinel-pg
+    type: postgres
+    access: proxy
+    url: postgres:5432          # 'postgres' = compose service name
+    user: cybersentinel
+    isDefault: true
+    editable: true
+    secureJsonData:
+      password: cybersentinel
+    jsonData:
+      database: cybersentinel
+      sslmode: disable
+      postgresVersion: 1600
+      timescaledb: false

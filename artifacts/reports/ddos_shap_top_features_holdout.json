@@ -1,0 +1,17 @@
+{
+  "Init_Win_bytes_backward":3.3135471344,
+  "Init_Win_bytes_forward":3.2624309063,
+  "Bwd Packet Length Std":2.7804503441,
+  "min_seg_size_forward":1.1739816666,
+  "Bwd Packets\/s":1.0987895727,
+  "Fwd Header Length":0.8164291382,
+  "Total Length of Bwd Packets":0.6267946959,
+  "Flow Bytes\/s":0.5909770727,
+  "Flow IAT Mean":0.5378539562,
+  "Bwd Packet Length Mean":0.5265592933,
+  "Fwd IAT Min":0.4671058655,
+  "Fwd IAT Std":0.4419169426,
+  "Fwd Packet Length Std":0.415153563,
+  "Packet Length Std":0.4044347703,
+  "Packet Length Mean":0.3821947873
+}

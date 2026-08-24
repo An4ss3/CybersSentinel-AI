@@ -1,0 +1,77 @@
+protocol_version: 1.0.0
+milestone: mb7
+track: monday_benign
+frozen_at: '2026-08-13T16:07:08.354447Z'
+dataset_name: cicids2017
+output_partition: 2017-07-03_Monday-WorkingHours
+mb1_manifest_sha256: d56fd5261b0a42917f7fee5a447f2fa8429a12ac8d0456e1f32d7d5ac8b66a6e
+mb2_specification_sha256: 6de09b2fa740fc7b3075e91abfbf056a89f938c43163d1cedf8d27dd28d6e38f
+mb3_protocol_sha256: ea16017266042cc95bd36fcddbc34c917f7b66e3b98e9bed1c478be301810c7c
+mb3_report_content_sha256: de3146976148dc1d61e5690d6eb7b6acc6a446130787964d3b1bb4888c5ec6ab
+mb4_report_content_sha256: 27896bbbc49940c2c245bc3aac2062cd6d5d78304c009008c1741313f1061034
+mb4_run_id: b043c624-c000-4037-b9c8-100a590ad97e
+mb6_protocol_sha256: 93804dc23f52e92d94bdfe286b029f3d2b52037efccd5a139187f9218036c22e
+mb6_report_content_sha256: a9600fcd64112e041b86e478f6bd5b9a96a2a8d40f881106d9729488d7371bb7
+mb6_run_id: 55b0f291-e321-5d41-8bdd-50a257581480
+mb6_window_stream_sha256: e1efc5fca09c9763a4939b485456461ef362faa93bf2330cb69fd201c86cedd2
+event_source: mb4_canonical.flow_end_events
+window_source: mb6_canonical.feature_windows
+lineage_source: mb6_canonical.feature_window_sources
+label_projection: postgresql_schema_mb7_canonical
+sidecar_only: true
+modifies_mb4_or_mb6: false
+m_chain_status: untouched_and_frozen
+policy:
+  policy_version: 1.0.0
+  policy_variant: m5_v1_unchanged
+  manifest_relative_path: datasets/manifests/cicids2017_labels.yaml
+  manifest_hash: 7ff2e52bf3485929b6a4260a7f4451fbaa8119273500f0b9a27f5a1c5b48c676
+  rule_version: 1.0.0
+  authoritative_source:
+    name: UNB Canadian Institute for Cybersecurity CICIDS2017 official attack schedule
+    url: https://www.unb.ca/cic/datasets/ids-2017.html
+    retrieved_at: '2026-07-20'
+  timezone: America/Moncton
+  applicable_rule_id: monday-benign-reference
+  applicable_rule_hash: 092756ab0def352e64889c19672905146f01f052bc10df6f2da2f4420e12ee09
+  applicable_rule_mode: any_network
+  applicable_rule_disposition: benign_reference
+  compiled_interval_start_epoch_seconds: 1499083200
+  compiled_interval_end_epoch_seconds: 1499112060
+  m5_v2_injected: false
+  unknown_to_benign_conversion: forbidden
+  ambiguous_to_benign_conversion: forbidden
+  ambiguous_to_unknown_conversion: forbidden
+  m5_v1_is_normative_source: true
+  m5_v1_modified: false
+  ambiguous_is_valid_disposition: true
+  boundary_crossing_semantics: label_ledger_partial_overlap_yields_ambiguous
+  ml_dataset_constructed: false
+aggregation:
+  rule: any_attack
+  precedence:
+  - target_attack
+  - known_other_attack
+  - ambiguous
+  - unknown
+  - benign_reference
+  attack_dispositions:
+  - known_other_attack
+  - target_attack
+  uncertainty_to_benign: forbidden
+label_identity_algorithm: uuid5
+label_identity_namespace: 1cef710b-751b-584e-b361-d264c8a70eeb
+label_identity_namespace_derivation: https://cybersentinel.invalid/mb7/monday-benign/labeling/1.0.0
+event_label_identity_components:
+- protocol_sha256
+- m5_manifest_hash
+- event_id
+window_label_identity_components:
+- protocol_sha256
+- m5_manifest_hash
+- window_id
+run_identity_algorithm: deterministic_uuid5_over_protocol_and_mb6_run_id
+random_identifiers: forbidden
+wall_clock_in_identity: forbidden
+authoritative_sources:
+- https://www.unb.ca/cic/datasets/ids-2017.html

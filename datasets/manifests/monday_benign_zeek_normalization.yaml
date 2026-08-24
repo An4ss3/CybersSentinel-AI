@@ -1,0 +1,258 @@
+protocol_version: 2.0.0
+frozen_at: '2026-08-13T13:19:24.868170Z'
+track: monday_benign
+dataset_name: cicids2017
+m1_manifest_sha256: d56fd5261b0a42917f7fee5a447f2fa8429a12ac8d0456e1f32d7d5ac8b66a6e
+mb2_specification_path: datasets/manifests/monday_benign_zeek_replay.yaml
+mb2_specification_sha256: 6de09b2fa740fc7b3075e91abfbf056a89f938c43163d1cedf8d27dd28d6e38f
+mb2_output_root: artifacts/canonical/cicids2017/mb2/zeek-8.0.9
+sensor_type: zeek
+sensor_version: 8.0.9
+input_format: json_lines
+replay_reports:
+- report_relative_path: artifacts/canonical/cicids2017/mb2/zeek-8.0.9/2017-07-03_Monday-WorkingHours/replay_run.json
+  report_file_sha256: 72776b110b6fb726d17a0b934592ac6e1013d6d39150cb11c7c5a4d803d22aa8
+  report_content_sha256: 966ffc228f79c069c52f31baab814355ed28dce0d84f402906cc4857daae62db
+  output_partition: 2017-07-03_Monday-WorkingHours
+  input:
+    relative_path: Monday-WorkingHours.pcap
+    capture_date: '2017-07-03'
+    size_bytes: 10822507416
+    sha256: f6eac599358f216b074338813a1cf7be3cc4e91d116e13efc0dc71f2cca11972
+  supported_log:
+    log_name: conn.log
+    classification: canonical_telemetry
+    size_bytes: 151704205
+    sha256: 358f337b9df3bafeb0da800ab228fd7d1118ccb283f7ae4db4f1d67025f44f4f
+    record_count: 375432
+log_mappings:
+- log_name: conn.log
+  classification: canonical_telemetry
+  target_model: FlowEndV2
+  target_event_type: flow_end
+  required_fields:
+  - conn_state
+  - duration
+  - id.orig_h
+  - id.orig_p
+  - id.resp_h
+  - id.resp_p
+  - orig_bytes
+  - orig_pkts
+  - proto
+  - resp_bytes
+  - resp_pkts
+  - ts
+  - uid
+  optional_mapped_fields:
+  - service
+  optional_ignored_fields:
+  - history
+  - ip_proto
+  - local_orig
+  - local_resp
+  - missed_bytes
+  - orig_ip_bytes
+  - resp_ip_bytes
+  - tunnel_parents
+  unknown_field_policy: reject_record
+  field_mappings:
+  - source_field: conn_state
+    target_fields:
+    - connection_state
+    presence: required
+    source_type: string
+    transform: strict_identifier
+    null_policy: reject
+  - source_field: duration
+    target_fields:
+    - event_duration
+    - event_end_time
+    presence: required
+    source_type: json_number_decimal
+    transform: decimal38_22_exact_duration_and_end
+    null_policy: reject
+  - source_field: id.orig_h
+    target_fields:
+    - source.ip
+    presence: required
+    source_type: string
+    transform: ip_address
+    null_policy: reject
+  - source_field: id.orig_p
+    target_fields:
+    - source.port
+    presence: required
+    source_type: integer
+    transform: port
+    null_policy: reject
+  - source_field: id.resp_h
+    target_fields:
+    - destination.ip
+    presence: required
+    source_type: string
+    transform: ip_address
+    null_policy: reject
+  - source_field: id.resp_p
+    target_fields:
+    - destination.port
+    presence: required
+    source_type: integer
+    transform: port
+    null_policy: reject
+  - source_field: orig_bytes
+    target_fields:
+    - counters.source_bytes
+    presence: required
+    source_type: integer
+    transform: non_negative_integer
+    null_policy: reject
+  - source_field: orig_pkts
+    target_fields:
+    - counters.source_packets
+    presence: required
+    source_type: integer
+    transform: non_negative_integer
+    null_policy: reject
+  - source_field: proto
+    target_fields:
+    - transport
+    presence: required
+    source_type: string
+    transform: closed_tcp_udp_transport
+    null_policy: reject
+  - source_field: resp_bytes
+    target_fields:
+    - counters.destination_bytes
+    presence: required
+    source_type: integer
+    transform: non_negative_integer
+    null_policy: reject
+  - source_field: resp_pkts
+    target_fields:
+    - counters.destination_packets
+    presence: required
+    source_type: integer
+    transform: non_negative_integer
+    null_policy: reject
+  - source_field: service
+    target_fields:
+    - service
+    presence: optional
+    source_type: string
+    transform: single_strict_identifier_or_null
+    null_policy: map_missing_to_null
+  - source_field: ts
+    target_fields:
+    - event_start_time
+    presence: required
+    source_type: json_number_decimal
+    transform: decimal38_22_exact_timestamp
+    null_policy: reject
+  - source_field: uid
+    target_fields:
+    - conversation_id
+    presence: required
+    source_type: string
+    transform: strict_identifier
+    null_policy: reject
+temporal:
+  source_decoder: decimal_from_json_lexeme
+  canonical_type: DECIMAL(38,22)
+  json_encoding: fixed_scale_string_22_fractional_digits
+  epoch: unix
+  time_scale: posix
+  display_timezone: UTC
+  unit: seconds
+  precision: 38
+  scale: 22
+  conversion: append_zeros_only
+  arithmetic: unscaled_integer
+  float_conversion: forbidden
+  rounding: forbidden
+  truncation: forbidden
+  event_end_rule: exact_start_plus_duration
+  exact_temporal_order: start_le_end_le_record_available_le_ingested
+evidence:
+  measurement_method: read_only_lexical_prescan
+  scanned_record_count: 375432
+  records_with_duration: 368708
+  timestamp_max_significant_digits: 17
+  timestamp_max_fractional_digits: 7
+  duration_max_significant_digits: 22
+  duration_max_fractional_digits: 22
+  exact_end_max_significant_digits: 28
+  exact_end_max_fractional_digits: 18
+  canonical_type: DECIMAL(38,22)
+event_envelope:
+  event_type: flow_end
+  target_model: FlowEndV2
+  sensor_type: zeek
+  versions:
+    schema_version: 2.0.0
+    event_version: 2.0.0
+    feature_version: 1.0.0
+    sensor_version: 8.0.9
+  normalizer_version: 2.0.0
+  pipeline_version: 2.0.0
+  termination_reason_policy: explicit_null
+  byte_counter_semantics: zeek_payload_bytes
+  supported_transports:
+  - tcp
+  - udp
+  service_policy: missing_or_null_to_null_single_identifier_only_reject_comma_list
+provenance:
+  event_id_algorithm: uuid5
+  event_id_namespace: c81ae3e0-7738-5413-80f2-8c2755418232
+  event_id_namespace_derivation: https://cybersentinel.invalid/mb3/monday-benign/exact-time-normalization/2.0.0
+  event_id_components:
+  - protocol_sha256
+  - replay_report_content_sha256
+  - source_log_sha256
+  - output_partition
+  - log_name
+  - physical_line_number
+  event_id_name_encoding: utf8_component_values_joined_by_single_ascii_pipe_line_number_base10
+  sensor_id: zeek
+  sensor_run_id_source: replay_report_content_sha256
+  capture_id_source: input_pcap_sha256
+  dataset_snapshot_id_source: m1_manifest_sha256
+  model_release_id_policy: explicit_null
+unsupported_records:
+  malformed_json: reject_record_with_audit
+  non_object_json: reject_record_with_audit
+  missing_required_field: reject_record_with_audit
+  null_required_field: reject_record_with_audit
+  unknown_field: reject_record_with_audit
+  invalid_field_type: reject_record_with_audit
+  non_finite_number: reject_record_with_audit
+  decimal38_22_range_or_scale: reject_record_with_audit
+  unsupported_transport: reject_record_with_audit
+  unsupported_service_cardinality: reject_record_with_audit
+  source_binding_mismatch: reject_source_with_audit
+  continue_after_record_rejection: true
+  silent_defaults_forbidden: true
+  partial_events_forbidden: true
+ordering:
+  partition_order: replay_report_binding_order
+  record_order: physical_jsonl_line_number_ascending
+  line_number_base: 1
+  cross_partition_order: concatenate_partitions
+  sort_by_event_time: false
+  sort_by_uid: false
+  deduplicate_records: false
+  rejected_records_retain_coordinates: true
+boundaries:
+  parser_input: one_utf8_json_object_line_plus_source_coordinate
+  parser_output: raw_sensor_record_or_explicit_rejection
+  normalizer_input: raw_sensor_record_plus_normalization_context
+  normalizer_output: FlowEndV2_or_explicit_rejection
+  parser_creates_events: false
+  parser_persists_output: false
+  normalizer_reads_files: false
+  normalizer_persists_output: false
+  feature_engineering_allowed: false
+authoritative_sources:
+- https://docs.zeek.org/en/lts/script-reference/log-files.html
+- https://peps.python.org/pep-0327/
+- https://www.postgresql.org/docs/16/datatype-numeric.html

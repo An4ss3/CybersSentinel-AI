@@ -1,0 +1,50 @@
+{
+  "artifact": "XGBoost baseline reproducibility manifest",
+  "feature": "distinct_payload_ratio",
+  "inputs": {
+    "p1_dataset_content_sha256": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+    "p1_folds_content_sha256": "e463ea7b0eb4985f51369dc3ae19c09821040675aa4b9f9689f8e02545fed95a",
+    "p1_folds_file": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+    "p5_metrics_file": "87055c8b14623581c338bc6d56ea183000d4e1e27d4dae3815bf9ec87e3248d7",
+    "p6_feature_audit_file": "d028e8476df66c2827e534281fdda6c994c6e1023ba42bb57461c34316a9d1ac"
+  },
+  "library_versions": {
+    "joblib": "1.4.2",
+    "numpy": "1.26.4",
+    "python": "3.12.13",
+    "scikit-learn": "1.5.1",
+    "xgboost": "2.1.0"
+  },
+  "model_parameters": {
+    "colsample_bytree": 1.0,
+    "eval_metric": "logloss",
+    "learning_rate": 0.1,
+    "max_depth": 3,
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "objective": "binary:logistic",
+    "random_state": 0,
+    "scale_pos_weight": 1,
+    "subsample": 1.0,
+    "tree_method": "exact",
+    "verbosity": 0
+  },
+  "outputs": {
+    "XGBOOST_BASELINE_REPORT.md": "a4fac7e481951096cd45164a6a1eb97ad16073a096503cc0fd3eeabdfbbd1216",
+    "xgb_metrics.json": "4b841773bbe34d62153dfbd69cc9c5f2a480b781f842ed0c59a1efe3a21a1263",
+    "xgb_model_fold0.joblib": "19fb7106cedbe29a79d4e47e9653adb1552ecd6d023ae8861fbc044f53f803d9",
+    "xgb_model_fold1.joblib": "0f66e96a262c825e6bf640d996fda4af49097157c2a1cfa71bd73184042b03aa",
+    "xgb_model_fold2.joblib": "d16e709b8b79554f4573491eaa92119cca9d731b9a59b528cf802ba9bca967fc",
+    "xgb_model_fold3.joblib": "369ee44dfaf4fbfadacad2ad7d99ff79ebc0dbca7325e09eb30e3232c5fce598",
+    "xgb_model_fold4.joblib": "7b0f5fda03752d44f0ca83c297cef8ac81ed430169ad047d7732b2759b9ea239",
+    "xgb_model_params.json": "d6d33ca0b7a6d42f5bd059ac1e8a2c11fe6b47f8e7104ee1da6ac6a139a03521",
+    "xgb_predictions_fold0.csv": "23db8bed992b92b926290415229e0c8fdd47ad9c501c3e4202827413b815e3e4",
+    "xgb_predictions_fold1.csv": "ef5065e6dd8a13d32d12a21d43d59cf105ab262bfd32b1b976aa6013bb24706c",
+    "xgb_predictions_fold2.csv": "1f39978cc4fa8695d4ffa6b5096e3c601ec92b6b451b5dc137bcdfa4e95d70a1",
+    "xgb_predictions_fold3.csv": "c44e84e583c047b662b93578bbf7bbf3ae82ae8439fe578721ac96693bd992da",
+    "xgb_predictions_fold4.csv": "4724e7c35db131c2cf775559bad364e4207418371485f4f6a9755a5fb92153bd"
+  },
+  "postgresql_writes": 0,
+  "protocol_checks_passed": 45,
+  "read_only_transactions": true
+}

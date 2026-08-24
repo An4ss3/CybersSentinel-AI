@@ -1,0 +1,132 @@
+{
+  "arms": {
+    "A": [
+      "distinct_payload_ratio"
+    ],
+    "B": [
+      "distinct_payload_ratio",
+      "interarrival_mean"
+    ],
+    "C": [
+      "distinct_payload_ratio",
+      "bytes_per_packet_destination"
+    ],
+    "D": [
+      "distinct_payload_ratio",
+      "interarrival_mean",
+      "bytes_per_packet_destination"
+    ]
+  },
+  "artifact": "controlled XGBoost feature benchmark manifest",
+  "conservative_decisions": [
+    {
+      "decision": "four fixed arms A--D; the model parameters are byte-for-byte the published XGBoost baseline parameters",
+      "id": "D24",
+      "reason": "only the feature budget may vary, so no model search, validation split, early stopping, rebalancing, or threshold search is introduced"
+    },
+    {
+      "decision": "P6 undefined values remain NaN and use XGBoost's native missing branch",
+      "id": "D25",
+      "reason": "imputation, a fitted fill value, or a missingness indicator would modify the audited feature and widen the registered budget"
+    },
+    {
+      "decision": "P1 folds are reconstructed to recover P1's authentic training-row order and then proven equal to the frozen folds",
+      "id": "D26",
+      "reason": "p1_folds.json preserves membership but sorts ids; all arms must share P1's actual order and exactly the same ordered test rows"
+    },
+    {
+      "decision": "online validity is assessed from the exact P6 formulas and their source quantities, without using absolute time",
+      "id": "D27",
+      "reason": "interarrival_mean uses differences of relative starts only; the two byte features use counters available by window close; historical extraction is from FlowEnd evidence, so deployment latency itself is not measured"
+    },
+    {
+      "decision": "candidate-minus-ARM-A recall deltas use a paired bootstrap over the same episode ids",
+      "id": "D28",
+      "reason": "all arms see the same 40 botnet episodes; resampling windows would be pseudoreplication and comparing marginal intervals alone would discard the pairing"
+    }
+  ],
+  "cross_arm_identity_checks_passed": 15,
+  "feature_checks_passed": 16,
+  "inputs": {
+    "frozen_files": {
+      "p1_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+      "p1_folds.json": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+      "p1_metrics.json": "2a51e618397c42b742a289216d3cd89b255c4ccd96a8f985a5ad1c5c4783a447",
+      "p6_feature_audit.json": "d028e8476df66c2827e534281fdda6c994c6e1023ba42bb57461c34316a9d1ac",
+      "xgb_metrics.json": "4b841773bbe34d62153dfbd69cc9c5f2a480b781f842ed0c59a1efe3a21a1263",
+      "xgb_model_params.json": "d6d33ca0b7a6d42f5bd059ac1e8a2c11fe6b47f8e7104ee1da6ac6a139a03521"
+    },
+    "p1_dataset_content_sha256": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+    "p1_folds_content_sha256": "e463ea7b0eb4985f51369dc3ae19c09821040675aa4b9f9689f8e02545fed95a"
+  },
+  "library_versions": {
+    "joblib": "1.4.2",
+    "numpy": "1.26.4",
+    "python": "3.12.13",
+    "scikit-learn": "1.5.1",
+    "xgboost": "2.1.0"
+  },
+  "model_parameters": {
+    "colsample_bytree": 1.0,
+    "eval_metric": "logloss",
+    "learning_rate": 0.1,
+    "max_depth": 3,
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "objective": "binary:logistic",
+    "random_state": 0,
+    "scale_pos_weight": 1,
+    "subsample": 1.0,
+    "tree_method": "exact",
+    "verbosity": 0
+  },
+  "outputs": {
+    "BENCHMARK_REPORT.md": "7170dbaf3a4fc11c3cb0af068ae7433bc89285322e6881a8d85270d936b15edd",
+    "benchmark_metrics.json": "16c079227af4dfd2fe5fc85d67b38a5dfd8cde7f8fc3d38603dc58be678fafc0",
+    "benchmark_predictions.csv": "23e79c639ff4f38eb650676495d244867e254134760b47cd1b4e7b8fe36ab04f",
+    "feature_comparison.json": "01ab17e9fed15a33afe6de85c6faf8e4632b4bc32c9e34245fa946a94bc6111c",
+    "model_arm_A_fold0.joblib": "19fb7106cedbe29a79d4e47e9653adb1552ecd6d023ae8861fbc044f53f803d9",
+    "model_arm_A_fold1.joblib": "0f66e96a262c825e6bf640d996fda4af49097157c2a1cfa71bd73184042b03aa",
+    "model_arm_A_fold2.joblib": "d16e709b8b79554f4573491eaa92119cca9d731b9a59b528cf802ba9bca967fc",
+    "model_arm_A_fold3.joblib": "369ee44dfaf4fbfadacad2ad7d99ff79ebc0dbca7325e09eb30e3232c5fce598",
+    "model_arm_A_fold4.joblib": "7b0f5fda03752d44f0ca83c297cef8ac81ed430169ad047d7732b2759b9ea239",
+    "model_arm_B_fold0.joblib": "cf298cafd3559a6165df13b6e0f1ae0f4347b598245a3791f314b74fb05e000e",
+    "model_arm_B_fold1.joblib": "3d16b27dc9b52fd06b17771f8519ec843ea4b8e80c86b29d05391b9b39602d2d",
+    "model_arm_B_fold2.joblib": "e1bd87f66a7738d4b69e88a8a6368700feb11771aecc184cf98d7ca83137aae7",
+    "model_arm_B_fold3.joblib": "36be46a6692f82b99dab684861dd6fa75ade132279c624fbbfbf968583d3c5b0",
+    "model_arm_B_fold4.joblib": "d6a4402df0a4c3042f5afda00b2b1504169edd8795677d3bda9ee226e1b3aa94",
+    "model_arm_C_fold0.joblib": "546187924418193d9f5bcb5bd63cd96d09c97a26a63e5d2a9c5b096772f24b09",
+    "model_arm_C_fold1.joblib": "55d5c260ac7799fbbcabfeae9939ec8295010e0ad6a92b1250b8ed5a45a02e14",
+    "model_arm_C_fold2.joblib": "f79ed23b402e57a648ab67955c4b4c04b9765bf991737c5ae4d725bb4605080a",
+    "model_arm_C_fold3.joblib": "1739b94eb7b7dee104f76c0496fbdda84f14f82253f2c24ce866fcb885bebc2f",
+    "model_arm_C_fold4.joblib": "9146047389ef2c506c5ced613702545826b47a28e8afc8bf202c53e43229e239",
+    "model_arm_D_fold0.joblib": "d1da2284a479ea048ec370c137b86417eaecc9fe8ea68ea09eb6f40502dfebc2",
+    "model_arm_D_fold1.joblib": "f57aaef7e3b573d0b7b42ce29545056a15a82653a3df0add2b953ba8bf66431f",
+    "model_arm_D_fold2.joblib": "b4443eed0544f837fed6c8982a9fc9995360e31de24764e1eada2dea2ba40090",
+    "model_arm_D_fold3.joblib": "f014f78df97054cd60857a8df853cee32deed8b30ffe0e1d5f950b845c518338",
+    "model_arm_D_fold4.joblib": "60207c879af43bc6a13e0f4b801675ad369d485c8c0b42d2c1fe4a42ccd3d9a6",
+    "predictions_arm_A_fold0.csv": "92be83086af963fd9fa8aa264841d3b96ef710218d8ba17c3a3cefa0cd1b59de",
+    "predictions_arm_A_fold1.csv": "58f1b2ebe76f53feaaa1c3b098ce8ae7ffa24dcea59a31a3b1068a8f7469f496",
+    "predictions_arm_A_fold2.csv": "219b756947526bf671790d7157b0f0077052fd5bf282e386513f3196e90d7060",
+    "predictions_arm_A_fold3.csv": "6a06af8d9d570f3e47a49ebf80a81a13ac217d4cf44571381e046818a9b6582c",
+    "predictions_arm_A_fold4.csv": "78119cb32f95b058ebb3d7ac78db3d28212b79ee7acb6b563e88169722dc9b1f",
+    "predictions_arm_B_fold0.csv": "eb5b8dc3cf1d129371d8d74b6ab6b422b106f05e9187a41f45be990893beaafb",
+    "predictions_arm_B_fold1.csv": "043bcbd235cf55952cd109cf1d2705a7021572660b1d604aa553d01abbc577bf",
+    "predictions_arm_B_fold2.csv": "dba56ee2d62bd3e6c9cd94c892ad43d78a2e6da9f4054583d21dff00aa0cc539",
+    "predictions_arm_B_fold3.csv": "cfdded72060470f810f0ecdc329b15680dbe91c06e5609844f41469bdaa15615",
+    "predictions_arm_B_fold4.csv": "2409b122ccab659ccecb8ccd085cee1b400099324214d1b4368829e547f0d852",
+    "predictions_arm_C_fold0.csv": "4cfdb20be7457f55a24006556f3ff6a5c401ed53e4c55f47746a77f38842db19",
+    "predictions_arm_C_fold1.csv": "487d52bc7868161358e9d80450250c5fe6484dcb3800b5d80f9013208e7ceaa6",
+    "predictions_arm_C_fold2.csv": "b7a1698c6f0eb03e0718d8c39c1b35ae7f517702b67d7d3b9341d5e99b952847",
+    "predictions_arm_C_fold3.csv": "2ad6f418a5ae2d8c987017c103724d4996ae457423b486d99cccbd460c963930",
+    "predictions_arm_C_fold4.csv": "0ff39db7fa35d0f94ccbe559997ca936e641c3cd28a12331d76ff7e218e3f9ea",
+    "predictions_arm_D_fold0.csv": "835cfebf0cc5c342e9da99334778ebc9c061b8907d389b55754c0b99e37f5c55",
+    "predictions_arm_D_fold1.csv": "10d1e1751457bbb0bb581211016050ccaee073ec5578a31de4732ebe546c1167",
+    "predictions_arm_D_fold2.csv": "a8f70bff740789a5227dc61894214898873f6d752cbffb984a992311535e0dc5",
+    "predictions_arm_D_fold3.csv": "0487b01404f9566db980c489e6e459b6ce9063d7660e43febde7ba59b89a0a84",
+    "predictions_arm_D_fold4.csv": "bcdf9e25d433a5d68044020524305e2c127cb4c4f094ff165e0b45fcd3f33602"
+  },
+  "postgresql_writes": 0,
+  "protocol_checks_passed": 45,
+  "read_only_transactions": true
+}

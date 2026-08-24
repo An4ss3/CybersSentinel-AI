@@ -1,0 +1,73 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "schemaVersion": 39,
+  "tags": ["cybersentinel"],
+  "templating": { "list": [] },
+  "time": { "from": "now-24h", "to": "now" },
+  "timepicker": {},
+  "timezone": "",
+  "title": "CyberSentinel AI — Alerts",
+  "uid": "cybersentinel-alerts",
+  "version": 1,
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Total alerts",
+      "datasource": { "uid": "cybersentinel-pg" },
+      "gridPos": { "h": 5, "w": 6, "x": 0, "y": 0 },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none" },
+      "targets": [
+        { "refId": "A", "format": "table", "rawSql": "SELECT count(*) AS \"Total\" FROM alerts;" }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Critical + High",
+      "datasource": { "uid": "cybersentinel-pg" },
+      "gridPos": { "h": 5, "w": 6, "x": 6, "y": 0 },
+      "fieldConfig": { "defaults": { "color": { "mode": "fixed", "fixedColor": "red" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none" },
+      "targets": [
+        { "refId": "A", "format": "table", "rawSql": "SELECT count(*) AS \"Critical+High\" FROM alerts WHERE level IN ('Critical','High');" }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "piechart",
+      "title": "Alerts by criticality",
+      "datasource": { "uid": "cybersentinel-pg" },
+      "gridPos": { "h": 10, "w": 6, "x": 12, "y": 0 },
+      "options": { "legend": { "displayMode": "list", "placement": "right" }, "pieType": "donut", "reduceOptions": { "calcs": ["lastNotNull"], "values": true } },
+      "targets": [
+        { "refId": "A", "format": "table", "rawSql": "SELECT level AS metric, count(*) AS value FROM alerts GROUP BY level ORDER BY value DESC;" }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "barchart",
+      "title": "Alerts by attack type",
+      "datasource": { "uid": "cybersentinel-pg" },
+      "gridPos": { "h": 10, "w": 6, "x": 18, "y": 0 },
+      "options": { "orientation": "horizontal", "showValue": "always" },
+      "targets": [
+        { "refId": "A", "format": "table", "rawSql": "SELECT attack_type AS metric, count(*) AS value FROM alerts GROUP BY attack_type ORDER BY value DESC;" }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "table",
+      "title": "Recent alerts",
+      "datasource": { "uid": "cybersentinel-pg" },
+      "gridPos": { "h": 12, "w": 12, "x": 0, "y": 5 },
+      "options": { "showHeader": true },
+      "targets": [
+        { "refId": "A", "format": "table", "rawSql": "SELECT detected_at, attack_type, level, composite_score, ml_confidence, asset_criticality FROM alerts ORDER BY detected_at DESC LIMIT 100;" }
+      ]
+    }
+  ]
+}

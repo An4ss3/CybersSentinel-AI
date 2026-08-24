@@ -1,0 +1,67 @@
+[
+  {
+    "fold": 0,
+    "held_out_attack_type": "botnet/ares",
+    "imbalance_p1": 285.4472,
+    "imbalance_p2": 94.8241,
+    "matched_offsets_from_train_positives": 152,
+    "retention_rate": 0.332195,
+    "test_rows_identical_to_p1": true,
+    "train_negatives_dropped": 37934,
+    "train_negatives_p1": 56804,
+    "train_negatives_p2": 18870,
+    "train_positives": 199
+  },
+  {
+    "fold": 1,
+    "held_out_attack_type": "brute_force/ftp_patator",
+    "imbalance_p1": 179.6635,
+    "imbalance_p2": 46.8952,
+    "matched_offsets_from_train_positives": 132,
+    "retention_rate": 0.261017,
+    "test_rows_identical_to_p1": true,
+    "train_negatives_dropped": 41822,
+    "train_negatives_p1": 56594,
+    "train_negatives_p2": 14772,
+    "train_positives": 315
+  },
+  {
+    "fold": 2,
+    "held_out_attack_type": "brute_force/ssh_patator",
+    "imbalance_p1": 178.8418,
+    "imbalance_p2": 57.8513,
+    "matched_offsets_from_train_positives": 124,
+    "retention_rate": 0.323477,
+    "test_rows_identical_to_p1": true,
+    "train_negatives_dropped": 38233,
+    "train_negatives_p1": 56514,
+    "train_negatives_p2": 18281,
+    "train_positives": 316
+  },
+  {
+    "fold": 3,
+    "held_out_attack_type": "ddos/loit",
+    "imbalance_p1": 167.2156,
+    "imbalance_p2": 62.0509,
+    "matched_offsets_from_train_positives": 155,
+    "retention_rate": 0.371083,
+    "test_rows_identical_to_p1": true,
+    "train_negatives_dropped": 35125,
+    "train_negatives_p1": 55850,
+    "train_negatives_p2": 20725,
+    "train_positives": 334
+  },
+  {
+    "fold": 4,
+    "held_out_attack_type": "dos/hulk",
+    "imbalance_p1": 166.3235,
+    "imbalance_p2": 66.6794,
+    "matched_offsets_from_train_positives": 176,
+    "retention_rate": 0.400902,
+    "test_rows_identical_to_p1": true,
+    "train_negatives_dropped": 33879,
+    "train_negatives_p1": 56550,
+    "train_negatives_p2": 22671,
+    "train_positives": 340
+  }
+]
