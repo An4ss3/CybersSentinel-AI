@@ -285,6 +285,38 @@ def test_every_value_surviving_validation_lies_inside_the_unit_interval() -> Non
             assert 0.0 <= record[name] <= 1.0, (name, candidate, record[name])
 
 
+def test_population_classification_isolates_the_primary_endpoint() -> None:
+    windows = load_frozen_windows(ROOT / "artifacts/experiments/p1/p1_dataset.csv")
+    groups: dict[str, int] = {}
+    for window in windows:
+        groups[window.population] = groups.get(window.population, 0) + 1
+    assert groups == {"benign": 70_578, "botnet_ares": 177, "other_attack": 199}
+
+    ares = [w for w in windows if w.population == "botnet_ares"]
+    # Every Ares window is HTTP, so the header-template metric is the one that
+    # decides whether ARM H can inform the primary endpoint at all.
+    assert {w.service for w in ares} == {"http"}
+    assert {w.partition for w in ares} == {"2017-07-07_Friday-WorkingHours"}
+
+
+def test_label_metadata_never_enters_the_join_key() -> None:
+    base = dict(
+        row_id="00000000-0000-0000-0000-000000000000",
+        partition="2017-07-07_Friday-WorkingHours",
+        source="192.168.10.5",
+        destination="205.174.165.73",
+        transport="tcp",
+        service="http",
+        window_start_epoch=1_499_432_640,
+    )
+    benign = FrozenWindow(**base, label=0, attack_type="")
+    attack = FrozenWindow(**base, label=1, attack_type="botnet/ares")
+    assert benign.canonical_key() == attack.canonical_key()
+    assert pseudonym("s", benign.canonical_key()) == pseudonym("s", attack.canonical_key())
+    assert benign.population == "benign"
+    assert attack.population == "botnet_ares"
+
+
 def test_join_and_availability_guards_are_declared_and_enforced() -> None:
     assert MINIMUM_PARTITION_MATCH_RATE == 0.90
 

@@ -166,6 +166,11 @@ EXPECTED_STDERR_PATTERNS: Final[tuple[re.Pattern[str], ...]] = (
 #: an all-missing header-template column.
 MINIMUM_PARTITION_MATCH_RATE: Final[float] = 0.90
 
+#: The pre-registered primary endpoint of every arm comparison. All 177 of its
+#: windows carry service "http", so the header-template metric is the one whose
+#: availability decides whether ARM H can say anything about it at all.
+PRIMARY_ENDPOINT: Final[str] = "botnet/ares"
+
 
 class ContentExtractionError(RuntimeError):
     """The content extraction failed a protocol, privacy, or integrity guard."""
@@ -180,8 +185,11 @@ class FrozenWindow:
     transport: str
     service: str
     window_start_epoch: int
+    label: int = 0
+    attack_type: str = ""
 
     def canonical_key(self) -> str:
+        """The join key. Label and attack type are metadata and never enter it."""
         return "\x1f".join(
             (
                 self.partition,
@@ -192,6 +200,12 @@ class FrozenWindow:
                 str(self.window_start_epoch),
             )
         )
+
+    @property
+    def population(self) -> str:
+        if self.label == 0:
+            return "benign"
+        return "botnet_ares" if self.attack_type == PRIMARY_ENDPOINT else "other_attack"
 
 
 @dataclass(slots=True)
@@ -225,6 +239,8 @@ def load_frozen_windows(dataset_path: Path) -> list[FrozenWindow]:
                     transport=transport,
                     service=service,
                     window_start_epoch=int(row["window_start_epoch"]),
+                    label=int(row["label"]),
+                    attack_type=row.get("attack_type") or "",
                 )
             )
     if len(windows) != 70_954 or len({w.row_id for w in windows}) != len(windows):
@@ -640,6 +656,34 @@ def extract(
         name: sum(name in values for values in all_features.values())
         for name in FEATURE_NAMES
     }
+    # Availability split by population. The global guard below cannot see that a
+    # metric is present on benign HTTP traffic yet absent from every Ares window,
+    # which would make the corresponding arm vacuous on the primary endpoint.
+    population_of = {window.row_id: window.population for window in windows}
+    population_totals: dict[str, int] = {}
+    for window in windows:
+        population_totals[window.population] = (
+            population_totals.get(window.population, 0) + 1
+        )
+    availability_by_population: dict[str, dict[str, int]] = {
+        group: {name: 0 for name in FEATURE_NAMES} for group in population_totals
+    }
+    for row_id, values in all_features.items():
+        group = population_of[row_id]
+        for name in values:
+            availability_by_population[group][name] += 1
+    absent_on_primary_endpoint = sorted(
+        name
+        for name in FEATURE_NAMES
+        if availability_by_population.get("botnet_ares", {}).get(name, 0) == 0
+    )
+    if absent_on_primary_endpoint and progress:
+        progress(
+            "  warning: metrics absent from every "
+            f"{PRIMARY_ENDPOINT} window: {absent_on_primary_endpoint}. "
+            "Their arms cannot inform the primary endpoint and must be reported as such."
+        )
+
     # The guard that the first extraction attempt lacked.
     never_observed = check_metric_availability(availability, enforce=not preflight)
     return ExtractionResult(
@@ -649,6 +693,11 @@ def extract(
             "p1_rows": len(windows),
             "rows_with_any_content_feature": len(all_features),
             "availability_rows": availability,
+            "availability_by_population": availability_by_population,
+            "population_totals": population_totals,
+            "primary_endpoint": PRIMARY_ENDPOINT,
+            "metrics_absent_on_primary_endpoint": absent_on_primary_endpoint,
+            "metrics_never_observed": never_observed,
             "join_completeness_checks": join_checks,
             "minimum_partition_match_rate": MINIMUM_PARTITION_MATCH_RATE,
             "guard_rationale": (
