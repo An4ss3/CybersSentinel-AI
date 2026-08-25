@@ -1,0 +1,338 @@
+{
+  "availability_by_population": {
+    "benign": {
+      "destination_non_printable_ratio": 62394,
+      "destination_payload_entropy_normalized": 62394,
+      "normalized_header_template_repeat_ratio": 12063,
+      "payload_prefix_repeat_ratio": 64683,
+      "source_non_printable_ratio": 64683,
+      "source_payload_entropy_normalized": 64675
+    },
+    "botnet_ares": {
+      "destination_non_printable_ratio": 177,
+      "destination_payload_entropy_normalized": 177,
+      "normalized_header_template_repeat_ratio": 177,
+      "payload_prefix_repeat_ratio": 177,
+      "source_non_printable_ratio": 177,
+      "source_payload_entropy_normalized": 177
+    },
+    "other_attack": {
+      "destination_non_printable_ratio": 196,
+      "destination_payload_entropy_normalized": 196,
+      "normalized_header_template_repeat_ratio": 39,
+      "payload_prefix_repeat_ratio": 160,
+      "source_non_printable_ratio": 160,
+      "source_payload_entropy_normalized": 160
+    }
+  },
+  "availability_rows": {
+    "destination_non_printable_ratio": 62767,
+    "destination_payload_entropy_normalized": 62767,
+    "normalized_header_template_repeat_ratio": 12279,
+    "payload_prefix_repeat_ratio": 65020,
+    "source_non_printable_ratio": 65020,
+    "source_payload_entropy_normalized": 65012
+  },
+  "content_features_csv_sha256": "1f831d7e22b2db853713622da2fd7569af768e9884aba04ece6e206fc5896413",
+  "ephemeral_pseudonym_salt_persisted": false,
+  "extractor_module_sha256": "cdb3a037c2c830e90f09a69f541271885c0f5fdab18d842e41af06556b7c2d8c",
+  "feature_definitions": {
+    "destination_non_printable_ratio": "same byte-weighted ratio for destination payload",
+    "destination_payload_entropy_normalized": "same normalized per-flow Shannon mean for destination payload",
+    "normalized_header_template_repeat_ratio": "1 - distinct normalized HTTP request templates / requests, where a template contains only bounded method class, version class and ordered header names; URI, host and all values are discarded before hashing",
+    "payload_prefix_repeat_ratio": "1 - distinct SHA-256 fingerprints of the first up-to-64 source payload bytes / source-payload-bearing flows; fingerprints never leave Zeek memory",
+    "source_non_printable_ratio": "source payload bytes outside ASCII 0x20-0x7e and TAB/CR/LF divided by all source payload bytes",
+    "source_payload_entropy_normalized": "mean over source-payload-bearing flows of Shannon bits/byte divided by log2(min(256, payload_bytes)); undefined for windows without a qualifying flow"
+  },
+  "feature_names": [
+    "source_payload_entropy_normalized",
+    "destination_payload_entropy_normalized",
+    "source_non_printable_ratio",
+    "destination_non_printable_ratio",
+    "payload_prefix_repeat_ratio",
+    "normalized_header_template_repeat_ratio"
+  ],
+  "forbidden_persistent_fields": [
+    "salt",
+    "IP address",
+    "port",
+    "URI",
+    "hostname",
+    "cookie",
+    "header value",
+    "payload",
+    "payload fingerprint",
+    "header-template fingerprint"
+  ],
+  "guard_rationale": "match-rate and metric-availability guards are engineering sanity checks against a systematic extraction or join defect; they are not inference thresholds and select nothing",
+  "join_completeness_checks": [
+    {
+      "enforced": true,
+      "expected": 70578,
+      "floor": 0.9,
+      "matched": 65227,
+      "partition": "2017-07-03_Monday-WorkingHours",
+      "rate": 0.9241831732267846
+    },
+    {
+      "enforced": true,
+      "expected": 121,
+      "floor": 0.9,
+      "matched": 121,
+      "partition": "2017-07-04_Tuesday-WorkingHours",
+      "rate": 1.0
+    },
+    {
+      "enforced": true,
+      "expected": 36,
+      "floor": 0.9,
+      "matched": 36,
+      "partition": "2017-07-05_Wednesday-workingHours",
+      "rate": 1.0
+    },
+    {
+      "enforced": true,
+      "expected": 219,
+      "floor": 0.9,
+      "matched": 219,
+      "partition": "2017-07-07_Friday-WorkingHours",
+      "rate": 1.0
+    }
+  ],
+  "metrics_absent_on_primary_endpoint": [],
+  "metrics_never_observed": [],
+  "minimum_partition_match_rate": 0.9,
+  "mode": "full",
+  "network_access": false,
+  "online_validity": {
+    "destination_non_printable_ratio": "online incremental",
+    "destination_payload_entropy_normalized": "online incremental; final at window close",
+    "normalized_header_template_repeat_ratio": "online after request headers complete",
+    "payload_prefix_repeat_ratio": "online after first up-to-64 source payload bytes per flow",
+    "source_non_printable_ratio": "online incremental",
+    "source_payload_entropy_normalized": "online incremental; final at window close"
+  },
+  "p1_dataset_file_sha256": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+  "p1_folds_file_sha256": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+  "p1_rows": 70954,
+  "partition_runs": [
+    {
+      "bounded_seconds": 0,
+      "entropy_values_clamped_to_one": {
+        "destination_payload_entropy_normalized": 0,
+        "source_payload_entropy_normalized": 2
+      },
+      "non_p1_rows_ignored": 2840,
+      "p1_match_rate": 0.9241831732267846,
+      "p1_rows_expected": 70578,
+      "p1_rows_matched": 65227,
+      "partition": "2017-07-03_Monday-WorkingHours",
+      "pcap": "Monday-WorkingHours.pcap",
+      "temporary_output_fields": [
+        "destination_entropy_flows",
+        "destination_non_printable_ratio",
+        "destination_payload_bytes",
+        "destination_payload_entropy_normalized",
+        "header_templates",
+        "normalized_header_template_repeat_ratio",
+        "payload_prefix_repeat_ratio",
+        "source_entropy_flows",
+        "source_non_printable_ratio",
+        "source_payload_bytes",
+        "source_payload_entropy_normalized",
+        "source_prefixes",
+        "window_key"
+      ],
+      "unexpected_temporary_files": [],
+      "zeek_feature_availability_rows": {
+        "destination_non_printable_ratio": 62687,
+        "destination_payload_entropy_normalized": 62687,
+        "normalized_header_template_repeat_ratio": 12108,
+        "payload_prefix_repeat_ratio": 67507,
+        "source_non_printable_ratio": 67507,
+        "source_payload_entropy_normalized": 67499
+      },
+      "zeek_rows_emitted": 68067,
+      "zeek_stderr_lines": 0,
+      "zeek_stderr_text_persisted": false,
+      "zeek_stderr_unexpected_lines": 0
+    },
+    {
+      "bounded_seconds": 0,
+      "entropy_values_clamped_to_one": {
+        "destination_payload_entropy_normalized": 0,
+        "source_payload_entropy_normalized": 0
+      },
+      "non_p1_rows_ignored": 55390,
+      "p1_match_rate": 1.0,
+      "p1_rows_expected": 121,
+      "p1_rows_matched": 121,
+      "partition": "2017-07-04_Tuesday-WorkingHours",
+      "pcap": "Tuesday-WorkingHours.pcap",
+      "temporary_output_fields": [
+        "destination_entropy_flows",
+        "destination_non_printable_ratio",
+        "destination_payload_bytes",
+        "destination_payload_entropy_normalized",
+        "header_templates",
+        "normalized_header_template_repeat_ratio",
+        "payload_prefix_repeat_ratio",
+        "source_entropy_flows",
+        "source_non_printable_ratio",
+        "source_payload_bytes",
+        "source_payload_entropy_normalized",
+        "source_prefixes",
+        "window_key"
+      ],
+      "unexpected_temporary_files": [],
+      "zeek_feature_availability_rows": {
+        "destination_non_printable_ratio": 50800,
+        "destination_payload_entropy_normalized": 50800,
+        "normalized_header_template_repeat_ratio": 10366,
+        "payload_prefix_repeat_ratio": 54953,
+        "source_non_printable_ratio": 54953,
+        "source_payload_entropy_normalized": 54946
+      },
+      "zeek_rows_emitted": 55511,
+      "zeek_stderr_lines": 0,
+      "zeek_stderr_text_persisted": false,
+      "zeek_stderr_unexpected_lines": 0
+    },
+    {
+      "bounded_seconds": 0,
+      "entropy_values_clamped_to_one": {
+        "destination_payload_entropy_normalized": 0,
+        "source_payload_entropy_normalized": 0
+      },
+      "non_p1_rows_ignored": 52517,
+      "p1_match_rate": 1.0,
+      "p1_rows_expected": 36,
+      "p1_rows_matched": 36,
+      "partition": "2017-07-05_Wednesday-workingHours",
+      "pcap": "Wednesday-workingHours.pcap",
+      "temporary_output_fields": [
+        "destination_entropy_flows",
+        "destination_non_printable_ratio",
+        "destination_payload_bytes",
+        "destination_payload_entropy_normalized",
+        "header_templates",
+        "normalized_header_template_repeat_ratio",
+        "payload_prefix_repeat_ratio",
+        "source_entropy_flows",
+        "source_non_printable_ratio",
+        "source_payload_bytes",
+        "source_payload_entropy_normalized",
+        "source_prefixes",
+        "window_key"
+      ],
+      "unexpected_temporary_files": [],
+      "zeek_feature_availability_rows": {
+        "destination_non_printable_ratio": 49936,
+        "destination_payload_entropy_normalized": 49936,
+        "normalized_header_template_repeat_ratio": 10168,
+        "payload_prefix_repeat_ratio": 51905,
+        "source_non_printable_ratio": 51905,
+        "source_payload_entropy_normalized": 51893
+      },
+      "zeek_rows_emitted": 52553,
+      "zeek_stderr_lines": 0,
+      "zeek_stderr_text_persisted": false,
+      "zeek_stderr_unexpected_lines": 0
+    },
+    {
+      "bounded_seconds": 0,
+      "entropy_values_clamped_to_one": {
+        "destination_payload_entropy_normalized": 0,
+        "source_payload_entropy_normalized": 0
+      },
+      "non_p1_rows_ignored": 48080,
+      "p1_match_rate": 1.0,
+      "p1_rows_expected": 219,
+      "p1_rows_matched": 219,
+      "partition": "2017-07-07_Friday-WorkingHours",
+      "pcap": "Friday-WorkingHours.pcap",
+      "temporary_output_fields": [
+        "destination_entropy_flows",
+        "destination_non_printable_ratio",
+        "destination_payload_bytes",
+        "destination_payload_entropy_normalized",
+        "header_templates",
+        "normalized_header_template_repeat_ratio",
+        "payload_prefix_repeat_ratio",
+        "source_entropy_flows",
+        "source_non_printable_ratio",
+        "source_payload_bytes",
+        "source_payload_entropy_normalized",
+        "source_prefixes",
+        "window_key"
+      ],
+      "unexpected_temporary_files": [],
+      "zeek_feature_availability_rows": {
+        "destination_non_printable_ratio": 45710,
+        "destination_payload_entropy_normalized": 45710,
+        "normalized_header_template_repeat_ratio": 10110,
+        "payload_prefix_repeat_ratio": 47801,
+        "source_non_printable_ratio": 47801,
+        "source_payload_entropy_normalized": 47791
+      },
+      "zeek_rows_emitted": 48299,
+      "zeek_stderr_lines": 0,
+      "zeek_stderr_text_persisted": false,
+      "zeek_stderr_unexpected_lines": 0
+    }
+  ],
+  "pcap_checks": [
+    {
+      "actual_sha256": "f6eac599358f216b074338813a1cf7be3cc4e91d116e13efc0dc71f2cca11972",
+      "expected_sha256": "f6eac599358f216b074338813a1cf7be3cc4e91d116e13efc0dc71f2cca11972",
+      "pcap": "Monday-WorkingHours.pcap",
+      "sha256_verified": true,
+      "size_bytes": 10822507416
+    },
+    {
+      "actual_sha256": "080c2250154c5a174c03660ed0f75a3858d41a27511ba716e780d7bcb1ec4c57",
+      "expected_sha256": "080c2250154c5a174c03660ed0f75a3858d41a27511ba716e780d7bcb1ec4c57",
+      "pcap": "Tuesday-WorkingHours.pcap",
+      "sha256_verified": true,
+      "size_bytes": 11048283608
+    },
+    {
+      "actual_sha256": "cd2674db7559a53f24bc03be3239b315700174ccaef72d10f5edc4c1a08f6186",
+      "expected_sha256": "cd2674db7559a53f24bc03be3239b315700174ccaef72d10f5edc4c1a08f6186",
+      "pcap": "Wednesday-workingHours.pcap",
+      "sha256_verified": true,
+      "size_bytes": 13420789612
+    },
+    {
+      "actual_sha256": "beff0dcce1eebc9b2454582f4dc8ed0ba0112b2c619a710bf03af93147254cd0",
+      "expected_sha256": "beff0dcce1eebc9b2454582f4dc8ed0ba0112b2c619a710bf03af93147254cd0",
+      "pcap": "Friday-WorkingHours.pcap",
+      "sha256_verified": true,
+      "size_bytes": 8839309056
+    }
+  ],
+  "per_flow_fingerprints_persisted": false,
+  "persistent_identifiers": "frozen P1 UUID row_id only",
+  "population_totals": {
+    "benign": 70578,
+    "botnet_ares": 177,
+    "other_attack": 199
+  },
+  "primary_endpoint": "botnet/ares",
+  "published_columns": [
+    "row_id",
+    "source_payload_entropy_normalized",
+    "destination_payload_entropy_normalized",
+    "source_non_printable_ratio",
+    "destination_non_printable_ratio",
+    "payload_prefix_repeat_ratio",
+    "normalized_header_template_repeat_ratio"
+  ],
+  "published_rows": 70954,
+  "raw_payload_persisted": false,
+  "rows_with_any_content_feature": 65603,
+  "temporary_directories_removed": true,
+  "zeek_image": "zeek/zeek@sha256:65c79e9e641a90488e303a464bf063288b3f656fa73cd7d6aefe6d119c0bf9d5",
+  "zeek_image_index_sha256": "c7dfad9ab8296b2994d113222e77a22ebc9c8963b2b1200b798484ac923bc94f",
+  "zeek_script_sha256": "e5e520bcce2a82b3d7d7c5f62c07bd1bb3b7aa1fe0009b99136fd95ae7c6514b"
+}
