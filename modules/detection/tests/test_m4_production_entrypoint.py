@@ -515,8 +515,21 @@ def test_default_report_path_is_the_canonical_m4_path() -> None:
 # --- 9. No production report created by tests -------------------------
 
 
-def test_no_production_report_is_created_by_these_tests() -> None:
-    assert not (ROOT / CANONICAL_M4_V2_REPORT_RELATIVE_PATH).exists()
+def test_no_production_report_is_created_by_these_tests(
+    production_m4_report_fingerprint: str | None,
+) -> None:
+    """The entrypoint tests must leave the frozen M4 report byte-identical."""
+    production = ROOT / CANONICAL_M4_V2_REPORT_RELATIVE_PATH
+    observed = (
+        sha256(production.read_bytes()).hexdigest() if production.exists() else None
+    )
+    assert observed == production_m4_report_fingerprint, (
+        "the production M4 report must only be published by a real "
+        "1,380,057-record materialization, never as a test side effect"
+    )
+    if observed is not None:
+        report = json.loads(production.read_text(encoding="utf-8"))
+        assert report["total_processed_record_count"] == 1_380_057
 
 
 # --- 10. Frozen M3 hashes unchanged -----------------------------------

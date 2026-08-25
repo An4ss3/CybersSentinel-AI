@@ -427,13 +427,26 @@ def test_publication_uses_atomic_rename(verified_m3, tmp_path, monkeypatch) -> N
 # --- No production artifact may exist as a side effect ------------------
 
 
-def test_no_production_m4_report_is_created_by_these_tests() -> None:
-    """Phase 3 must not fabricate the production artifact."""
+def test_no_production_m4_report_is_created_by_these_tests(
+    production_m4_report_fingerprint: str | None,
+) -> None:
+    """Phase 3 must neither fabricate nor mutate the production artifact.
+
+    M4 has since been executed, so the frozen report legitimately exists. The
+    invariant is therefore that this session leaves it byte-identical to what it
+    found, and that any such file is the authentic materialization.
+    """
     production = ROOT / CANONICAL_M4_V2_REPORT_RELATIVE_PATH
-    assert not production.exists(), (
-        "the production M4 report must only be published after a real "
-        "1,380,057-record materialization"
+    observed = (
+        sha256(production.read_bytes()).hexdigest() if production.exists() else None
     )
+    assert observed == production_m4_report_fingerprint, (
+        "the production M4 report must only be published after a real "
+        "1,380,057-record materialization, never as a test side effect"
+    )
+    if observed is not None:
+        report = json.loads(production.read_text(encoding="utf-8"))
+        assert report["total_processed_record_count"] == 1_380_057
 
 
 def test_package_exports_phase_3_symbols() -> None:

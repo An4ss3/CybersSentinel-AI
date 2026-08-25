@@ -2,8 +2,12 @@
 from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
+from hashlib import sha256
 from ipaddress import ip_address
+from pathlib import Path
 from uuid import UUID
+
+import pytest
 
 from modules.detection.src.lineage import EventProvenance
 
@@ -11,6 +15,61 @@ BASE_TIME = datetime(2026, 7, 20, 10, 0, tzinfo=timezone.utc)
 SOURCE_EVENT_1 = UUID("00000000-0000-4000-8000-000000000001")
 SOURCE_EVENT_2 = UUID("00000000-0000-4000-8000-000000000002")
 WINDOW_EVENT = UUID("00000000-0000-4000-8000-000000000003")
+
+# --- Frozen production artifact guard ---------------------------------------
+#
+# The M4 production report is frozen canonical evidence published by a real
+# 1,380,057-record materialization. The regression suite must neither fabricate
+# nor mutate it. Asserting that the file is simply absent was only correct
+# before M4 was executed; that assertion now contradicts the frozen chain. The
+# invariant that still has teeth is that this session leaves the artifact
+# exactly as it found it, so its digest is captured here, at conftest import
+# time, before any test in the session runs.
+
+_REPO_ROOT = Path(__file__).resolve().parents[3]
+_PRODUCTION_M4_REPORT = (
+    _REPO_ROOT / "artifacts" / "reports" / "m4_v2_materialization_run.json"
+)
+#: Record count that only a genuine M4 materialization can declare.
+AUTHENTIC_M4_PROCESSED_RECORD_COUNT = 1_380_057
+
+
+def _fingerprint_production_m4_report() -> str | None:
+    """Digest of the frozen M4 report, or ``None`` when it does not exist."""
+    if not _PRODUCTION_M4_REPORT.exists():
+        return None
+    return sha256(_PRODUCTION_M4_REPORT.read_bytes()).hexdigest()
+
+
+_M4_FINGERPRINT_AT_SESSION_START = _fingerprint_production_m4_report()
+
+
+@pytest.fixture(scope="session")
+def production_m4_report_fingerprint() -> str | None:
+    """The frozen M4 report digest as observed before any test executed."""
+    return _M4_FINGERPRINT_AT_SESSION_START
+
+
+def assert_production_m4_report_untouched(expected_fingerprint: str | None) -> None:
+    """Fail if this session created, deleted or modified the frozen M4 report."""
+    observed = _fingerprint_production_m4_report()
+    assert observed == expected_fingerprint, (
+        "the production M4 report must only be published by a real "
+        f"{AUTHENTIC_M4_PROCESSED_RECORD_COUNT}-record materialization, never as "
+        "a test side effect; this session changed it from "
+        f"{expected_fingerprint} to {observed}"
+    )
+    if observed is None:
+        return
+    import json
+
+    report = json.loads(_PRODUCTION_M4_REPORT.read_text(encoding="utf-8"))
+    assert report["total_processed_record_count"] == (
+        AUTHENTIC_M4_PROCESSED_RECORD_COUNT
+    ), (
+        "the production M4 report exists but does not declare the authentic "
+        "materialization record count, so it cannot be frozen evidence"
+    )
 
 
 def version_fields(sensor_version: str = "6.2.0") -> dict[str, str]:
