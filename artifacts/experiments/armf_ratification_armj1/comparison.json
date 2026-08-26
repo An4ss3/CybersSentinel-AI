@@ -1,0 +1,2784 @@
+{
+  "arm_f_ratification": {
+    "conditions": {
+      "episode_recall_strictly_above_arm_a": true,
+      "paired_ci_strictly_negative": false,
+      "paired_ci_strictly_positive": true,
+      "realised_fpr_not_above_arm_a": true
+    },
+    "observed": {
+      "arm_a_episode_recall": 0.325,
+      "arm_a_observed_test_fpr": 0.009873675039930304,
+      "arm_f_episode_recall": 0.525,
+      "arm_f_observed_test_fpr": 0.007187454624655147,
+      "paired_delta_ci": [
+        0.075,
+        0.325
+      ],
+      "paired_delta_point": 0.2
+    },
+    "reason": "Ares episode recall is strictly above ARM A, the paired episode-delta interval is strictly positive, and the realised test FPR is not above ARM A's, so ARM F Pareto-dominates ARM A",
+    "verdict": "SUPPORTED"
+  },
+  "arm_j1_assessment": {
+    "ares_vs_arm_a": "indistinguishable",
+    "ares_vs_arm_f": "degraded",
+    "note": "the ssh_patator fold contains 9 episodes, so a one-episode difference cannot reach significance at this sample size; directions labelled indistinguishable are genuinely undetermined, not neutral findings",
+    "ssh_vs_arm_a": "indistinguishable",
+    "ssh_vs_arm_f": "indistinguishable"
+  },
+  "co_primary_endpoint": "brute_force/ssh_patator",
+  "content_sha256": "004f80bc2e9bf791a808645df2d492932630a04b9e14cbc30cc37aadd66198ab",
+  "equal_alert_budget_diagnostic": {
+    "botnet/ares": {
+      "alert_budget_from_arm_a": 160,
+      "arms": {
+        "A": {
+          "alert_budget": 160,
+          "episode_detection": {
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+          },
+          "episode_recall": 0.325,
+          "episodes": 40,
+          "episodes_detected": 13,
+          "observed_test_fpr": 0.009873675039930304,
+          "ratifying": false
+        },
+        "F": {
+          "alert_budget": 160,
+          "episode_detection": {
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+          },
+          "episode_recall": 0.525,
+          "episodes": 40,
+          "episodes_detected": 21,
+          "observed_test_fpr": 0.004864236968200959,
+          "ratifying": false
+        },
+        "J1": {
+          "alert_budget": 160,
+          "episode_detection": {
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003": true,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005": true,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002": true,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000": true,
+            "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010": true,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013": false,
+            "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014": false
+          },
+          "episode_recall": 0.375,
+          "episodes": 40,
+          "episodes_detected": 15,
+          "observed_test_fpr": 0.008784666763467402,
+          "ratifying": false
+        }
+      },
+      "ratifying": false
+    },
+    "brute_force/ftp_patator": {
+      "alert_budget_from_arm_a": 106,
+      "arms": {
+        "A": {
+          "alert_budget": 106,
+          "episode_detection": {
+            "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "observed_test_fpr": 0.007365560640732265,
+          "ratifying": false
+        },
+        "F": {
+          "alert_budget": 106,
+          "episode_detection": {
+            "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "observed_test_fpr": 0.003289473684210526,
+          "ratifying": false
+        },
+        "J1": {
+          "alert_budget": 106,
+          "episode_detection": {
+            "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "observed_test_fpr": 0.007365560640732265,
+          "ratifying": false
+        }
+      },
+      "ratifying": false
+    },
+    "brute_force/ssh_patator": {
+      "alert_budget_from_arm_a": 161,
+      "arms": {
+        "A": {
+          "alert_budget": 161,
+          "episode_detection": {
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": true
+          },
+          "episode_recall": 0.1111111111111111,
+          "episodes": 9,
+          "episodes_detected": 1,
+          "observed_test_fpr": 0.009101251422070534,
+          "ratifying": false
+        },
+        "F": {
+          "alert_budget": 161,
+          "episode_detection": {
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": false
+          },
+          "episode_recall": 0.0,
+          "episodes": 9,
+          "episodes_detected": 0,
+          "observed_test_fpr": 0.011447667804323094,
+          "ratifying": false
+        },
+        "J1": {
+          "alert_budget": 161,
+          "episode_detection": {
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007": false,
+            "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000": false
+          },
+          "episode_recall": 0.0,
+          "episodes": 9,
+          "episodes_detected": 0,
+          "observed_test_fpr": 0.011447667804323094,
+          "ratifying": false
+        }
+      },
+      "ratifying": false
+    },
+    "ddos/loit": {
+      "alert_budget_from_arm_a": 293,
+      "arms": {
+        "A": {
+          "alert_budget": 293,
+          "episode_detection": {
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "observed_test_fpr": 0.01704236827810972,
+          "ratifying": false
+        },
+        "F": {
+          "alert_budget": 293,
+          "episode_detection": {
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "observed_test_fpr": 0.01704236827810972,
+          "ratifying": false
+        },
+        "J1": {
+          "alert_budget": 293,
+          "episode_detection": {
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+            "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "observed_test_fpr": 0.01704236827810972,
+          "ratifying": false
+        }
+      },
+      "ratifying": false
+    },
+    "dos/hulk": {
+      "alert_budget_from_arm_a": 165,
+      "arms": {
+        "A": {
+          "alert_budget": 165,
+          "episode_detection": {
+            "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+            "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "observed_test_fpr": 0.010265183917878529,
+          "ratifying": false
+        },
+        "F": {
+          "alert_budget": 165,
+          "episode_detection": {
+            "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+            "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "observed_test_fpr": 0.010122611919019104,
+          "ratifying": false
+        },
+        "J1": {
+          "alert_budget": 165,
+          "episode_detection": {
+            "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+            "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+          },
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "observed_test_fpr": 0.010407755916737952,
+          "ratifying": false
+        }
+      },
+      "ratifying": false
+    }
+  },
+  "experiment": "ARM-F-RATIFICATION and ARM-J1",
+  "operating_point_curve": {
+    "botnet/ares": {
+      "target_0.0005": {
+        "A": {
+          "achieved_train_fpr": 0.00045771424547567073,
+          "alerts": 4,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0002904022070567736,
+          "pr_auc": 0.0670200698009214,
+          "roc_auc": 0.7615389758318096,
+          "threshold": 0.49074313044548035,
+          "window_recall": 0.0
+        },
+        "F": {
+          "achieved_train_fpr": 0.00024646151679459194,
+          "alerts": 25,
+          "episode_ci": [
+            0.175,
+            0.45
+          ],
+          "episode_recall": 0.3,
+          "episodes_detected": 12,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0001452011035283868,
+          "pr_auc": 0.45704719677233957,
+          "roc_auc": 0.9712706901318213,
+          "threshold": 0.16873404383659363,
+          "window_recall": 0.12994350282485875
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0004929230335891839,
+          "alerts": 5,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.000363002758820967,
+          "pr_auc": 0.2043383587439088,
+          "roc_auc": 0.9429964667731475,
+          "threshold": 0.03574714809656143,
+          "window_recall": 0.0
+        }
+      },
+      "target_0.001": {
+        "A": {
+          "achieved_train_fpr": 0.0009506372790648546,
+          "alerts": 10,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.000726005517641934,
+          "pr_auc": 0.0670200698009214,
+          "roc_auc": 0.7615389758318096,
+          "threshold": 0.322966992855072,
+          "window_recall": 0.0
+        },
+        "F": {
+          "achieved_train_fpr": 0.0007393845503837758,
+          "alerts": 50,
+          "episode_ci": [
+            0.2,
+            0.5
+          ],
+          "episode_recall": 0.35,
+          "episodes_detected": 14,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.001597212138812255,
+          "pr_auc": 0.45704719677233957,
+          "roc_auc": 0.9712706901318213,
+          "threshold": 0.10201772302389145,
+          "window_recall": 0.15819209039548024
+        },
+        "J1": {
+          "achieved_train_fpr": 0.000809802126610802,
+          "alerts": 14,
+          "episode_ci": [
+            0.0,
+            0.175
+          ],
+          "episode_recall": 0.075,
+          "episodes_detected": 3,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0007986060694061275,
+          "pr_auc": 0.2043383587439088,
+          "roc_auc": 0.9429964667731475,
+          "threshold": 0.01628316566348076,
+          "window_recall": 0.01694915254237288
+        }
+      },
+      "target_0.002": {
+        "A": {
+          "achieved_train_fpr": 0.0018132525878459262,
+          "alerts": 28,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0020328154493974154,
+          "pr_auc": 0.0670200698009214,
+          "roc_auc": 0.7615389758318096,
+          "threshold": 0.1834614872932434,
+          "window_recall": 0.0
+        },
+        "F": {
+          "achieved_train_fpr": 0.0014435603126540385,
+          "alerts": 67,
+          "episode_ci": [
+            0.225,
+            0.525
+          ],
+          "episode_recall": 0.375,
+          "episodes_detected": 15,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0020328154493974154,
+          "pr_auc": 0.45704719677233957,
+          "roc_auc": 0.9712706901318213,
+          "threshold": 0.016202567145228386,
+          "window_recall": 0.22033898305084745
+        },
+        "J1": {
+          "achieved_train_fpr": 0.000809802126610802,
+          "alerts": 14,
+          "episode_ci": [
+            0.0,
+            0.175
+          ],
+          "episode_recall": 0.075,
+          "episodes_detected": 3,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0007986060694061275,
+          "pr_auc": 0.2043383587439088,
+          "roc_auc": 0.9429964667731475,
+          "threshold": 0.01628316566348076,
+          "window_recall": 0.01694915254237288
+        }
+      },
+      "target_0.005": {
+        "A": {
+          "achieved_train_fpr": 0.004929230335891838,
+          "alerts": 82,
+          "episode_ci": [
+            0.0,
+            0.125
+          ],
+          "episode_recall": 0.05,
+          "episodes_detected": 2,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0055902424858428924,
+          "pr_auc": 0.0670200698009214,
+          "roc_auc": 0.7615389758318096,
+          "threshold": 0.04484260082244873,
+          "window_recall": 0.02824858757062147
+        },
+        "F": {
+          "achieved_train_fpr": 0.004999647912118865,
+          "alerts": 121,
+          "episode_ci": [
+            0.275,
+            0.575
+          ],
+          "episode_recall": 0.425,
+          "episodes_detected": 17,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.0031218237258603164,
+          "pr_auc": 0.45704719677233957,
+          "roc_auc": 0.9712706901318213,
+          "threshold": 0.010766640305519104,
+          "window_recall": 0.4406779661016949
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0048588127596648125,
+          "alerts": 87,
+          "episode_ci": [
+            0.225,
+            0.525
+          ],
+          "episode_recall": 0.375,
+          "episodes_detected": 15,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.003557427036445477,
+          "pr_auc": 0.2043383587439088,
+          "roc_auc": 0.9429964667731475,
+          "threshold": 0.003904159413650632,
+          "window_recall": 0.21468926553672316
+        }
+      },
+      "target_0.01": {
+        "A": {
+          "achieved_train_fpr": 0.009964087036124216,
+          "alerts": 160,
+          "episode_ci": [
+            0.19937500000000005,
+            0.475
+          ],
+          "episode_recall": 0.325,
+          "episodes_detected": 13,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.009873675039930304,
+          "pr_auc": 0.0670200698009214,
+          "roc_auc": 0.7615389758318096,
+          "threshold": 0.02265745960175991,
+          "window_recall": 0.13559322033898305
+        },
+        "F": {
+          "achieved_train_fpr": 0.009576790366875572,
+          "alerts": 198,
+          "episode_ci": [
+            0.375,
+            0.675
+          ],
+          "episode_recall": 0.525,
+          "episodes_detected": 21,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.007187454624655147,
+          "pr_auc": 0.45704719677233957,
+          "roc_auc": 0.9712706901318213,
+          "threshold": 0.0024790484458208084,
+          "window_recall": 0.559322033898305
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0087141750580945,
+          "alerts": 142,
+          "episode_ci": [
+            0.225,
+            0.525
+          ],
+          "episode_recall": 0.375,
+          "episodes_detected": 15,
+          "episodes_total": 40,
+          "observed_test_fpr": 0.007477856831711921,
+          "pr_auc": 0.2043383587439088,
+          "roc_auc": 0.9429964667731475,
+          "threshold": 0.0018459503771737218,
+          "window_recall": 0.22033898305084745
+        }
+      }
+    },
+    "brute_force/ftp_patator": {
+      "target_0.0005": {
+        "A": {
+          "achieved_train_fpr": 0.0004947520938615401,
+          "alerts": 9,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0006435926773455377,
+          "pr_auc": 0.03359005384846879,
+          "roc_auc": 0.8881455855872754,
+          "threshold": 0.32604479789733887,
+          "window_recall": 0.0
+        },
+        "F": {
+          "achieved_train_fpr": 0.0004947520938615401,
+          "alerts": 8,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.00035755148741418763,
+          "pr_auc": 0.6524391071930906,
+          "roc_auc": 0.9973119161946206,
+          "threshold": 0.43706458806991577,
+          "window_recall": 0.04918032786885246
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0004947520938615401,
+          "alerts": 6,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.00042906178489702515,
+          "pr_auc": 0.07243016746352998,
+          "roc_auc": 0.9453157238248865,
+          "threshold": 0.18617568910121918,
+          "window_recall": 0.0
+        }
+      },
+      "target_0.001": {
+        "A": {
+          "achieved_train_fpr": 0.0004947520938615401,
+          "alerts": 9,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0006435926773455377,
+          "pr_auc": 0.03359005384846879,
+          "roc_auc": 0.8881455855872754,
+          "threshold": 0.32604479789733887,
+          "window_recall": 0.0
+        },
+        "F": {
+          "achieved_train_fpr": 0.0008304767289818709,
+          "alerts": 18,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.00042906178489702515,
+          "pr_auc": 0.6524391071930906,
+          "roc_auc": 0.9973119161946206,
+          "threshold": 0.19392965734004974,
+          "window_recall": 0.19672131147540983
+        },
+        "J1": {
+          "achieved_train_fpr": 0.000971834470085168,
+          "alerts": 12,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0006435926773455377,
+          "pr_auc": 0.07243016746352998,
+          "roc_auc": 0.9453157238248865,
+          "threshold": 0.1102844700217247,
+          "window_recall": 0.04918032786885246
+        }
+      },
+      "target_0.002": {
+        "A": {
+          "achieved_train_fpr": 0.0014135774110329716,
+          "alerts": 17,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.001215675057208238,
+          "pr_auc": 0.03359005384846879,
+          "roc_auc": 0.8881455855872754,
+          "threshold": 0.20343539118766785,
+          "window_recall": 0.0
+        },
+        "F": {
+          "achieved_train_fpr": 0.0016079443050500053,
+          "alerts": 38,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0011441647597254005,
+          "pr_auc": 0.6524391071930906,
+          "roc_auc": 0.9973119161946206,
+          "threshold": 0.1498764604330063,
+          "window_recall": 0.36065573770491804
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0019966780930840726,
+          "alerts": 17,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0010011441647597254,
+          "pr_auc": 0.07243016746352998,
+          "roc_auc": 0.9453157238248865,
+          "threshold": 0.04331516847014427,
+          "window_recall": 0.04918032786885246
+        }
+      },
+      "target_0.005": {
+        "A": {
+          "achieved_train_fpr": 0.003304237198289571,
+          "alerts": 44,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0029319221967963388,
+          "pr_auc": 0.03359005384846879,
+          "roc_auc": 0.8881455855872754,
+          "threshold": 0.08658962696790695,
+          "window_recall": 0.04918032786885246
+        },
+        "F": {
+          "achieved_train_fpr": 0.004523447715305509,
+          "alerts": 95,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0025028604118993137,
+          "pr_auc": 0.6524391071930906,
+          "roc_auc": 0.9973119161946206,
+          "threshold": 0.032953184098005295,
+          "window_recall": 0.9836065573770492
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0037989892921511115,
+          "alerts": 27,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0017162471395881006,
+          "pr_auc": 0.07243016746352998,
+          "roc_auc": 0.9453157238248865,
+          "threshold": 0.02380928210914135,
+          "window_recall": 0.04918032786885246
+        }
+      },
+      "target_0.01": {
+        "A": {
+          "achieved_train_fpr": 0.007544969431388486,
+          "alerts": 106,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.007365560640732265,
+          "pr_auc": 0.03359005384846879,
+          "roc_auc": 0.8881455855872754,
+          "threshold": 0.06538153439760208,
+          "window_recall": 0.04918032786885246
+        },
+        "F": {
+          "achieved_train_fpr": 0.00600770399689013,
+          "alerts": 116,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.004004576659038902,
+          "pr_auc": 0.6524391071930906,
+          "roc_auc": 0.9973119161946206,
+          "threshold": 0.017658593133091927,
+          "window_recall": 0.9836065573770492
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0037989892921511115,
+          "alerts": 27,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 1,
+          "episodes_total": 1,
+          "observed_test_fpr": 0.0017162471395881006,
+          "pr_auc": 0.07243016746352998,
+          "roc_auc": 0.9453157238248865,
+          "threshold": 0.02380928210914135,
+          "window_recall": 0.04918032786885246
+        }
+      }
+    },
+    "brute_force/ssh_patator": {
+      "target_0.0005": {
+        "A": {
+          "achieved_train_fpr": 0.00042467353222210426,
+          "alerts": 29,
+          "episode_ci": [
+            0.0,
+            0.3333333333333333
+          ],
+          "episode_recall": 0.1111111111111111,
+          "episodes_detected": 1,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.00021331058020477816,
+          "pr_auc": 0.5534204511205815,
+          "roc_auc": 0.9199427616609784,
+          "threshold": 0.38852453231811523,
+          "window_recall": 0.43333333333333335
+        },
+        "F": {
+          "achieved_train_fpr": 0.00037158934069434125,
+          "alerts": 22,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.0015642775881683731,
+          "pr_auc": 0.0048377932802940015,
+          "roc_auc": 0.39919712267728485,
+          "threshold": 0.4072045385837555,
+          "window_recall": 0.0
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0004954524542591216,
+          "alerts": 28,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.0019908987485779293,
+          "pr_auc": 0.03313102204972327,
+          "roc_auc": 0.9048587409935532,
+          "threshold": 0.17667144536972046,
+          "window_recall": 0.0
+        }
+      },
+      "target_0.001": {
+        "A": {
+          "achieved_train_fpr": 0.0009201259864812259,
+          "alerts": 43,
+          "episode_ci": [
+            0.0,
+            0.3333333333333333
+          ],
+          "episode_recall": 0.1111111111111111,
+          "episodes_detected": 1,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.001208759954493743,
+          "pr_auc": 0.5534204511205815,
+          "roc_auc": 0.9199427616609784,
+          "threshold": 0.37091100215911865,
+          "window_recall": 0.43333333333333335
+        },
+        "F": {
+          "achieved_train_fpr": 0.0006370102983331564,
+          "alerts": 30,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.0021331058020477816,
+          "pr_auc": 0.0048377932802940015,
+          "roc_auc": 0.39919712267728485,
+          "threshold": 0.2355194091796875,
+          "window_recall": 0.0
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0009201259864812259,
+          "alerts": 38,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.00270193401592719,
+          "pr_auc": 0.03313102204972327,
+          "roc_auc": 0.9048587409935532,
+          "threshold": 0.10622192174196243,
+          "window_recall": 0.0
+        }
+      },
+      "target_0.002": {
+        "A": {
+          "achieved_train_fpr": 0.0019464203560179778,
+          "alerts": 52,
+          "episode_ci": [
+            0.0,
+            0.3333333333333333
+          ],
+          "episode_recall": 0.1111111111111111,
+          "episodes_detected": 1,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.001350967007963595,
+          "pr_auc": 0.5534204511205815,
+          "roc_auc": 0.9199427616609784,
+          "threshold": 0.2135934978723526,
+          "window_recall": 0.55
+        },
+        "F": {
+          "achieved_train_fpr": 0.0013447995187033301,
+          "alerts": 40,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.002844141069397042,
+          "pr_auc": 0.0048377932802940015,
+          "roc_auc": 0.39919712267728485,
+          "threshold": 0.15441350638866425,
+          "window_recall": 0.0
+        },
+        "J1": {
+          "achieved_train_fpr": 0.001999504547545741,
+          "alerts": 50,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.0035551763367463025,
+          "pr_auc": 0.03313102204972327,
+          "roc_auc": 0.9048587409935532,
+          "threshold": 0.04879242554306984,
+          "window_recall": 0.0
+        }
+      },
+      "target_0.005": {
+        "A": {
+          "achieved_train_fpr": 0.00472449304597091,
+          "alerts": 84,
+          "episode_ci": [
+            0.0,
+            0.3333333333333333
+          ],
+          "episode_recall": 0.1111111111111111,
+          "episodes_detected": 1,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.003626279863481229,
+          "pr_auc": 0.5534204511205815,
+          "roc_auc": 0.9199427616609784,
+          "threshold": 0.09998514503240585,
+          "window_recall": 0.55
+        },
+        "F": {
+          "achieved_train_fpr": 0.004866050890044944,
+          "alerts": 93,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.006612627986348123,
+          "pr_auc": 0.0048377932802940015,
+          "roc_auc": 0.39919712267728485,
+          "threshold": 0.023251192644238472,
+          "window_recall": 0.0
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0031673567611565276,
+          "alerts": 66,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.00469283276450512,
+          "pr_auc": 0.03313102204972327,
+          "roc_auc": 0.9048587409935532,
+          "threshold": 0.022180555388331413,
+          "window_recall": 0.0
+        }
+      },
+      "target_0.01": {
+        "A": {
+          "achieved_train_fpr": 0.00928973351735853,
+          "alerts": 161,
+          "episode_ci": [
+            0.0,
+            0.3333333333333333
+          ],
+          "episode_recall": 0.1111111111111111,
+          "episodes_detected": 1,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.009101251422070534,
+          "pr_auc": 0.5534204511205815,
+          "roc_auc": 0.9199427616609784,
+          "threshold": 0.06050660088658333,
+          "window_recall": 0.55
+        },
+        "F": {
+          "achieved_train_fpr": 0.004866050890044944,
+          "alerts": 93,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.006612627986348123,
+          "pr_auc": 0.0048377932802940015,
+          "roc_auc": 0.39919712267728485,
+          "threshold": 0.023251192644238472,
+          "window_recall": 0.0
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0031673567611565276,
+          "alerts": 66,
+          "episode_ci": [
+            0.0,
+            0.0
+          ],
+          "episode_recall": 0.0,
+          "episodes_detected": 0,
+          "episodes_total": 9,
+          "observed_test_fpr": 0.00469283276450512,
+          "pr_auc": 0.03313102204972327,
+          "roc_auc": 0.9048587409935532,
+          "threshold": 0.022180555388331413,
+          "window_recall": 0.0
+        }
+      }
+    },
+    "ddos/loit": {
+      "target_0.0005": {
+        "A": {
+          "achieved_train_fpr": 0.00046553267681289165,
+          "alerts": 27,
+          "episode_ci": [
+            0.0,
+            1.0
+          ],
+          "episode_recall": 0.5,
+          "episodes_detected": 1,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0011542639869636068,
+          "pr_auc": 0.311283488991151,
+          "roc_auc": 0.9902849447763897,
+          "threshold": 0.4037414491176605,
+          "window_recall": 0.23809523809523808
+        },
+        "F": {
+          "achieved_train_fpr": 0.0004476275738585497,
+          "alerts": 45,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.00033948940793047255,
+          "pr_auc": 0.9622829622829623,
+          "roc_auc": 0.999851271307002,
+          "threshold": 0.41677477955818176,
+          "window_recall": 0.9523809523809523
+        },
+        "J1": {
+          "achieved_train_fpr": 0.00048343777976723367,
+          "alerts": 49,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0006110809342748506,
+          "pr_auc": 0.9549863866670562,
+          "roc_auc": 0.9998690540855125,
+          "threshold": 0.2731334865093231,
+          "window_recall": 0.9523809523809523
+        }
+      },
+      "target_0.001": {
+        "A": {
+          "achieved_train_fpr": 0.0009131602506714414,
+          "alerts": 42,
+          "episode_ci": [
+            0.0,
+            1.0
+          ],
+          "episode_recall": 0.5,
+          "episodes_detected": 1,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0021727322107550242,
+          "pr_auc": 0.311283488991151,
+          "roc_auc": 0.9902849447763897,
+          "threshold": 0.30871063470840454,
+          "window_recall": 0.23809523809523808
+        },
+        "F": {
+          "achieved_train_fpr": 0.0009847806624888092,
+          "alerts": 50,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0006789788158609451,
+          "pr_auc": 0.9622829622829623,
+          "roc_auc": 0.999851271307002,
+          "threshold": 0.2332737296819687,
+          "window_recall": 0.9523809523809523
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0009489704565801253,
+          "alerts": 60,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0012221618685497012,
+          "pr_auc": 0.9549863866670562,
+          "roc_auc": 0.9998690540855125,
+          "threshold": 0.13436806201934814,
+          "window_recall": 1.0
+        }
+      },
+      "target_0.002": {
+        "A": {
+          "achieved_train_fpr": 0.0018621307072515666,
+          "alerts": 51,
+          "episode_ci": [
+            0.0,
+            1.0
+          ],
+          "episode_recall": 0.5,
+          "episodes_detected": 1,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.002648017381857686,
+          "pr_auc": 0.311283488991151,
+          "roc_auc": 0.9902849447763897,
+          "threshold": 0.22877374291419983,
+          "window_recall": 0.2857142857142857
+        },
+        "F": {
+          "achieved_train_fpr": 0.0018084153983885408,
+          "alerts": 54,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0008826724606192287,
+          "pr_auc": 0.9622829622829623,
+          "roc_auc": 0.999851271307002,
+          "threshold": 0.17555736005306244,
+          "window_recall": 0.9761904761904762
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0019874664279319605,
+          "alerts": 79,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.002512221618685497,
+          "pr_auc": 0.9549863866670562,
+          "roc_auc": 0.9998690540855125,
+          "threshold": 0.05705685168504715,
+          "window_recall": 1.0
+        }
+      },
+      "target_0.005": {
+        "A": {
+          "achieved_train_fpr": 0.004333034914950761,
+          "alerts": 139,
+          "episode_ci": [
+            0.0,
+            1.0
+          ],
+          "episode_recall": 0.5,
+          "episodes_detected": 1,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.008079847908745247,
+          "pr_auc": 0.311283488991151,
+          "roc_auc": 0.9902849447763897,
+          "threshold": 0.12004212290048599,
+          "window_recall": 0.47619047619047616
+        },
+        "F": {
+          "achieved_train_fpr": 0.004207699194270367,
+          "alerts": 92,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.003394894079304726,
+          "pr_auc": 0.9622829622829623,
+          "roc_auc": 0.999851271307002,
+          "threshold": 0.051253922283649445,
+          "window_recall": 1.0
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0037779767233661592,
+          "alerts": 96,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.003666485605649104,
+          "pr_auc": 0.9549863866670562,
+          "roc_auc": 0.9998690540855125,
+          "threshold": 0.020274093374609947,
+          "window_recall": 1.0
+        }
+      },
+      "target_0.01": {
+        "A": {
+          "achieved_train_fpr": 0.009937332139659803,
+          "alerts": 293,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.01704236827810972,
+          "pr_auc": 0.311283488991151,
+          "roc_auc": 0.9902849447763897,
+          "threshold": 0.06192473694682121,
+          "window_recall": 1.0
+        },
+        "F": {
+          "achieved_train_fpr": 0.005622202327663384,
+          "alerts": 132,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.006110809342748506,
+          "pr_auc": 0.9622829622829623,
+          "roc_auc": 0.999851271307002,
+          "threshold": 0.02051590196788311,
+          "window_recall": 1.0
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0037779767233661592,
+          "alerts": 96,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.003666485605649104,
+          "pr_auc": 0.9549863866670562,
+          "roc_auc": 0.9998690540855125,
+          "threshold": 0.020274093374609947,
+          "window_recall": 1.0
+        }
+      }
+    },
+    "dos/hulk": {
+      "target_0.0005": {
+        "A": {
+          "achieved_train_fpr": 0.0004951370468611848,
+          "alerts": 38,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0018534359851725122,
+          "pr_auc": 0.16387869336761232,
+          "roc_auc": 0.9680450606723062,
+          "threshold": 0.32481494545936584,
+          "window_recall": 0.3333333333333333
+        },
+        "F": {
+          "achieved_train_fpr": 0.0004951370468611848,
+          "alerts": 28,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0006415739948674081,
+          "pr_auc": 0.5921119647717662,
+          "roc_auc": 0.9768310601020181,
+          "threshold": 0.3698917627334595,
+          "window_recall": 0.5277777777777778
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0004951370468611848,
+          "alerts": 30,
+          "episode_ci": [
+            0.0,
+            1.0
+          ],
+          "episode_recall": 0.5,
+          "episodes_detected": 1,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.000855431993156544,
+          "pr_auc": 0.5287307487247794,
+          "roc_auc": 0.9738974432088204,
+          "threshold": 0.17376695573329926,
+          "window_recall": 0.5
+        }
+      },
+      "target_0.001": {
+        "A": {
+          "achieved_train_fpr": 0.0004951370468611848,
+          "alerts": 38,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0018534359851725122,
+          "pr_auc": 0.16387869336761232,
+          "roc_auc": 0.9680450606723062,
+          "threshold": 0.32481494545936584,
+          "window_recall": 0.3333333333333333
+        },
+        "F": {
+          "achieved_train_fpr": 0.0009372236958443855,
+          "alerts": 30,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.000784145993726832,
+          "pr_auc": 0.5921119647717662,
+          "roc_auc": 0.9768310601020181,
+          "threshold": 0.2468424290418625,
+          "window_recall": 0.5277777777777778
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0009902740937223697,
+          "alerts": 35,
+          "episode_ci": [
+            0.0,
+            1.0
+          ],
+          "episode_recall": 0.5,
+          "episodes_detected": 1,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.001211861990305104,
+          "pr_auc": 0.5287307487247794,
+          "roc_auc": 0.9738974432088204,
+          "threshold": 0.11742498725652695,
+          "window_recall": 0.5
+        }
+      },
+      "target_0.002": {
+        "A": {
+          "achieved_train_fpr": 0.0017860300618921308,
+          "alerts": 59,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.00320786997433704,
+          "pr_auc": 0.16387869336761232,
+          "roc_auc": 0.9680450606723062,
+          "threshold": 0.22310514748096466,
+          "window_recall": 0.3888888888888889
+        },
+        "F": {
+          "achieved_train_fpr": 0.0015384615384615385,
+          "alerts": 46,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0016395779868833762,
+          "pr_auc": 0.5921119647717662,
+          "roc_auc": 0.9768310601020181,
+          "threshold": 0.1494424194097519,
+          "window_recall": 0.6388888888888888
+        },
+        "J1": {
+          "achieved_train_fpr": 0.001998231653404067,
+          "alerts": 63,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.003136583974907328,
+          "pr_auc": 0.5287307487247794,
+          "roc_auc": 0.9738974432088204,
+          "threshold": 0.05779815465211868,
+          "window_recall": 0.5277777777777778
+        }
+      },
+      "target_0.005": {
+        "A": {
+          "achieved_train_fpr": 0.0048099027409372235,
+          "alerts": 114,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0071285999429712005,
+          "pr_auc": 0.16387869336761232,
+          "roc_auc": 0.9680450606723062,
+          "threshold": 0.09176717698574066,
+          "window_recall": 0.3888888888888889
+        },
+        "F": {
+          "achieved_train_fpr": 0.004986737400530504,
+          "alerts": 93,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.00499001996007984,
+          "pr_auc": 0.5921119647717662,
+          "roc_auc": 0.9768310601020181,
+          "threshold": 0.023177936673164368,
+          "window_recall": 0.6388888888888888
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0038903625110521664,
+          "alerts": 88,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.004918733960650129,
+          "pr_auc": 0.5287307487247794,
+          "roc_auc": 0.9738974432088204,
+          "threshold": 0.021240640431642532,
+          "window_recall": 0.5277777777777778
+        }
+      },
+      "target_0.01": {
+        "A": {
+          "achieved_train_fpr": 0.009036251105216622,
+          "alerts": 165,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.010265183917878529,
+          "pr_auc": 0.16387869336761232,
+          "roc_auc": 0.9680450606723062,
+          "threshold": 0.07683727145195007,
+          "window_recall": 0.5833333333333334
+        },
+        "F": {
+          "achieved_train_fpr": 0.005128205128205128,
+          "alerts": 95,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.0051325919589392645,
+          "pr_auc": 0.5921119647717662,
+          "roc_auc": 0.9768310601020181,
+          "threshold": 0.018356928601861,
+          "window_recall": 0.6388888888888888
+        },
+        "J1": {
+          "achieved_train_fpr": 0.0038903625110521664,
+          "alerts": 88,
+          "episode_ci": [
+            1.0,
+            1.0
+          ],
+          "episode_recall": 1.0,
+          "episodes_detected": 2,
+          "episodes_total": 2,
+          "observed_test_fpr": 0.004918733960650129,
+          "pr_auc": 0.5287307487247794,
+          "roc_auc": 0.9738974432088204,
+          "threshold": 0.021240640431642532,
+          "window_recall": 0.5277777777777778
+        }
+      }
+    }
+  },
+  "paired_episode_deltas": {
+    "botnet/ares": {
+      "target_0.0005": {
+        "F_minus_A": {
+          "candidate_only_detections": 12,
+          "ci_high": 0.45,
+          "ci_low": 0.175,
+          "direction": "improved",
+          "episodes": 40,
+          "point": 0.3,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 40,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.175,
+          "ci_low": -0.45,
+          "direction": "degraded",
+          "episodes": 40,
+          "point": -0.3,
+          "reference_only_detections": 12
+        }
+      },
+      "target_0.001": {
+        "F_minus_A": {
+          "candidate_only_detections": 14,
+          "ci_high": 0.5,
+          "ci_low": 0.2,
+          "direction": "improved",
+          "episodes": 40,
+          "point": 0.35,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 3,
+          "ci_high": 0.175,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 40,
+          "point": 0.075,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.15,
+          "ci_low": -0.425,
+          "direction": "degraded",
+          "episodes": 40,
+          "point": -0.275,
+          "reference_only_detections": 11
+        }
+      },
+      "target_0.002": {
+        "F_minus_A": {
+          "candidate_only_detections": 15,
+          "ci_high": 0.525,
+          "ci_low": 0.225,
+          "direction": "improved",
+          "episodes": 40,
+          "point": 0.375,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 3,
+          "ci_high": 0.175,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 40,
+          "point": 0.075,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.1743750000000034,
+          "ci_low": -0.45,
+          "direction": "degraded",
+          "episodes": 40,
+          "point": -0.3,
+          "reference_only_detections": 12
+        }
+      },
+      "target_0.005": {
+        "F_minus_A": {
+          "candidate_only_detections": 15,
+          "ci_high": 0.5256249999999966,
+          "ci_low": 0.225,
+          "direction": "improved",
+          "episodes": 40,
+          "point": 0.375,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 13,
+          "ci_high": 0.475,
+          "ci_low": 0.2,
+          "direction": "improved",
+          "episodes": 40,
+          "point": 0.325,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.125,
+          "direction": "indistinguishable",
+          "episodes": 40,
+          "point": -0.05,
+          "reference_only_detections": 2
+        }
+      },
+      "target_0.01": {
+        "F_minus_A": {
+          "candidate_only_detections": 8,
+          "ci_high": 0.325,
+          "ci_low": 0.075,
+          "direction": "improved",
+          "episodes": 40,
+          "point": 0.2,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 2,
+          "ci_high": 0.125,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 40,
+          "point": 0.05,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": -0.05,
+          "ci_low": -0.275,
+          "direction": "degraded",
+          "episodes": 40,
+          "point": -0.15,
+          "reference_only_detections": 6
+        }
+      }
+    },
+    "brute_force/ftp_patator": {
+      "target_0.0005": {
+        "F_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "direction": "improved",
+          "episodes": 1,
+          "point": 1.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": -1.0,
+          "ci_low": -1.0,
+          "direction": "degraded",
+          "episodes": 1,
+          "point": -1.0,
+          "reference_only_detections": 1
+        }
+      },
+      "target_0.001": {
+        "F_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "direction": "improved",
+          "episodes": 1,
+          "point": 1.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "direction": "improved",
+          "episodes": 1,
+          "point": 1.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.002": {
+        "F_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "direction": "improved",
+          "episodes": 1,
+          "point": 1.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "direction": "improved",
+          "episodes": 1,
+          "point": 1.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.005": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.01": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 1,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      }
+    },
+    "brute_force/ssh_patator": {
+      "target_0.0005": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.001": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.002": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.005": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.01": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -0.3333333333333333,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": -0.1111111111111111,
+          "reference_only_detections": 1
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 9,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      }
+    },
+    "ddos/loit": {
+      "target_0.0005": {
+        "F_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.001": {
+        "F_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.002": {
+        "F_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.005": {
+        "F_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 1,
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.5,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.01": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      }
+    },
+    "dos/hulk": {
+      "target_0.0005": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -1.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": -0.5,
+          "reference_only_detections": 1
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -1.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": -0.5,
+          "reference_only_detections": 1
+        }
+      },
+      "target_0.001": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -1.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": -0.5,
+          "reference_only_detections": 1
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": -1.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": -0.5,
+          "reference_only_detections": 1
+        }
+      },
+      "target_0.002": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.005": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      },
+      "target_0.01": {
+        "F_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_A": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        },
+        "J1_minus_F": {
+          "candidate_only_detections": 0,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "direction": "indistinguishable",
+          "episodes": 2,
+          "point": 0.0,
+          "reference_only_detections": 0
+        }
+      }
+    }
+  },
+  "per_entity_at_primary_target": {
+    "botnet/ares": {
+      "A": {
+        "192.168.10.14|205.174.165.73|tcp|http": {
+          "episode_recall": 0.5,
+          "episodes": 8,
+          "episodes_detected": 4,
+          "window_recall": 0.1935483870967742,
+          "windows": 31,
+          "windows_flagged": 6
+        },
+        "192.168.10.15|205.174.165.73|tcp|http": {
+          "episode_recall": 0.25,
+          "episodes": 8,
+          "episodes_detected": 2,
+          "window_recall": 0.08163265306122448,
+          "windows": 49,
+          "windows_flagged": 4
+        },
+        "192.168.10.5|205.174.165.73|tcp|http": {
+          "episode_recall": 0.42857142857142855,
+          "episodes": 7,
+          "episodes_detected": 3,
+          "window_recall": 0.18518518518518517,
+          "windows": 27,
+          "windows_flagged": 5
+        },
+        "192.168.10.8|205.174.165.73|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "window_recall": 0.19230769230769232,
+          "windows": 26,
+          "windows_flagged": 5
+        },
+        "192.168.10.9|205.174.165.73|tcp|http": {
+          "episode_recall": 0.13333333333333333,
+          "episodes": 15,
+          "episodes_detected": 2,
+          "window_recall": 0.09090909090909091,
+          "windows": 44,
+          "windows_flagged": 4
+        }
+      },
+      "F": {
+        "192.168.10.14|205.174.165.73|tcp|http": {
+          "episode_recall": 0.5,
+          "episodes": 8,
+          "episodes_detected": 4,
+          "window_recall": 0.5483870967741935,
+          "windows": 31,
+          "windows_flagged": 17
+        },
+        "192.168.10.15|205.174.165.73|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 8,
+          "episodes_detected": 8,
+          "window_recall": 0.6938775510204082,
+          "windows": 49,
+          "windows_flagged": 34
+        },
+        "192.168.10.5|205.174.165.73|tcp|http": {
+          "episode_recall": 0.42857142857142855,
+          "episodes": 7,
+          "episodes_detected": 3,
+          "window_recall": 0.5555555555555556,
+          "windows": 27,
+          "windows_flagged": 15
+        },
+        "192.168.10.8|205.174.165.73|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "window_recall": 0.5769230769230769,
+          "windows": 26,
+          "windows_flagged": 15
+        },
+        "192.168.10.9|205.174.165.73|tcp|http": {
+          "episode_recall": 0.26666666666666666,
+          "episodes": 15,
+          "episodes_detected": 4,
+          "window_recall": 0.4090909090909091,
+          "windows": 44,
+          "windows_flagged": 18
+        }
+      },
+      "J1": {
+        "192.168.10.14|205.174.165.73|tcp|http": {
+          "episode_recall": 0.5,
+          "episodes": 8,
+          "episodes_detected": 4,
+          "window_recall": 0.1935483870967742,
+          "windows": 31,
+          "windows_flagged": 6
+        },
+        "192.168.10.15|205.174.165.73|tcp|http": {
+          "episode_recall": 0.5,
+          "episodes": 8,
+          "episodes_detected": 4,
+          "window_recall": 0.30612244897959184,
+          "windows": 49,
+          "windows_flagged": 15
+        },
+        "192.168.10.5|205.174.165.73|tcp|http": {
+          "episode_recall": 0.42857142857142855,
+          "episodes": 7,
+          "episodes_detected": 3,
+          "window_recall": 0.25925925925925924,
+          "windows": 27,
+          "windows_flagged": 7
+        },
+        "192.168.10.8|205.174.165.73|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 2,
+          "episodes_detected": 2,
+          "window_recall": 0.2692307692307692,
+          "windows": 26,
+          "windows_flagged": 7
+        },
+        "192.168.10.9|205.174.165.73|tcp|http": {
+          "episode_recall": 0.13333333333333333,
+          "episodes": 15,
+          "episodes_detected": 2,
+          "window_recall": 0.09090909090909091,
+          "windows": 44,
+          "windows_flagged": 4
+        }
+      }
+    },
+    "brute_force/ftp_patator": {
+      "A": {
+        "172.16.0.1|192.168.10.50|tcp|ftp": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 0.04918032786885246,
+          "windows": 61,
+          "windows_flagged": 3
+        }
+      },
+      "F": {
+        "172.16.0.1|192.168.10.50|tcp|ftp": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 0.9836065573770492,
+          "windows": 61,
+          "windows_flagged": 60
+        }
+      },
+      "J1": {
+        "172.16.0.1|192.168.10.50|tcp|ftp": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 0.04918032786885246,
+          "windows": 61,
+          "windows_flagged": 3
+        }
+      }
+    },
+    "brute_force/ssh_patator": {
+      "A": {
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 0.0,
+          "episodes": 8,
+          "episodes_detected": 0,
+          "window_recall": 0.0,
+          "windows": 8,
+          "windows_flagged": 0
+        },
+        "172.16.0.1|192.168.10.50|tcp|ssh": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 0.6346153846153846,
+          "windows": 52,
+          "windows_flagged": 33
+        }
+      },
+      "F": {
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 0.0,
+          "episodes": 8,
+          "episodes_detected": 0,
+          "window_recall": 0.0,
+          "windows": 8,
+          "windows_flagged": 0
+        },
+        "172.16.0.1|192.168.10.50|tcp|ssh": {
+          "episode_recall": 0.0,
+          "episodes": 1,
+          "episodes_detected": 0,
+          "window_recall": 0.0,
+          "windows": 52,
+          "windows_flagged": 0
+        }
+      },
+      "J1": {
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 0.0,
+          "episodes": 8,
+          "episodes_detected": 0,
+          "window_recall": 0.0,
+          "windows": 8,
+          "windows_flagged": 0
+        },
+        "172.16.0.1|192.168.10.50|tcp|ssh": {
+          "episode_recall": 0.0,
+          "episodes": 1,
+          "episodes_detected": 0,
+          "window_recall": 0.0,
+          "windows": 52,
+          "windows_flagged": 0
+        }
+      }
+    },
+    "ddos/loit": {
+      "A": {
+        "172.16.0.1|192.168.10.50|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 21,
+          "windows_flagged": 21
+        },
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 21,
+          "windows_flagged": 21
+        }
+      },
+      "F": {
+        "172.16.0.1|192.168.10.50|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 21,
+          "windows_flagged": 21
+        },
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 21,
+          "windows_flagged": 21
+        }
+      },
+      "J1": {
+        "172.16.0.1|192.168.10.50|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 21,
+          "windows_flagged": 21
+        },
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 21,
+          "windows_flagged": 21
+        }
+      }
+    },
+    "dos/hulk": {
+      "A": {
+        "172.16.0.1|192.168.10.50|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 18,
+          "windows_flagged": 18
+        },
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 0.16666666666666666,
+          "windows": 18,
+          "windows_flagged": 3
+        }
+      },
+      "F": {
+        "172.16.0.1|192.168.10.50|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 18,
+          "windows_flagged": 18
+        },
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 0.2777777777777778,
+          "windows": 18,
+          "windows_flagged": 5
+        }
+      },
+      "J1": {
+        "172.16.0.1|192.168.10.50|tcp|http": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 1.0,
+          "windows": 18,
+          "windows_flagged": 18
+        },
+        "172.16.0.1|192.168.10.50|tcp|none": {
+          "episode_recall": 1.0,
+          "episodes": 1,
+          "episodes_detected": 1,
+          "window_recall": 0.05555555555555555,
+          "windows": 18,
+          "windows_flagged": 1
+        }
+      }
+    }
+  },
+  "pre_registration": {
+    "arm_f_ratification_rule": {
+      "evaluated_at": "target_train_fpr=0.01",
+      "rationale": "higher recall at a not-worse false-alert rate is strictly stronger than parity, so Pareto dominance ratifies without ever matching a realised FPR on the test set",
+      "verdict_INCONCLUSIVE": "neither of the above holds",
+      "verdict_NOT_SUPPORTED": "the paired episode-delta 95% interval is strictly negative",
+      "verdict_SUPPORTED": "Ares episode recall strictly above ARM A AND the paired episode-delta 95% interval strictly positive AND realised test FPR not above ARM A's"
+    },
+    "arm_j1_selection": {
+      "chosen": "J1 = ARM F + interarrival_mean",
+      "premise_correction": "the mission premise named a volumetric budget that had shown utility on ssh_patator and the volumetric attacks. No such budget exists: ARM A alone is best on all four held-in types (6 held-in episodes against 4 for B, C and D, each carrying an important volumetric cost). Because ARM A's budget is exactly distinct_payload_ratio and ARM F already contains it, a literal hybrid would duplicate ARM F. ARM J1 therefore reinstates interarrival_mean, which is a genuine test of whether content signal rehabilitates a feature that harmed the volumetric arms",
+      "reason": "the frozen A--D benchmark shows no volumetric budget beyond ARM A improves ssh_patator episode recall: interarrival_mean (ARM B) left it unchanged at 0.1111 and raised its ROC-AUC from 0.9199 to 0.9453, while bytes_per_packet_destination (ARM C and ARM D) lost the single episode. interarrival_mean is therefore the smallest budget increase capable of addressing the stated ssh_patator motivation, and the most conservative of the three possible hybrids",
+      "rejected": [
+        "J2 = ARM F + bytes_per_packet_destination",
+        "J3 = ARM F + both"
+      ]
+    },
+    "arms": {
+      "A": [
+        "distinct_payload_ratio"
+      ],
+      "F": [
+        "distinct_payload_ratio",
+        "source_non_printable_ratio",
+        "destination_non_printable_ratio"
+      ],
+      "J1": [
+        "distinct_payload_ratio",
+        "source_non_printable_ratio",
+        "destination_non_printable_ratio",
+        "interarrival_mean"
+      ]
+    },
+    "bootstrap": {
+      "pairing": "candidate minus reference over identical episode ids",
+      "resamples": 2000,
+      "seed": 0,
+      "unit": "episode",
+      "window_bootstrap": "forbidden as pseudoreplication"
+    },
+    "co_primary_endpoint": "brute_force/ssh_patator episode recall at 1% training FPR, declared co-primary for ARM J1",
+    "equal_alert_budget_status": "secondary diagnostic only; it aligns budgets using test-set alert counts and therefore may never ratify ARM F or ARM J1",
+    "experiment": "ARM-F-RATIFICATION and ARM-J1",
+    "forbidden": [
+      "tuning, validation split, early stopping, rebalancing, threshold search",
+      "any feature outside the three registered budgets",
+      "unknown or ambiguous rows as negatives",
+      "label modification",
+      "PostgreSQL writes",
+      "new external data",
+      "modifying P1--P6, the XGBoost baseline, the A--D benchmark or the six-arm benchmark"
+    ],
+    "operating_points": [
+      0.01,
+      0.005,
+      0.002,
+      0.001,
+      0.0005
+    ],
+    "primary_endpoint": "botnet/ares episode recall at 1% training FPR",
+    "registered_before_any_result": true,
+    "threshold_rule": "quantile of the training-negative score distribution at each registered target, identical to the published baseline; the test set never selects a threshold, a feature, a hyperparameter or an architecture"
+  },
+  "pre_registration_sha256": "ef2e85daba806e3a59e66c8f599aa380853f9ba69bbdc81ef7586014bee01bc0",
+  "primary_endpoint": "botnet/ares",
+  "r11_scope": {
+    "destination_host": "205.174.165.73",
+    "destinations": 1,
+    "entities": 5,
+    "episodes": 40,
+    "limitations": [
+      "limited entity diversity",
+      "limited host-pair diversity",
+      "risk of memorising behaviour specific to this capture",
+      "no generalisation beyond the observed population"
+    ],
+    "statement": "an improvement measured on the same entities is not evidence of global generalisation to another victim, attacker, capture or botnet family"
+  }
+}

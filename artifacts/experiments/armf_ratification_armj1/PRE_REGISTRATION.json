@@ -1,0 +1,63 @@
+{
+  "arm_f_ratification_rule": {
+    "evaluated_at": "target_train_fpr=0.01",
+    "rationale": "higher recall at a not-worse false-alert rate is strictly stronger than parity, so Pareto dominance ratifies without ever matching a realised FPR on the test set",
+    "verdict_INCONCLUSIVE": "neither of the above holds",
+    "verdict_NOT_SUPPORTED": "the paired episode-delta 95% interval is strictly negative",
+    "verdict_SUPPORTED": "Ares episode recall strictly above ARM A AND the paired episode-delta 95% interval strictly positive AND realised test FPR not above ARM A's"
+  },
+  "arm_j1_selection": {
+    "chosen": "J1 = ARM F + interarrival_mean",
+    "premise_correction": "the mission premise named a volumetric budget that had shown utility on ssh_patator and the volumetric attacks. No such budget exists: ARM A alone is best on all four held-in types (6 held-in episodes against 4 for B, C and D, each carrying an important volumetric cost). Because ARM A's budget is exactly distinct_payload_ratio and ARM F already contains it, a literal hybrid would duplicate ARM F. ARM J1 therefore reinstates interarrival_mean, which is a genuine test of whether content signal rehabilitates a feature that harmed the volumetric arms",
+    "reason": "the frozen A--D benchmark shows no volumetric budget beyond ARM A improves ssh_patator episode recall: interarrival_mean (ARM B) left it unchanged at 0.1111 and raised its ROC-AUC from 0.9199 to 0.9453, while bytes_per_packet_destination (ARM C and ARM D) lost the single episode. interarrival_mean is therefore the smallest budget increase capable of addressing the stated ssh_patator motivation, and the most conservative of the three possible hybrids",
+    "rejected": [
+      "J2 = ARM F + bytes_per_packet_destination",
+      "J3 = ARM F + both"
+    ]
+  },
+  "arms": {
+    "A": [
+      "distinct_payload_ratio"
+    ],
+    "F": [
+      "distinct_payload_ratio",
+      "source_non_printable_ratio",
+      "destination_non_printable_ratio"
+    ],
+    "J1": [
+      "distinct_payload_ratio",
+      "source_non_printable_ratio",
+      "destination_non_printable_ratio",
+      "interarrival_mean"
+    ]
+  },
+  "bootstrap": {
+    "pairing": "candidate minus reference over identical episode ids",
+    "resamples": 2000,
+    "seed": 0,
+    "unit": "episode",
+    "window_bootstrap": "forbidden as pseudoreplication"
+  },
+  "co_primary_endpoint": "brute_force/ssh_patator episode recall at 1% training FPR, declared co-primary for ARM J1",
+  "equal_alert_budget_status": "secondary diagnostic only; it aligns budgets using test-set alert counts and therefore may never ratify ARM F or ARM J1",
+  "experiment": "ARM-F-RATIFICATION and ARM-J1",
+  "forbidden": [
+    "tuning, validation split, early stopping, rebalancing, threshold search",
+    "any feature outside the three registered budgets",
+    "unknown or ambiguous rows as negatives",
+    "label modification",
+    "PostgreSQL writes",
+    "new external data",
+    "modifying P1--P6, the XGBoost baseline, the A--D benchmark or the six-arm benchmark"
+  ],
+  "operating_points": [
+    0.01,
+    0.005,
+    0.002,
+    0.001,
+    0.0005
+  ],
+  "primary_endpoint": "botnet/ares episode recall at 1% training FPR",
+  "registered_before_any_result": true,
+  "threshold_rule": "quantile of the training-negative score distribution at each registered target, identical to the published baseline; the test set never selects a threshold, a feature, a hyperparameter or an architecture"
+}
