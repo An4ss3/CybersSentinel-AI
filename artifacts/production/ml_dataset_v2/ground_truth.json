@@ -1,0 +1,282 @@
+{
+  "content_sha256": "d4ca953bdc3e9de56de62051e36396a0fab1d4eefdaf7383acd464287dc9686b",
+  "families": [
+    {
+      "attack_type": "botnet/ares",
+      "disposition": "known_other_attack",
+      "entities": 5,
+      "entity_keys": [
+        "192.168.10.14|205.174.165.73|tcp|http",
+        "192.168.10.15|205.174.165.73|tcp|http",
+        "192.168.10.5|205.174.165.73|tcp|http",
+        "192.168.10.8|205.174.165.73|tcp|http",
+        "192.168.10.9|205.174.165.73|tcp|http"
+      ],
+      "episode_ids": [
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+      ],
+      "episodes": 40,
+      "first_window_epoch": 1499432640,
+      "last_window_epoch": 1499436120,
+      "newly_covered_by_v3": false,
+      "partitions": [
+        "2017-07-07_Friday-WorkingHours"
+      ],
+      "priority_family": false,
+      "windows": 177
+    },
+    {
+      "attack_type": "brute_force/ftp_patator",
+      "disposition": "target_attack",
+      "entities": 1,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|ftp"
+      ],
+      "episode_ids": [
+        "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000"
+      ],
+      "episodes": 1,
+      "first_window_epoch": 1499170800,
+      "last_window_epoch": 1499174400,
+      "newly_covered_by_v3": false,
+      "partitions": [
+        "2017-07-04_Tuesday-WorkingHours"
+      ],
+      "priority_family": true,
+      "windows": 61
+    },
+    {
+      "attack_type": "brute_force/ssh_patator",
+      "disposition": "target_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|none",
+        "172.16.0.1|192.168.10.50|tcp|ssh"
+      ],
+      "episode_ids": [
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000"
+      ],
+      "episodes": 9,
+      "first_window_epoch": 1499188140,
+      "last_window_epoch": 1499191200,
+      "newly_covered_by_v3": false,
+      "partitions": [
+        "2017-07-04_Tuesday-WorkingHours"
+      ],
+      "priority_family": true,
+      "windows": 60
+    },
+    {
+      "attack_type": "ddos/loit",
+      "disposition": "target_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "episode_ids": [
+        "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+        "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000"
+      ],
+      "episodes": 2,
+      "first_window_epoch": 1499453760,
+      "last_window_epoch": 1499454960,
+      "newly_covered_by_v3": false,
+      "partitions": [
+        "2017-07-07_Friday-WorkingHours"
+      ],
+      "priority_family": true,
+      "windows": 42
+    },
+    {
+      "attack_type": "dos/goldeneye",
+      "disposition": "target_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "episode_ids": [
+        "dos/goldeneye|172.16.0.1|192.168.10.50|tcp|http|000",
+        "dos/goldeneye|172.16.0.1|192.168.10.50|tcp|http|001",
+        "dos/goldeneye|172.16.0.1|192.168.10.50|tcp|none|000",
+        "dos/goldeneye|172.16.0.1|192.168.10.50|tcp|none|001"
+      ],
+      "episodes": 4,
+      "first_window_epoch": 1499263800,
+      "last_window_epoch": 1499264340,
+      "newly_covered_by_v3": true,
+      "partitions": [
+        "2017-07-05_Wednesday-workingHours"
+      ],
+      "priority_family": true,
+      "windows": 16
+    },
+    {
+      "attack_type": "dos/hulk",
+      "disposition": "target_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "episode_ids": [
+        "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000",
+        "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+      ],
+      "episodes": 2,
+      "first_window_epoch": 1499262180,
+      "last_window_epoch": 1499263200,
+      "newly_covered_by_v3": false,
+      "partitions": [
+        "2017-07-05_Wednesday-workingHours"
+      ],
+      "priority_family": true,
+      "windows": 36
+    },
+    {
+      "attack_type": "dos/slowhttptest",
+      "disposition": "known_other_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "episode_ids": [
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|http|000",
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|http|001",
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|http|002",
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|none|000",
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|none|001",
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|none|002",
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|none|003",
+        "dos/slowhttptest|172.16.0.1|192.168.10.50|tcp|none|004"
+      ],
+      "episodes": 8,
+      "first_window_epoch": 1499260500,
+      "last_window_epoch": 1499261700,
+      "newly_covered_by_v3": true,
+      "partitions": [
+        "2017-07-05_Wednesday-workingHours"
+      ],
+      "priority_family": true,
+      "windows": 26
+    },
+    {
+      "attack_type": "dos/slowloris",
+      "disposition": "known_other_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "episode_ids": [
+        "dos/slowloris|172.16.0.1|192.168.10.50|tcp|http|000",
+        "dos/slowloris|172.16.0.1|192.168.10.50|tcp|none|000"
+      ],
+      "episodes": 2,
+      "first_window_epoch": 1499258880,
+      "last_window_epoch": 1499260200,
+      "newly_covered_by_v3": true,
+      "partitions": [
+        "2017-07-05_Wednesday-workingHours"
+      ],
+      "priority_family": true,
+      "windows": 46
+    }
+  ],
+  "label_policy": "M5 v3, NAT realignment extended to three DoS rules",
+  "priority_family_coverage": {
+    "brute_force/ftp_patator": {
+      "episodes": 1,
+      "represented": true,
+      "windows": 61
+    },
+    "brute_force/ssh_patator": {
+      "episodes": 9,
+      "represented": true,
+      "windows": 60
+    },
+    "ddos/loit": {
+      "episodes": 2,
+      "represented": true,
+      "windows": 42
+    },
+    "dos/goldeneye": {
+      "episodes": 4,
+      "represented": true,
+      "windows": 16
+    },
+    "dos/hulk": {
+      "episodes": 2,
+      "represented": true,
+      "windows": 36
+    },
+    "dos/slowhttptest": {
+      "episodes": 8,
+      "represented": true,
+      "windows": 26
+    },
+    "dos/slowloris": {
+      "episodes": 2,
+      "represented": true,
+      "windows": 46
+    }
+  },
+  "purpose": "ground truth available in Production Finale v2, published before any model performance is measured",
+  "totals": {
+    "attack_entities": 9,
+    "attack_episodes": 68,
+    "attack_windows": 464,
+    "benign_entities": 27715,
+    "benign_windows": 70578,
+    "total_rows": 71042
+  }
+}

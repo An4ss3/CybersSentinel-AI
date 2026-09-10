@@ -1,0 +1,120 @@
+{
+  "ambiguous_to_benign_conversion": "forbidden",
+  "arm_f_features_included": false,
+  "dataset_columns": [
+    "row_id",
+    "source",
+    "label",
+    "disposition",
+    "attack_type",
+    "entity_key",
+    "episode_id",
+    "partition",
+    "window_start_epoch",
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "excluded_m6_features": [
+    "distinct_destination_ports",
+    "distinct_destination_ips",
+    "distinct_source_ips"
+  ],
+  "expected_counts": {
+    "attack_rows": 376,
+    "benign_rows": 70578,
+    "m6_windows": 172748,
+    "mb6_windows": 70921,
+    "mb7_window_labels": 70921,
+    "total_rows": 70954
+  },
+  "experiment": "Production Finale v1 \u2014 canonical supervised ML dataset",
+  "feature_budget": [
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "feature_count": 5,
+  "feature_order_source": "modules/detection/src/experiments/p1_dataset.py::FEATURE_NAMES",
+  "forbidden_content_features": [
+    "distinct_payload_ratio",
+    "source_non_printable_ratio",
+    "destination_non_printable_ratio",
+    "source_payload_entropy_normalized",
+    "destination_payload_entropy_normalized",
+    "payload_prefix_repeat_ratio",
+    "normalized_header_template_repeat_ratio"
+  ],
+  "frozen_artifacts_modified": false,
+  "frozen_at": "2026-08-27T02:07:58.637616+00:00",
+  "frozen_inputs": {
+    "artifacts/experiments/p1/p1_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+    "artifacts/reports/m6_v2_feature_window_run.json": "273cd64335cc53004129515414afb43721e2c249dc12fe2697967ab379724045",
+    "artifacts/reports/mb6_monday_benign_feature_window_run.json": "2f8bcde806cfe5c655f67efe82fa8875602eb582bd7e5a54d891178262e84219",
+    "artifacts/reports/mb7_monday_benign_labeling_run.json": "76d0fe7a97519175beaa2a649f127329bd3eea88f227cec856d3a5ef65947056",
+    "datasets/manifests/cicids2017_feature_window_v2.yaml": "f31238dd63fbd2f70a21748aa2281a558d4a19c82118b848e2dbe4558ec32e43",
+    "datasets/manifests/cicids2017_labels.yaml": "e9d9b00fc25db444f61d47a7f6b1d6ffec055870fa40c1ce22f50b49b65af843",
+    "datasets/manifests/monday_benign_labeling.yaml": "b989058c0e9a68513fa05d9689b61486bd4f7d0d2a44361ab824d40ca6f13909"
+  },
+  "label_policy": {
+    "ambiguous": "excluded",
+    "benign_reference": 0,
+    "known_other_attack": 1,
+    "target_attack": 1,
+    "unknown": "excluded"
+  },
+  "m1_to_m6_modified": false,
+  "manifest_content_sha256": "f691b1ceb3e23565895c8b34d5ade1b62207a5256f3fc1e69f3f13dd297c2885",
+  "mb1_to_mb7_modified": false,
+  "models_fitted": 0,
+  "observed_counts": {
+    "attack_rows": 376,
+    "benign_rows": 70578,
+    "m6_windows": 172748,
+    "m_ambiguous_excluded": 0,
+    "m_unknown_excluded": 172372,
+    "mb6_windows": 70921,
+    "mb7_window_labels": 70921,
+    "total_rows": 70954
+  },
+  "outputs": {
+    "DATASET_REPORT.md": "6ab136171dcd980b1333ed3d8ec96956e0729c2d65a0393d7fb45a96f8e3c98f",
+    "label_materialization_report.json": "c69c0c8d98e4ab01b5c88423acfad6f9631548cba8c5982b6a875fa2b21f3e41",
+    "ml_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+    "window_labels.csv": "b3ddad6bf2ee26590dadbf0c0ec1b23899924ea2b44d9de9736b8465cad24d74"
+  },
+  "p1_parity": {
+    "byte_identical_to_p1_dataset_csv": true,
+    "dataset_content_sha256": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+    "dataset_file_sha256": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+    "expected_dataset_content_sha256": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+    "expected_dataset_file_sha256": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062"
+  },
+  "postgresql_transaction_mode_enforcement": "connection.read_only set before the transaction begins, then current_setting('transaction_read_only') asserted to be 'on'",
+  "postgresql_transaction_read_only": {
+    "cybersentinel": "on",
+    "cybersentinel_test": "on"
+  },
+  "postgresql_writes": 0,
+  "schema_version": "1.0.0",
+  "scientific_scope": "one frozen CICIDS2017 snapshot; 376 attack windows from 9 entities and 54 episodes; entity identity separates the classes perfectly, so the effective attack sample size is of the order of nine",
+  "sources": {
+    "attacks": "cybersentinel/m6_canonical.feature_windows",
+    "benign_labels": "cybersentinel_test/mb7_canonical.window_labels",
+    "benign_windows": "cybersentinel_test/mb6_canonical.feature_windows"
+  },
+  "unknown_to_benign_conversion": "forbidden",
+  "window_label_columns": [
+    "window_id",
+    "output_partition",
+    "entity_key",
+    "window_start_epoch",
+    "disposition",
+    "attack_type",
+    "dataset_label"
+  ]
+}

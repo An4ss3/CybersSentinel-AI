@@ -1,0 +1,97 @@
+{
+  "dataset_columns": [
+    "row_id",
+    "source",
+    "label",
+    "disposition",
+    "attack_type",
+    "entity_key",
+    "episode_id",
+    "partition",
+    "window_start_epoch",
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "dataset_content_sha256": "9a840fe965991c37051347a5cf1d79e665d6312ee759681ceb077bcd3a30fe34",
+  "experiment": "Production Finale v2 \u2014 label-coverage correction",
+  "feature_budget": [
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "feature_count": 5,
+  "frozen_at": "2026-08-27T19:22:56.344472+00:00",
+  "frozen_experiments_modified": false,
+  "frozen_inputs": {
+    "artifacts/production/ml_dataset_v1/dataset_manifest.json": "f792748334a643c5cb0451656f996dc77d755935c13fcc94fd60fb640f59d325",
+    "artifacts/production/ml_dataset_v1/ml_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+    "artifacts/production/ml_dataset_v1/window_labels.csv": "b3ddad6bf2ee26590dadbf0c0ec1b23899924ea2b44d9de9736b8465cad24d74",
+    "artifacts/reports/m6_v2_feature_window_run.json": "273cd64335cc53004129515414afb43721e2c249dc12fe2697967ab379724045",
+    "artifacts/reports/mb7_monday_benign_labeling_run.json": "76d0fe7a97519175beaa2a649f127329bd3eea88f227cec856d3a5ef65947056",
+    "datasets/manifests/cicids2017_labels.yaml": "e9d9b00fc25db444f61d47a7f6b1d6ffec055870fa40c1ce22f50b49b65af843"
+  },
+  "label_policy": "M5 v3",
+  "label_policy_map": {
+    "ambiguous": "excluded",
+    "benign_reference": 0,
+    "known_other_attack": 1,
+    "target_attack": 1,
+    "unknown": "excluded"
+  },
+  "m5_v1_modified": false,
+  "m5_v2_modified": false,
+  "m7_schema_created": false,
+  "manifest_content_sha256": "ec8d758d03288811b9fb084693719b2ff24b2875183d137511fb2f8e86a5606d",
+  "models_fitted": 0,
+  "models_loaded": 0,
+  "net_gain": {
+    "entities": 0,
+    "episodes": 14,
+    "windows": 88
+  },
+  "observed_counts": {
+    "attack_entities": 9,
+    "attack_episodes": 68,
+    "attack_rows": 464,
+    "benign_rows": 70578,
+    "m6_windows": 172748,
+    "m_unknown_excluded": 172284,
+    "mb6_windows": 70921,
+    "mb7_window_labels": 70921,
+    "total_rows": 71042
+  },
+  "outputs": {
+    "LABEL_COVERAGE_REPORT.md": "8ae2ae9193091c5e75e338fc779627234cd120edd13d364bbd1d3728420b73c0",
+    "ground_truth.json": "50f271f4fba1ee92f9e3b48f9383657e534ddbb01c7b5fee5107a31ecf47bf55",
+    "label_policy_v3.json": "a47f8d45789477e7e3961b0080cbf4206aafc0abcd99a90981008337f35cfcf4",
+    "ml_dataset.csv": "bf04ec1a6937f96ee766e67b308ff13355057c26bb5d0256206bd017148b634a",
+    "window_labels.csv": "c6e40f211d596d781ead682316a1084fbe5b1f666ba94a984f0ff87d3dd62021"
+  },
+  "performance_measured": false,
+  "postgresql_writes": 0,
+  "production_v1_modified": false,
+  "schema_version": "2.0.0",
+  "unknown_to_benign_conversion": "forbidden",
+  "v1_reference": {
+    "attack_episodes": 54,
+    "attack_rows": 376,
+    "dataset_file_sha256": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+    "modified_by_this_run": false,
+    "total_rows": 70954
+  },
+  "window_label_columns": [
+    "window_id",
+    "output_partition",
+    "entity_key",
+    "window_start_epoch",
+    "disposition",
+    "attack_type",
+    "dataset_label"
+  ],
+  "windows_changed_disposition": 88
+}

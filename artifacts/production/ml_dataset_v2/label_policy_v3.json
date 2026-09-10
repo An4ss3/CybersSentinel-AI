@@ -1,0 +1,545 @@
+{
+  "additivity_checks": [
+    {
+      "check": "v3_realigns_exactly_the_v2_set_plus_three",
+      "detail": [
+        "wednesday-goldeneye",
+        "wednesday-slowhttptest",
+        "wednesday-slowloris"
+      ],
+      "passed": true
+    },
+    {
+      "check": "v2_set_is_preserved_untouched",
+      "detail": [
+        "friday-ddos-loit",
+        "tuesday-ftp-patator",
+        "tuesday-ssh-patator",
+        "wednesday-hulk"
+      ],
+      "passed": true
+    },
+    {
+      "check": "same_rule_count_as_v1",
+      "detail": 16,
+      "passed": true
+    },
+    {
+      "check": "no_rule_removed",
+      "detail": 0,
+      "passed": true
+    },
+    {
+      "check": "only_the_three_corrected_rules_differ_from_v2",
+      "detail": [
+        "wednesday-goldeneye",
+        "wednesday-slowhttptest",
+        "wednesday-slowloris"
+      ],
+      "passed": true
+    },
+    {
+      "check": "intervals_ports_protocols_dispositions_families_unchanged",
+      "detail": 16,
+      "passed": true
+    },
+    {
+      "check": "ares_is_never_realigned",
+      "detail": "already functional through the inverted role branch: the bots are the declared victims and the C2 is the declared attacker, so the observed direction 192.168.10.x -> 205.174.165.73 already matches",
+      "passed": true
+    },
+    {
+      "check": "portscan_and_heartbleed_left_out_with_a_recorded_reason",
+      "detail": [
+        "friday-portscan",
+        "wednesday-heartbleed"
+      ],
+      "passed": true
+    },
+    {
+      "check": "thursday_rules_are_not_realigned",
+      "detail": "Thursday is absent from the canonical chain; its NAT behaviour is unverified",
+      "passed": true
+    }
+  ],
+  "content_sha256": "1b226e5354904b3739f1d9883f8643f3854b26af803066b6af3e1b13fc40c820",
+  "deliberately_not_realigned": {
+    "friday-botnet-ares": "already functional through the inverted role branch: the bots are the declared victims and the C2 is the declared attacker, so the observed direction 192.168.10.x -> 205.174.165.73 already matches",
+    "friday-portscan": "traffic is present but carries no victim-port constraint and spans dozens of destination ports, which would create many new entity keys and change the nature of the population; needs a separate ratified decision",
+    "monday-benign-reference": "benign reference rule, no attacker declared",
+    "thursday-infiltration-mac": "Thursday is not in the canonical chain; NAT unverified",
+    "thursday-infiltration-vista": "Thursday is not in the canonical chain; NAT unverified",
+    "thursday-sql-injection": "Thursday is not in the canonical chain; NAT unverified",
+    "thursday-web-bruteforce": "Thursday is not in the canonical chain; NAT unverified",
+    "thursday-xss": "Thursday is not in the canonical chain; NAT unverified",
+    "wednesday-heartbleed": "only 1 event observed towards the declared victim 192.168.10.51:444 in the whole interval, so realignment would add about one window"
+  },
+  "derived_from": "frozen M5 v1 manifest, read-only",
+  "false_positive_risk": "inside the three intervals, 100% of traffic sourced by 172.16.0.1 targets 192.168.10.50:80/tcp, the declared victim, port and protocol",
+  "m5_v1_modified": false,
+  "m5_v2_modified": false,
+  "newly_realigned_by_v3": [
+    "wednesday-goldeneye",
+    "wednesday-slowhttptest",
+    "wednesday-slowloris"
+  ],
+  "observed_evidence": {
+    "wednesday-goldeneye": {
+      "episodes": 4,
+      "events_matching_realigned_selector": 7716,
+      "observed_port": 80,
+      "observed_source": "172.16.0.1",
+      "observed_victim": "192.168.10.50",
+      "other_traffic_from_observed_source_in_interval": 0,
+      "windows_currently_unknown": 16
+    },
+    "wednesday-slowhttptest": {
+      "episodes": 8,
+      "events_matching_realigned_selector": 4556,
+      "observed_port": 80,
+      "observed_source": "172.16.0.1",
+      "observed_victim": "192.168.10.50",
+      "other_traffic_from_observed_source_in_interval": 0,
+      "windows_currently_unknown": 26
+    },
+    "wednesday-slowloris": {
+      "episodes": 2,
+      "events_matching_realigned_selector": 3869,
+      "observed_port": 80,
+      "observed_source": "172.16.0.1",
+      "observed_victim": "192.168.10.50",
+      "other_traffic_from_observed_source_in_interval": 0,
+      "windows_currently_unknown": 46
+    }
+  },
+  "per_rule_diff_v2_to_v3": [
+    {
+      "attackers_v2": [],
+      "attackers_v3": [],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "monday-benign-reference",
+      "subtype_unchanged": true,
+      "victims_v2": [],
+      "victims_v3": []
+    },
+    {
+      "attackers_v2": [
+        "172.16.0.1"
+      ],
+      "attackers_v3": [
+        "172.16.0.1"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "tuesday-ftp-patator",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "172.16.0.1"
+      ],
+      "attackers_v3": [
+        "172.16.0.1"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "tuesday-ssh-patator",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "172.16.0.1"
+      ],
+      "changed_by_v3": true,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "wednesday-slowloris",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "172.16.0.1"
+      ],
+      "changed_by_v3": true,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "wednesday-slowhttptest",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "172.16.0.1"
+      ],
+      "attackers_v3": [
+        "172.16.0.1"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "wednesday-hulk",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "172.16.0.1"
+      ],
+      "changed_by_v3": true,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "wednesday-goldeneye",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "wednesday-heartbleed",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.11",
+        "172.16.0.1",
+        "205.174.165.66",
+        "192.168.10.51"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "172.16.0.11",
+        "172.16.0.1",
+        "205.174.165.66",
+        "192.168.10.51"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "thursday-web-bruteforce",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "thursday-xss",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "thursday-sql-injection",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "thursday-infiltration-vista",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "192.168.10.8"
+      ],
+      "victims_v3": [
+        "192.168.10.8"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "thursday-infiltration-mac",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "192.168.10.25"
+      ],
+      "victims_v3": [
+        "192.168.10.25"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "friday-botnet-ares",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "192.168.10.15",
+        "192.168.10.9",
+        "192.168.10.14",
+        "192.168.10.5",
+        "192.168.10.8"
+      ],
+      "victims_v3": [
+        "192.168.10.15",
+        "192.168.10.9",
+        "192.168.10.14",
+        "192.168.10.5",
+        "192.168.10.8"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "205.174.165.73"
+      ],
+      "attackers_v3": [
+        "205.174.165.73"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "friday-portscan",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "172.16.0.1",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    },
+    {
+      "attackers_v2": [
+        "172.16.0.1"
+      ],
+      "attackers_v3": [
+        "172.16.0.1"
+      ],
+      "changed_by_v3": false,
+      "disposition_unchanged": true,
+      "family_unchanged": true,
+      "intervals_unchanged": true,
+      "ports_unchanged": true,
+      "protocols_unchanged": true,
+      "rule_id": "friday-ddos-loit",
+      "subtype_unchanged": true,
+      "victims_v2": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ],
+      "victims_v3": [
+        "205.174.165.80",
+        "205.174.165.68",
+        "192.168.10.50"
+      ]
+    }
+  ],
+  "policy": "M5 v3 \u2014 label-coverage correction",
+  "production_v1_modified": false,
+  "realigned_rule_ids": [
+    "friday-ddos-loit",
+    "tuesday-ftp-patator",
+    "tuesday-ssh-patator",
+    "wednesday-goldeneye",
+    "wednesday-hulk",
+    "wednesday-slowhttptest",
+    "wednesday-slowloris"
+  ],
+  "rule_version": "3.0.0",
+  "transformation": "attacker_ips -> ('172.16.0.1',); 172.16.0.1 removed from victim_ips as required by EndpointSelector role disjointness; nothing else changes"
+}

@@ -1,0 +1,323 @@
+{
+  "attack_window_count": 376,
+  "attack_windows_per_type": {
+    "botnet/ares": 177,
+    "brute_force/ftp_patator": 61,
+    "brute_force/ssh_patator": 60,
+    "ddos/loit": 42,
+    "dos/hulk": 36
+  },
+  "checks": [
+    {
+      "check": "feature_budget_is_exactly_p1",
+      "detail": [
+        "event_count",
+        "source_packets_total",
+        "destination_packets_total",
+        "source_bytes_total",
+        "destination_bytes_total"
+      ],
+      "passed": true
+    },
+    {
+      "check": "degenerate_m6_features_excluded",
+      "detail": [
+        "distinct_destination_ports",
+        "distinct_destination_ips",
+        "distinct_source_ips"
+      ],
+      "passed": true
+    },
+    {
+      "check": "content_features_absent",
+      "detail": [
+        "distinct_payload_ratio",
+        "source_non_printable_ratio",
+        "destination_non_printable_ratio",
+        "source_payload_entropy_normalized",
+        "destination_payload_entropy_normalized",
+        "payload_prefix_repeat_ratio",
+        "normalized_header_template_repeat_ratio"
+      ],
+      "passed": true
+    },
+    {
+      "check": "attack_dispositions_receive_label_one",
+      "detail": [
+        "known_other_attack",
+        "target_attack"
+      ],
+      "passed": true
+    },
+    {
+      "check": "uncertainty_is_excluded_not_benign",
+      "detail": [
+        "ambiguous",
+        "unknown"
+      ],
+      "passed": true
+    },
+    {
+      "check": "policy_covers_the_frozen_vocabulary",
+      "detail": [
+        "ambiguous",
+        "benign_reference",
+        "known_other_attack",
+        "target_attack",
+        "unknown"
+      ],
+      "passed": true
+    },
+    {
+      "check": "dataset_header_is_p1_shaped",
+      "detail": [
+        "row_id",
+        "source",
+        "label",
+        "disposition",
+        "attack_type",
+        "entity_key",
+        "episode_id",
+        "partition",
+        "window_start_epoch",
+        "event_count",
+        "source_packets_total",
+        "destination_packets_total",
+        "source_bytes_total",
+        "destination_bytes_total"
+      ],
+      "passed": true
+    },
+    {
+      "check": "m6_windows",
+      "detail": 172748,
+      "passed": true
+    },
+    {
+      "check": "mb6_windows",
+      "detail": 70921,
+      "passed": true
+    },
+    {
+      "check": "mb7_window_labels",
+      "detail": 70921,
+      "passed": true
+    },
+    {
+      "check": "transactions_are_read_only",
+      "detail": {
+        "cybersentinel": "on",
+        "cybersentinel_test": "on"
+      },
+      "passed": true
+    },
+    {
+      "check": "m6_window_count",
+      "detail": 172748,
+      "passed": true
+    },
+    {
+      "check": "window_labels_cover_every_window",
+      "detail": 172748,
+      "passed": true
+    },
+    {
+      "check": "unique_window_ids",
+      "detail": 172748,
+      "passed": true
+    },
+    {
+      "check": "target_attack_windows",
+      "detail": 199,
+      "passed": true
+    },
+    {
+      "check": "known_other_attack_windows",
+      "detail": 177,
+      "passed": true
+    },
+    {
+      "check": "attack_windows",
+      "detail": 376,
+      "passed": true
+    },
+    {
+      "check": "unknown_windows",
+      "detail": 172372,
+      "passed": true
+    },
+    {
+      "check": "ambiguous_windows",
+      "detail": 0,
+      "passed": true
+    },
+    {
+      "check": "no_benign_on_the_m_chain",
+      "detail": 0,
+      "passed": true
+    },
+    {
+      "check": "every_attack_window_is_typed",
+      "detail": 376,
+      "passed": true
+    },
+    {
+      "check": "no_excluded_window_became_a_negative",
+      "detail": 172372,
+      "passed": true
+    },
+    {
+      "check": "total_rows",
+      "detail": 70954,
+      "passed": true
+    },
+    {
+      "check": "attack_rows",
+      "detail": 376,
+      "passed": true
+    },
+    {
+      "check": "benign_rows",
+      "detail": 70578,
+      "passed": true
+    },
+    {
+      "check": "attack_rows_come_from_m6",
+      "detail": [
+        "m6"
+      ],
+      "passed": true
+    },
+    {
+      "check": "benign_rows_come_from_mb6",
+      "detail": [
+        "mb6"
+      ],
+      "passed": true
+    },
+    {
+      "check": "dispositions_are_supervised_only",
+      "detail": [
+        "benign_reference",
+        "known_other_attack",
+        "target_attack"
+      ],
+      "passed": true
+    },
+    {
+      "check": "no_excluded_disposition_present",
+      "detail": [
+        "ambiguous",
+        "unknown"
+      ],
+      "passed": true
+    },
+    {
+      "check": "per_attack_type_windows",
+      "detail": {
+        "botnet/ares": 177,
+        "brute_force/ftp_patator": 61,
+        "brute_force/ssh_patator": 60,
+        "ddos/loit": 42,
+        "dos/hulk": 36
+      },
+      "passed": true
+    },
+    {
+      "check": "attack_entities",
+      "detail": 9,
+      "passed": true
+    },
+    {
+      "check": "attack_episodes",
+      "detail": 54,
+      "passed": true
+    },
+    {
+      "check": "attack_and_benign_entities_are_disjoint",
+      "detail": 0,
+      "passed": true
+    },
+    {
+      "check": "unique_row_ids",
+      "detail": 70954,
+      "passed": true
+    },
+    {
+      "check": "header_is_byte_identical_to_p1",
+      "detail": "row_id,source,label,disposition,attack_type,entity_key,episode_id,partition,window_start_epoch,event_count,source_packets_total,destination_packets_total,source_bytes_total,destination_bytes_total",
+      "passed": true
+    },
+    {
+      "check": "row_count_in_payload",
+      "detail": 70955,
+      "passed": true
+    },
+    {
+      "check": "p1_content_digest_parity",
+      "detail": "3d7436178da6960ee5effeb4bee85a0b6da5eead9d2babef3c72cb6b7ca9f20d",
+      "passed": true
+    },
+    {
+      "check": "p1_file_digest_parity",
+      "detail": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+      "passed": true
+    },
+    {
+      "check": "attack_window_ids_match",
+      "detail": 376,
+      "passed": true
+    },
+    {
+      "check": "attack_dispositions_and_types_match",
+      "detail": 0,
+      "passed": true
+    }
+  ],
+  "content_sha256": "18baf4696918a81409644154262f6adc47dc358883ed135c60b693d1c87ad321",
+  "excluded_window_count": 172372,
+  "experiment": "Production Finale v1 \u2014 M-chain window label materialization",
+  "frozen_artifacts_modified": false,
+  "m7_schema_created": false,
+  "materialized_out_of_band": true,
+  "negatives_source": {
+    "database": "cybersentinel_test",
+    "disposition": "benign_reference",
+    "labels": "mb7_canonical.window_labels",
+    "rows": 70578,
+    "windows": "mb6_canonical.feature_windows"
+  },
+  "policy": {
+    "aggregation_reference": "ANY_ATTACK precedence verified against the freeze",
+    "ambiguous_to_benign_conversion": "forbidden",
+    "classifier": "frozen P1/P3 rule-overlap classifier (p1_dataset._classify)",
+    "label_manifest": "datasets/manifests/cicids2017_labels.yaml",
+    "policy_variant": "m5_v2_observable_attacker_derived_from_v1",
+    "semantics_note": "window dispositions are resolved against rule intervals, not by folding event dispositions; on the M chain this yields zero ambiguous windows although M5 v2 marks 164 events ambiguous",
+    "unknown_to_benign_conversion": "forbidden"
+  },
+  "postgresql_transaction_read_only": {
+    "cybersentinel": "on",
+    "cybersentinel_test": "on"
+  },
+  "postgresql_writes": 0,
+  "report_version": "1.0.0",
+  "supervised_label_counts": {
+    "0": 0,
+    "1": 376,
+    "excluded": 172372
+  },
+  "total_window_count": 172748,
+  "window_disposition_counts": {
+    "ambiguous": 0,
+    "benign_reference": 0,
+    "known_other_attack": 177,
+    "target_attack": 199,
+    "unknown": 172372
+  },
+  "windows_per_partition": {
+    "2017-07-04_Tuesday-WorkingHours": 59824,
+    "2017-07-05_Wednesday-workingHours": 58514,
+    "2017-07-07_Friday-WorkingHours": 54410
+  }
+}
