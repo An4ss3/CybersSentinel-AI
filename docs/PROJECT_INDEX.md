@@ -47,7 +47,80 @@ There is deliberately no MB5: the MB track reuses the frozen M5 v1 policy rather
 | [M3 v2 status](canonical/M3_READINESS.md) | M3 v2 implementation and freeze status |
 | [M3 v2 synchronization](canonical/M3_V2_SYNCHRONIZATION.md) | Repair record for the 3 Aug 2026 consistency fix |
 | [Technical debt](canonical/TECHNICAL_DEBT.md) | All known non-blocking issues |
+| [Transfer experiment report](canonical/TRANSFER_EXPERIMENT_REPORT.md) | Full scientific report of the seven-fold cross-family transfer experiment |
+| [Pre-registration protocol](canonical/PROTOCOL_PREREGISTRATION_V1.md) | Protocol frozen before any holdout was opened |
 | [Historical progress report](archive/PROGRESS_REPORT_2026-07-08.md) | Legacy July 2026 report — historical only |
+
+---
+
+## September 2026 — chronological state
+
+Read this section first. It is the current scientific position. Everything below
+it is the preserved July and August record and is not superseded, only extended.
+
+### Two tracks, and which one carries the PFA claim
+
+| Track | Question it answers | Status |
+|---|---|---|
+| **CORE PFA SCIENTIFIC TRACK** — priority families, M5 v3, Thursday, pre-registered transfer | Do models trained on six priority attack families transfer to a held-out seventh, at a low false-positive rate on an independent capture day? | **Primary evidence of the PFA.** Seven folds, 19/28 held-out episodes, all Thursday FPR below 1 %. |
+| **SECONDARY / EXPLORATORY ARM F and Ares TRACK** — content features, ARM F ratification, Phase 2 tuning, temporal persistence, zero-day Ares | Is the observed ceiling a family-transfer limit or a representational limit of the volume features? | Methodological support only. **Not the primary or sole evidence of generalisation capability.** |
+
+The distinction matters: the ARM F and Ares work concerns `botnet/ares`, a single
+non-priority family, and was explicitly excluded from the transfer experiment. The
+PFA's generalisation evidence rests on the seven priority families, not on Ares.
+
+### Chronology
+
+| Date | Milestone | Repository path | Scientific purpose | Result / status |
+|---|---|---|---|---|
+| 2026-08-27 | **M5 v3 label-coverage correction** | `modules/detection/src/lineage/m5_policy_v3.py`, `artifacts/production/ml_dataset_v2/` | Recover three Wednesday DoS families whose declared attacker was unobservable behind NAT, so their windows had stayed `unknown` | **Complete, additive.** 464 attack windows and 68 episodes over 9 entities; 88 windows moved from `unknown` to an attack disposition, none towards benign. M5 v1 and v2 untouched. |
+| 2026-09-03 | **TH1 — Thursday evidence freeze** | `datasets/manifests/thursday_pcap_freeze.yaml`, `artifacts/canonical/cicids2017/th1/` | Freeze the only working-hours capture never entered into the canonical chain | **Verified.** 8,302,500,180 bytes, SHA-256 `38f8b1bb…`, cross-checked against the publisher MD5 before anything was written. |
+| 2026-09-03 | **TH2 — Thursday Zeek replay and NAT audit** | `datasets/manifests/thursday_zeek_replay.yaml`, `artifacts/canonical/cicids2017/th2/`, `scripts/audit_thursday_replay.py` | Replay Thursday deterministically in an isolated tree and resolve the NAT question empirically | **Verified.** 363,788 `conn.log` records in 828 s. NAT realignment confirmed for the three Web Attack rules; both Infiltration rules deliberately left unlabelled with the factual reason recorded. |
+| 2026-09-03 | **Thursday window and label audit** | `scripts/audit_thursday_windows.py`, `artifacts/production/thursday_audit_v1/THURSDAY_WINDOW_LABEL_AUDIT.json` | Derive M6-compatible Thursday windows and apply the conservative negative policy | **Verified.** 357,563 admitted of 363,788; **55,759 definitive windows** = 123 `known_other_attack` + 22,823 `unknown` + **32,813 `benign_reference`**. |
+| 2026-09-06 | **Thursday negative holdout table** | `artifacts/production/thursday_audit_v1/thursday_benign_windows.csv` | Emit the per-window VOL5 rows required to score the holdout negatives | **Frozen.** Exactly 32,813 rows, SHA-256 `9cd046d46829ac9ef67fbd1df6d40dcd75fc1236c04cf433eceecf60abd278f9`, produced by the already-hashed policy path with zero new labelling decisions. |
+| 2026-09-06 | **Pre-registration of the transfer protocol** | `docs/canonical/PROTOCOL_PREREGISTRATION_V1.md`, `artifacts/experiments/preregistration_v1/protocol_manifest.json`, `scripts/verify_preregistration.py` | Fix populations, model, threshold rule, metrics and success criterion before any result could influence them | **Frozen, 16 inputs pinned by digest.** Verified by 83 reproducible checks. At pre-registration time `holdout_opened: false`, `models_fitted: 0`, `metrics_computed: 0`. |
+| 2026-09-08 | **Seven-fold cross-family transfer experiment** | `scripts/run_transfer_experiment.py`, `artifacts/experiments/transfer_v1/` | Measure leave-one-family-out transfer on the seven priority families, with the Thursday population as the frozen negative control | **Executed once.** 19 of 28 held-out episodes detected, Wilson 95 % [0.493388, 0.820668]; all seven Thursday FPR between 0.357 % and 0.643 %. |
+| 2026-09-10 | **Transfer experiment report** | `docs/canonical/TRANSFER_EXPERIMENT_REPORT.md` | Present the experiment to a scientific reader, generated from frozen artifacts only | **Published.** Cross-checked against the artifacts; no value restated without its source. |
+| 2026-08-27 | **Final scientific validation, five steps** *(secondary track)* | `artifacts/experiments/final_validation/`, `FINAL_VALIDATION_REPORT.md` | Separate family novelty, entity novelty, episode novelty and zero-day on the v1 population, and test the feature budget at constant learner | **Executed and verified**, gated by 61 cross-artifact consistency checks. Zero-day Ares: VOL5 **0/40**, ARM F **21/40**. |
+| 2026-08-26 | **Negative result — ARM F temporal persistence** *(secondary track)* | `artifacts/experiments/temporal_persistence/` | Test whether requiring temporal persistence improves episode recall | **Negative and preserved.** The pre-registered rule selected the highest admissible threshold, leaving the additive branch inactive; Ares stayed at 21/40 and window false positives at 99/13,774. |
+| 2026-08-26 | **Negative result — Phase 2 ARM F tuning** *(secondary track)* | `artifacts/experiments/xgboost_armf_tuning/`, `artifacts/reports/xgboost_armf_tuning_final_report.md` | Leak-free surrogate hyperparameter search on ARM F, using only `fold0.train` | **Negative and preserved.** R006 improved the surrogate objective but did not improve Ares episode recall; the frozen Phase 1 ARM F model remains the reference. |
+
+### Transfer results, per fold
+
+Authoritative source `artifacts/experiments/transfer_v1/transfer_results.json`.
+
+| Family | Episode recall | Wilson 95 % CI | Window recall | Thursday FP / 32,813 | Thursday FPR | ROC-AUC | PR-AUC |
+|---|---:|---|---:|---:|---:|---:|---:|
+| FTP-Patator | 1/1 | [0.2065, 1.0000] | 61/61 | 120 | 0.3657 % | 0.999169 | 0.526277 |
+| SSH-Patator | **1/9** | [0.0199, 0.4350] | **9/60** | 189 | 0.5760 % | **0.585866** | **0.008778** |
+| DoS Hulk | 2/2 | [0.3424, 1.0000] | 35/36 | 117 | 0.3566 % | 0.985805 | 0.903019 |
+| DoS Slowloris | 2/2 | [0.3424, 1.0000] | 43/46 | 123 | 0.3749 % | 0.966914 | 0.869932 |
+| DoS SlowHTTPTest | 7/8 | [0.5291, 0.9776] | 21/26 | 187 | 0.5699 % | 0.902312 | 0.615712 |
+| DoS GoldenEye | 4/4 | [0.5101, 1.0000] | 13/16 | 162 | 0.4937 % | 0.904825 | 0.529360 |
+| DDoS LOIT | 2/2 | [0.3424, 1.0000] | 42/42 | 211 | 0.6430 % | 0.999915 | 0.944242 |
+
+**19 of 28 held-out episodes were detected.** The pooled figure is descriptive:
+the folds share entity structure and a common benign calibration framework, so the
+28 episodes are not independent statistical replicates.
+
+Pre-registered descriptive categories: *results compatible with transfer* for
+FTP-Patator, Hulk, Slowloris, SlowHTTPTest, GoldenEye and DDoS LOIT; *limited or
+inconclusive evidence* for SSH-Patator; *absence of evidence* for none. Episode
+recall and the false-positive rate are never compared to each other, by protocol.
+
+### What the September track does and does not establish
+
+Established: cross-family transfer for most priority families on frozen
+CICIDS2017 evidence, at a conservative false-positive rate measured on a capture
+day that contributed nothing to training, validation or threshold calibration.
+
+Not established, and not claimed: entity-disjoint generalisation, new-infrastructure
+generalisation, real-world traffic performance, or universal IDS capability. The
+priority families are carried by four entity keys sharing one attacker IP and one
+victim IP; Thursday reuses three of those four keys, so it is an independent day,
+not an independent network. With 28 held-out episodes and five families at four
+episodes or fewer, statistical strength is limited, and SSH-Patator is retained as
+an explicit example of weak transfer.
 
 ---
 
@@ -101,6 +174,15 @@ A third, **strictly parallel** track (**MB — Monday Benign**) is implemented a
 | Final validation step 3 — A′ shared-entity diagnostic | **EXECUTED / VERIFIED** 2026-08-27 — heterogeneous, no causal attribution | Yes |
 | Final validation step 4 — final report generated from artifacts | **EXECUTED / VERIFIED** 2026-08-27 — 61 consistency checks | Yes |
 | Final validation step 5 — ARM F extension | **EXECUTED / VERIFIED** 2026-08-27 — zero-day: VOL5 0/40, ARM F 21/40 | Yes |
+| M5 v3 — label-coverage correction (additive) | **DONE** 2026-08-27 — three Wednesday DoS rules realigned; v1 and v2 untouched | Yes |
+| Production Finale v2 — M5 v3 supervised dataset | **EXECUTED / VERIFIED / FROZEN** 2026-08-27 — 71,042 rows, 464 attack windows, 68 episodes | Yes |
+| TH1 — Thursday evidence freeze | **EXECUTED / VERIFIED** 2026-09-03 — SHA-256 and publisher MD5 cross-checked | Yes |
+| TH2 — Thursday Zeek replay and NAT audit | **EXECUTED / VERIFIED** 2026-09-03 — 363,788 `conn.log` records, 828 s | Yes |
+| Thursday window and label audit | **EXECUTED / VERIFIED** 2026-09-03 — 55,759 windows, 32,813 `benign_reference` | Yes |
+| Thursday negative holdout table | **FROZEN** 2026-09-06 — exactly 32,813 rows | Yes |
+| Pre-registration of the transfer protocol | **FROZEN** 2026-09-06 — 16 inputs pinned, 83 checks | Yes |
+| Seven-fold cross-family transfer experiment | **EXECUTED / VERIFIED** 2026-09-08 — 19/28 held-out episodes; all Thursday FPR below 1 % | Yes |
+| Transfer experiment report | **PUBLISHED** 2026-09-10 — generated from frozen artifacts only | Yes |
 
 Roadmap beyond this point is defined in `CYBERSENTINEL_DEVELOPMENT_HISTORY.md` only as a single grouped line: `M6–M13 windows, splits, models, reproducibility`. Individual milestones after M6 are **not** individually scoped in the repository.
 
