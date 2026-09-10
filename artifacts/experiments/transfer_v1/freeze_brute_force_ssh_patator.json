@@ -1,0 +1,60 @@
+{
+  "decision_rule": "flag(window) := score >= threshold",
+  "episode_definition": "maximal run of consecutive 60-second windows sharing the same (attack_type, entity_key); materialised as episode_id",
+  "exclusions": {
+    "ambiguous": "excluded",
+    "ares": "excluded from TRAIN, VALIDATION and HOLDOUT",
+    "other_folds": "no result of another fold is consulted",
+    "thursday_web_attack": "never positive, never negative",
+    "unknown": "excluded"
+  },
+  "freeze_version": "1.0.0",
+  "frozen_at": "2026-09-08T19:58:30.367010+00:00",
+  "held_out_family": "brute_force/ssh_patator",
+  "holdout_opened": false,
+  "hyperparameters": {
+    "class_weight": null,
+    "model": "sklearn.ensemble.RandomForestClassifier",
+    "n_estimators": 200,
+    "random_state": 0,
+    "selection_performed": false,
+    "source": "p1_evaluation.build_model, imported unchanged"
+  },
+  "model_artifact": "artifacts/experiments/transfer_v1/model_brute_force_ssh_patator.joblib",
+  "model_sha256": "d959805346976ff6408b6dc4942a6587018592bd6a59711dce8d63c853459fb9",
+  "pinned_digests": {
+    "artifacts/experiments/preregistration_v1/protocol_manifest.json": "95b18893d8c2a427412a01285947ca44156869f5dc4a8d57760e97f019016cea",
+    "artifacts/production/ml_dataset_v2/ml_dataset.csv": "bf04ec1a6937f96ee766e67b308ff13355057c26bb5d0256206bd017148b634a",
+    "artifacts/production/thursday_audit_v1/thursday_benign_windows.csv": "9cd046d46829ac9ef67fbd1df6d40dcd75fc1236c04cf433eceecf60abd278f9",
+    "docs/canonical/PROTOCOL_PREREGISTRATION_V1.md": "0ed22dabaa711bc3390decc4794988c488f5d6a71046c00c42a953076713bc84"
+  },
+  "sanity_checks": {
+    "achieved_validation_fpr_at_or_below_target": true,
+    "family_absent_from_train_rows": 0,
+    "family_absent_from_validation_rows": 0,
+    "fit_completed": true,
+    "no_nan_or_inf_validation_scores": true,
+    "validation_score_distribution_not_degenerate": true
+  },
+  "split": {
+    "benign_entity_partition": "p1_dataset.negative_fold_of, folds 0-3 train, fold 4 validation",
+    "train_benign_entities": 22257,
+    "train_benign_windows": 56550,
+    "train_positive_episodes": 19,
+    "train_positive_windows": 227,
+    "train_row_digest": "eaad1a647f8b764717e271b260d69f0bc2fc98b12613a39c2d8e150c267dbc76",
+    "validation_benign_entities": 5458,
+    "validation_benign_windows": 14028,
+    "validation_row_digest": "3d9226ef9f95ea4af01ecdb1546e93b342f7845869d10fe455cb48e50e45ba41"
+  },
+  "threshold": {
+    "calibration_population": "VALIDATION benign only",
+    "primary_achieved_validation_fpr": 0.009409751924721984,
+    "primary_target_fpr": 0.01,
+    "primary_threshold": 0.01,
+    "rule": "p1_evaluation.threshold_at_train_fpr, imported unchanged",
+    "secondary_achieved_validation_fpr": 0.000998003992015968,
+    "secondary_target_fpr": 0.001,
+    "secondary_threshold": 0.075
+  }
+}

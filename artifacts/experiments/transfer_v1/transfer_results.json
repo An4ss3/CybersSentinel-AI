@@ -1,0 +1,288 @@
+{
+  "benign_partition": {
+    "entity_overlap": 0,
+    "train_entities": 22257,
+    "train_windows": 56550,
+    "validation_entities": 5458,
+    "validation_windows": 14028
+  },
+  "excluded_from_experiment": {
+    "ambiguous": 0,
+    "botnet/ares": 177,
+    "thursday_web_attack": 0,
+    "unknown": 0
+  },
+  "executed_at": "2026-09-08T19:59:19.468008+00:00",
+  "experiment": "priority-family transfer, pre-registered protocol v1",
+  "folds": [
+    {
+      "achieved_validation_fpr": 0.00819788993441688,
+      "episode_detected": 1,
+      "episode_recall": 1.0,
+      "episode_recall_wilson_95": [
+        0.20654931437723745,
+        1.0
+      ],
+      "episode_total": 1,
+      "family": "brute_force/ftp_patator",
+      "fpr_within_tolerance_2pct": true,
+      "freeze_path": "artifacts/experiments/transfer_v1/freeze_brute_force_ftp_patator.json",
+      "freeze_sha256": "52ebb7946fd076e5f52b436d9c1e6062d558a6af8d082a26f85a183723f43625",
+      "model_sha256": "bace1443ec8554d6e8952b7789f230b8b40d57318e66bd94aceb5276ff3c617a",
+      "operating_point": "transfers",
+      "pr_auc": 0.5262769105297056,
+      "pr_auc_base_rate": 0.0018555697511711384,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "roc_auc": 0.999169161762656,
+      "threshold": 0.015,
+      "thursday_benign_windows": 32813,
+      "thursday_false_positives": 120,
+      "thursday_fpr": 0.003657087130100875,
+      "train_benign_windows": 56550,
+      "train_positive_windows": 226,
+      "validation_benign_windows": 14028,
+      "window_detected": 61,
+      "window_recall": 1.0,
+      "window_recall_wilson_95": [
+        0.9407561321018871,
+        1.0
+      ],
+      "window_total": 61
+    },
+    {
+      "achieved_validation_fpr": 0.009409751924721984,
+      "episode_detected": 1,
+      "episode_recall": 0.1111111111111111,
+      "episode_recall_wilson_95": [
+        0.019890887638544907,
+        0.434999705576656
+      ],
+      "episode_total": 9,
+      "family": "brute_force/ssh_patator",
+      "fpr_within_tolerance_2pct": true,
+      "freeze_path": "artifacts/experiments/transfer_v1/freeze_brute_force_ssh_patator.json",
+      "freeze_sha256": "2be0305888c5bedb3c223ef87f395781be6507f3e742a74078f76b0b0a079b67",
+      "model_sha256": "d959805346976ff6408b6dc4942a6587018592bd6a59711dce8d63c853459fb9",
+      "operating_point": "transfers",
+      "pr_auc": 0.008777762583951652,
+      "pr_auc_base_rate": 0.0018252060961883613,
+      "reporting_tier": "weak_statistical_weight",
+      "roc_auc": 0.5858661201353123,
+      "threshold": 0.01,
+      "thursday_benign_windows": 32813,
+      "thursday_false_positives": 189,
+      "thursday_fpr": 0.005759912229908877,
+      "train_benign_windows": 56550,
+      "train_positive_windows": 227,
+      "validation_benign_windows": 14028,
+      "window_detected": 9,
+      "window_recall": 0.15,
+      "window_recall_wilson_95": [
+        0.08097440580167739,
+        0.2611458906977855
+      ],
+      "window_total": 60
+    },
+    {
+      "achieved_validation_fpr": 0.007698887938408896,
+      "episode_detected": 2,
+      "episode_recall": 1.0,
+      "episode_recall_wilson_95": [
+        0.34238022750665303,
+        1.0
+      ],
+      "episode_total": 2,
+      "family": "dos/hulk",
+      "fpr_within_tolerance_2pct": true,
+      "freeze_path": "artifacts/experiments/transfer_v1/freeze_dos_hulk.json",
+      "freeze_sha256": "0fb2d0023f0ac9e0bedea3c065d3588d675256af26edac7b1979151e6a299fd7",
+      "model_sha256": "00979db3de1082a1f348b75a285819a88a725b019610594ab29173161a336d1b",
+      "operating_point": "transfers",
+      "pr_auc": 0.9030188698124705,
+      "pr_auc_base_rate": 0.0010959237724131633,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "roc_auc": 0.9858050840283492,
+      "threshold": 0.015,
+      "thursday_benign_windows": 32813,
+      "thursday_false_positives": 117,
+      "thursday_fpr": 0.003565659951848353,
+      "train_benign_windows": 56550,
+      "train_positive_windows": 251,
+      "validation_benign_windows": 14028,
+      "window_detected": 35,
+      "window_recall": 0.9722222222222222,
+      "window_recall_wilson_95": [
+        0.8583028134672614,
+        0.9950795928601897
+      ],
+      "window_total": 36
+    },
+    {
+      "achieved_validation_fpr": 0.008625605930995152,
+      "episode_detected": 2,
+      "episode_recall": 1.0,
+      "episode_recall_wilson_95": [
+        0.34238022750665303,
+        1.0
+      ],
+      "episode_total": 2,
+      "family": "dos/slowloris",
+      "fpr_within_tolerance_2pct": true,
+      "freeze_path": "artifacts/experiments/transfer_v1/freeze_dos_slowloris.json",
+      "freeze_sha256": "c9ed12b106ee65cea472868eeee9fd636624b8d4c77461be0e5f6a9cc478e711",
+      "model_sha256": "7f4bd761d768a823172d9523647ae40c5098886bdd73212f8ca62451043e5b02",
+      "operating_point": "transfers",
+      "pr_auc": 0.8699323936237033,
+      "pr_auc_base_rate": 0.0013999208740375544,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "roc_auc": 0.9669142929830303,
+      "threshold": 0.015,
+      "thursday_benign_windows": 32813,
+      "thursday_false_positives": 123,
+      "thursday_fpr": 0.0037485143083533967,
+      "train_benign_windows": 56550,
+      "train_positive_windows": 241,
+      "validation_benign_windows": 14028,
+      "window_detected": 43,
+      "window_recall": 0.9347826086956522,
+      "window_recall_wilson_95": [
+        0.8249725891809578,
+        0.9775721385707115
+      ],
+      "window_total": 46
+    },
+    {
+      "achieved_validation_fpr": 0.009338465925292272,
+      "episode_detected": 7,
+      "episode_recall": 0.875,
+      "episode_recall_wilson_95": [
+        0.5291118177871464,
+        0.9775825085499433
+      ],
+      "episode_total": 8,
+      "family": "dos/slowhttptest",
+      "fpr_within_tolerance_2pct": true,
+      "freeze_path": "artifacts/experiments/transfer_v1/freeze_dos_slowhttptest.json",
+      "freeze_sha256": "a7cc5c6c30fd364b5ac1c1c49363e187a5080b4fc514ee01394d5074780bcc25",
+      "model_sha256": "7c9a7a398183534018db88929d937d23939e2a48a45f3213ee066b8a259bbace",
+      "operating_point": "transfers",
+      "pr_auc": 0.6157117688503386,
+      "pr_auc_base_rate": 0.0007917415268430829,
+      "reporting_tier": "weak_statistical_weight",
+      "roc_auc": 0.9023124043238022,
+      "threshold": 0.01,
+      "thursday_benign_windows": 32813,
+      "thursday_false_positives": 187,
+      "thursday_fpr": 0.005698960777740529,
+      "train_benign_windows": 56550,
+      "train_positive_windows": 261,
+      "validation_benign_windows": 14028,
+      "window_detected": 21,
+      "window_recall": 0.8076923076923077,
+      "window_recall_wilson_95": [
+        0.6212374288068301,
+        0.9149293885105758
+      ],
+      "window_total": 26
+    },
+    {
+      "achieved_validation_fpr": 0.008126603934987169,
+      "episode_detected": 4,
+      "episode_recall": 1.0,
+      "episode_recall_wilson_95": [
+        0.5101091635454027,
+        1.0
+      ],
+      "episode_total": 4,
+      "family": "dos/goldeneye",
+      "fpr_within_tolerance_2pct": true,
+      "freeze_path": "artifacts/experiments/transfer_v1/freeze_dos_goldeneye.json",
+      "freeze_sha256": "b78fa16a174f2f1fb54fb44be511ed53ae3d300298f850d1e22de6326e9ea288",
+      "model_sha256": "afa4a87d45cc6d470078e9d78f2c0565f72de9d1f73da314c0e5194cc5a9db47",
+      "operating_point": "transfers",
+      "pr_auc": 0.529359604491108,
+      "pr_auc_base_rate": 0.00048737396813792685,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "roc_auc": 0.9048252598055649,
+      "threshold": 0.01,
+      "thursday_benign_windows": 32813,
+      "thursday_false_positives": 162,
+      "thursday_fpr": 0.004937067625636181,
+      "train_benign_windows": 56550,
+      "train_positive_windows": 271,
+      "validation_benign_windows": 14028,
+      "window_detected": 13,
+      "window_recall": 0.8125,
+      "window_recall_wilson_95": [
+        0.5699111903802586,
+        0.9340840092857187
+      ],
+      "window_total": 16
+    },
+    {
+      "achieved_validation_fpr": 0.009409751924721984,
+      "episode_detected": 2,
+      "episode_recall": 1.0,
+      "episode_recall_wilson_95": [
+        0.34238022750665303,
+        1.0
+      ],
+      "episode_total": 2,
+      "family": "ddos/loit",
+      "fpr_within_tolerance_2pct": true,
+      "freeze_path": "artifacts/experiments/transfer_v1/freeze_ddos_loit.json",
+      "freeze_sha256": "5976965bd83a1a2c17b81a1b49b19ab67674e9f1df3bb7a925a88e47cf11005b",
+      "model_sha256": "0c2a1c517cb7eb69442ea64bdc931288f7ee8521d790393fb33fa04b3070aa27",
+      "operating_point": "transfers",
+      "pr_auc": 0.9442417965297413,
+      "pr_auc_base_rate": 0.0012783442398417288,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "roc_auc": 0.9999154661407428,
+      "threshold": 0.01,
+      "thursday_benign_windows": 32813,
+      "thursday_false_positives": 211,
+      "thursday_fpr": 0.006430378203760705,
+      "train_benign_windows": 56550,
+      "train_positive_windows": 245,
+      "validation_benign_windows": 14028,
+      "window_detected": 42,
+      "window_recall": 1.0,
+      "window_recall_wilson_95": [
+        0.916201209134296,
+        0.9999999999999999
+      ],
+      "window_total": 42
+    }
+  ],
+  "guarantees": {
+    "frozen_artifacts_modified": false,
+    "holdout_labels_used_to_modify_anything": false,
+    "holdout_opened_after_freeze": true,
+    "methodological_decision_after_seeing_results": false,
+    "postgresql_writes": 0
+  },
+  "pinned_digests": {
+    "artifacts/experiments/preregistration_v1/protocol_manifest.json": "95b18893d8c2a427412a01285947ca44156869f5dc4a8d57760e97f019016cea",
+    "artifacts/production/ml_dataset_v2/ml_dataset.csv": "bf04ec1a6937f96ee766e67b308ff13355057c26bb5d0256206bd017148b634a",
+    "artifacts/production/thursday_audit_v1/thursday_benign_windows.csv": "9cd046d46829ac9ef67fbd1df6d40dcd75fc1236c04cf433eceecf60abd278f9",
+    "docs/canonical/PROTOCOL_PREREGISTRATION_V1.md": "0ed22dabaa711bc3390decc4794988c488f5d6a71046c00c42a953076713bc84"
+  },
+  "pooled": {
+    "episode_detected": 19,
+    "episode_recall": 0.6785714285714286,
+    "episode_recall_wilson_95": [
+      0.49338843180857617,
+      0.8206675307750504
+    ],
+    "episode_total": 28,
+    "independence_caveat": "the folds are NOT independent: they share entity keys and a common benign calibration population"
+  },
+  "preregistered_criteria_applied": {
+    "episode_recall_vs_fpr_comparison": "not performed, forbidden by protocol",
+    "fpr_tolerance": 0.02,
+    "models_compared": 0,
+    "primary_metric": "episode recall at the frozen threshold with Wilson 95 percent interval",
+    "threshold_chosen_post_hoc": false,
+    "tuning_performed": false
+  }
+}
