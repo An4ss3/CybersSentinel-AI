@@ -1,0 +1,31 @@
+{
+  "ares_rows_used_during_tuning": 0,
+  "candidates_evaluated": 49,
+  "experiment": "Phase 2 production-grade XGBoost tuning on frozen ARM F",
+  "feature_budget": [
+    "distinct_payload_ratio",
+    "source_non_printable_ratio",
+    "destination_non_printable_ratio"
+  ],
+  "final_models_fitted": 1,
+  "frozen_artifacts_modified": false,
+  "inner_models_fitted": 196,
+  "outer_test_opened_after_selection": true,
+  "outer_test_used_for_selection": false,
+  "outputs": {
+    "PRE_REGISTRATION.json": "c7f3e46cb3f1e73b2440f06e7d8de4e882be98094f5e4a0eef7a9b25de69fffb",
+    "SEARCH_SPACE.md": "99b37aaf6a49f4096a2569111449f801c3d55da97518bbc06f5ea2f68f8544cf",
+    "TUNING_REPORT.md": "5fb80576e89bfc07af8887871914bff56fa5c7c81f6861b4f4337410e50c9877",
+    "candidate_fold_metrics.csv": "0b97972ffbf867e9c57f0c4907689cee38e17d9fab03fed1ee4fdeee93ed6f3a",
+    "optimized_model.joblib": "545bb8d299c2d4bf4ff1fb61e5d12e2c2de5f4c01b4c7a1fd2646f5dbbcd2ca0",
+    "optimized_predictions.csv": "f5abf2b99b2765c586e54e153ff0449b7309b5f85295e6176f44ef46533f1fb5",
+    "search_results.json": "9be426c3f00f7b2b2493d838923b7086524b527f479ab68e4488d7ec2a4d7896",
+    "transfer_comparison.json": "47f02523fb038b3c7e6d1a972835d6dffd85fca37d1fd3f814531864e5a708f6"
+  },
+  "postgresql_writes": 0,
+  "pre_registration_sha256": "623e7521ecfefc7f60533f9e187c0880ae08295e22f4a21178e6a557f39c7ca6",
+  "search_results_content_sha256": "69b6132132e26d2abd3f32f9a478b6de5804f7c1a077ed753afb8ed4fa2dbd6a",
+  "selected_candidate_feasible": true,
+  "selected_candidate_id": "R006",
+  "transfer_comparison_content_sha256": "649d2f0de80a72d88a10ddba607660cf5d6032f877ede0f4d00c9bb047664645"
+}

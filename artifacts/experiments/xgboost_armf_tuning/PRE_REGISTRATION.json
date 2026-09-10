@@ -1,0 +1,900 @@
+{
+  "pre_registration_sha256": "623e7521ecfefc7f60533f9e187c0880ae08295e22f4a21178e6a557f39c7ca6",
+  "protocol": {
+    "early_stopping": {
+      "metric": "validation AUCPR",
+      "phase1_control": "fixed 200 trees, no early stopping",
+      "role": "iteration-level regularisation only; candidate selection remains episode recall under the hard FPR constraints",
+      "rounds": 50
+    },
+    "experiment": "Phase 2 production-grade XGBoost tuning on frozen ARM F",
+    "feature_budget": [
+      "distinct_payload_ratio",
+      "source_non_printable_ratio",
+      "destination_non_printable_ratio"
+    ],
+    "final_refit": {
+      "data": "all fold0.train rows",
+      "n_estimators": "round-half-up median of best_iteration+1 across the four inner folds for the selected candidate; P1_CONTROL remains exactly 200",
+      "thresholds": "calibrated only from all fold0.train negatives at the five fixed FINAL_EVALUATION_TARGETS"
+    },
+    "fixed_xgboost_parameters": {
+      "eval_metric": "logloss",
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 0,
+      "scale_pos_weight": 1,
+      "tree_method": "exact",
+      "verbosity": 0
+    },
+    "forbidden": [
+      "using any fold0.test row during fitting, early stopping, selection or threshold calibration",
+      "claiming direct optimisation for Ares",
+      "changing the frozen ARM F feature budget",
+      "new features, external data, label changes or unknown/ambiguous negatives",
+      "PostgreSQL writes",
+      "post-hoc constraint relaxation or candidate additions",
+      "modifying P1-P6, Phase-1 models, folds, predictions or reports"
+    ],
+    "inner_folds": {
+      "construction": "for k=1..4: validation_k = frozen fold_k.test intersect fold0.train; training_k = fold0.train minus validation_k",
+      "held_out_attack_types": [
+        "brute_force/ftp_patator",
+        "brute_force/ssh_patator",
+        "ddos/loit",
+        "dos/hulk"
+      ],
+      "outer_test_overlap": 0,
+      "validation_rows": [
+        14045,
+        14124,
+        14770,
+        14064
+      ]
+    },
+    "outer_evaluation": {
+      "interpretation": "a single zero-day transfer measurement, never an optimisation result",
+      "metrics": [
+        "Ares episode recall and 95% episode bootstrap CI",
+        "window recall",
+        "ROC-AUC",
+        "PR-AUC",
+        "realised test FPR",
+        "per-entity and per-episode results",
+        "paired episode deltas against frozen Phase-1 ARM F"
+      ],
+      "primary_transfer_target": 0.005,
+      "targets": [
+        0.01,
+        0.005,
+        0.002,
+        0.001,
+        0.0005
+      ]
+    },
+    "outer_test": {
+      "availability_during_tuning": "strictly forbidden",
+      "held_out_attack_type": "botnet/ares",
+      "membership": "frozen P1 fold0.test",
+      "negative_windows": 13774,
+      "opening": "once, after selection and final refit",
+      "positive_windows": 177,
+      "rows": 13951
+    },
+    "scientific_status": "pre-registered before fitting or inspecting outer-test scores",
+    "search": {
+      "candidates": [
+        {
+          "candidate_id": "P1_CONTROL",
+          "early_stopping": false,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "max_n_estimators": 200,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 1.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R001",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.1,
+            "max_depth": 5,
+            "max_n_estimators": 300,
+            "min_child_weight": 5.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 10.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R002",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.1,
+            "max_depth": 4,
+            "max_n_estimators": 1000,
+            "min_child_weight": 5.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 30.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R003",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 4,
+            "max_n_estimators": 600,
+            "min_child_weight": 5.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 30.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R004",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 2,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 1.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R005",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 4,
+            "max_n_estimators": 1000,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 3.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R006",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.1,
+            "max_depth": 2,
+            "max_n_estimators": 300,
+            "min_child_weight": 10.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R007",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 3.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 1.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R008",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 5.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 1.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R009",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.025,
+            "max_depth": 3,
+            "max_n_estimators": 600,
+            "min_child_weight": 5.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 30.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R010",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 4,
+            "max_n_estimators": 600,
+            "min_child_weight": 10.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 30.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R011",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 1000,
+            "min_child_weight": 5.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R012",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 5,
+            "max_n_estimators": 600,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 30.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R013",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.1,
+            "max_depth": 2,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 10.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R014",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 5,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 3.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R015",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 10.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 30.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R016",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "max_n_estimators": 300,
+            "min_child_weight": 1.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R017",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "max_n_estimators": 600,
+            "min_child_weight": 5.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 30.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R018",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 4,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 3.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R019",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.025,
+            "max_depth": 4,
+            "max_n_estimators": 600,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 10.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R020",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 5,
+            "max_n_estimators": 600,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 30.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R021",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "max_n_estimators": 300,
+            "min_child_weight": 10.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R022",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 4,
+            "max_n_estimators": 300,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 1.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R023",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 5,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 3.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R024",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "max_n_estimators": 1000,
+            "min_child_weight": 5.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 10.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R025",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.1,
+            "max_depth": 4,
+            "max_n_estimators": 1000,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 1.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R026",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.1,
+            "max_depth": 2,
+            "max_n_estimators": 300,
+            "min_child_weight": 10.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 30.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R027",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.025,
+            "max_depth": 4,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 30.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R028",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 4,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R029",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 3,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 3.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R030",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 1.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R031",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 10.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R032",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 5,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 10.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R033",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 2,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 30.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R034",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "max_n_estimators": 1000,
+            "min_child_weight": 10.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 30.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R035",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 10.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R036",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 10.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R037",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R038",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 4,
+            "max_n_estimators": 600,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 3.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R039",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R040",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 1000,
+            "min_child_weight": 5.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 30.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R041",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 300,
+            "min_child_weight": 5.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 1.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R042",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.025,
+            "max_depth": 5,
+            "max_n_estimators": 1000,
+            "min_child_weight": 5.0,
+            "reg_alpha": 1.0,
+            "reg_lambda": 10.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R043",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 3.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R044",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "max_n_estimators": 1000,
+            "min_child_weight": 1.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 30.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R045",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.1,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 3.0,
+            "subsample": 1.0
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R046",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 0.67,
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "max_n_estimators": 300,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 30.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R047",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.025,
+            "max_depth": 3,
+            "max_n_estimators": 600,
+            "min_child_weight": 10.0,
+            "reg_alpha": 0.01,
+            "reg_lambda": 10.0,
+            "subsample": 0.7
+          },
+          "selection_eligible": true
+        },
+        {
+          "candidate_id": "R048",
+          "early_stopping": true,
+          "params": {
+            "colsample_bytree": 1.0,
+            "learning_rate": 0.025,
+            "max_depth": 2,
+            "max_n_estimators": 600,
+            "min_child_weight": 3.0,
+            "reg_alpha": 0.1,
+            "reg_lambda": 10.0,
+            "subsample": 0.85
+          },
+          "selection_eligible": true
+        }
+      ],
+      "method": "deterministic random search without replacement plus control",
+      "random_configurations": 48,
+      "seed": 20260826,
+      "space": {
+        "colsample_bytree": [
+          0.67,
+          1.0
+        ],
+        "learning_rate": [
+          0.025,
+          0.05,
+          0.1
+        ],
+        "max_depth": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "max_n_estimators": [
+          300,
+          600,
+          1000
+        ],
+        "min_child_weight": [
+          1.0,
+          3.0,
+          5.0,
+          10.0
+        ],
+        "reg_alpha": [
+          0.0,
+          0.01,
+          0.1,
+          1.0
+        ],
+        "reg_lambda": [
+          1.0,
+          3.0,
+          10.0,
+          30.0
+        ],
+        "subsample": [
+          0.7,
+          0.85,
+          1.0
+        ]
+      },
+      "total_configurations": 49
+    },
+    "surrogate_objective": {
+      "ares_optimisation_claim": "forbidden; Ares is absent from tuning",
+      "hard_constraints": {
+        "every_validation_fold_fpr_max": 0.01,
+        "pooled_validation_fpr_max": 0.005
+      },
+      "lexicographic_tie_breaks": [
+        "higher minimum per-family episode recall",
+        "higher macro validation PR-AUC",
+        "lower maximum validation-fold FPR",
+        "lower pooled validation FPR",
+        "shallower max_depth",
+        "larger min_child_weight",
+        "larger reg_alpha",
+        "larger reg_lambda",
+        "fewer median selected trees",
+        "lexicographically smaller candidate_id"
+      ],
+      "no_feasible_candidate": "declare tuning unsuccessful and retain the Phase-1 control; never relax a constraint after observing results",
+      "primary": "maximise unweighted macro episode recall over FTP, SSH, DDOS and Hulk at target_train_fpr=0.005"
+    },
+    "tuning_pool": {
+      "ares_rows": 0,
+      "membership": "frozen P1 fold0.train",
+      "rows": 57003
+    }
+  }
+}

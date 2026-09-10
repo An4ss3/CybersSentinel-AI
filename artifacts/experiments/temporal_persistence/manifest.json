@@ -1,0 +1,31 @@
+{
+  "calibration_content_sha256": "8f747e6aec9649ea214d51878949743b193165a0733ee8283408cbf817d8b00f",
+  "completed_at": "2026-08-26T02:50:48.440304+00:00",
+  "experiment": "additive ARM F two-hit temporal persistence",
+  "fold0_opened_after_calibration_manifest": true,
+  "frozen_artifacts_modified": false,
+  "inputs": {
+    "metrics.json": "274e3ba0c8bf3cf3aeaaf01bc92342c3e7b5377ee9550efd950dd6408a6c6dee",
+    "p1_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+    "p1_folds.json": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+    "predictions_F_fold0.csv": "2d4fea17d22cc61b74c1bdf55b5ef0d14de896f8a00e3cd87e379619b1c9e9aa",
+    "predictions_F_fold1.csv": "5f0e6de7923566cba3e0c4bea8922490790f11c0e41827b394005b7fb7add676",
+    "predictions_F_fold2.csv": "cb4f382eeba881f5be95feb48c73fa52437dbdd47d889d84640a59daff8ac1b4",
+    "predictions_F_fold3.csv": "daeb68a2d5f052b3b7d8e023728a3bbbbbd3cf129cdecbf1e90c264ab9310823",
+    "predictions_F_fold4.csv": "1457dd229e1fb35ce77b975035a3cb56d0d41b2b2cc118e80e98213b71bdee71"
+  },
+  "manifest_content_sha256": "b51e4987636fded506d3178b244924a607630244bc2b012c577152c14ae7c7bd",
+  "models_fitted": 0,
+  "outputs": {
+    "PRE_REGISTRATION.json": "a14370e037c10d06eff80ebf23727ec55d72864d21efeb2a4c0e3fd57266e724",
+    "TEMPORAL_PERSISTENCE_REPORT.md": "a9ecf2a5bd7c538012589a8e8477b8bc941591676f854fdf8820a7b4e0228100",
+    "calibration_manifest.json": "3261a94ad65438eca72da118dced83b27d539869339f8f5509399aa064906c52",
+    "results.json": "18fa126054832be8b665084c6e35d20505f89d38b8a91c62ece10dfdcbc694f7",
+    "temporal_persistence_summary.png": "4c4d492e533ad3f092211c6b091ea292393027fe3e210660d59d7d7407ce6c95"
+  },
+  "postgresql_reads": 0,
+  "postgresql_writes": 0,
+  "protocol_sha256": "0639860f1bb759d2b559db91604ecfc96a3afb8843e8a61755a5abd2d295a6ee",
+  "selected_threshold": 0.8922511339,
+  "threshold_changed_after_calibration": false
+}

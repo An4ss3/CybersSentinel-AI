@@ -1,0 +1,24 @@
+{
+  "audit": "independent review corrections for temporal persistence",
+  "audited_at": "2026-08-26T04:00:43.9021584+01:00",
+  "immutable_final_manifest_sha256": "7368cf0c1d0174f397048c1a07e8230f2cdab3bdb6b69f85ff40510e07090bf9",
+  "original_results_sha256": "18fa126054832be8b665084c6e35d20505f89d38b8a91c62ece10dfdcbc694f7",
+  "original_artifacts_modified": false,
+  "additive_outputs": {
+    "INDEPENDENT_AUDIT_ADDENDUM.md": "3ec74366fc5576be916ae43a055428572a852925418f20ce2625e00924686d89",
+    "temporal_persistence_summary_presentation.png": "3222835f4de1f9b1fb1d7e9bf67717db59054502e23dbf4eccbe357864ca4d31"
+  },
+  "corrected_reproducibility_code": {
+    "modules/detection/src/experiments/temporal_persistence.py": "9c5be0986a902fc40bb1185ef6583fed267f35ebeee52635b262eb28d0ea0fac",
+    "scripts/run_temporal_persistence.py": "b7081a989298c821f6ce7be1f2c0d5da037df8e21c16910f5ee4e6f08cc27266",
+    "modules/detection/tests/test_temporal_persistence.py": "4f02a3f40a0d6933fd331a1d23d537c61756fb84d7ce3a1de87859c735394c29"
+  },
+  "validation": {
+    "targeted_tests": "13 passed",
+    "python_compile": "passed",
+    "frozen_input_git_diff": "empty",
+    "threshold_changed": false,
+    "final_evaluation_rerun": false
+  },
+  "scientific_verdict": "negative for the exact frozen highest-threshold procedure; not a rejection of every active two-hit rule"
+}
