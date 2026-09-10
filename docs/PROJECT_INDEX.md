@@ -58,7 +58,7 @@ CyberSentinel is a network intrusion detection research project with two coexist
 1. **Frozen legacy track** — XGBoost classifiers, FastAPI scoring API, PostgreSQL alerts, Grafana dashboards. Preserved for comparison and demonstration.
 2. **Canonical track** — strict data-contract pipeline built from immutable CICIDS2017 PCAP evidence through deterministic Zeek replay toward reproducible, provenance-bound detection.
 
-A third, **strictly parallel** track (**MB — Monday Benign**) has been designed but not implemented. See "Monday Benign track" below.
+A third, **strictly parallel** track (**MB — Monday Benign**) is implemented and verified through MB-LABEL. See "Monday Benign track" below.
 
 ---
 
@@ -74,8 +74,8 @@ A third, **strictly parallel** track (**MB — Monday Benign**) has been designe
 | M5 — sidecar label ledger (v1) | **DONE** | Yes |
 | M5 v2 — observable-attacker policy (additive) | **DONE** | Additive, v1 untouched |
 | M6 — canonical feature windows | **DONE** | Yes |
-| Label materialization | **NOT IMPLEMENTED** | — |
-| ML dataset | **NOT IMPLEMENTED** | — |
+| Label materialization | **DONE, out of band** — 172,748 window labels as files, no `m7_*` schema | Yes |
+| ML dataset | **DONE** — Production Finale v1, 70,954 rows | Yes |
 | MB1 — Monday Benign freeze | **IMPLEMENTED / VERIFIED** — manifest and report published | Yes |
 | MB2 — Monday Benign Zeek replay: **Docker routing** | **VERIFIED / READY** | — |
 | MB2 — Monday Benign Zeek replay: **contracts + runner + tests** | **IMPLEMENTED, 41 tests passing** | Yes |
@@ -89,9 +89,82 @@ A third, **strictly parallel** track (**MB — Monday Benign**) has been designe
 | P2/B — temporal-matched ablation of R1 | **EXECUTED / VERIFIED** 2026-08-17 | Yes |
 | P3/D — unsupervised anomaly benchmark | **EXECUTED / VERIFIED** 2026-08-17 | Yes |
 | P4/C — conservative robustness control | **EXECUTED / VERIFIED** 2026-08-17 | Yes |
-| ML dataset for production use / training beyond P1 | **NOT IMPLEMENTED** | — |
+| P5–P6 — feature extension and audit | **EXECUTED / VERIFIED** 2026-08-17/18 | Yes |
+| XGBoost baseline and four-arm A–D benchmark | **EXECUTED / VERIFIED / FROZEN** 2026-08-18/24 | Yes |
+| Six-arm payload-content benchmark A/E/F/G/H/I | **EXECUTED / VERIFIED / FROZEN** 2026-08-25 | Yes |
+| ARM F ratification and ARM J1 control | **EXECUTED / VERIFIED / FROZEN** 2026-08-26 — ARM F supported; J1 rejected | Yes |
+| Phase 2 — leak-free surrogate XGBoost tuning on ARM F | **EXECUTED / VERIFIED** 2026-08-26 — R006 selected internally; no Ares recall gain on one-shot transfer | Yes |
+| ARM F temporal persistence (additive) | **EXECUTED / VERIFIED** 2026-08-26 — negative result: rule inactive, Ares 21/40 unchanged | Yes |
+| Production Finale v1 — canonical supervised ML dataset | **EXECUTED / VERIFIED / FROZEN** 2026-08-27 — 70,954 rows, byte-identical to P1 | Yes |
+| Final validation step 1 — deterministic splits A/B/C/D | **EXECUTED / VERIFIED** 2026-08-27 | Yes |
+| Final validation step 2 — VOL5 evaluation, D1/D2 | **EXECUTED / VERIFIED** 2026-08-27 — D2 reproduces the published Ares stream exactly | Yes |
+| Final validation step 3 — A′ shared-entity diagnostic | **EXECUTED / VERIFIED** 2026-08-27 — heterogeneous, no causal attribution | Yes |
+| Final validation step 4 — final report generated from artifacts | **EXECUTED / VERIFIED** 2026-08-27 — 61 consistency checks | Yes |
+| Final validation step 5 — ARM F extension | **EXECUTED / VERIFIED** 2026-08-27 — zero-day: VOL5 0/40, ARM F 21/40 | Yes |
 
 Roadmap beyond this point is defined in `CYBERSENTINEL_DEVELOPMENT_HISTORY.md` only as a single grouped line: `M6–M13 windows, splits, models, reproducibility`. Individual milestones after M6 are **not** individually scoped in the repository.
+
+---
+
+## Production Finale v1 and the final scientific validation
+
+### Production Finale v1 — canonical supervised ML dataset
+
+Published under `artifacts/production/ml_dataset_v1/`, additive, byte-identical in content to the ratified P1 population.
+
+| Item | Value |
+|---|---|
+| Rows | **70,954** = 376 attack + 70,578 benign |
+| Attack composition | 199 `target_attack` + 177 `known_other_attack` |
+| Excluded | 172,372 M6 `unknown`, 0 M6 `ambiguous`; never negatives |
+| Label policy | attack → 1, `benign_reference` → 0, `unknown` / `ambiguous` **excluded** |
+| Feature budget | **VOL5**, the five volume features in `p1_dataset.FEATURE_NAMES` order |
+| `ml_dataset.csv` | `e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062` |
+| `window_labels.csv` | `b3ddad6bf2ee26590dadbf0c0ec1b23899924ea2b44d9de9736b8465cad24d74` |
+| Window labels | 172,748 rows covering the whole M chain |
+| PostgreSQL writes | **0**; `m7_*` schema **not** created |
+
+Naming, ratified 2026-08-27: **VOL5** is the five-volume baseline. **ARM_A** remains reserved for the repository's historical single-feature definition, `distinct_payload_ratio`, and is not the same object.
+
+### Final scientific validation — five additive steps
+
+Published under `artifacts/experiments/final_validation/`. `FINAL_VALIDATION_REPORT.md` is generated from the artifacts and gated by **61** cross-artifact consistency checks; it regenerates byte-identically.
+
+| Step | Content | Key outcome |
+|---|---|---|
+| 1 | deterministic splits A/B/C/D, no randomness | A reproduces `p1_folds.json` membership; B entity-disjoint on 9 folds |
+| 2 | VOL5 evaluation on all protocols, D1 and D2 | D2 reproduces the published Ares stream exactly, 13,951/13,951 scores |
+| 3 | A′ shared-entity removal diagnostic | heterogeneous across folds 2–4; no causal attribution |
+| 4 | report generation only | no experiment, no split, no model |
+| 5 | ARM F extension, read-only PostgreSQL | zero-day Ares: VOL5 **0/40**, ARM F **21/40** |
+
+Protocol semantics, never to be conflated:
+
+| Label | Meaning |
+|---|---|
+| **A** | family novelty; **deterministic reimplementation**, not a reproduction of P1 |
+| **B** | entity novelty; the family may still be in training |
+| **C Ares** | episode novelty inside a known family; entity-disjointness impossible by construction |
+| **D1** | zero-day Ares, re-fitted under the `label,row_id` order |
+| **D2** | zero-day Ares, frozen P1 model re-scored; the exact historical anchor |
+| **A′** | shared-entity removal diagnostic; coupled with family removal, so not an isolated leakage measure |
+
+Feature-budget results, at the primary 1% operating point:
+
+| Protocol | VOL5 (RandomForest) | VOL5 (XGBoost) | ARM F (XGBoost) | VOL5+ARM F (XGBoost) |
+|---|---:|---:|---:|---:|
+| A | 9/54 | 5/54 | 26/54 | 21/54 |
+| B entity-disjoint | 46/54 | 43/54 | 26/54 | 46/54 |
+| C Ares episode-disjoint | 40/40 | 40/40 | 21/40 | 40/40 |
+| **D zero-day Ares** | 3/40 | **0/40** | **21/40** | 16/40 |
+
+Only the constant-learner contrast **VOL5_XGB → ARMF_XGB** identifies a feature-budget effect. The **VOL5_RF → ARMF_XGB** comparison changes both features and learner and is a pipeline comparison only.
+
+Zero-day Ares detail: `VOL5_XGB` ROC-AUC 0.4470 with 0/40 episodes; `ARMF_XGB` ROC-AUC 0.9713, PR-AUC 0.4570, 21/40 episodes, at a comparable false-positive rate (0.007187 against 0.012415). The ARM F reconstruction reproduces the published Phase 1 streams exactly on all five folds, which validates the rebuilt `distinct_payload_ratio`.
+
+**Scientific reading.** The observed ceiling was **both** a family-transfer limit **and** a representational limit of the volume features. This corrects the Step 4 interpretation, which had attributed it to family novelty alone and left the representational question open. Neither budget dominates: ARM F wins zero-day transfer and loses where the family is known.
+
+**Limits that must accompany any citation of these numbers.** 376 attack windows, 9 entities, 54 episodes; class imbalance 1:187.7; negatives exclusively from the parallel Monday capture, so day and capture confounding is not lifted; 172,372 `unknown` windows excluded and never counted as errors; C SSH statistically weak, eight of nine episodes being single-window; A′ unable to separate family from entity; the zero-day evidence resting on a **single** family whose five entities differ only by source IP against the same victim, transport and service; exact re-fitting of the historical P1 run impossible because its training row order was never specified nor persisted. No generalisation to real traffic is demonstrated.
 
 ---
 
@@ -111,6 +184,18 @@ All values are SHA-256 unless noted.
 | M3 v2 UUID5 namespace | `f7dad188-04cb-5859-81a0-014329de2899` |
 
 Pre-repair M3 v2 identity `617298f5…` is audit history only.
+
+### Supervised experiment identities
+
+| Item | Value |
+|---|---|
+| P1 frozen population `p1_dataset.csv` | `e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062` |
+| P1 frozen folds `p1_folds.json` | `57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1` |
+| Four-arm A–D benchmark manifest | `2b6e65e658297dd1d96d3f4d3afce9798a5cf9e99279a70253dbbb022315af88` |
+| Phase 2 ARM F tuning pre-registration | `623e7521ecfefc7f60533f9e187c0880ae08295e22f4a21178e6a557f39c7ca6` |
+| Phase 2 ARM F tuning manifest file | `78d40ab46f86c415eab723eefb53fee60b4a1d7ca5f9fa29191de6afd4d45490` |
+
+Phase 2 tuning used only `fold0.train` (zero Ares) with four internal leave-one-known-family-out validations. `fold0.test` was opened once after selection. R006 improved the known-family surrogate objective but did not improve Ares episode recall at the registered 0.5% point (17/40 for both Phase 1 and R006); see `artifacts/reports/xgboost_armf_tuning_final_report.md`.
 
 ### M3 v2 published run — `artifacts/reports/m3_v2_normalization_run.json`
 
@@ -368,9 +453,11 @@ FeatureWindowBuilderV2 → m6_canonical                      [M6]
         ↓ 172,748 FeatureWindowV2, 60 s tumbling, [start,end)
 FeatureWindowRunReportV2 (published immutable artifact)
         ↓
-Label materialization — NOT IMPLEMENTED
+Label materialization — DONE, out of band as files (no m7_* schema)
         ↓
-ML dataset — NOT IMPLEMENTED
+ML dataset — DONE, Production Finale v1 (70,954 rows)
+        ↓
+Final scientific validation — DONE, five additive steps
 ```
 
 Sidecar, never merged into the window contract:
@@ -553,7 +640,7 @@ Constraint **#3** lives in the contract whose content produces `protocol_sha256 
 
 ---
 
-## Monday Benign track (MB) — MB1 through MB-LABEL VERIFIED; ML dataset NOT CREATED
+## Monday Benign track (MB) — MB1 through MB-LABEL VERIFIED; ML dataset PUBLISHED as Production Finale v1
 
 ### Approved direction
 

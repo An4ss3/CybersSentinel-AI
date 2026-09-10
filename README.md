@@ -21,7 +21,7 @@ CyberSentinel contains two deliberately preserved tracks:
 | M5 — sidecar label ledger (v1) | Complete and frozen | `datasets/manifests/cicids2017_labels.yaml`; 16 rules, 45 intervals, 0 overlaps |
 | M5 v2 — observable-attacker policy | Complete, additive; v1 untouched | `docs/PROJECT_INDEX.md` |
 | M6 — canonical feature windows | **Complete and frozen** | `artifacts/reports/m6_v2_feature_window_run.json`; 172,748 windows |
-| Label materialization on the main chain | **Not implemented** | — |
+| Label materialization on the main chain | **Complete, out of band** | `artifacts/production/ml_dataset_v1/label_materialization_report.json`; 172,748 window labels, no `m7_*` schema, zero PostgreSQL writes |
 
 ### Monday-benign reference chain
 
@@ -37,7 +37,36 @@ CyberSentinel contains two deliberately preserved tracks:
 
 ### Supervised experiments
 
-P1–P6, the one-feature XGBoost baseline, and the four-arm A–D feature benchmark are executed, verified, and frozen under `artifacts/experiments/`. Their identities are pinned by per-experiment manifests. A first-wave payload-content feature extraction (arms A/E/F/G/H/I) is in progress and is strictly additive.
+P1–P6, the one-feature XGBoost baseline, the four-arm A–D feature benchmark, the six-arm payload-content benchmark, ARM F ratification, and the leak-free Phase 2 ARM F tuning experiment are executed and verified under `artifacts/experiments/`. Their identities are pinned by per-experiment manifests. The final Phase 1 feature budget is ARM F (`distinct_payload_ratio` plus source/destination non-printable ratios). Phase 2 selected the smaller R006 XGBoost model on known-family surrogate validation, but its one-shot Ares transfer did not improve episode recall; the frozen Phase 1 ARM F model remains the general reference.
+
+An additive ARM F temporal-persistence experiment is also published under `artifacts/experiments/temporal_persistence/`. Its pre-registered rule selected the highest admissible persistence threshold, which left the additive branch inactive: Ares stayed at 21/40 episodes and the window false-positive count stayed at 99/13,774. It is preserved as a negative methodological result.
+
+### Production Finale v1
+
+| Item | Status | Evidence |
+|---|---|---|
+| Canonical supervised ML dataset | **Published and frozen** | `artifacts/production/ml_dataset_v1/`; 70,954 rows = 376 attack + 70,578 benign |
+| M-chain window labels | **Materialised out of band** | `window_labels.csv`; 172,748 windows, 199 `target_attack` + 177 `known_other_attack` + 172,372 `unknown` |
+| Label policy | Ratified | attack → 1, `benign_reference` → 0, `unknown` and `ambiguous` **excluded, never negative** |
+| Feature budget | VOL5, five volume features in canonical order | `p1_dataset.FEATURE_NAMES` |
+| Parity | Byte-identical to the ratified P1 population | `ml_dataset.csv` = `e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062` |
+
+No `m7_*` schema was created and PostgreSQL received zero writes.
+
+### Final scientific validation
+
+Five additive steps are published under `artifacts/experiments/final_validation/`, with `FINAL_VALIDATION_REPORT.md` generated from the artifacts and gated by 61 cross-artifact consistency checks.
+
+| Protocol | Question | Headline result |
+|---|---|---|
+| **A** | family novelty; deterministic reimplementation, **not** a reproduction of P1 | 9/54 episodes |
+| **B** | entity novelty, entity-disjoint on all 9 folds | 46/54 episodes |
+| **C Ares** | episode novelty inside a known family | 40/40 episodes |
+| **D1 / D2** | zero-day Ares, re-fitted / frozen-model anchor | 3/40 both; D2 reproduces the published stream exactly |
+| **A′** | shared-entity removal diagnostic, no causal attribution | heterogeneous across folds 2–4 |
+| **VOL5 vs ARM F** | feature-budget effect at constant learner | zero-day: VOL5 **0/40**, ARM F **21/40** |
+
+Two findings matter. With the family present in training, VOL5 detects Ares almost perfectly even under strict entity-disjointness. With the family absent, VOL5 collapses to chance while the ARM F content budget reaches ROC-AUC 0.9713 and 21/40 episodes at a comparable false-positive rate. The observed ceiling was therefore both a family-transfer limit and a representational limit of the volume features. The zero-day evidence rests on a single family, 40 episodes and 5 entities, and is not a generalisation claim.
 
 ## Frozen and current identities
 
@@ -72,7 +101,7 @@ FlowEndV2 or explicit rejection
 P1 supervised population, 70,954 windows
 ```
 
-Label materialization on the main chain and any ML dataset beyond the P1 population are **not implemented**. No package export implies that either exists.
+Label materialization on the main chain is complete **out of band**, as files under `artifacts/production/ml_dataset_v1/`. No `m7_*` schema exists and PostgreSQL received zero writes. The canonical supervised ML dataset is published there and is byte-identical to the ratified P1 population.
 
 ## Repository and data layout
 
