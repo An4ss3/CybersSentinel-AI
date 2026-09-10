@@ -1,0 +1,271 @@
+{
+  "ares_in_scope": false,
+  "artifact_status": "PRE-REGISTERED, NOT EXECUTED",
+  "decision_rule": "flag(window) := score >= threshold",
+  "episode_definition": "maximal run of consecutive 60-second windows sharing the same (attack_type, entity_key); a gap larger than one window length starts a new episode; an episode is detected if at least one of its windows has score >= threshold",
+  "emitted_holdout_negatives": {
+    "columns": [
+      "entity_key",
+      "window_start_epoch",
+      "event_count",
+      "source_packets_total",
+      "destination_packets_total",
+      "source_bytes_total",
+      "destination_bytes_total",
+      "disposition"
+    ],
+    "emitted_at": "2026-09-06T20:25:00Z",
+    "file_sha256": "9cd046d46829ac9ef67fbd1df6d40dcd75fc1236c04cf433eceecf60abd278f9",
+    "gate_satisfied": true,
+    "new_labelling_decisions": 0,
+    "additional_filters_applied": 0,
+    "path": "artifacts/production/thursday_audit_v1/thursday_benign_windows.csv",
+    "produced_by": "scripts/emit_thursday_benign_windows.py, delegating to the already-hashed policy path of scripts/audit_thursday_windows.py",
+    "row_count": 32813,
+    "row_order": "ascending (entity_key, window_start_epoch)",
+    "verification_report": "artifacts/production/thursday_audit_v1/thursday_benign_windows_verification.json",
+    "verification_checks_passed": 14
+  },
+  "excluded_populations": [
+    "botnet/ares (177 windows, 40 episodes, 5 entities)",
+    "all Thursday web_attack windows (123 windows, 6 episodes)",
+    "all unknown windows",
+    "all ambiguous windows"
+  ],
+  "feature_budget": [
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "feature_budget_name": "VOL5",
+  "feature_order_source": "modules/detection/src/experiments/p1_dataset.py::FEATURE_NAMES",
+  "folds": [
+    {
+      "family": "brute_force/ftp_patator",
+      "entity_key_disjoint_when_held_out": true,
+      "holdout_entities": 1,
+      "holdout_episodes": 1,
+      "holdout_windows": 61,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "source_capture": "2017-07-04_Tuesday-WorkingHours",
+      "train_positive_episodes": 27,
+      "train_positive_windows": 226
+    },
+    {
+      "family": "brute_force/ssh_patator",
+      "entity_key_disjoint_when_held_out": false,
+      "holdout_entities": 2,
+      "holdout_episodes": 9,
+      "holdout_windows": 60,
+      "reporting_tier": "weak_statistical_weight",
+      "source_capture": "2017-07-04_Tuesday-WorkingHours",
+      "train_positive_episodes": 19,
+      "train_positive_windows": 227
+    },
+    {
+      "family": "dos/hulk",
+      "entity_key_disjoint_when_held_out": false,
+      "holdout_entities": 2,
+      "holdout_episodes": 2,
+      "holdout_windows": 36,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "source_capture": "2017-07-05_Wednesday-workingHours",
+      "train_positive_episodes": 26,
+      "train_positive_windows": 251
+    },
+    {
+      "family": "dos/slowloris",
+      "entity_key_disjoint_when_held_out": false,
+      "holdout_entities": 2,
+      "holdout_episodes": 2,
+      "holdout_windows": 46,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "source_capture": "2017-07-05_Wednesday-workingHours",
+      "train_positive_episodes": 26,
+      "train_positive_windows": 241
+    },
+    {
+      "family": "dos/slowhttptest",
+      "entity_key_disjoint_when_held_out": false,
+      "holdout_entities": 2,
+      "holdout_episodes": 8,
+      "holdout_windows": 26,
+      "reporting_tier": "weak_statistical_weight",
+      "source_capture": "2017-07-05_Wednesday-workingHours",
+      "train_positive_episodes": 20,
+      "train_positive_windows": 261
+    },
+    {
+      "family": "dos/goldeneye",
+      "entity_key_disjoint_when_held_out": false,
+      "holdout_entities": 2,
+      "holdout_episodes": 4,
+      "holdout_windows": 16,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "source_capture": "2017-07-05_Wednesday-workingHours",
+      "train_positive_episodes": 24,
+      "train_positive_windows": 271
+    },
+    {
+      "family": "ddos/loit",
+      "entity_key_disjoint_when_held_out": false,
+      "holdout_entities": 2,
+      "holdout_episodes": 2,
+      "holdout_windows": 42,
+      "reporting_tier": "descriptive_high_uncertainty",
+      "source_capture": "2017-07-07_Friday-WorkingHours",
+      "train_positive_episodes": 26,
+      "train_positive_windows": 245
+    }
+  ],
+  "guarantees": {
+    "benign_entity_disjoint_train_vs_validation": true,
+    "capture_disjoint_negatives": true,
+    "determinism": "random_state=0, no sampling, no randomised split",
+    "family_disjoint_holdout_positives": true,
+    "holdout_never_used_for_threshold": true,
+    "hyperparameter_selection_performed": false,
+    "tuning_performed": false
+  },
+  "hyperparameters": {
+    "class_weight": null,
+    "model": "sklearn.ensemble.RandomForestClassifier",
+    "n_estimators": 200,
+    "random_state": 0,
+    "selection_performed": false,
+    "source": "modules/detection/src/experiments/p1_evaluation.py decisions D6 and D7, adopted unchanged"
+  },
+  "impossible_to_guarantee": [
+    "entity-disjoint evaluation of the DoS and DDoS families: all six sit on the same two entity keys",
+    "separating 'detects a DoS' from 'recognises the 172.16.0.1 -> 192.168.10.50 pair'",
+    "new infrastructure: Thursday is the same topology and shares 3 of the 4 priority entity keys",
+    "narrow confidence intervals: 28 episodes across seven families, five with <= 4 episodes",
+    "any statistical conclusion for FTP-Patator: one episode",
+    "priority-family positives on an independent capture: Thursday contains no FTP/SSH/DoS/DDoS family",
+    "any claim about real-world traffic"
+  ],
+  "manifest_version": "1.0.0",
+  "metrics": {
+    "confidence_interval": "Wilson 95 percent, chosen in advance for small denominators and proportions of 0 and 1",
+    "fpr_definition": "false positives / benign_reference windows, denominator exactly 32813, reported with the absolute false-positive count",
+    "primary": "episode recall at the frozen threshold",
+    "roc_and_pr_auc_policy": "reported only on the pooled holdout population where both classes are present; never used to choose a threshold or a model; PR-AUC always accompanied by its base rate",
+    "secondary": [
+      "window recall at the frozen threshold",
+      "Thursday FPR and absolute false-positive count",
+      "ROC-AUC and PR-AUC on the pooled holdout population",
+      "achieved validation FPR at gel time"
+    ]
+  },
+  "monday_benign_partition": {
+    "rule": "fold(entity_key) = int(sha256(entity_key).hexdigest(), 16) mod 5",
+    "source": "modules/detection/src/experiments/p1_dataset.py::negative_fold_of",
+    "train_folds": [0, 1, 2, 3],
+    "validation_folds": [4],
+    "expected_magnitude_note": "roughly 56000 train and 14000 validation of the 70578 Monday windows; exact counts recorded at execution, not required to fix the protocol"
+  },
+  "not_entity_disjoint_declaration": {
+    "claimed_property": "unseen attack family + independent capture/day for benign FPR",
+    "explicitly_not_claimed": "unseen infrastructure / entity generalisation",
+    "priority_entity_keys": [
+      "172.16.0.1|192.168.10.50|tcp|ftp",
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none",
+      "172.16.0.1|192.168.10.50|tcp|ssh"
+    ],
+    "statement": "The holdout is NOT entity-disjoint at the IP or entity_key level.",
+    "thursday_shared_priority_entity_keys": [
+      "172.16.0.1|192.168.10.50|tcp|ftp",
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ]
+  },
+  "pinned_inputs": {
+    "artifacts/canonical/cicids2017/th1/dataset_freeze_verification.json": "84c1fc070101923315829e212b979559972d6325543d90a7c6d5f6b4815f1680",
+    "artifacts/canonical/cicids2017/th2/zeek-8.0.9/2017-07-06_Thursday-WorkingHours/conn.log": "2180f823988d4cad0067910a5290e503f081e2aa8ef1cacf1c4852a2cd227fc1",
+    "artifacts/canonical/cicids2017/th2/zeek-8.0.9/2017-07-06_Thursday-WorkingHours/replay_run.json": "f19181c8546f9e93c73bb3e8631e7afd25ab07fc5462517ff0ebe978d179d4ae",
+    "artifacts/production/ml_dataset_v2/dataset_manifest.json": "2e8cd4a233228bfa54fe11cfe51a664afc6987613af2e5b13439295c024d5610",
+    "artifacts/production/ml_dataset_v2/ground_truth.json": "50f271f4fba1ee92f9e3b48f9383657e534ddbb01c7b5fee5107a31ecf47bf55",
+    "artifacts/production/ml_dataset_v2/label_policy_v3.json": "a47f8d45789477e7e3961b0080cbf4206aafc0abcd99a90981008337f35cfcf4",
+    "artifacts/production/ml_dataset_v2/ml_dataset.csv": "bf04ec1a6937f96ee766e67b308ff13355057c26bb5d0256206bd017148b634a",
+    "artifacts/production/ml_dataset_v2/window_labels.csv": "c6e40f211d596d781ead682316a1084fbe5b1f666ba94a984f0ff87d3dd62021",
+    "artifacts/production/thursday_audit_v1/THURSDAY_WINDOW_LABEL_AUDIT.json": "cf32b489c5fa3162f1d6eeb0a37a58ad5e9bc319acc9ed18383f05fdd156530f",
+    "datasets/manifests/cicids2017_labels.yaml": "e9d9b00fc25db444f61d47a7f6b1d6ffec055870fa40c1ce22f50b49b65af843",
+    "datasets/manifests/thursday_pcap_freeze.yaml": "78667183a2e83e0ed9b9a6bde6ea609d86540de429b55a4281b3bfe45679ff32",
+    "datasets/manifests/thursday_zeek_replay.yaml": "a68bbe204f5de2d2ceb39225cf270f8940b7d537191b0ff30c3a8beb82e852f3",
+    "modules/detection/src/experiments/p1_dataset.py": "cfa3dc3d92f4c192175dc3f9aaac1ba311b11a2e2742a2bf39a5fd91dd5804ea",
+    "modules/detection/src/experiments/p1_evaluation.py": "dda8db17e997bdef9a580f1af3ff7b973c0c47a5da49b16ee8f3f14b8598d0ff",
+    "modules/detection/src/lineage/m5_policy_v3.py": "fd4cd1b523bcc2119cdc7192c68264e3831c122d15186f57de9c64f0668df2b6",
+    "scripts/audit_thursday_windows.py": "ae4a29d17010b77c42214d3ce33818c5fb74d6663a4ba6033f2d7b0b1c97f98c"
+  },
+  "pre_registered_at": "2026-09-06T19:30:00Z",
+  "protocol_document": "docs/canonical/PROTOCOL_PREREGISTRATION_V1.md",
+  "required_additional_artifact": {
+    "columns": [
+      "entity_key",
+      "window_start_epoch",
+      "event_count",
+      "source_packets_total",
+      "destination_packets_total",
+      "source_bytes_total",
+      "destination_bytes_total",
+      "disposition"
+    ],
+    "expected_row_count": 32813,
+    "gate": "if the row count differs from 32813 the protocol halts",
+    "must_be_generated_before_holdout_is_opened": true,
+    "path": "artifacts/production/thursday_audit_v1/thursday_benign_windows.csv",
+    "produced_by": "scripts/audit_thursday_windows.py, same already-hashed policy code path, no new labelling decision",
+    "reason": "the audit JSON is an aggregate report holding counts only; scoring requires the VOL5 feature vector of each of the 32813 windows"
+  },
+  "state": {
+    "holdout_opened": false,
+    "metrics_computed": 0,
+    "models_fitted": 0,
+    "models_loaded": 0,
+    "p1_artifacts_modified": false,
+    "postgresql_writes": 0,
+    "splits_materialised": 0,
+    "thresholds_computed": 0
+  },
+  "success_criterion": {
+    "aggregate_reporting": "category of each of the seven families, pooled episode recall over the 28 episodes with its Wilson interval, and the seven Thursday FPR values with absolute false-positive counts; no pass/fail threshold such as 'four of seven'; no success threshold may be introduced after the results are seen",
+    "episode_recall_vs_fpr_comparison": "forbidden: episode recall and FPR measure different things on different populations; a direct comparison is not a sound statistical justification, least of all for families with 1 to 4 episodes",
+    "fpr_transfers": "the Thursday-measured FPR is at most 2 percent, that is twice the 1 percent calibration target; the factor two is fixed before any measurement and is the only numeric criterion",
+    "operating_point_degrades": "otherwise; the fold's recall figures must then be read against the inflated FPR and cannot support a transfer statement",
+    "transfer_categories": {
+      "limited_or_inconclusive_evidence": "episode recall is non-zero but its Wilson interval is too wide to distinguish outcomes, or the measured FPR exceeds the tolerance so the recall cannot be read cleanly",
+      "no_evidence_of_transfer": "episode recall point estimate is zero, or its Wilson interval is consistent with zero",
+      "results_compatible_with_transfer": "episode recall is substantial and its Wilson interval excludes zero, at an operating point whose measured FPR is within the pre-registered tolerance"
+    },
+    "transfer_conclusion_is_descriptive": true
+  },
+  "threshold_rule": {
+    "calibration_population": "VALIDATION benign only (Monday fold 4), entity-disjoint from the fitting set",
+    "measurement_population": "Thursday benign_reference, 32813 windows, never used for calibration",
+    "primary_target_fpr": 0.01,
+    "rule": "smallest candidate score t drawn from the observed negative scores such that mean(validation_negative_scores >= t) <= target_fpr",
+    "secondary_target_fpr": 0.001,
+    "source": "modules/detection/src/experiments/p1_evaluation.py::threshold_at_train_fpr, applied to validation negatives instead of training negatives"
+  },
+  "thursday_benign_definition": {
+    "exclusion_ambiguous": "all ambiguous windows excluded",
+    "exclusion_compromised_hosts": ["192.168.10.25", "192.168.10.8"],
+    "exclusion_compromised_scope": "whole capture, both directions, 5155 windows",
+    "exclusion_declared_attacker_endpoint": "205.174.165.73 as either endpoint, 3 windows",
+    "exclusion_declared_intervals": "all declared attack intervals including the two unlabelled Infiltration rules, 17615 windows",
+    "exclusion_gateway_to_web_server": "172.16.0.1 -> 192.168.10.50 never a negative, 50 windows",
+    "reconstructed": false,
+    "source_of_truth": "artifacts/production/thursday_audit_v1/THURSDAY_WINDOW_LABEL_AUDIT.json",
+    "unknown_to_benign_conversion": "forbidden",
+    "windows": 32813
+  },
+  "totals": {
+    "priority_attack_entities_distinct_keys": 4,
+    "priority_attack_episodes": 28,
+    "priority_attack_windows": 287,
+    "thursday_benign_windows": 32813
+  }
+}
