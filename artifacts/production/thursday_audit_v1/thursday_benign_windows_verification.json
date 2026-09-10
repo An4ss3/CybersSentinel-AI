@@ -1,0 +1,131 @@
+{
+  "additional_filters_applied": 0,
+  "checks": [
+    {
+      "check": "recomputed_total_windows_matches_ratified_audit",
+      "detail": 55759,
+      "passed": true
+    },
+    {
+      "check": "recomputed_dispositions_match_ratified_audit",
+      "detail": {
+        "benign_reference": 32813,
+        "known_other_attack": 123,
+        "unknown": 22823
+      },
+      "passed": true
+    },
+    {
+      "check": "recomputed_admission_matches_ratified_audit",
+      "detail": {
+        "acceptance_rate_percent": 98.288839,
+        "accepted_records": 357563,
+        "contract": "cicids2017_zeek_normalization_v2.yaml, reimplemented field for field",
+        "processed_records": 363788,
+        "rejected_records": 6225,
+        "rejection_reasons": {
+          "missing_required_field": 5471,
+          "unsupported_service_cardinality": 538,
+          "unsupported_transport": 216
+        }
+      },
+      "passed": true
+    },
+    {
+      "check": "rebuilt_benign_count_matches_aggregate",
+      "detail": 32813,
+      "passed": true
+    },
+    {
+      "check": "benign_count_is_exactly_expected",
+      "detail": 32813,
+      "passed": true
+    },
+    {
+      "check": "no_duplicate_window_identifiers",
+      "detail": 32813,
+      "passed": true
+    },
+    {
+      "check": "every_row_is_benign_reference",
+      "detail": "all rows benign_reference",
+      "passed": true
+    },
+    {
+      "check": "no_compromised_host_present",
+      "detail": [
+        "192.168.10.25",
+        "192.168.10.8"
+      ],
+      "passed": true
+    },
+    {
+      "check": "no_gateway_to_web_server_row",
+      "detail": "172.16.0.1 -> 192.168.10.50 absent",
+      "passed": true
+    },
+    {
+      "check": "window_starts_are_aligned_to_60s",
+      "detail": 60,
+      "passed": true
+    },
+    {
+      "check": "vol5_values_are_non_negative_integers",
+      "detail": [
+        "event_count",
+        "source_packets_total",
+        "destination_packets_total",
+        "source_bytes_total",
+        "destination_bytes_total"
+      ],
+      "passed": true
+    },
+    {
+      "check": "event_count_is_strictly_positive",
+      "detail": "empty windows forbidden",
+      "passed": true
+    },
+    {
+      "check": "csv_header_is_exact",
+      "detail": "entity_key,window_start_epoch,event_count,source_packets_total,destination_packets_total,source_bytes_total,destination_bytes_total,disposition",
+      "passed": true
+    },
+    {
+      "check": "csv_data_row_count_is_exact",
+      "detail": 32813,
+      "passed": true
+    }
+  ],
+  "checks_failed": 0,
+  "checks_run": 14,
+  "columns": [
+    "entity_key",
+    "window_start_epoch",
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total",
+    "disposition"
+  ],
+  "csv_file_sha256": "9cd046d46829ac9ef67fbd1df6d40dcd75fc1236c04cf433eceecf60abd278f9",
+  "csv_relative_path": "artifacts/production/thursday_audit_v1/thursday_benign_windows.csv",
+  "expected_row_count": 32813,
+  "guarantees": {
+    "frozen_artifacts_modified": false,
+    "holdout_opened": false,
+    "metrics_computed": 0,
+    "models_fitted": 0,
+    "models_loaded": 0,
+    "postgresql_writes": 0,
+    "splits_materialised": 0,
+    "thresholds_computed": 0,
+    "thursday_positive_labels_read": 0
+  },
+  "new_labelling_decisions": 0,
+  "policy_source_module": "scripts/audit_thursday_windows.py",
+  "row_count": 32813,
+  "row_order": "ascending (entity_key, window_start_epoch)",
+  "source_of_truth": "artifacts/production/thursday_audit_v1/THURSDAY_WINDOW_LABEL_AUDIT.json",
+  "verification_version": "1.0.0"
+}

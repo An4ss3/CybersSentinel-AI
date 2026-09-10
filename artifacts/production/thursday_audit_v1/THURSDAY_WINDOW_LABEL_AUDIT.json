@@ -1,0 +1,170 @@
+{
+  "admission": {
+    "acceptance_rate_percent": 98.288839,
+    "accepted_records": 357563,
+    "contract": "cicids2017_zeek_normalization_v2.yaml, reimplemented field for field",
+    "processed_records": 363788,
+    "rejected_records": 6225,
+    "rejection_reasons": {
+      "missing_required_field": 5471,
+      "unsupported_service_cardinality": 538,
+      "unsupported_transport": 216
+    }
+  },
+  "artifact_status": "AUDIT ONLY - not TH3/TH4/TH6/TH7, no canonical persistence, 0 PostgreSQL writes",
+  "attack_families": {
+    "web_attack/sql_injection": {
+      "disposition": "known_other_attack",
+      "entities": 1,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http"
+      ],
+      "entity_keys_shared_with_p1_priority": [
+        "172.16.0.1|192.168.10.50|tcp|http"
+      ],
+      "episodes": 1,
+      "partition": "2017-07-06_Thursday-WorkingHours",
+      "priority_family": false,
+      "windows": 3
+    },
+    "web_attack/web_bruteforce": {
+      "disposition": "known_other_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "entity_keys_shared_with_p1_priority": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "episodes": 2,
+      "partition": "2017-07-06_Thursday-WorkingHours",
+      "priority_family": false,
+      "windows": 79
+    },
+    "web_attack/xss": {
+      "disposition": "known_other_attack",
+      "entities": 2,
+      "entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "entity_keys_shared_with_p1_priority": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "episodes": 3,
+      "partition": "2017-07-06_Thursday-WorkingHours",
+      "priority_family": false,
+      "windows": 41
+    }
+  },
+  "audit_version": "1.0.0",
+  "benign_reference": {
+    "distinct_entities": 15422,
+    "services": {
+      "dce_rpc": 46,
+      "dns": 3168,
+      "ftp": 329,
+      "ftp-data": 329,
+      "http": 5853,
+      "krb": 48,
+      "krb_tcp": 71,
+      "ldap_tcp": 77,
+      "ldap_udp": 172,
+      "none": 3964,
+      "ntp": 3076,
+      "ssh": 386,
+      "ssl": 15294
+    },
+    "top_source_ips": {
+      "192.168.10.12": 3133,
+      "192.168.10.14": 3600,
+      "192.168.10.15": 3779,
+      "192.168.10.16": 3103,
+      "192.168.10.17": 4259,
+      "192.168.10.19": 4446,
+      "192.168.10.3": 584,
+      "192.168.10.5": 3494,
+      "192.168.10.50": 453,
+      "192.168.10.51": 2495,
+      "192.168.10.9": 3193,
+      "fe80::223:aeff:fe9b:adb3": 14,
+      "fe80::266e:96ff:fe4a:377a": 15,
+      "fe80::3c60:fc97:3f94:ac8f": 51,
+      "fe80::3e30:c3c4:d72f:ae4c": 15,
+      "fe80::6d07:ea13:6f73:ed41": 65,
+      "fe80::8cc1:7756:5ffc:823f": 16,
+      "fe80::baac:6fff:fe36:ba8": 13,
+      "fe80::cd08:22a7:a40f:3d73": 15,
+      "fe80::f470:cd16:3cf6:bd7b": 51
+    },
+    "windows": 32813
+  },
+  "disposition_counts": {
+    "benign_reference": 32813,
+    "known_other_attack": 123,
+    "unknown": 22823
+  },
+  "entity_comparison_with_p1": {
+    "entity_disjoint_from_p1": false,
+    "interpretation": "Thursday is NOT an entity-disjoint validation. Its scientific value is an independent capture/day for conservative benign false-positive evaluation, and secondarily three known-other web attack families which must not be used as primary evidence of generalisation to the priority FTP/SSH/DoS/DDoS families.",
+    "p1_priority_entity_keys": [
+      "172.16.0.1|192.168.10.50|tcp|ftp",
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none",
+      "172.16.0.1|192.168.10.50|tcp|ssh"
+    ],
+    "thursday_entity_keys_shared_with_p1_priority": [
+      "172.16.0.1|192.168.10.50|tcp|ftp",
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ],
+    "thursday_total_distinct_entities": 23878
+  },
+  "guarantees": {
+    "canonical_events_persisted": 0,
+    "canonical_windows_persisted": 0,
+    "frozen_artifacts_modified": false,
+    "models_fitted": 0,
+    "models_loaded": 0,
+    "performance_measured": false,
+    "postgresql_schemas_created": 0,
+    "postgresql_writes": 0,
+    "splits_created": 0,
+    "thresholds_chosen": 0
+  },
+  "not_labelled_rules": {
+    "thursday-infiltration-mac": "0 flows observed towards the declared victim 192.168.10.25 in the whole declared interval; no exploitable observation, so no label is forced",
+    "thursday-infiltration-vista": "the 1669 flows reaching the declared victim 192.168.10.8 are sourced by eight internal hosts (192.168.10.25/.12/.51/.16/.19/.17/.9/.50), not by the declared attacker 205.174.165.73 nor by the gateway 172.16.0.1; the observed direction contradicts the declaration, so no label is forced"
+  },
+  "partition": "2017-07-06_Thursday-WorkingHours",
+  "ratified_policy": {
+    "ambiguous_to_benign_conversion": "forbidden",
+    "compromised_host_exclusion_scope": "whole_capture_both_directions",
+    "excluded_compromised_hosts": [
+      "192.168.10.25",
+      "192.168.10.8"
+    ],
+    "gateway_to_web_server": "never_a_negative",
+    "infiltration_rules": "never_labelled_with_recorded_reason",
+    "unknown_to_benign_conversion": "forbidden",
+    "windows_inside_declared_intervals": "excluded_from_benign_reference"
+  },
+  "unknown_breakdown": {
+    "compromised_host_excluded_whole_capture": 5155,
+    "declared_attacker_endpoint": 3,
+    "gateway_to_web_server_never_a_negative": 50,
+    "inside_a_declared_attack_interval": 17615
+  },
+  "windowing": {
+    "alignment": "floor_to_multiple_of_length_from_unix_epoch",
+    "basis": "event_start_time",
+    "contract": "cicids2017_feature_window_v2.yaml via window_builder_v2",
+    "entity_key": "source_ip|destination_ip|transport|service",
+    "length_seconds": 60,
+    "null_service_sentinel": "none",
+    "total_windows": 55759
+  }
+}

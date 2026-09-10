@@ -146,6 +146,41 @@ services:
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=64m
 
+  # ---- Canonical offline telemetry replay (TH2 Thursday, opt-in only) ----
+  # Additive service, strictly isolated from the frozen M2 and MB2 services
+  # above, which are left byte-for-byte unchanged. Image digest, platform,
+  # determinism environment, hardening, working directory and tmpfs are
+  # identical to `zeek-replay` so TH2 provenance stays comparable to M2 and MB2.
+  # The ONLY difference is the /output bind mount, which targets the independent
+  # TH2 tree.
+  #
+  # MANDATORY PAIRING: any runner using this service MUST bind a specification
+  # whose output.output_root equals
+  # artifacts/canonical/cicids2017/th2/zeek-8.0.9.
+  # Never invoke this service with the M2 or MB2 specification, and never invoke
+  # `zeek-replay` or `zeek-replay-mb` with a TH specification: the runner
+  # computes the staging path from the specification, not from this file, so a
+  # mismatched pairing would write Zeek logs into the wrong tree.
+  zeek-replay-th:
+    profiles: ["zeek-replay-th"]
+    image: zeek/zeek@sha256:c7dfad9ab8296b2994d113222e77a22ebc9c8963b2b1200b798484ac923bc94f
+    platform: linux/amd64
+    network_mode: none
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - TZ=UTC
+      - LC_ALL=C
+      - LANG=C
+    working_dir: /output
+    volumes:
+      - ./datasets/cicids2017/pcap:/input:ro
+      - ./artifacts/canonical/cicids2017/th2/zeek-8.0.9:/output
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+
 volumes:
   es_data:
   pg_data:

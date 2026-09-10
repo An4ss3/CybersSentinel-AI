@@ -1,0 +1,281 @@
+{
+  "audit_version": "1.0.0",
+  "conn_log_records": 363788,
+  "guarantees": {
+    "labels_written": 0,
+    "models_loaded": 0,
+    "postgresql_writes": 0,
+    "unknown_to_benign_conversion": "forbidden",
+    "windows_materialised": 0
+  },
+  "malformed_records": 0,
+  "nat_resolution": {
+    "declared_attacker_as_destination_flows": 51,
+    "declared_attacker_as_source_flows": 1,
+    "declared_attacker_ip": "205.174.165.73",
+    "gateway_as_destination_flows": 42,
+    "gateway_as_source_flows": 3150,
+    "nat_behaviour_matches_m_chain": false,
+    "observed_gateway_ip": "172.16.0.1"
+  },
+  "observed_time_span_utc": {
+    "first_flow_start_epoch": 1499342340.49014,
+    "last_flow_end_epoch": 1499371484.364012
+  },
+  "p1_entity_comparison": {
+    "p1_priority_entity_keys": [
+      "172.16.0.1|192.168.10.50|tcp|ftp",
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none",
+      "172.16.0.1|192.168.10.50|tcp|ssh"
+    ],
+    "thursday_candidate_entity_keys_shared_with_p1": [
+      "172.16.0.1|192.168.10.50|tcp|ftp",
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ]
+  },
+  "partition": "2017-07-06_Thursday-WorkingHours",
+  "per_rule": {
+    "thursday-infiltration-mac": {
+      "attack_type": "infiltration/mac_infiltration",
+      "candidate_episodes": 0,
+      "candidate_windows": 0,
+      "declared_attacker_ip": "205.174.165.73",
+      "declared_victim_ips": [
+        "192.168.10.25"
+      ],
+      "declared_victim_ports": [],
+      "disposition": "known_other_attack",
+      "entity_keys_already_in_p1": [],
+      "gateway_traffic_in_interval_not_towards_declared_victim": {},
+      "intervals_utc": [
+        [
+          1499363580,
+          1499364060
+        ]
+      ],
+      "matching_flow_total": 0,
+      "matching_flows_by_observed_source": {},
+      "observed_entity_keys": []
+    },
+    "thursday-infiltration-vista": {
+      "attack_type": "infiltration/vista_infiltration",
+      "candidate_episodes": 62,
+      "candidate_windows": 62,
+      "declared_attacker_ip": "205.174.165.73",
+      "declared_victim_ips": [
+        "192.168.10.8"
+      ],
+      "declared_victim_ports": [],
+      "disposition": "known_other_attack",
+      "entity_keys_already_in_p1": [],
+      "gateway_traffic_in_interval_not_towards_declared_victim": {},
+      "intervals_utc": [
+        [
+          1499361540,
+          1499361600
+        ],
+        [
+          1499361600,
+          1499361720
+        ],
+        [
+          1499362380,
+          1499362560
+        ],
+        [
+          1499364240,
+          1499366760
+        ]
+      ],
+      "matching_flow_total": 1669,
+      "matching_flows_by_observed_source": {
+        "192.168.10.12": 254,
+        "192.168.10.16": 224,
+        "192.168.10.17": 184,
+        "192.168.10.19": 209,
+        "192.168.10.25": 406,
+        "192.168.10.50": 5,
+        "192.168.10.51": 242,
+        "192.168.10.9": 145
+      },
+      "observed_entity_keys": [
+        "192.168.10.12|192.168.10.8|icmp|none",
+        "192.168.10.12|192.168.10.8|tcp|none",
+        "192.168.10.16|192.168.10.8|icmp|none",
+        "192.168.10.16|192.168.10.8|tcp|none",
+        "192.168.10.17|192.168.10.8|icmp|none",
+        "192.168.10.17|192.168.10.8|tcp|none",
+        "192.168.10.19|192.168.10.8|icmp|none",
+        "192.168.10.19|192.168.10.8|tcp|none",
+        "192.168.10.25|192.168.10.8|icmp|none",
+        "192.168.10.25|192.168.10.8|tcp|none",
+        "192.168.10.50|192.168.10.8|icmp|none",
+        "192.168.10.50|192.168.10.8|tcp|none",
+        "192.168.10.51|192.168.10.8|icmp|none",
+        "192.168.10.51|192.168.10.8|tcp|none",
+        "192.168.10.9|192.168.10.8|icmp|none",
+        "192.168.10.9|192.168.10.8|tcp|none"
+      ]
+    },
+    "thursday-sql-injection": {
+      "attack_type": "web_attack/sql_injection",
+      "candidate_episodes": 1,
+      "candidate_windows": 3,
+      "declared_attacker_ip": "205.174.165.73",
+      "declared_victim_ips": [
+        "192.168.10.50"
+      ],
+      "declared_victim_ports": [
+        80
+      ],
+      "disposition": "known_other_attack",
+      "entity_keys_already_in_p1": [
+        "172.16.0.1|192.168.10.50|tcp|http"
+      ],
+      "gateway_traffic_in_interval_not_towards_declared_victim": {},
+      "intervals_utc": [
+        [
+          1499348400,
+          1499348580
+        ]
+      ],
+      "matching_flow_total": 12,
+      "matching_flows_by_observed_source": {
+        "172.16.0.1": 12
+      },
+      "observed_entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http"
+      ]
+    },
+    "thursday-web-bruteforce": {
+      "attack_type": "web_attack/web_bruteforce",
+      "candidate_episodes": 2,
+      "candidate_windows": 80,
+      "declared_attacker_ip": "205.174.165.73",
+      "declared_victim_ips": [
+        "192.168.10.50"
+      ],
+      "declared_victim_ports": [
+        80
+      ],
+      "disposition": "known_other_attack",
+      "entity_keys_already_in_p1": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "gateway_traffic_in_interval_not_towards_declared_victim": {},
+      "intervals_utc": [
+        [
+          1499343600,
+          1499346060
+        ]
+      ],
+      "matching_flow_total": 1356,
+      "matching_flows_by_observed_source": {
+        "172.16.0.1": 1356
+      },
+      "observed_entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ]
+    },
+    "thursday-xss": {
+      "attack_type": "web_attack/xss",
+      "candidate_episodes": 3,
+      "candidate_windows": 41,
+      "declared_attacker_ip": "205.174.165.73",
+      "declared_victim_ips": [
+        "192.168.10.50"
+      ],
+      "declared_victim_ports": [
+        80
+      ],
+      "disposition": "known_other_attack",
+      "entity_keys_already_in_p1": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "gateway_traffic_in_interval_not_towards_declared_victim": {},
+      "intervals_utc": [
+        [
+          1499346900,
+          1499348160
+        ]
+      ],
+      "matching_flow_total": 679,
+      "matching_flows_by_observed_source": {
+        "172.16.0.1": 679
+      },
+      "observed_entity_keys": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ]
+    }
+  },
+  "protocols": {
+    "icmp": 197,
+    "tcp": 172872,
+    "udp": 190691,
+    "unknown_transport": 28
+  },
+  "services": {
+    "dce_rpc": 205,
+    "dns": 183171,
+    "ftp": 530,
+    "ftp-data": 548,
+    "gssapi,ntlm,smb": 139,
+    "gssapi,smb,krb": 155,
+    "http": 22033,
+    "krb": 313,
+    "krb_tcp": 338,
+    "ldap_tcp": 430,
+    "ldap_udp": 517,
+    "none": 90929,
+    "ntp": 5840,
+    "ssh": 1084,
+    "ssl": 57236
+  },
+  "top_destination_ips": {
+    "178.255.83.1": 2280,
+    "192.168.10.1": 59523,
+    "192.168.10.12": 5497,
+    "192.168.10.14": 8194,
+    "192.168.10.15": 8193,
+    "192.168.10.16": 5491,
+    "192.168.10.17": 5229,
+    "192.168.10.19": 5916,
+    "192.168.10.25": 7742,
+    "192.168.10.3": 124656,
+    "192.168.10.5": 12179,
+    "192.168.10.50": 8991,
+    "192.168.10.51": 6104,
+    "192.168.10.9": 6560,
+    "72.21.91.29": 1749
+  },
+  "top_source_ips": {
+    "172.16.0.1": 3150,
+    "192.168.10.12": 17807,
+    "192.168.10.14": 22331,
+    "192.168.10.15": 28693,
+    "192.168.10.16": 18929,
+    "192.168.10.17": 24736,
+    "192.168.10.19": 25593,
+    "192.168.10.25": 9248,
+    "192.168.10.3": 59895,
+    "192.168.10.5": 22400,
+    "192.168.10.50": 1331,
+    "192.168.10.51": 9760,
+    "192.168.10.8": 98018,
+    "192.168.10.9": 21372,
+    "fe80::6d07:ea13:6f73:ed41": 124
+  },
+  "window_candidates": {
+    "candidate_windows_inside_any_declared_interval": 20465,
+    "candidate_windows_outside_every_declared_interval": 43732,
+    "convention": "entity=(src|dst|proto|service), 60s bucket of flow end ts+duration",
+    "gateway_to_web_server_windows_outside_intervals": 52,
+    "total_candidate_windows": 64197
+  }
+}

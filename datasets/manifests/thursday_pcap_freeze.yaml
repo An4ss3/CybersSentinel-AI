@@ -1,0 +1,23 @@
+manifest_version: 1.0.0
+dataset_name: cicids2017
+dataset_release: CICIDS2017 PCAP
+source:
+  publisher: Canadian Institute for Cybersecurity
+  landing_page_url: https://www.unb.ca/cic/datasets/ids-2017.html
+  download_url: https://cicresearch.ca/CICDataset/CIC-IDS-2017/
+  retrieved_at: '2026-07-28T13:08:25.402744Z'
+frozen_at: '2026-09-03T21:15:00Z'
+selection_rationale: 'Complete Thursday CICIDS2017 capture frozen as an independent,
+  previously unused capture of the parallel Thursday track. Its audited purpose is
+  to supply capture-disjoint benign reference traffic for a future holdout and to
+  carry the web_attack and infiltration families, which are absent from the M chain
+  and are not among the seven priority families. This freeze is additive: it fixes
+  the evidence bytes only, resolves no labelling or NAT question, and leaves the M1
+  three-day canonical freeze and the MB1 Monday freeze unchanged.'
+selected_capture_days:
+- '2017-07-06'
+files:
+- relative_path: Thursday-WorkingHours.pcap
+  capture_date: '2017-07-06'
+  size_bytes: 8302500180
+  sha256: 38f8b1bb276849bf1721f7c4de22bebfa7f59a74e52286d4c0a37edbb118fe01
