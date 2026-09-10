@@ -1,0 +1,52 @@
+{
+  "arm_f_evaluated": false,
+  "feature_names": [
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "frozen_artifacts_modified": false,
+  "frozen_at": "2026-08-27T03:03:53.988427+00:00",
+  "frozen_inputs": {
+    "artifacts/experiments/final_validation/splits/splits_manifest.json": "5967044a41c2acb327bfd2698ab8ece2de5cd56f5dd1237a1853eceeef51f8f3",
+    "artifacts/experiments/p1/p1_folds.json": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+    "artifacts/experiments/p1/p1_metrics.json": "2a51e618397c42b742a289216d3cd89b255c4ccd96a8f985a5ad1c5c4783a447",
+    "artifacts/experiments/p1/p1_model_fold0.joblib": "ee4497fb50d55579ab75e88e8863dd68b6510544ff9845c03a252fdefe89f56b",
+    "artifacts/experiments/p1/p1_predictions_fold0.csv": "2cf3e561e96e24b96da96b77d4b8240d5442874fe04e5689b02b1b95f0d294e8",
+    "artifacts/production/ml_dataset_v1/ml_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062"
+  },
+  "frozen_models_rescored": 1,
+  "historical_anchor_verified": true,
+  "hyperparameter_tuning": "none",
+  "manifest_content_sha256": "13e84937db91062a14802c361fc5a7ec13741f995224e791dfcc3487848a9840",
+  "model": {
+    "class_rebalancing": "none",
+    "class_weight": null,
+    "estimator": "RandomForestClassifier",
+    "feature_transform": "none",
+    "hyperparameter_search": "none",
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "random_state": 0,
+    "sampling": "none"
+  },
+  "models_fitted": 29,
+  "outputs": {
+    "baseline_metrics.json": "3f40749f5bc9cecbc92ea0dbef5de91ca06dee7f31aa0a99aceba03337271fb2",
+    "identity_leakage_diagnostic.json": "e58049d38d677e2cf95bccb44e4aca44dd512dd2d0dad054a0a1324ef01db8fd",
+    "reproducibility_diagnostic.json": "0e45e944744ab704186df7995d0532351aa0038a48f361e15b21fb12d4d799e2",
+    "split_comparison.json": "e4ce292526b27e7d8740ff82f4d18d8fad16d4ec64fa2076fb152ae2a1ba2982",
+    "zero_day_ares.json": "36ce1c66c48772118ffef7e3dbdd16c770fc43371a2043d0df86163346dc8603"
+  },
+  "postgresql_connections": 0,
+  "postgresql_writes": 0,
+  "protocol_A_is_a_reproduction_of_p1": false,
+  "protocol_A_label": "A \u2014 deterministic reimplementation of the historical protocol",
+  "schema_version": "1.0.0",
+  "step": "final validation \u2014 step 2, canonical evaluation",
+  "step1_artifacts_modified": false,
+  "threshold_selected_on_test": false,
+  "training_order": "label,row_id"
+}

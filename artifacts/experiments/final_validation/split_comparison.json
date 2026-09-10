@@ -1,0 +1,307 @@
+{
+  "A_vs_B": {
+    "delta": {
+      "macro_episode_recall": 0.27388888888888885,
+      "macro_pr_auc": 0.4639691368168195,
+      "macro_roc_auc": 0.09554392499177877,
+      "pooled_episode_recall": 0.6851851851851852,
+      "pooled_f1": 0.14625563808432693,
+      "pooled_fpr": 0.0025220323613590646,
+      "pooled_precision": 0.0836546052379456,
+      "pooled_recall": 0.4840425531914893
+    },
+    "left": {
+      "macro_episode_recall": 0.6372222222222221,
+      "macro_pr_auc": 0.2903225621663704,
+      "macro_roc_auc": 0.8684673997464495,
+      "pooled_episode_recall": 0.16666666666666666,
+      "pooled_f1": 0.1937046004842615,
+      "pooled_fpr": 0.015812292782453455,
+      "pooled_precision": 0.12539184952978055,
+      "pooled_recall": 0.425531914893617
+    },
+    "left_detected_episodes": 9,
+    "left_total_episodes": 54,
+    "right": {
+      "macro_episode_recall": 0.911111111111111,
+      "macro_pr_auc": 0.7542916989831899,
+      "macro_roc_auc": 0.9640113247382283,
+      "pooled_episode_recall": 0.8518518518518519,
+      "pooled_f1": 0.3399602385685884,
+      "pooled_fpr": 0.01833432514381252,
+      "pooled_precision": 0.20904645476772615,
+      "pooled_recall": 0.9095744680851063
+    },
+    "right_detected_episodes": 46,
+    "right_total_episodes": 54
+  },
+  "A_vs_C_ares": {
+    "delta": {
+      "macro_episode_recall": 0.36277777777777787,
+      "macro_pr_auc": 0.6829901886143859,
+      "macro_roc_auc": 0.12608592220369097,
+      "pooled_episode_recall": 0.8333333333333334,
+      "pooled_f1": 0.05773218112493392,
+      "pooled_fpr": -0.0010768228059735326,
+      "pooled_precision": 0.018641072280919047,
+      "pooled_recall": 0.5631686500781343
+    },
+    "left": {
+      "macro_episode_recall": 0.6372222222222221,
+      "macro_pr_auc": 0.2903225621663704,
+      "macro_roc_auc": 0.8684673997464495,
+      "pooled_episode_recall": 0.16666666666666666,
+      "pooled_f1": 0.1937046004842615,
+      "pooled_fpr": 0.015812292782453455,
+      "pooled_precision": 0.12539184952978055,
+      "pooled_recall": 0.425531914893617
+    },
+    "left_detected_episodes": 9,
+    "left_total_episodes": 54,
+    "right": {
+      "macro_episode_recall": 1.0,
+      "macro_pr_auc": 0.9733127507807563,
+      "macro_roc_auc": 0.9945533219501405,
+      "pooled_episode_recall": 1.0,
+      "pooled_f1": 0.2514367816091954,
+      "pooled_fpr": 0.014735469976479922,
+      "pooled_precision": 0.1440329218106996,
+      "pooled_recall": 0.9887005649717514
+    },
+    "right_detected_episodes": 40,
+    "right_total_episodes": 40
+  },
+  "A_vs_D1": {
+    "delta": {
+      "macro_episode_recall": -0.5622222222222222,
+      "macro_pr_auc": -0.2767491454830316,
+      "macro_roc_auc": -0.36352481980996054,
+      "pooled_episode_recall": -0.09166666666666666,
+      "pooled_f1": -0.17212186667131185,
+      "pooled_fpr": -0.0086974387095625,
+      "pooled_precision": -0.09568887923275085,
+      "pooled_recall": -0.40858276235124413
+    },
+    "left": {
+      "macro_episode_recall": 0.6372222222222221,
+      "macro_pr_auc": 0.2903225621663704,
+      "macro_roc_auc": 0.8684673997464495,
+      "pooled_episode_recall": 0.16666666666666666,
+      "pooled_f1": 0.1937046004842615,
+      "pooled_fpr": 0.015812292782453455,
+      "pooled_precision": 0.12539184952978055,
+      "pooled_recall": 0.425531914893617
+    },
+    "left_detected_episodes": 9,
+    "left_total_episodes": 54,
+    "right": {
+      "macro_episode_recall": 0.075,
+      "macro_pr_auc": 0.01357341668333881,
+      "macro_roc_auc": 0.5049425799364889,
+      "pooled_episode_recall": 0.075,
+      "pooled_f1": 0.021582733812949638,
+      "pooled_fpr": 0.007114854072890954,
+      "pooled_precision": 0.0297029702970297,
+      "pooled_recall": 0.01694915254237288
+    },
+    "right_detected_episodes": 3,
+    "right_total_episodes": 40
+  },
+  "D1_vs_D2": {
+    "delta": {
+      "macro_episode_recall": 0.0,
+      "macro_pr_auc": -4.8290569661241234e-05,
+      "macro_roc_auc": -0.0012157516125937962,
+      "pooled_episode_recall": 0.0,
+      "pooled_f1": -0.002351964582180406,
+      "pooled_fpr": 0.002468418759982575,
+      "pooled_precision": -0.0074807480748074785,
+      "pooled_recall": 0.0
+    },
+    "left": {
+      "macro_episode_recall": 0.075,
+      "macro_pr_auc": 0.01357341668333881,
+      "macro_roc_auc": 0.5049425799364889,
+      "pooled_episode_recall": 0.075,
+      "pooled_f1": 0.021582733812949638,
+      "pooled_fpr": 0.007114854072890954,
+      "pooled_precision": 0.0297029702970297,
+      "pooled_recall": 0.01694915254237288
+    },
+    "left_detected_episodes": 3,
+    "left_total_episodes": 40,
+    "right": {
+      "macro_episode_recall": 0.075,
+      "macro_pr_auc": 0.01352512611367757,
+      "macro_roc_auc": 0.5037268283238951,
+      "pooled_episode_recall": 0.075,
+      "pooled_f1": 0.019230769230769232,
+      "pooled_fpr": 0.00958327283287353,
+      "pooled_precision": 0.022222222222222223,
+      "pooled_recall": 0.01694915254237288
+    },
+    "right_detected_episodes": 3,
+    "right_total_episodes": 40
+  },
+  "content_sha256": "aec51f8de434309c915c82d1e232747d0ab4d8fea3607bb7ad3d0ded27c4789d",
+  "experiment": "final validation \u2014 step 2 split comparison",
+  "interpretation_boundaries": {
+    "A": "family novelty, but identity leakage is possible and measured",
+    "B": "entity novelty; the attack family may already be known",
+    "C": "episode novelty inside a family that is present in training",
+    "D1": "the Ares family is completely absent from training, re-fitted",
+    "D2": "historical anchor: frozen P1 model re-scored, no new training"
+  },
+  "table": [
+    {
+      "detected_episodes": 9,
+      "entity_count_train_range": [
+        22064,
+        22269
+      ],
+      "folds": 5,
+      "macro_pr_auc": 0.2903225621663704,
+      "macro_roc_auc": 0.8684673997464495,
+      "max_entity_intersection": 2,
+      "max_episode_intersection": 0,
+      "pooled_episode_recall": 0.16666666666666666,
+      "pooled_f1": 0.1937046004842615,
+      "pooled_fpr": 0.015812292782453455,
+      "pooled_precision": 0.12539184952978055,
+      "pooled_recall": 0.425531914893617,
+      "protocol": "A_historical",
+      "test_rows_total": 70954,
+      "title": "A \u2014 deterministic reimplementation of the historical protocol",
+      "total_episodes": 54,
+      "train_rows_range": [
+        56184,
+        57003
+      ]
+    },
+    {
+      "detected_episodes": 46,
+      "entity_count_train_range": [
+        24565,
+        24728
+      ],
+      "folds": 9,
+      "macro_pr_auc": 0.7542916989831899,
+      "macro_roc_auc": 0.9640113247382283,
+      "max_entity_intersection": 0,
+      "max_episode_intersection": 0,
+      "pooled_episode_recall": 0.8518518518518519,
+      "pooled_f1": 0.3399602385685884,
+      "pooled_fpr": 0.01833432514381252,
+      "pooled_precision": 0.20904645476772615,
+      "pooled_recall": 0.9095744680851063,
+      "protocol": "B_entity_disjoint",
+      "test_rows_total": 70954,
+      "title": "B \u2014 entity-disjoint (unseen attack entity)",
+      "total_episodes": 54,
+      "train_rows_range": [
+        62635,
+        63537
+      ]
+    },
+    {
+      "detected_episodes": 40,
+      "entity_count_train_range": [
+        22065,
+        22274
+      ],
+      "folds": 5,
+      "macro_pr_auc": 0.9733127507807563,
+      "macro_roc_auc": 0.9945533219501405,
+      "max_entity_intersection": 5,
+      "max_episode_intersection": 0,
+      "pooled_episode_recall": 1.0,
+      "pooled_f1": 0.2514367816091954,
+      "pooled_fpr": 0.014735469976479922,
+      "pooled_precision": 0.1440329218106996,
+      "pooled_recall": 0.9887005649717514,
+      "protocol": "C_episode_disjoint_botnet_ares",
+      "test_rows_total": 70755,
+      "title": "C \u2014 episode-disjoint inside botnet/ares (main)",
+      "total_episodes": 40,
+      "train_rows_range": [
+        56193,
+        57148
+      ]
+    },
+    {
+      "detected_episodes": 9,
+      "entity_count_train_range": [
+        24566,
+        24729
+      ],
+      "folds": 9,
+      "macro_pr_auc": 0.7856965040401517,
+      "macro_roc_auc": 0.9985201861375486,
+      "max_entity_intersection": 1,
+      "max_episode_intersection": 0,
+      "pooled_episode_recall": 1.0,
+      "pooled_f1": 0.089086859688196,
+      "pooled_fpr": 0.017385020828020063,
+      "pooled_precision": 0.046620046620046623,
+      "pooled_recall": 1.0,
+      "protocol": "C_episode_disjoint_brute_force_ssh_patator",
+      "test_rows_total": 70638,
+      "title": "C \u2014 episode-disjoint inside brute_force/ssh_patator (secondary, weak)",
+      "total_episodes": 9,
+      "train_rows_range": [
+        62647,
+        63585
+      ]
+    },
+    {
+      "detected_episodes": 3,
+      "entity_count_train_range": [
+        22269,
+        22269
+      ],
+      "folds": 1,
+      "macro_pr_auc": 0.01357341668333881,
+      "macro_roc_auc": 0.5049425799364889,
+      "max_entity_intersection": 0,
+      "max_episode_intersection": 0,
+      "pooled_episode_recall": 0.075,
+      "pooled_f1": 0.021582733812949638,
+      "pooled_fpr": 0.007114854072890954,
+      "pooled_precision": 0.0297029702970297,
+      "pooled_recall": 0.01694915254237288,
+      "protocol": "D_zero_day_ares",
+      "test_rows_total": 13951,
+      "title": "D1 \u2014 zero-day Ares, re-fitted under the canonical order",
+      "total_episodes": 40,
+      "train_rows_range": [
+        57003,
+        57003
+      ]
+    },
+    {
+      "detected_episodes": 3,
+      "entity_count_train_range": [
+        22269,
+        22269
+      ],
+      "folds": 1,
+      "macro_pr_auc": 0.01352512611367757,
+      "macro_roc_auc": 0.5037268283238951,
+      "max_entity_intersection": 0,
+      "max_episode_intersection": 0,
+      "pooled_episode_recall": 0.075,
+      "pooled_f1": 0.019230769230769232,
+      "pooled_fpr": 0.00958327283287353,
+      "pooled_precision": 0.022222222222222223,
+      "pooled_recall": 0.01694915254237288,
+      "protocol": "D2_historical_anchor",
+      "test_rows_total": 13951,
+      "title": "D2 \u2014 historical anchor, frozen P1 model, no new training",
+      "total_episodes": 40,
+      "train_rows_range": [
+        57003,
+        57003
+      ]
+    }
+  ]
+}

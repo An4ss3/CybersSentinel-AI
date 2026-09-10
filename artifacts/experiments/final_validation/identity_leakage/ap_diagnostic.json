@@ -1,0 +1,146 @@
+{
+  "content_sha256": "8432d021347f3e41f65de149dfa32a107c9ea57034cbe4659536846ca4a1dc4c",
+  "experiment": "final validation \u2014 step 3 pre-training diagnostic",
+  "folds": [
+    {
+      "families_fully_emptied_from_train_by_the_removal": [],
+      "fold": 2,
+      "held_out_attack_type": "brute_force/ssh_patator",
+      "held_out_family_absent_from_train_A": true,
+      "held_out_family_absent_from_train_A_prime": true,
+      "negative_removal_rule": "none; A' removes positive rows only, so the historical negative membership of protocol A is preserved exactly",
+      "negatives_unchanged": true,
+      "positive_rows_removed_from_train": 39,
+      "removed_by_attack_type": {
+        "ddos/loit": 21,
+        "dos/hulk": 18
+      },
+      "removed_by_entity": {
+        "172.16.0.1|192.168.10.50|tcp|none": 39
+      },
+      "shared_entities": [
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "shared_entities_absent_from_A_prime_train_positives": true,
+      "shared_entities_still_present_in_test": true,
+      "test_is_byte_identical": true,
+      "test_row_id_digest": "f07059f30c51a030ebd0cdc1dbdd7b09f933b50d466d91b669cf203b82700574",
+      "test_rows_after": 14124,
+      "test_rows_before": 14124,
+      "train_attack_type_windows_after": {
+        "botnet/ares": 177,
+        "brute_force/ftp_patator": 61,
+        "ddos/loit": 21,
+        "dos/hulk": 18
+      },
+      "train_attack_type_windows_before": {
+        "botnet/ares": 177,
+        "brute_force/ftp_patator": 61,
+        "ddos/loit": 42,
+        "dos/hulk": 36
+      },
+      "train_negatives_after": 56514,
+      "train_negatives_before": 56514,
+      "train_positives_after": 277,
+      "train_positives_before": 316,
+      "train_rows_after": 56791,
+      "train_rows_before": 56830
+    },
+    {
+      "families_fully_emptied_from_train_by_the_removal": [
+        "dos/hulk"
+      ],
+      "fold": 3,
+      "held_out_attack_type": "ddos/loit",
+      "held_out_family_absent_from_train_A": true,
+      "held_out_family_absent_from_train_A_prime": true,
+      "negative_removal_rule": "none; A' removes positive rows only, so the historical negative membership of protocol A is preserved exactly",
+      "negatives_unchanged": true,
+      "positive_rows_removed_from_train": 44,
+      "removed_by_attack_type": {
+        "brute_force/ssh_patator": 8,
+        "dos/hulk": 36
+      },
+      "removed_by_entity": {
+        "172.16.0.1|192.168.10.50|tcp|http": 18,
+        "172.16.0.1|192.168.10.50|tcp|none": 26
+      },
+      "shared_entities": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "shared_entities_absent_from_A_prime_train_positives": true,
+      "shared_entities_still_present_in_test": true,
+      "test_is_byte_identical": true,
+      "test_row_id_digest": "a8625d4bb1d3a1a3a20f2ea3bbf42bdad24d96ceabceb33aecc87afe8f199b6d",
+      "test_rows_after": 14770,
+      "test_rows_before": 14770,
+      "train_attack_type_windows_after": {
+        "botnet/ares": 177,
+        "brute_force/ftp_patator": 61,
+        "brute_force/ssh_patator": 52
+      },
+      "train_attack_type_windows_before": {
+        "botnet/ares": 177,
+        "brute_force/ftp_patator": 61,
+        "brute_force/ssh_patator": 60,
+        "dos/hulk": 36
+      },
+      "train_negatives_after": 55850,
+      "train_negatives_before": 55850,
+      "train_positives_after": 290,
+      "train_positives_before": 334,
+      "train_rows_after": 56140,
+      "train_rows_before": 56184
+    },
+    {
+      "families_fully_emptied_from_train_by_the_removal": [
+        "ddos/loit"
+      ],
+      "fold": 4,
+      "held_out_attack_type": "dos/hulk",
+      "held_out_family_absent_from_train_A": true,
+      "held_out_family_absent_from_train_A_prime": true,
+      "negative_removal_rule": "none; A' removes positive rows only, so the historical negative membership of protocol A is preserved exactly",
+      "negatives_unchanged": true,
+      "positive_rows_removed_from_train": 50,
+      "removed_by_attack_type": {
+        "brute_force/ssh_patator": 8,
+        "ddos/loit": 42
+      },
+      "removed_by_entity": {
+        "172.16.0.1|192.168.10.50|tcp|http": 21,
+        "172.16.0.1|192.168.10.50|tcp|none": 29
+      },
+      "shared_entities": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "shared_entities_absent_from_A_prime_train_positives": true,
+      "shared_entities_still_present_in_test": true,
+      "test_is_byte_identical": true,
+      "test_row_id_digest": "3e9e0bfd8fcfd744f8d9056b4f57c8403295b0f4b5bdfa87f49c47a4cac63acd",
+      "test_rows_after": 14064,
+      "test_rows_before": 14064,
+      "train_attack_type_windows_after": {
+        "botnet/ares": 177,
+        "brute_force/ftp_patator": 61,
+        "brute_force/ssh_patator": 52
+      },
+      "train_attack_type_windows_before": {
+        "botnet/ares": 177,
+        "brute_force/ftp_patator": 61,
+        "brute_force/ssh_patator": 60,
+        "ddos/loit": 42
+      },
+      "train_negatives_after": 56550,
+      "train_negatives_before": 56550,
+      "train_positives_after": 290,
+      "train_positives_before": 340,
+      "train_rows_after": 56840,
+      "train_rows_before": 56890
+    }
+  ],
+  "models_fitted": 0,
+  "postgresql_connections": 0
+}

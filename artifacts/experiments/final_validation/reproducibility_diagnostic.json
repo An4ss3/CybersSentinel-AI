@@ -1,0 +1,22 @@
+{
+  "consequences": [
+    "protocol A is a deterministic reimplementation, not a reproduction",
+    "protocol D is measured twice: D1 re-fitted, D2 anchored on the frozen model",
+    "the A/B/C comparison stays internally controlled: identical model, features, parameters, order convention, calibration and evaluation rules"
+  ],
+  "facts": [
+    "P1 fitted on [index[i] for i in fold.train_row_ids], whose negative segment carried the order returned by load_negatives()",
+    "the load_negatives() SQL statement contains no ORDER BY, so its row order is not contractually defined",
+    "p1_folds.json persists sorted(train_row_ids) only",
+    "p1_predictions_*.csv are sorted by row_id",
+    "RandomForestClassifier with random_state=0 remains order-dependent, because bootstrap samples index row positions rather than identities"
+  ],
+  "not_a_model_defect": true,
+  "resolution": {
+    "order_source": "physical order of the frozen production dataset",
+    "postgresql_used_to_recover_order": false,
+    "training_order": "label,row_id"
+  },
+  "statement": "The historical protocol depended on an input order that the SQL statement did not specify. That order was not persisted in the published artifacts. Exact reproduction of the re-training is therefore impossible from the artifacts alone.",
+  "subject": "loss of the historical P1 training-row order"
+}

@@ -1,0 +1,42 @@
+{
+  "all_folds_reproduce_exactly": true,
+  "folds": [
+    {
+      "fold": 0,
+      "max_absolute_difference": 4.9841710917991264e-11,
+      "published_stream_sha256": "2d4fea17d22cc61b74c1bdf55b5ef0d14de896f8a00e3cd87e379619b1c9e9aa",
+      "rows": 13951,
+      "scores_matching_to_ten_decimals": 13951
+    },
+    {
+      "fold": 1,
+      "max_absolute_difference": 4.9589403716438375e-11,
+      "published_stream_sha256": "5f0e6de7923566cba3e0c4bea8922490790f11c0e41827b394005b7fb7add676",
+      "rows": 14045,
+      "scores_matching_to_ten_decimals": 14045
+    },
+    {
+      "fold": 2,
+      "max_absolute_difference": 4.9793380491958486e-11,
+      "published_stream_sha256": "cb4f382eeba881f5be95feb48c73fa52437dbdd47d889d84640a59daff8ac1b4",
+      "rows": 14124,
+      "scores_matching_to_ten_decimals": 14124
+    },
+    {
+      "fold": 3,
+      "max_absolute_difference": 4.983911002031749e-11,
+      "published_stream_sha256": "daeb68a2d5f052b3b7d8e023728a3bbbbbd3cf129cdecbf1e90c264ab9310823",
+      "rows": 14770,
+      "scores_matching_to_ten_decimals": 14770
+    },
+    {
+      "fold": 4,
+      "max_absolute_difference": 4.99097585634177e-11,
+      "published_stream_sha256": "1457dd229e1fb35ce77b975035a3cb56d0d41b2b2cc118e80e98213b71bdee71",
+      "rows": 14064,
+      "scores_matching_to_ten_decimals": 14064
+    }
+  ],
+  "is_a_historical_reproduction_claim_for_this_step": false,
+  "purpose": "correctness proof of the rebuilt distinct_payload_ratio; the published Phase 1 stream is the reference"
+}

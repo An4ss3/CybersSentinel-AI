@@ -1,0 +1,194 @@
+{
+  "assignment_sha256": "790dd60ad9195265b0e52fe2d98b05baedb54eee6e5cfde99528f238a2307dee",
+  "checks": [
+    {
+      "check": "fold_count",
+      "detail": 1,
+      "passed": true
+    },
+    {
+      "check": "fold0_train_and_test_partition_the_population",
+      "detail": 70954,
+      "passed": true
+    },
+    {
+      "check": "fold0_has_test_positives",
+      "detail": 177,
+      "passed": true
+    },
+    {
+      "check": "fold0_has_train_positives",
+      "detail": 199,
+      "passed": true
+    },
+    {
+      "check": "fold0_has_test_negatives",
+      "detail": 13774,
+      "passed": true
+    },
+    {
+      "check": "fold0_benign_entities_are_disjoint",
+      "detail": 0,
+      "passed": true
+    },
+    {
+      "check": "fold0_episodes_are_disjoint",
+      "detail": [],
+      "passed": true
+    },
+    {
+      "check": "fold0_entities_are_disjoint",
+      "detail": [],
+      "passed": true
+    },
+    {
+      "check": "ares_absent_from_training",
+      "detail": 0,
+      "passed": true
+    },
+    {
+      "check": "all_ares_windows_are_tested",
+      "detail": 177,
+      "passed": true
+    },
+    {
+      "check": "all_ares_episodes_are_tested",
+      "detail": 40,
+      "passed": true
+    }
+  ],
+  "content_sha256": "d733b557d3b16b1fb2ecff49e441b8d06dd23189c4b175981cf911e98b00f66f",
+  "determinism": "no randomness; identical construction to protocol A fold 0",
+  "fold_count": 1,
+  "folds": [
+    {
+      "ares_windows_in_test": 177,
+      "ares_windows_in_train": 0,
+      "attack_entity_intersection": [],
+      "benign_entity_intersection_count": 0,
+      "entity_intersection": [],
+      "entity_intersection_count": 0,
+      "episode_intersection": [],
+      "episode_intersection_count": 0,
+      "fold": 0,
+      "held_out": "botnet/ares",
+      "test_attack_entities": [
+        "192.168.10.14|205.174.165.73|tcp|http",
+        "192.168.10.15|205.174.165.73|tcp|http",
+        "192.168.10.5|205.174.165.73|tcp|http",
+        "192.168.10.8|205.174.165.73|tcp|http",
+        "192.168.10.9|205.174.165.73|tcp|http"
+      ],
+      "test_attack_episodes": [
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.14|205.174.165.73|tcp|http|007",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.15|205.174.165.73|tcp|http|007",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.5|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.8|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|000",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|001",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|002",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|003",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|004",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|005",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|006",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|007",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|008",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|009",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|010",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|011",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|012",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|013",
+        "botnet/ares|192.168.10.9|205.174.165.73|tcp|http|014"
+      ],
+      "test_attack_type_windows": {
+        "botnet/ares": 177
+      },
+      "test_benign_entities_sha256": "c3bd84a8a899fed1b3e80f9e5ba4d5916c8dd655fbdc28994a7d299601680d33",
+      "test_benign_entity_count": 5450,
+      "test_negatives": 13774,
+      "test_positives": 177,
+      "test_rows": 13951,
+      "train_attack_entities": [
+        "172.16.0.1|192.168.10.50|tcp|ftp",
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none",
+        "172.16.0.1|192.168.10.50|tcp|ssh"
+      ],
+      "train_attack_episodes": [
+        "brute_force/ftp_patator|172.16.0.1|192.168.10.50|tcp|ftp|000",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|000",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|001",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|002",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|003",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|004",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|005",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|006",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|none|007",
+        "brute_force/ssh_patator|172.16.0.1|192.168.10.50|tcp|ssh|000",
+        "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000",
+        "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000",
+        "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000",
+        "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000"
+      ],
+      "train_attack_type_windows": {
+        "brute_force/ftp_patator": 61,
+        "brute_force/ssh_patator": 60,
+        "ddos/loit": 42,
+        "dos/hulk": 36
+      },
+      "train_benign_entity_count": 22265,
+      "train_negatives": 56804,
+      "train_positives": 199,
+      "train_rows": 57003
+    }
+  ],
+  "historical_fold0_reproduction": {
+    "protocol_test_rows": 13951,
+    "published_test_rows": 13951,
+    "same_test_membership": true,
+    "same_train_membership": true
+  },
+  "model_feature_columns_read": [],
+  "notes": [
+    "byte-comparable with the published Phase 1 and Phase 2 Ares evaluations",
+    "Ares must be completely absent from training"
+  ],
+  "protocol": "D_zero_day_ares",
+  "random_number_generator_used": false,
+  "requires_entity_disjoint": true,
+  "requires_episode_disjoint": true,
+  "rule": "test = all botnet/ares windows plus the benign entities whose frozen negative_fold_of(entity_key, 5) equals 0; train = everything else, which contains no Ares window",
+  "seed_used": null,
+  "split_metadata_columns_used": [
+    "row_id",
+    "label",
+    "disposition",
+    "attack_type",
+    "entity_key",
+    "episode_id",
+    "partition",
+    "window_start_epoch"
+  ],
+  "title": "Protocol D \u2014 zero-day, leave-Ares-out"
+}

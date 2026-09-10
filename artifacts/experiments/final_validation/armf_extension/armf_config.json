@@ -1,0 +1,150 @@
+{
+  "arms": {
+    "ARMF_XGB": {
+      "features": [
+        "distinct_payload_ratio",
+        "source_non_printable_ratio",
+        "destination_non_printable_ratio"
+      ],
+      "learner": "XGBoost",
+      "role": "the budget under test"
+    },
+    "VOL5_ARMF_XGB": {
+      "features": [
+        "event_count",
+        "source_packets_total",
+        "destination_packets_total",
+        "source_bytes_total",
+        "destination_bytes_total",
+        "distinct_payload_ratio",
+        "source_non_printable_ratio",
+        "destination_non_printable_ratio"
+      ],
+      "learner": "XGBoost",
+      "role": "union arm, exploratory, reported separately"
+    },
+    "VOL5_RF": {
+      "features": [
+        "event_count",
+        "source_packets_total",
+        "destination_packets_total",
+        "source_bytes_total",
+        "destination_bytes_total"
+      ],
+      "learner": "RandomForest",
+      "role": "historical pipeline, reused from Step 2, not refitted"
+    },
+    "VOL5_XGB": {
+      "features": [
+        "event_count",
+        "source_packets_total",
+        "destination_packets_total",
+        "source_bytes_total",
+        "destination_bytes_total"
+      ],
+      "learner": "XGBoost",
+      "role": "control arm holding the learner constant"
+    }
+  },
+  "base_feature_reconstruction": "distinct_payload_ratio rebuilt from m4_canonical.flow_end_events and mb4_canonical.flow_end_events with the unmodified P6 implementation",
+  "experiment": "final validation \u2014 step 5, ARM F extension",
+  "forbidden_claims": [
+    "calling any arm of this step a historical reproduction",
+    "reading an improvement on known-family Ares as zero-day generalisation",
+    "attributing a VOL5_RF versus ARMF_XGB difference to the features alone"
+  ],
+  "hyperparameter_tuning": "none",
+  "identifiability": {
+    "ARMF_XGB_vs_VOL5_ARMF_XGB": "learner held constant; measures what adding the volume features to ARM F contributes",
+    "VOL5_RF_vs_ARMF_XGB": "pipeline comparison only; features and learner both change, so no causal attribution to the feature budget is permitted",
+    "VOL5_XGB_vs_ARMF_XGB": "learner held constant, so the difference is attributable to the feature budget within this population"
+  },
+  "model_parameters": {
+    "ARMF_XGB": {
+      "colsample_bytree": 1.0,
+      "estimator": "XGBClassifier",
+      "eval_metric": "logloss",
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 0,
+      "scale_pos_weight": 1,
+      "source": "frozen Phase 1 ARM F parameters, no tuning",
+      "subsample": 1.0,
+      "tree_method": "exact",
+      "verbosity": 0
+    },
+    "VOL5_ARMF_XGB": {
+      "colsample_bytree": 1.0,
+      "estimator": "XGBClassifier",
+      "eval_metric": "logloss",
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 0,
+      "scale_pos_weight": 1,
+      "source": "frozen Phase 1 ARM F parameters, no tuning",
+      "subsample": 1.0,
+      "tree_method": "exact",
+      "verbosity": 0
+    },
+    "VOL5_RF": {
+      "class_weight": null,
+      "estimator": "RandomForestClassifier",
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "random_state": 0,
+      "source": "reused from Step 2 artifacts, not refitted here"
+    },
+    "VOL5_XGB": {
+      "colsample_bytree": 1.0,
+      "estimator": "XGBClassifier",
+      "eval_metric": "logloss",
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 0,
+      "scale_pos_weight": 1,
+      "source": "frozen Phase 1 ARM F parameters, no tuning",
+      "subsample": 1.0,
+      "tree_method": "exact",
+      "verbosity": 0
+    }
+  },
+  "naming": {
+    "ARM_A_reserved_historical_definition": [
+      "distinct_payload_ratio"
+    ],
+    "ARM_F_canonical_phase1": [
+      "distinct_payload_ratio",
+      "source_non_printable_ratio",
+      "destination_non_printable_ratio"
+    ],
+    "VOL5": [
+      "event_count",
+      "source_packets_total",
+      "destination_packets_total",
+      "source_bytes_total",
+      "destination_bytes_total"
+    ],
+    "phase2_r006_used": false
+  },
+  "postgresql_access": "read-only, transaction_read_only asserted on",
+  "primary_fpr_target": 0.01,
+  "protocols": [
+    "A_historical",
+    "B_entity_disjoint",
+    "C_episode_disjoint_botnet_ares",
+    "D_zero_day_ares"
+  ],
+  "question": "does the frozen ARM F budget carry information that lifts the ceiling observed with VOL5, in particular on zero-day Ares transfer?",
+  "test_set_used_for_any_choice": false,
+  "threshold_calibration": "train negatives only",
+  "training_order": "label,row_id"
+}

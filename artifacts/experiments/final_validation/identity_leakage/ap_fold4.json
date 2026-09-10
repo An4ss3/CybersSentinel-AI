@@ -1,0 +1,409 @@
+{
+  "A": {
+    "achieved_train_fpr": 0.004703801945181256,
+    "detected_episodes": 2,
+    "entity_count_test": 5460,
+    "entity_count_train": 22266,
+    "entity_intersection": [
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ],
+    "entity_intersection_count": 2,
+    "episode_bootstrap": {
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "episodes": 2,
+      "point": 1.0
+    },
+    "episode_bootstrap_resamples": 2000,
+    "episode_bootstrap_seed": 0,
+    "episode_intersection": [],
+    "episode_intersection_count": 0,
+    "episode_recall": 1.0,
+    "f1": 0.22594142259414227,
+    "feature_count": 5,
+    "feature_names": [
+      "event_count",
+      "source_packets_total",
+      "destination_packets_total",
+      "source_bytes_total",
+      "destination_bytes_total"
+    ],
+    "features_guarded": true,
+    "fn": 9,
+    "fold": 4,
+    "forbidden_model_inputs": [
+      "row_id",
+      "source",
+      "label",
+      "disposition",
+      "attack_type",
+      "entity_key",
+      "episode_id",
+      "partition",
+      "window_start_epoch"
+    ],
+    "fp": 176,
+    "fpr": 0.012546335899629312,
+    "held_out": "dos/hulk",
+    "historical_anchor": false,
+    "model_parameters": {
+      "class_rebalancing": "none",
+      "class_weight": null,
+      "estimator": "RandomForestClassifier",
+      "feature_transform": "none",
+      "hyperparameter_search": "none",
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "random_state": 0,
+      "sampling": "none"
+    },
+    "model_source": "refitted_under_canonical_order",
+    "operating_points": [
+      {
+        "achieved_train_fpr": 0.004703801945181256,
+        "detected_episodes": 2,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "episodes": 2,
+          "point": 1.0
+        },
+        "episode_detection": {
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 1.0,
+        "f1": 0.22594142259414227,
+        "fn": 9,
+        "fp": 176,
+        "fpr": 0.012546335899629312,
+        "precision": 0.1330049261083744,
+        "recall": 0.75,
+        "target_train_fpr": 0.01,
+        "threshold": 0.01,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 13852,
+        "total_episodes": 2,
+        "tp": 27
+      },
+      {
+        "achieved_train_fpr": 0.0009018567639257295,
+        "detected_episodes": 2,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "episodes": 2,
+          "point": 1.0
+        },
+        "episode_detection": {
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": true,
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 1.0,
+        "f1": 0.44000000000000006,
+        "fn": 14,
+        "fp": 42,
+        "fpr": 0.0029940119760479044,
+        "precision": 0.34375,
+        "recall": 0.6111111111111112,
+        "target_train_fpr": 0.001,
+        "threshold": 0.035,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 13986,
+        "total_episodes": 2,
+        "tp": 22
+      }
+    ],
+    "pr_auc": 0.5807780499001968,
+    "precision": 0.1330049261083744,
+    "protocol": "A_historical",
+    "random_state": 0,
+    "recall": 0.75,
+    "roc_auc": 0.9390455200709692,
+    "row_ids_disjoint": true,
+    "target_train_fpr": 0.01,
+    "test_attack_type_windows": {
+      "dos/hulk": 36
+    },
+    "test_negative": 14028,
+    "test_positive": 36,
+    "test_rows": 14064,
+    "threshold": 0.01,
+    "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+    "tn": 13852,
+    "total_episodes": 2,
+    "tp": 27,
+    "train_attack_type_windows": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 60,
+      "ddos/loit": 42
+    },
+    "train_negative": 56550,
+    "train_positive": 340,
+    "train_rows": 56890,
+    "training_order": "label,row_id"
+  },
+  "A_prime": {
+    "achieved_train_fpr": 0.00770999115826702,
+    "detected_episodes": 1,
+    "entity_count_test": 5460,
+    "entity_count_train": 22264,
+    "entity_intersection": [],
+    "entity_intersection_count": 0,
+    "episode_bootstrap": {
+      "ci_high": 1.0,
+      "ci_low": 0.0,
+      "episodes": 2,
+      "point": 0.5
+    },
+    "episode_bootstrap_resamples": 2000,
+    "episode_bootstrap_seed": 0,
+    "episode_intersection": [],
+    "episode_intersection_count": 0,
+    "episode_recall": 0.5,
+    "f1": 0.09941520467836257,
+    "feature_count": 5,
+    "feature_names": [
+      "event_count",
+      "source_packets_total",
+      "destination_packets_total",
+      "source_bytes_total",
+      "destination_bytes_total"
+    ],
+    "features_guarded": true,
+    "fn": 19,
+    "fold": 4,
+    "forbidden_model_inputs": [
+      "row_id",
+      "source",
+      "label",
+      "disposition",
+      "attack_type",
+      "entity_key",
+      "episode_id",
+      "partition",
+      "window_start_epoch"
+    ],
+    "fp": 289,
+    "fpr": 0.020601653835186768,
+    "held_out": "dos/hulk",
+    "historical_anchor": false,
+    "model_parameters": {
+      "class_rebalancing": "none",
+      "class_weight": null,
+      "estimator": "RandomForestClassifier",
+      "feature_transform": "none",
+      "hyperparameter_search": "none",
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "random_state": 0,
+      "sampling": "none"
+    },
+    "model_source": "refitted_under_canonical_order",
+    "operating_points": [
+      {
+        "achieved_train_fpr": 0.00770999115826702,
+        "detected_episodes": 1,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "episodes": 2,
+          "point": 0.5
+        },
+        "episode_detection": {
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": false,
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 0.5,
+        "f1": 0.09941520467836257,
+        "fn": 19,
+        "fp": 289,
+        "fpr": 0.020601653835186768,
+        "precision": 0.05555555555555555,
+        "recall": 0.4722222222222222,
+        "target_train_fpr": 0.01,
+        "threshold": 0.005,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 13739,
+        "total_episodes": 2,
+        "tp": 17
+      },
+      {
+        "achieved_train_fpr": 0.0009549071618037135,
+        "detected_episodes": 1,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "episodes": 2,
+          "point": 0.5
+        },
+        "episode_detection": {
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|http|000": false,
+          "dos/hulk|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 0.5,
+        "f1": 0.025974025974025976,
+        "fn": 35,
+        "fp": 40,
+        "fpr": 0.00285143997718848,
+        "precision": 0.024390243902439025,
+        "recall": 0.027777777777777776,
+        "target_train_fpr": 0.001,
+        "threshold": 0.03,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 13988,
+        "total_episodes": 2,
+        "tp": 1
+      }
+    ],
+    "pr_auc": 0.03455178076340937,
+    "precision": 0.05555555555555555,
+    "protocol": "A_historical_prime",
+    "random_state": 0,
+    "recall": 0.4722222222222222,
+    "roc_auc": 0.7267310616861515,
+    "row_ids_disjoint": true,
+    "target_train_fpr": 0.01,
+    "test_attack_type_windows": {
+      "dos/hulk": 36
+    },
+    "test_negative": 14028,
+    "test_positive": 36,
+    "test_rows": 14064,
+    "threshold": 0.005,
+    "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+    "tn": 13739,
+    "total_episodes": 2,
+    "tp": 17,
+    "train_attack_type_windows": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 52
+    },
+    "train_negative": 56550,
+    "train_positive": 290,
+    "train_rows": 56840,
+    "training_order": "label,row_id"
+  },
+  "comparison": {
+    "A": {
+      "detected_episodes": 2,
+      "episode_recall": 1.0,
+      "f1": 0.22594142259414227,
+      "fn": 9,
+      "fp": 176,
+      "fpr": 0.012546335899629312,
+      "pr_auc": 0.5807780499001968,
+      "precision": 0.1330049261083744,
+      "recall": 0.75,
+      "roc_auc": 0.9390455200709692,
+      "threshold": 0.01,
+      "tn": 13852,
+      "total_episodes": 2,
+      "tp": 27
+    },
+    "A_prime": {
+      "detected_episodes": 1,
+      "episode_recall": 0.5,
+      "f1": 0.09941520467836257,
+      "fn": 19,
+      "fp": 289,
+      "fpr": 0.020601653835186768,
+      "pr_auc": 0.03455178076340937,
+      "precision": 0.05555555555555555,
+      "recall": 0.4722222222222222,
+      "roc_auc": 0.7267310616861515,
+      "threshold": 0.005,
+      "tn": 13739,
+      "total_episodes": 2,
+      "tp": 17
+    },
+    "delta": {
+      "detected_episodes": -1,
+      "episode_recall": -0.5,
+      "f1": -0.1265262179157797,
+      "fn": 10,
+      "fp": 113,
+      "fpr": 0.008055317935557455,
+      "pr_auc": -0.5462262691367874,
+      "precision": -0.07744937055281884,
+      "recall": -0.2777777777777778,
+      "roc_auc": -0.21231445838481766,
+      "threshold": -0.005,
+      "tn": -113,
+      "total_episodes": 0,
+      "tp": -10
+    },
+    "held_out_attack_type": "dos/hulk",
+    "positive_rows_removed_from_train": 50,
+    "shared_entities": [
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ]
+  },
+  "consistency_with_step2": {
+    "compared_keys": [
+      "roc_auc",
+      "pr_auc",
+      "threshold",
+      "fpr",
+      "tp",
+      "fp",
+      "tn",
+      "fn"
+    ],
+    "fold": 4,
+    "recomputed_A_matches_published_step2": true
+  },
+  "content_sha256": "64fab2df8e334b6baa355a47557b9221c24b81f3aad120cb41f9ada67f3415fc",
+  "diagnostic": {
+    "families_fully_emptied_from_train_by_the_removal": [
+      "ddos/loit"
+    ],
+    "fold": 4,
+    "held_out_attack_type": "dos/hulk",
+    "held_out_family_absent_from_train_A": true,
+    "held_out_family_absent_from_train_A_prime": true,
+    "negative_removal_rule": "none; A' removes positive rows only, so the historical negative membership of protocol A is preserved exactly",
+    "negatives_unchanged": true,
+    "positive_rows_removed_from_train": 50,
+    "removed_by_attack_type": {
+      "brute_force/ssh_patator": 8,
+      "ddos/loit": 42
+    },
+    "removed_by_entity": {
+      "172.16.0.1|192.168.10.50|tcp|http": 21,
+      "172.16.0.1|192.168.10.50|tcp|none": 29
+    },
+    "shared_entities": [
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ],
+    "shared_entities_absent_from_A_prime_train_positives": true,
+    "shared_entities_still_present_in_test": true,
+    "test_is_byte_identical": true,
+    "test_row_id_digest": "3e9e0bfd8fcfd744f8d9056b4f57c8403295b0f4b5bdfa87f49c47a4cac63acd",
+    "test_rows_after": 14064,
+    "test_rows_before": 14064,
+    "train_attack_type_windows_after": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 52
+    },
+    "train_attack_type_windows_before": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 60,
+      "ddos/loit": 42
+    },
+    "train_negatives_after": 56550,
+    "train_negatives_before": 56550,
+    "train_positives_after": 290,
+    "train_positives_before": 340,
+    "train_rows_after": 56840,
+    "train_rows_before": 56890
+  },
+  "fold": 4
+}

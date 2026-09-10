@@ -1,0 +1,409 @@
+{
+  "A": {
+    "achieved_train_fpr": 0.009794091316025067,
+    "detected_episodes": 2,
+    "entity_count_test": 5551,
+    "entity_count_train": 22175,
+    "entity_intersection": [
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ],
+    "entity_intersection_count": 2,
+    "episode_bootstrap": {
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "episodes": 2,
+      "point": 1.0
+    },
+    "episode_bootstrap_resamples": 2000,
+    "episode_bootstrap_seed": 0,
+    "episode_intersection": [],
+    "episode_intersection_count": 0,
+    "episode_recall": 1.0,
+    "f1": 0.18221258134490237,
+    "feature_count": 5,
+    "feature_names": [
+      "event_count",
+      "source_packets_total",
+      "destination_packets_total",
+      "source_bytes_total",
+      "destination_bytes_total"
+    ],
+    "features_guarded": true,
+    "fn": 0,
+    "fold": 3,
+    "forbidden_model_inputs": [
+      "row_id",
+      "source",
+      "label",
+      "disposition",
+      "attack_type",
+      "entity_key",
+      "episode_id",
+      "partition",
+      "window_start_epoch"
+    ],
+    "fp": 377,
+    "fpr": 0.02559750135795763,
+    "held_out": "ddos/loit",
+    "historical_anchor": false,
+    "model_parameters": {
+      "class_rebalancing": "none",
+      "class_weight": null,
+      "estimator": "RandomForestClassifier",
+      "feature_transform": "none",
+      "hyperparameter_search": "none",
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "random_state": 0,
+      "sampling": "none"
+    },
+    "model_source": "refitted_under_canonical_order",
+    "operating_points": [
+      {
+        "achieved_train_fpr": 0.009794091316025067,
+        "detected_episodes": 2,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "episodes": 2,
+          "point": 1.0
+        },
+        "episode_detection": {
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 1.0,
+        "f1": 0.18221258134490237,
+        "fn": 0,
+        "fp": 377,
+        "fpr": 0.02559750135795763,
+        "precision": 0.10023866348448687,
+        "recall": 1.0,
+        "target_train_fpr": 0.01,
+        "threshold": 0.005,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 14351,
+        "total_episodes": 2,
+        "tp": 42
+      },
+      {
+        "achieved_train_fpr": 0.0009668755595344673,
+        "detected_episodes": 2,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "episodes": 2,
+          "point": 1.0
+        },
+        "episode_detection": {
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 1.0,
+        "f1": 0.40394088669950734,
+        "fn": 1,
+        "fp": 120,
+        "fpr": 0.008147745790331342,
+        "precision": 0.2546583850931677,
+        "recall": 0.9761904761904762,
+        "target_train_fpr": 0.001,
+        "threshold": 0.035,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 14608,
+        "total_episodes": 2,
+        "tp": 41
+      }
+    ],
+    "pr_auc": 0.5801591575349045,
+    "precision": 0.10023866348448687,
+    "protocol": "A_historical",
+    "random_state": 0,
+    "recall": 1.0,
+    "roc_auc": 0.9970537169240319,
+    "row_ids_disjoint": true,
+    "target_train_fpr": 0.01,
+    "test_attack_type_windows": {
+      "ddos/loit": 42
+    },
+    "test_negative": 14728,
+    "test_positive": 42,
+    "test_rows": 14770,
+    "threshold": 0.005,
+    "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+    "tn": 14351,
+    "total_episodes": 2,
+    "tp": 42,
+    "train_attack_type_windows": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 60,
+      "dos/hulk": 36
+    },
+    "train_negative": 55850,
+    "train_positive": 334,
+    "train_rows": 56184,
+    "training_order": "label,row_id"
+  },
+  "A_prime": {
+    "achieved_train_fpr": 0.008236347358997314,
+    "detected_episodes": 2,
+    "entity_count_test": 5551,
+    "entity_count_train": 22173,
+    "entity_intersection": [],
+    "entity_intersection_count": 0,
+    "episode_bootstrap": {
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "episodes": 2,
+      "point": 1.0
+    },
+    "episode_bootstrap_resamples": 2000,
+    "episode_bootstrap_seed": 0,
+    "episode_intersection": [],
+    "episode_intersection_count": 0,
+    "episode_recall": 1.0,
+    "f1": 0.21354166666666666,
+    "feature_count": 5,
+    "feature_names": [
+      "event_count",
+      "source_packets_total",
+      "destination_packets_total",
+      "source_bytes_total",
+      "destination_bytes_total"
+    ],
+    "features_guarded": true,
+    "fn": 1,
+    "fold": 3,
+    "forbidden_model_inputs": [
+      "row_id",
+      "source",
+      "label",
+      "disposition",
+      "attack_type",
+      "entity_key",
+      "episode_id",
+      "partition",
+      "window_start_epoch"
+    ],
+    "fp": 301,
+    "fpr": 0.02043726235741445,
+    "held_out": "ddos/loit",
+    "historical_anchor": false,
+    "model_parameters": {
+      "class_rebalancing": "none",
+      "class_weight": null,
+      "estimator": "RandomForestClassifier",
+      "feature_transform": "none",
+      "hyperparameter_search": "none",
+      "n_estimators": 200,
+      "n_jobs": 1,
+      "random_state": 0,
+      "sampling": "none"
+    },
+    "model_source": "refitted_under_canonical_order",
+    "operating_points": [
+      {
+        "achieved_train_fpr": 0.008236347358997314,
+        "detected_episodes": 2,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "episodes": 2,
+          "point": 1.0
+        },
+        "episode_detection": {
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": true,
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 1.0,
+        "f1": 0.21354166666666666,
+        "fn": 1,
+        "fp": 301,
+        "fpr": 0.02043726235741445,
+        "precision": 0.11988304093567251,
+        "recall": 0.9761904761904762,
+        "target_train_fpr": 0.01,
+        "threshold": 0.005,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 14427,
+        "total_episodes": 2,
+        "tp": 41
+      },
+      {
+        "achieved_train_fpr": 0.0007341092211280215,
+        "detected_episodes": 1,
+        "episode_bootstrap": {
+          "ci_high": 1.0,
+          "ci_low": 0.0,
+          "episodes": 2,
+          "point": 0.5
+        },
+        "episode_detection": {
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|http|000": false,
+          "ddos/loit|172.16.0.1|192.168.10.50|tcp|none|000": true
+        },
+        "episode_recall": 0.5,
+        "f1": 0.25,
+        "fn": 22,
+        "fp": 98,
+        "fpr": 0.006653992395437262,
+        "precision": 0.1694915254237288,
+        "recall": 0.47619047619047616,
+        "target_train_fpr": 0.001,
+        "threshold": 0.035,
+        "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+        "tn": 14630,
+        "total_episodes": 2,
+        "tp": 20
+      }
+    ],
+    "pr_auc": 0.1629747402385609,
+    "precision": 0.11988304093567251,
+    "protocol": "A_historical_prime",
+    "random_state": 0,
+    "recall": 0.9761904761904762,
+    "roc_auc": 0.9805181578334755,
+    "row_ids_disjoint": true,
+    "target_train_fpr": 0.01,
+    "test_attack_type_windows": {
+      "ddos/loit": 42
+    },
+    "test_negative": 14728,
+    "test_positive": 42,
+    "test_rows": 14770,
+    "threshold": 0.005,
+    "threshold_calibration_method": "smallest observed train-negative score achieving the target FPR; training negatives only, no test observation used",
+    "tn": 14427,
+    "total_episodes": 2,
+    "tp": 41,
+    "train_attack_type_windows": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 52
+    },
+    "train_negative": 55850,
+    "train_positive": 290,
+    "train_rows": 56140,
+    "training_order": "label,row_id"
+  },
+  "comparison": {
+    "A": {
+      "detected_episodes": 2,
+      "episode_recall": 1.0,
+      "f1": 0.18221258134490237,
+      "fn": 0,
+      "fp": 377,
+      "fpr": 0.02559750135795763,
+      "pr_auc": 0.5801591575349045,
+      "precision": 0.10023866348448687,
+      "recall": 1.0,
+      "roc_auc": 0.9970537169240319,
+      "threshold": 0.005,
+      "tn": 14351,
+      "total_episodes": 2,
+      "tp": 42
+    },
+    "A_prime": {
+      "detected_episodes": 2,
+      "episode_recall": 1.0,
+      "f1": 0.21354166666666666,
+      "fn": 1,
+      "fp": 301,
+      "fpr": 0.02043726235741445,
+      "pr_auc": 0.1629747402385609,
+      "precision": 0.11988304093567251,
+      "recall": 0.9761904761904762,
+      "roc_auc": 0.9805181578334755,
+      "threshold": 0.005,
+      "tn": 14427,
+      "total_episodes": 2,
+      "tp": 41
+    },
+    "delta": {
+      "detected_episodes": 0,
+      "episode_recall": 0.0,
+      "f1": 0.03132908532176429,
+      "fn": 1,
+      "fp": -76,
+      "fpr": -0.005160239000543181,
+      "pr_auc": -0.41718441729634365,
+      "precision": 0.019644377451185635,
+      "recall": -0.023809523809523836,
+      "roc_auc": -0.016535559090556373,
+      "threshold": 0.0,
+      "tn": 76,
+      "total_episodes": 0,
+      "tp": -1
+    },
+    "held_out_attack_type": "ddos/loit",
+    "positive_rows_removed_from_train": 44,
+    "shared_entities": [
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ]
+  },
+  "consistency_with_step2": {
+    "compared_keys": [
+      "roc_auc",
+      "pr_auc",
+      "threshold",
+      "fpr",
+      "tp",
+      "fp",
+      "tn",
+      "fn"
+    ],
+    "fold": 3,
+    "recomputed_A_matches_published_step2": true
+  },
+  "content_sha256": "589c32119be47b14dc32cac2ea30f02e955f0c4c927d5913a8e0b2dce3a4f720",
+  "diagnostic": {
+    "families_fully_emptied_from_train_by_the_removal": [
+      "dos/hulk"
+    ],
+    "fold": 3,
+    "held_out_attack_type": "ddos/loit",
+    "held_out_family_absent_from_train_A": true,
+    "held_out_family_absent_from_train_A_prime": true,
+    "negative_removal_rule": "none; A' removes positive rows only, so the historical negative membership of protocol A is preserved exactly",
+    "negatives_unchanged": true,
+    "positive_rows_removed_from_train": 44,
+    "removed_by_attack_type": {
+      "brute_force/ssh_patator": 8,
+      "dos/hulk": 36
+    },
+    "removed_by_entity": {
+      "172.16.0.1|192.168.10.50|tcp|http": 18,
+      "172.16.0.1|192.168.10.50|tcp|none": 26
+    },
+    "shared_entities": [
+      "172.16.0.1|192.168.10.50|tcp|http",
+      "172.16.0.1|192.168.10.50|tcp|none"
+    ],
+    "shared_entities_absent_from_A_prime_train_positives": true,
+    "shared_entities_still_present_in_test": true,
+    "test_is_byte_identical": true,
+    "test_row_id_digest": "a8625d4bb1d3a1a3a20f2ea3bbf42bdad24d96ceabceb33aecc87afe8f199b6d",
+    "test_rows_after": 14770,
+    "test_rows_before": 14770,
+    "train_attack_type_windows_after": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 52
+    },
+    "train_attack_type_windows_before": {
+      "botnet/ares": 177,
+      "brute_force/ftp_patator": 61,
+      "brute_force/ssh_patator": 60,
+      "dos/hulk": 36
+    },
+    "train_negatives_after": 55850,
+    "train_negatives_before": 55850,
+    "train_positives_after": 290,
+    "train_positives_before": 334,
+    "train_rows_after": 56140,
+    "train_rows_before": 56184
+  },
+  "fold": 3
+}

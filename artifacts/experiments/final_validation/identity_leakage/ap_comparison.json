@@ -1,0 +1,292 @@
+{
+  "content_sha256": "52e35b67289d9891058e8d7142b52da1c482512d838574605f968ad772f5fd2c",
+  "experiment": "final validation \u2014 step 3 A versus A'",
+  "folds": [
+    2,
+    3,
+    4
+  ],
+  "forbidden_claims": [
+    "that leakage explains, or fails to explain, the whole A versus B difference",
+    "any statement beyond the marginal effect measured on folds 2, 3 and 4"
+  ],
+  "known_coupling": "the shared entities carry positives of several families, so removing their training rows also removes training windows of families other than the held-out one; in folds 3 and 4 one further family is emptied from the training set entirely. A' - A therefore measures the effect of removing the shared entities, not identity leakage isolated at constant training composition.",
+  "per_fold_direction": {
+    "2": {
+      "episode_recall": "identical",
+      "pr_auc": "A_prime_higher",
+      "roc_auc": "A_prime_higher"
+    },
+    "3": {
+      "episode_recall": "identical",
+      "pr_auc": "A_prime_lower",
+      "roc_auc": "A_prime_lower"
+    },
+    "4": {
+      "episode_recall": "A_prime_lower",
+      "pr_auc": "A_prime_lower",
+      "roc_auc": "A_prime_lower"
+    }
+  },
+  "pooled": {
+    "A": {
+      "detected_episodes": 5,
+      "entity_count_train_range": [
+        22124,
+        22266
+      ],
+      "folds": 3,
+      "macro_episode_recall": 0.7037037037037037,
+      "macro_pr_auc": 0.4243840768290002,
+      "macro_roc_auc": 0.952274119953965,
+      "max_entity_intersection": 2,
+      "max_episode_intersection": 0,
+      "per_fold_episode_recall": [
+        0.1111111111111111,
+        1.0,
+        1.0
+      ],
+      "per_fold_fpr": [
+        0.02197098976109215,
+        0.02559750135795763,
+        0.012546335899629312
+      ],
+      "per_fold_pr_auc": [
+        0.11221502305189933,
+        0.5801591575349045,
+        0.5807780499001968
+      ],
+      "per_fold_roc_auc": [
+        0.9207231228668942,
+        0.9970537169240319,
+        0.9390455200709692
+      ],
+      "per_fold_threshold": [
+        0.005,
+        0.005,
+        0.01
+      ],
+      "pooled_episode_recall": 0.38461538461538464,
+      "pooled_f1": 0.215878679750223,
+      "pooled_fn": 17,
+      "pooled_fp": 862,
+      "pooled_fpr": 0.020130780009341428,
+      "pooled_precision": 0.12309257375381485,
+      "pooled_recall": 0.8768115942028986,
+      "pooled_tn": 41958,
+      "pooled_tp": 121,
+      "test_negative_total": 42820,
+      "test_positive_total": 138,
+      "test_rows_total": 42958,
+      "total_episodes": 13,
+      "train_rows_range": [
+        56184,
+        56890
+      ]
+    },
+    "A_prime": {
+      "detected_episodes": 4,
+      "entity_count_train_range": [
+        22123,
+        22264
+      ],
+      "folds": 3,
+      "macro_episode_recall": 0.5370370370370371,
+      "macro_pr_auc": 0.10981425972450144,
+      "macro_roc_auc": 0.8764991710116617,
+      "max_entity_intersection": 0,
+      "max_episode_intersection": 0,
+      "per_fold_episode_recall": [
+        0.1111111111111111,
+        1.0,
+        0.5
+      ],
+      "per_fold_fpr": [
+        0.01834470989761092,
+        0.02043726235741445,
+        0.020601653835186768
+      ],
+      "per_fold_pr_auc": [
+        0.13191625817153407,
+        0.1629747402385609,
+        0.03455178076340937
+      ],
+      "per_fold_roc_auc": [
+        0.9222482935153583,
+        0.9805181578334755,
+        0.7267310616861515
+      ],
+      "per_fold_threshold": [
+        0.005,
+        0.005,
+        0.005
+      ],
+      "pooled_episode_recall": 0.3076923076923077,
+      "pooled_f1": 0.20072992700729927,
+      "pooled_fn": 28,
+      "pooled_fp": 848,
+      "pooled_fpr": 0.019803829985987856,
+      "pooled_precision": 0.11482254697286012,
+      "pooled_recall": 0.7971014492753623,
+      "pooled_tn": 41972,
+      "pooled_tp": 110,
+      "test_negative_total": 42820,
+      "test_positive_total": 138,
+      "test_rows_total": 42958,
+      "total_episodes": 13,
+      "train_rows_range": [
+        56140,
+        56840
+      ]
+    },
+    "folds": [
+      2,
+      3,
+      4
+    ]
+  },
+  "scope": "marginal effect of removing the shared attack entities in historical folds 2, 3 and 4, at constant held-out family",
+  "table": [
+    {
+      "A_detected_episodes": 1,
+      "A_episode_recall": 0.1111111111111111,
+      "A_f1": 0.2470308788598575,
+      "A_fn": 8,
+      "A_fp": 309,
+      "A_fpr": 0.02197098976109215,
+      "A_pr_auc": 0.11221502305189933,
+      "A_precision": 0.1440443213296399,
+      "A_recall": 0.8666666666666667,
+      "A_roc_auc": 0.9207231228668942,
+      "A_threshold": 0.005,
+      "A_tn": 13755,
+      "A_total_episodes": 9,
+      "A_tp": 52,
+      "Aprime_detected_episodes": 1,
+      "Aprime_episode_recall": 0.1111111111111111,
+      "Aprime_f1": 0.2810810810810811,
+      "Aprime_fn": 8,
+      "Aprime_fp": 258,
+      "Aprime_fpr": 0.01834470989761092,
+      "Aprime_pr_auc": 0.13191625817153407,
+      "Aprime_precision": 0.16774193548387098,
+      "Aprime_recall": 0.8666666666666667,
+      "Aprime_roc_auc": 0.9222482935153583,
+      "Aprime_threshold": 0.005,
+      "Aprime_tn": 13806,
+      "Aprime_total_episodes": 9,
+      "Aprime_tp": 52,
+      "delta_detected_episodes": 0,
+      "delta_episode_recall": 0.0,
+      "delta_f1": 0.0340502022212236,
+      "delta_fn": 0,
+      "delta_fp": -51,
+      "delta_fpr": -0.0036262798634812306,
+      "delta_pr_auc": 0.019701235119634744,
+      "delta_precision": 0.023697614154231078,
+      "delta_recall": 0.0,
+      "delta_roc_auc": 0.0015251706484641359,
+      "delta_threshold": 0.0,
+      "delta_tn": 51,
+      "delta_total_episodes": 0,
+      "delta_tp": 0,
+      "fold": 2,
+      "held_out_attack_type": "brute_force/ssh_patator",
+      "positive_rows_removed_from_train": 39
+    },
+    {
+      "A_detected_episodes": 2,
+      "A_episode_recall": 1.0,
+      "A_f1": 0.18221258134490237,
+      "A_fn": 0,
+      "A_fp": 377,
+      "A_fpr": 0.02559750135795763,
+      "A_pr_auc": 0.5801591575349045,
+      "A_precision": 0.10023866348448687,
+      "A_recall": 1.0,
+      "A_roc_auc": 0.9970537169240319,
+      "A_threshold": 0.005,
+      "A_tn": 14351,
+      "A_total_episodes": 2,
+      "A_tp": 42,
+      "Aprime_detected_episodes": 2,
+      "Aprime_episode_recall": 1.0,
+      "Aprime_f1": 0.21354166666666666,
+      "Aprime_fn": 1,
+      "Aprime_fp": 301,
+      "Aprime_fpr": 0.02043726235741445,
+      "Aprime_pr_auc": 0.1629747402385609,
+      "Aprime_precision": 0.11988304093567251,
+      "Aprime_recall": 0.9761904761904762,
+      "Aprime_roc_auc": 0.9805181578334755,
+      "Aprime_threshold": 0.005,
+      "Aprime_tn": 14427,
+      "Aprime_total_episodes": 2,
+      "Aprime_tp": 41,
+      "delta_detected_episodes": 0,
+      "delta_episode_recall": 0.0,
+      "delta_f1": 0.03132908532176429,
+      "delta_fn": 1,
+      "delta_fp": -76,
+      "delta_fpr": -0.005160239000543181,
+      "delta_pr_auc": -0.41718441729634365,
+      "delta_precision": 0.019644377451185635,
+      "delta_recall": -0.023809523809523836,
+      "delta_roc_auc": -0.016535559090556373,
+      "delta_threshold": 0.0,
+      "delta_tn": 76,
+      "delta_total_episodes": 0,
+      "delta_tp": -1,
+      "fold": 3,
+      "held_out_attack_type": "ddos/loit",
+      "positive_rows_removed_from_train": 44
+    },
+    {
+      "A_detected_episodes": 2,
+      "A_episode_recall": 1.0,
+      "A_f1": 0.22594142259414227,
+      "A_fn": 9,
+      "A_fp": 176,
+      "A_fpr": 0.012546335899629312,
+      "A_pr_auc": 0.5807780499001968,
+      "A_precision": 0.1330049261083744,
+      "A_recall": 0.75,
+      "A_roc_auc": 0.9390455200709692,
+      "A_threshold": 0.01,
+      "A_tn": 13852,
+      "A_total_episodes": 2,
+      "A_tp": 27,
+      "Aprime_detected_episodes": 1,
+      "Aprime_episode_recall": 0.5,
+      "Aprime_f1": 0.09941520467836257,
+      "Aprime_fn": 19,
+      "Aprime_fp": 289,
+      "Aprime_fpr": 0.020601653835186768,
+      "Aprime_pr_auc": 0.03455178076340937,
+      "Aprime_precision": 0.05555555555555555,
+      "Aprime_recall": 0.4722222222222222,
+      "Aprime_roc_auc": 0.7267310616861515,
+      "Aprime_threshold": 0.005,
+      "Aprime_tn": 13739,
+      "Aprime_total_episodes": 2,
+      "Aprime_tp": 17,
+      "delta_detected_episodes": -1,
+      "delta_episode_recall": -0.5,
+      "delta_f1": -0.1265262179157797,
+      "delta_fn": 10,
+      "delta_fp": 113,
+      "delta_fpr": 0.008055317935557455,
+      "delta_pr_auc": -0.5462262691367874,
+      "delta_precision": -0.07744937055281884,
+      "delta_recall": -0.2777777777777778,
+      "delta_roc_auc": -0.21231445838481766,
+      "delta_threshold": -0.005,
+      "delta_tn": -113,
+      "delta_total_episodes": 0,
+      "delta_tp": -10,
+      "fold": 4,
+      "held_out_attack_type": "dos/hulk",
+      "positive_rows_removed_from_train": 50
+    }
+  ]
+}

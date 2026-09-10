@@ -1,0 +1,53 @@
+{
+  "a_prime_definition": [
+    "build protocol A exactly as in steps 1 and 2",
+    "find entity_key values present in both train positives and test positives",
+    "remove from the train only the positive rows of those entity_key values",
+    "do not remove them from the test",
+    "do not change the test population",
+    "do not remove any negative; the historical negative membership stands",
+    "keep the held-out attack family unchanged",
+    "keep every other family in the train",
+    "keep the (label, row_id) training order",
+    "refit the identical RandomForest",
+    "calibrate the threshold on the A' train negatives only",
+    "evaluate on exactly the same test as A"
+  ],
+  "experiment": "final validation \u2014 step 3, A vs A' shared-entity removal",
+  "feature_count": 5,
+  "feature_names": [
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "fold_selection_reason": "only historical folds 2, 3 and 4 have a train/test attack-entity intersection; folds 0 and 1 already have none",
+  "folds": [
+    2,
+    3,
+    4
+  ],
+  "forbidden_claims": [
+    "that leakage explains, or fails to explain, the whole A versus B difference",
+    "any statement beyond the marginal effect measured on folds 2, 3 and 4"
+  ],
+  "hyperparameter_tuning": "none",
+  "known_coupling": "the shared entities carry positives of several families, so removing their training rows also removes training windows of families other than the held-out one; in folds 3 and 4 one further family is emptied from the training set entirely. A' - A therefore measures the effect of removing the shared entities, not identity leakage isolated at constant training composition.",
+  "model": {
+    "class_rebalancing": "none",
+    "class_weight": null,
+    "estimator": "RandomForestClassifier",
+    "feature_transform": "none",
+    "hyperparameter_search": "none",
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "random_state": 0,
+    "sampling": "none"
+  },
+  "postgresql_connections": 0,
+  "question": "inside protocol A, with the held-out family held constant, does the presence of the same entity_key in train and test change performance?",
+  "randomness_added": false,
+  "threshold_calibration": "train negatives only, identical to step 2",
+  "training_order": "label,row_id"
+}

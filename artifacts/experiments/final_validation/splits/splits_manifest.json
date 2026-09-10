@@ -1,0 +1,154 @@
+{
+  "episode_eligibility": {
+    "botnet/ares": {
+      "entities": 5,
+      "episodes": 40,
+      "protocol_c_built": true,
+      "role": "main protocol C analysis",
+      "windows": 177
+    },
+    "brute_force/ftp_patator": {
+      "entities": 1,
+      "episodes": 1,
+      "protocol_c_built": false,
+      "role": "excluded: only 1 episode(s), no robust intra-family split",
+      "windows": 61
+    },
+    "brute_force/ssh_patator": {
+      "entities": 2,
+      "episodes": 9,
+      "protocol_c_built": true,
+      "role": "secondary analysis only, statistically weak",
+      "windows": 60
+    },
+    "ddos/loit": {
+      "entities": 2,
+      "episodes": 2,
+      "protocol_c_built": false,
+      "role": "excluded: only 2 episode(s), no robust intra-family split",
+      "windows": 42
+    },
+    "dos/hulk": {
+      "entities": 2,
+      "episodes": 2,
+      "protocol_c_built": false,
+      "role": "excluded: only 2 episode(s), no robust intra-family split",
+      "windows": 36
+    }
+  },
+  "frozen_artifacts_modified": false,
+  "frozen_at": "2026-08-27T02:32:37.951727+00:00",
+  "frozen_inputs": {
+    "artifacts/experiments/p1/p1_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062",
+    "artifacts/experiments/p1/p1_folds.json": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+    "artifacts/production/ml_dataset_v1/dataset_manifest.json": "f792748334a643c5cb0451656f996dc77d755935c13fcc94fd60fb640f59d325",
+    "artifacts/production/ml_dataset_v1/ml_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062"
+  },
+  "manifest_content_sha256": "06211f397bdd154cc4aafc06e2358df12401a0b78054550bdfcfd3f35d720b88",
+  "model_feature_columns_read": [],
+  "models_fitted": 0,
+  "outputs": {
+    "A_historical.json": "509051dee76e2fcef8ed8257b7cf4c5e3588fc1c4cd21e6dd7406e8304e2a3d6",
+    "A_historical_assignment.csv": "3bc0901acf8fa6c7f20e81618d9b7fd7fe6849833d6692e68f3e73e6b208529c",
+    "B_entity_disjoint.json": "475b6a21f131c0f78e7c9694edfb24116c46f29345cb27db9a59622f91e887b3",
+    "B_entity_disjoint_assignment.csv": "4b496da8c4e6f8b6100176c550faed69156c9af8742b42802121a91867af1a23",
+    "C_episode_disjoint_botnet_ares.json": "a6c49cb1db86fadaa298eebd2c3c0f526644a896f490eaf343495c7dbaec4de6",
+    "C_episode_disjoint_botnet_ares_assignment.csv": "a9246a169d6ad84869b8d3a968f906dd8f5e287a0f25e17b8fb5b009338bc522",
+    "C_episode_disjoint_brute_force_ssh_patator.json": "28c1b2b297b585e7ea6a8641f4d7e84146c29fbbfb612159949789118f59647e",
+    "C_episode_disjoint_brute_force_ssh_patator_assignment.csv": "bba660281928b8d4c0b6c4e149a5bcb0f9cb4bd09344fb4360dc2de52f4a79e2",
+    "D_zero_day_ares.json": "c4c7c98845e13754270348885e6e4df3947603b86e4c241bc9ceea9fb87b74dd",
+    "D_zero_day_ares_assignment.csv": "790dd60ad9195265b0e52fe2d98b05baedb54eee6e5cfde99528f238a2307dee"
+  },
+  "population_rows": 70954,
+  "population_source": "artifacts/production/ml_dataset_v1/ml_dataset.csv",
+  "postgresql_connections": 0,
+  "postgresql_writes": 0,
+  "production_dataset_modified": false,
+  "protocols": {
+    "A_historical": {
+      "assignment_sha256": "3bc0901acf8fa6c7f20e81618d9b7fd7fe6849833d6692e68f3e73e6b208529c",
+      "content_sha256": "d435c7c967cecd8c9c9599bfcbd89d44d2ee61451c02de442c469d3587dd2250",
+      "determinism": "no randomness; sorted attack-type order and the frozen SHA-256 benign entity hash from p1_dataset.negative_fold_of",
+      "fold_count": 5,
+      "max_entity_intersection": 2,
+      "max_episode_intersection": 0,
+      "requires_entity_disjoint": false,
+      "requires_episode_disjoint": true,
+      "rule": "positives: test fold = index of their attack_type in the sorted type list; negatives: test fold = frozen negative_fold_of(entity_key, 5); train = the whole population minus the test fold",
+      "title": "Protocol A \u2014 historical baseline (leave-one-attack-type-out)"
+    },
+    "B_entity_disjoint": {
+      "assignment_sha256": "4b496da8c4e6f8b6100176c550faed69156c9af8742b42802121a91867af1a23",
+      "content_sha256": "2c04f14635e8e7b0ab3fe9dd46865845eff5a3174eb2a0f813d2291271dce41e",
+      "determinism": "no randomness; sorted entity order and the frozen SHA-256 benign entity hash",
+      "fold_count": 9,
+      "max_entity_intersection": 0,
+      "max_episode_intersection": 0,
+      "requires_entity_disjoint": true,
+      "requires_episode_disjoint": true,
+      "rule": "positives: test fold = index of their entity_key in the sorted attack entity list; negatives: test fold = negative_fold_of(entity_key, 9); train = the whole population minus the test fold",
+      "title": "Protocol B \u2014 entity-disjoint (leave-one-attack-entity-out)"
+    },
+    "C_episode_disjoint_botnet_ares": {
+      "assignment_sha256": "a9246a169d6ad84869b8d3a968f906dd8f5e287a0f25e17b8fb5b009338bc522",
+      "content_sha256": "f359cf5fdcc46acddd66ce86b417656e51bd6f7d54799208963a208661c126af",
+      "determinism": "no randomness; round-robin over sorted episodes into 5 folds over lexicographically sorted episode_id",
+      "fold_count": 5,
+      "max_entity_intersection": 5,
+      "max_episode_intersection": 0,
+      "requires_entity_disjoint": false,
+      "requires_episode_disjoint": true,
+      "rule": "botnet/ares positives: test fold = sorted episode index modulo 5; positives of every other family are always training rows; negatives: test fold = negative_fold_of(entity_key, 5)",
+      "title": "Protocol C \u2014 episode-disjoint inside botnet/ares"
+    },
+    "C_episode_disjoint_brute_force_ssh_patator": {
+      "assignment_sha256": "bba660281928b8d4c0b6c4e149a5bcb0f9cb4bd09344fb4360dc2de52f4a79e2",
+      "content_sha256": "fc5e27b4bd55f51949051df16d6374918be34247fc093e76bb995a4a2fb648d3",
+      "determinism": "no randomness; leave-one-episode-out over lexicographically sorted episode_id",
+      "fold_count": 9,
+      "max_entity_intersection": 1,
+      "max_episode_intersection": 0,
+      "requires_entity_disjoint": false,
+      "requires_episode_disjoint": true,
+      "rule": "brute_force/ssh_patator positives: test fold = sorted episode index modulo 9; positives of every other family are always training rows; negatives: test fold = negative_fold_of(entity_key, 9)",
+      "title": "Protocol C \u2014 episode-disjoint inside brute_force/ssh_patator"
+    },
+    "D_zero_day_ares": {
+      "assignment_sha256": "790dd60ad9195265b0e52fe2d98b05baedb54eee6e5cfde99528f238a2307dee",
+      "content_sha256": "d733b557d3b16b1fb2ecff49e441b8d06dd23189c4b175981cf911e98b00f66f",
+      "determinism": "no randomness; identical construction to protocol A fold 0",
+      "fold_count": 1,
+      "max_entity_intersection": 0,
+      "max_episode_intersection": 0,
+      "requires_entity_disjoint": true,
+      "requires_episode_disjoint": true,
+      "rule": "test = all botnet/ares windows plus the benign entities whose frozen negative_fold_of(entity_key, 5) equals 0; train = everything else, which contains no Ares window",
+      "title": "Protocol D \u2014 zero-day, leave-Ares-out"
+    }
+  },
+  "randomness_used": false,
+  "schema_version": "1.0.0",
+  "seed_used": null,
+  "shared_entities_across_attack_types": {
+    "172.16.0.1|192.168.10.50|tcp|http": [
+      "ddos/loit",
+      "dos/hulk"
+    ],
+    "172.16.0.1|192.168.10.50|tcp|none": [
+      "brute_force/ssh_patator",
+      "ddos/loit",
+      "dos/hulk"
+    ]
+  },
+  "split_metadata_columns_used": [
+    "row_id",
+    "label",
+    "disposition",
+    "attack_type",
+    "entity_key",
+    "episode_id",
+    "partition",
+    "window_start_epoch"
+  ],
+  "step": "final validation \u2014 step 1, split construction only"
+}

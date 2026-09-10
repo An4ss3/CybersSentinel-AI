@@ -1,0 +1,285 @@
+{
+  "caution": "A and B do not answer the same question. A withholds an attack family; B withholds an attack entity while the family may remain in training. A difference between them is therefore not attributable to identity leakage alone.",
+  "content_sha256": "b244177ef875b81d3184e2f5365c552a1d31c9220e51b4578bc00ab476fe2f2d",
+  "entity_disjointness_in_B": {
+    "folds": 9,
+    "max_entity_intersection": 0
+  },
+  "experiment": "final validation \u2014 step 2 identity leakage diagnostic",
+  "measured_leakage_in_A": {
+    "folds_with_shared_attack_entity": [
+      2,
+      3,
+      4
+    ],
+    "max_entity_intersection": 2,
+    "shared_entities_by_fold": {
+      "2": [
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "3": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ],
+      "4": [
+        "172.16.0.1|192.168.10.50|tcp|http",
+        "172.16.0.1|192.168.10.50|tcp|none"
+      ]
+    }
+  },
+  "per_fold": {
+    "A": [
+      {
+        "detected_episodes": 3,
+        "entity_intersection_count": 0,
+        "episode_recall": 0.075,
+        "fold": 0,
+        "fpr": 0.007114854072890954,
+        "held_out": "botnet/ares",
+        "pr_auc": 0.01357341668333881,
+        "precision": 0.0297029702970297,
+        "recall": 0.01694915254237288,
+        "roc_auc": 0.5049425799364889,
+        "total_episodes": 40
+      },
+      {
+        "detected_episodes": 1,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 1,
+        "fpr": 0.011155606407322655,
+        "held_out": "brute_force/ftp_patator",
+        "pr_auc": 0.16488716366151296,
+        "precision": 0.1875,
+        "recall": 0.5901639344262295,
+        "roc_auc": 0.9805720589338636,
+        "total_episodes": 1
+      },
+      {
+        "detected_episodes": 1,
+        "entity_intersection_count": 1,
+        "episode_recall": 0.1111111111111111,
+        "fold": 2,
+        "fpr": 0.02197098976109215,
+        "held_out": "brute_force/ssh_patator",
+        "pr_auc": 0.11221502305189933,
+        "precision": 0.1440443213296399,
+        "recall": 0.8666666666666667,
+        "roc_auc": 0.9207231228668942,
+        "total_episodes": 9
+      },
+      {
+        "detected_episodes": 2,
+        "entity_intersection_count": 2,
+        "episode_recall": 1.0,
+        "fold": 3,
+        "fpr": 0.02559750135795763,
+        "held_out": "ddos/loit",
+        "pr_auc": 0.5801591575349045,
+        "precision": 0.10023866348448687,
+        "recall": 1.0,
+        "roc_auc": 0.9970537169240319,
+        "total_episodes": 2
+      },
+      {
+        "detected_episodes": 2,
+        "entity_intersection_count": 2,
+        "episode_recall": 1.0,
+        "fold": 4,
+        "fpr": 0.012546335899629312,
+        "held_out": "dos/hulk",
+        "pr_auc": 0.5807780499001968,
+        "precision": 0.1330049261083744,
+        "recall": 0.75,
+        "roc_auc": 0.9390455200709692,
+        "total_episodes": 2
+      }
+    ],
+    "B": [
+      {
+        "detected_episodes": 1,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 0,
+        "fpr": 0.020413504318241297,
+        "held_out": "172.16.0.1|192.168.10.50|tcp|ftp",
+        "pr_auc": 0.16630686334970937,
+        "precision": 0.19170984455958548,
+        "recall": 0.6065573770491803,
+        "roc_auc": 0.7946754561718887,
+        "test_attack_type_windows": {
+          "brute_force/ftp_patator": 61
+        },
+        "total_episodes": 1
+      },
+      {
+        "detected_episodes": 2,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 1,
+        "fpr": 0.00685540180271677,
+        "held_out": "172.16.0.1|192.168.10.50|tcp|http",
+        "pr_auc": 0.8137849804516472,
+        "precision": 0.41935483870967744,
+        "recall": 1.0,
+        "roc_auc": 0.9989534607409433,
+        "test_attack_type_windows": {
+          "ddos/loit": 21,
+          "dos/hulk": 18
+        },
+        "total_episodes": 2
+      },
+      {
+        "detected_episodes": 2,
+        "entity_intersection_count": 0,
+        "episode_recall": 0.2,
+        "fold": 2,
+        "fpr": 0.02321083172147002,
+        "held_out": "172.16.0.1|192.168.10.50|tcp|none",
+        "pr_auc": 0.5233206883809055,
+        "precision": 0.1615720524017467,
+        "recall": 0.7872340425531915,
+        "roc_auc": 0.8901588028313923,
+        "test_attack_type_windows": {
+          "brute_force/ssh_patator": 8,
+          "ddos/loit": 21,
+          "dos/hulk": 18
+        },
+        "total_episodes": 10
+      },
+      {
+        "detected_episodes": 1,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 3,
+        "fpr": 0.014496608591568028,
+        "held_out": "172.16.0.1|192.168.10.50|tcp|ssh",
+        "pr_auc": 0.32163767179112446,
+        "precision": 0.32298136645962733,
+        "recall": 1.0,
+        "roc_auc": 0.9925151155534185,
+        "test_attack_type_windows": {
+          "brute_force/ssh_patator": 52
+        },
+        "total_episodes": 1
+      },
+      {
+        "detected_episodes": 8,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 4,
+        "fpr": 0.021963989273400587,
+        "held_out": "192.168.10.14|205.174.165.73|tcp|http",
+        "pr_auc": 1.0,
+        "precision": 0.15270935960591134,
+        "recall": 1.0,
+        "roc_auc": 1.0,
+        "test_attack_type_windows": {
+          "botnet/ares": 31
+        },
+        "total_episodes": 8
+      },
+      {
+        "detected_episodes": 8,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 5,
+        "fpr": 0.016693811074918567,
+        "held_out": "192.168.10.15|205.174.165.73|tcp|http",
+        "pr_auc": 0.9842194803986759,
+        "precision": 0.28488372093023256,
+        "recall": 1.0,
+        "roc_auc": 0.9998808969842009,
+        "test_attack_type_windows": {
+          "botnet/ares": 49
+        },
+        "total_episodes": 8
+      },
+      {
+        "detected_episodes": 7,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 6,
+        "fpr": 0.015847468119351244,
+        "held_out": "192.168.10.5|205.174.165.73|tcp|http",
+        "pr_auc": 0.9923747276688453,
+        "precision": 0.17419354838709677,
+        "recall": 1.0,
+        "roc_auc": 0.9999679015402675,
+        "test_attack_type_windows": {
+          "botnet/ares": 27
+        },
+        "total_episodes": 7
+      },
+      {
+        "detected_episodes": 2,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 7,
+        "fpr": 0.01654388005686959,
+        "held_out": "192.168.10.8|205.174.165.73|tcp|http",
+        "pr_auc": 0.9869808788078018,
+        "precision": 0.16883116883116883,
+        "recall": 1.0,
+        "roc_auc": 0.9999502888219445,
+        "test_attack_type_windows": {
+          "botnet/ares": 26
+        },
+        "total_episodes": 2
+      },
+      {
+        "detected_episodes": 15,
+        "entity_intersection_count": 0,
+        "episode_recall": 1.0,
+        "fold": 8,
+        "fpr": 0.02810417928528165,
+        "held_out": "192.168.10.9|205.174.165.73|tcp|http",
+        "pr_auc": 1.0,
+        "precision": 0.15942028985507245,
+        "recall": 1.0,
+        "roc_auc": 1.0,
+        "test_attack_type_windows": {
+          "botnet/ares": 44
+        },
+        "total_episodes": 15
+      }
+    ]
+  },
+  "statement": "Protocol A carries a measured identity leakage: two entity_key values span several attack types, so folds 2, 3 and 4 share an attack entity between train and test. Experiment B quantifies its impact by forbidding any shared entity.",
+  "variation_A_to_B": {
+    "delta": {
+      "macro_episode_recall": 0.27388888888888885,
+      "macro_pr_auc": 0.4639691368168195,
+      "macro_roc_auc": 0.09554392499177877,
+      "pooled_episode_recall": 0.6851851851851852,
+      "pooled_f1": 0.14625563808432693,
+      "pooled_fpr": 0.0025220323613590646,
+      "pooled_precision": 0.0836546052379456,
+      "pooled_recall": 0.4840425531914893
+    },
+    "left": {
+      "macro_episode_recall": 0.6372222222222221,
+      "macro_pr_auc": 0.2903225621663704,
+      "macro_roc_auc": 0.8684673997464495,
+      "pooled_episode_recall": 0.16666666666666666,
+      "pooled_f1": 0.1937046004842615,
+      "pooled_fpr": 0.015812292782453455,
+      "pooled_precision": 0.12539184952978055,
+      "pooled_recall": 0.425531914893617
+    },
+    "left_detected_episodes": 9,
+    "left_total_episodes": 54,
+    "right": {
+      "macro_episode_recall": 0.911111111111111,
+      "macro_pr_auc": 0.7542916989831899,
+      "macro_roc_auc": 0.9640113247382283,
+      "pooled_episode_recall": 0.8518518518518519,
+      "pooled_f1": 0.3399602385685884,
+      "pooled_fpr": 0.01833432514381252,
+      "pooled_precision": 0.20904645476772615,
+      "pooled_recall": 0.9095744680851063
+    },
+    "right_detected_episodes": 46,
+    "right_total_episodes": 54
+  }
+}

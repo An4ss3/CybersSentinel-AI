@@ -1,0 +1,46 @@
+{
+  "arm_f_variant": "phase1_canonical",
+  "arm_reused_without_refit": "VOL5_RF",
+  "arms_fitted": [
+    "VOL5_XGB",
+    "ARMF_XGB",
+    "VOL5_ARMF_XGB"
+  ],
+  "frozen_artifacts_modified": false,
+  "frozen_at": "2026-08-27T14:36:38.300314+00:00",
+  "frozen_inputs": {
+    "artifacts/experiments/final_validation/baseline_metrics.json": "3f40749f5bc9cecbc92ea0dbef5de91ca06dee7f31aa0a99aceba03337271fb2",
+    "artifacts/experiments/final_validation/evaluation_manifest.json": "5b5b2be2c01dfb7a17a588ceb81aaa339089efaf0966fb862d7ad7f5c015a093",
+    "artifacts/experiments/final_validation/splits/splits_manifest.json": "5967044a41c2acb327bfd2698ab8ece2de5cd56f5dd1237a1853eceeef51f8f3",
+    "artifacts/experiments/xgboost_content_benchmark/content_features.csv": "1f831d7e22b2db853713622da2fd7569af768e9884aba04ece6e206fc5896413",
+    "artifacts/experiments/xgboost_content_benchmark/predictions_F_fold0.csv": "2d4fea17d22cc61b74c1bdf55b5ef0d14de896f8a00e3cd87e379619b1c9e9aa",
+    "artifacts/production/ml_dataset_v1/ml_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062"
+  },
+  "hyperparameter_tuning": "none",
+  "is_a_historical_reproduction_claim": false,
+  "manifest_content_sha256": "32527b93ec4c1d70de8c9da1de5e61a788427ac41ee27607b4265df5c06b3586",
+  "models_fitted": 65,
+  "outputs": {
+    "ARMF_EXTENSION_REPORT.md": "64e532c0f93a09322499c61629a179a7ee8f75c5721f96bcee9f89346e44442a",
+    "armf_comparison.json": "84a6b510c1892b8ded07691cb6bb2d2aac44ed64f0f1eea62e2afbf152c97889",
+    "armf_config.json": "0cfa085bd51c2fd9a5eb2f4c1a9d96b7aa5d212f7ab2758d7b14362989dd760f",
+    "armf_metrics.json": "f5196e91845c6d005e963d065a73deea555328228bc4c176eaa89b21dbbb9227",
+    "armf_reproduction.json": "5499317af0655efa4d866ff95a00cb3a1324aada71c261fe76949b235eab0410",
+    "armf_zero_day.json": "05a8e3fc060630dcbf32dd97a5e417f2c321e686eb1f1b1887431aa16d0acc43"
+  },
+  "phase2_r006_used": false,
+  "postgresql_transaction_read_only": {
+    "cybersentinel": "on",
+    "cybersentinel_test": "on"
+  },
+  "postgresql_writes": 0,
+  "reconstruction_reproduces_published_arm_f": true,
+  "schema_version": "1.0.0",
+  "step": "final validation \u2014 step 5, ARM F extension",
+  "step1_artifacts_modified": false,
+  "step2_artifacts_modified": false,
+  "step3_artifacts_modified": false,
+  "step4_artifacts_modified": false,
+  "threshold_selected_on_test": false,
+  "training_order": "label,row_id"
+}

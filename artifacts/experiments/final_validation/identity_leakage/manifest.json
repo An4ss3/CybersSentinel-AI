@@ -1,0 +1,57 @@
+{
+  "feature_names": [
+    "event_count",
+    "source_packets_total",
+    "destination_packets_total",
+    "source_bytes_total",
+    "destination_bytes_total"
+  ],
+  "folds": [
+    2,
+    3,
+    4
+  ],
+  "frozen_artifacts_modified": false,
+  "frozen_at": "2026-08-27T04:02:46.988450+00:00",
+  "frozen_inputs": {
+    "artifacts/experiments/final_validation/baseline_metrics.json": "3f40749f5bc9cecbc92ea0dbef5de91ca06dee7f31aa0a99aceba03337271fb2",
+    "artifacts/experiments/final_validation/evaluation_manifest.json": "5b5b2be2c01dfb7a17a588ceb81aaa339089efaf0966fb862d7ad7f5c015a093",
+    "artifacts/experiments/final_validation/splits/A_historical_assignment.csv": "3bc0901acf8fa6c7f20e81618d9b7fd7fe6849833d6692e68f3e73e6b208529c",
+    "artifacts/experiments/final_validation/splits/splits_manifest.json": "5967044a41c2acb327bfd2698ab8ece2de5cd56f5dd1237a1853eceeef51f8f3",
+    "artifacts/experiments/p1/p1_folds.json": "57e688fd3da90911707d7a172c161686d852094121eda1ac49e0221fc0529fa1",
+    "artifacts/production/ml_dataset_v1/ml_dataset.csv": "e95aed008d994510e4c649c287feb8fe8f49a785bec144d7e83aa15804b6c062"
+  },
+  "hyperparameter_tuning": "none",
+  "manifest_content_sha256": "f87e753ba8a900d73b612e56d4b655c6305b139c267857f6c6340c4d87db429f",
+  "model": {
+    "class_rebalancing": "none",
+    "class_weight": null,
+    "estimator": "RandomForestClassifier",
+    "feature_transform": "none",
+    "hyperparameter_search": "none",
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "random_state": 0,
+    "sampling": "none"
+  },
+  "models_fitted": 6,
+  "outputs": {
+    "AP_IDENTITY_LEAKAGE_REPORT.md": "a2716cd34a80c08c824e04721fc2ad8f1d37d044bf2b95e67fab4266dc27fea0",
+    "ap_comparison.json": "c856e3406e9392810d63655dfd21cd871f0bee71bb8b4b760ee092769b77384d",
+    "ap_config.json": "1b332a605c59c4c60398c2c2b97589dd482aecce3408bb61fad119793da39155",
+    "ap_diagnostic.json": "5c5942d1f02d932c846437e354b0577a2b8e2953b6da1ce361ca9ce9a887e2e6",
+    "ap_fold2.json": "a3b8de0f6006376105fa344d3db053d07fdf5e006c2147c5885203b395a8de43",
+    "ap_fold3.json": "47f92ad9659056f5d66d6eac4bee2d6b82131fc6d95395cb1c5c925f6cd544f7",
+    "ap_fold4.json": "daf02e037289e2ed8f7835b03c8533a6a8d1704a90cc3c42545e26c7da0448b7"
+  },
+  "postgresql_connections": 0,
+  "postgresql_writes": 0,
+  "randomness_added": false,
+  "recomputed_A_matches_published_step2": true,
+  "schema_version": "1.0.0",
+  "step": "final validation \u2014 step 3, shared-entity removal (A vs A')",
+  "step1_artifacts_modified": false,
+  "step2_artifacts_modified": false,
+  "threshold_selected_on_test": false,
+  "training_order": "label,row_id"
+}
