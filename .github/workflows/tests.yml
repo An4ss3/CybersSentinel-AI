@@ -1,0 +1,46 @@
+name: tests
+
+# Runs the test suite that is executable from a clean public clone.
+#
+# No dataset, PCAP, Zeek log or database is downloaded or rebuilt here:
+#   - tests needing the frozen Zeek replay logs (not distributed) are skipped;
+#   - tests needing a PostgreSQL test database are skipped.
+# Every skip prints its reason in the job log (pytest -rs).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            modules/detection/requirements.txt
+            modules/backend/requirements.txt
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r modules/detection/requirements.txt -r modules/backend/requirements.txt
+
+      - name: Run public test suite
+        run: python -m pytest -q -rs
