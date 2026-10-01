@@ -333,7 +333,8 @@ experiment.
 ## License and data terms
 
 The code, scripts, tests and documentation written for this project are
-released under the [MIT License](LICENSE).
+released under the [MIT License](LICENSE); its scope is detailed in
+[NOTICE](NOTICE).
 
 The license does **not** extend to third-party data or software. CICIDS2017 is
 the property of the Canadian Institute for Cybersecurity, is distributed under
