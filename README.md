@@ -4,6 +4,7 @@
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5.1-orange)
 ![Docker Compose](https://img.shields.io/badge/docker-compose-2496ED)
 ![Tests](https://img.shields.io/badge/tests-1212%20passed-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 **A machine-learning network intrusion detection pipeline built from raw packet
 captures, with a reproducible, pre-specified evaluation of cross-family attack
@@ -331,10 +332,15 @@ experiment.
 
 ## License and data terms
 
-No license has been chosen yet; until one is added, all rights are reserved by
-the author. The CICIDS2017 dataset is the property of the Canadian Institute
-for Cybersecurity, is distributed under its own terms, and is not included in
-this repository: it must be obtained from its official page.
+The code, scripts, tests and documentation written for this project are
+released under the [MIT License](LICENSE).
+
+The license does **not** extend to third-party data or software. CICIDS2017 is
+the property of the Canadian Institute for Cybersecurity, is distributed under
+its own terms, and is not included in this repository: it must be obtained from
+its official page. Artifacts derived from it (windows, labels, features,
+predictions) remain subject to those terms. Zeek, PostgreSQL, Grafana and the
+Python dependencies are governed by their own licenses.
 
 ## Author
 
