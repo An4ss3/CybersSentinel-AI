@@ -26,6 +26,7 @@ env/
 datasets/**
 !datasets/.gitkeep
 !datasets/README.txt
+!datasets/README.md
 # ...but the data contracts ARE source and must be versioned.
 !datasets/manifests/
 !datasets/manifests/**
@@ -51,6 +52,16 @@ mlruns/
 Thumbs.db
 .idea/
 .vscode/
+.kiro/
+
+# ---- LaTeX report (sources kept out of the public tree; see README) ----
+report/
+
+# ---- Test / tool output ----
+.coverage
+htmlcov/
+*.log.tmp
+*.bak
 
 # NOTE: artifacts/experiments/ and artifacts/reports/ are deliberately tracked.
 # They are the auditable scientific evidence (P1--P6, XGBoost baseline, feature

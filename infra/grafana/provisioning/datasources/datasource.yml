@@ -1,5 +1,7 @@
 # Auto-provisioned PostgreSQL datasource for Grafana.
-# Matches the credentials/defaults in docker-compose.yml.
+# Credentials are read from the container environment, populated by
+# docker-compose.yml from the local .env file (see .env.example).
+# Grafana expands $VAR references in provisioning files at startup.
 apiVersion: 1
 
 datasources:
@@ -8,13 +10,13 @@ datasources:
     type: postgres
     access: proxy
     url: postgres:5432          # 'postgres' = compose service name
-    user: cybersentinel
+    user: $POSTGRES_USER
     isDefault: true
     editable: true
     secureJsonData:
-      password: cybersentinel
+      password: $POSTGRES_PASSWORD
     jsonData:
-      database: cybersentinel
+      database: $POSTGRES_DB
       sslmode: disable
       postgresVersion: 1600
       timescaledb: false

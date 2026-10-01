@@ -26,7 +26,7 @@ All known debt. No other document should contain debt items — they belong here
 
 ### TD-001 — Stale CMD virtual-environment activation path
 
-`.venv/Scripts/activate.bat` references the former location `C:\Users\harki\OneDrive\Desktop\New folder`.
+`.venv/Scripts/activate.bat` references the directory the environment was originally created in, not its current location.
 
 **Workaround:** use `.\.venv\Scripts\python.exe` directly or the PowerShell activation script.
 

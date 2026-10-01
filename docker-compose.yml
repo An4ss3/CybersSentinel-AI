@@ -49,7 +49,8 @@ services:
     environment:
       - POSTGRES_DB=${POSTGRES_DB:-cybersentinel}
       - POSTGRES_USER=${POSTGRES_USER:-cybersentinel}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-cybersentinel}
+      # Required: no default password. Copy .env.example to .env first.
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env (see .env.example)}
     ports:
       - "5432:5432"
     volumes:
@@ -78,7 +79,12 @@ services:
     container_name: cs-grafana
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
-      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+      # Required: no default admin password. Copy .env.example to .env first.
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:?set GRAFANA_ADMIN_PASSWORD in .env (see .env.example)}
+      # Consumed by provisioning/datasources/datasource.yml.
+      - POSTGRES_DB=${POSTGRES_DB:-cybersentinel}
+      - POSTGRES_USER=${POSTGRES_USER:-cybersentinel}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env (see .env.example)}
     ports:
       - "3000:3000"
     volumes:
