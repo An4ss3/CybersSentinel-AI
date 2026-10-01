@@ -281,6 +281,14 @@ protocol and uses the legacy XGBoost models.
 
 ![FastAPI OpenAPI documentation](assets/screenshots/fastapi-docs.png)
 
+The provisioned Grafana dashboard reads the PostgreSQL `alerts` table. The
+capture below shows the 4,291 alerts written by the demonstration pipeline
+(`scripts/generate_alerts.py`) with the **legacy XGBoost models** on
+CICIDS2017 flows. It illustrates the alerting layer, not the results of the
+evaluated protocol.
+
+![Grafana alert dashboard](assets/screenshots/grafana-dashboard.png)
+
 ## My contribution
 
 All 23 commits in this repository are my own work, carried out during the
