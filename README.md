@@ -3,17 +3,36 @@
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5.1-orange)
 ![Docker Compose](https://img.shields.io/badge/docker-compose-2496ED)
-![Tests](https://img.shields.io/badge/tests-1212%20passed-brightgreen)
+[![tests](https://github.com/An4ss3/CybersSentinel-AI/actions/workflows/tests.yml/badge.svg)](https://github.com/An4ss3/CybersSentinel-AI/actions/workflows/tests.yml)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 **A machine-learning network intrusion detection pipeline built from raw packet
 captures, with a reproducible, pre-specified evaluation of cross-family attack
 transfer on CICIDS2017.**
 
+[Results](#headline-result) · [Architecture](#architecture) ·
+[Methodology](#machine-learning-methodology) · [My contribution](#my-contribution) ·
+[Reproducibility](#reproducibility-and-integrity) · [Limitations](#limitations)
+
 CyberSentinel AI was developed during an engineering internship at Mohammed VI
 Polytechnic University (UM6P, Rabat), as part of the Computer Science, AI and
 Digital Trust engineering programme of ENSA Fès. It is a research prototype,
 not a production IDS.
+
+## Project at a glance
+
+| | |
+|---|---|
+| **Type** | Research / engineering prototype |
+| **Domain** | Machine learning for network security |
+| **Core task** | Network intrusion detection, evaluated on cross-family transfer |
+| **Data** | CICIDS2017 raw PCAPs (5 capture days, ~48.8 GiB), not redistributed |
+| **Network analysis** | Zeek 8.0.9, digest-pinned container, offline replay |
+| **Main model** | Random Forest on 5 volume features (VOL5) |
+| **Exploratory models** | XGBoost; content features (ARM F) on one held-out family |
+| **Demonstration layer** | FastAPI scoring API, PostgreSQL alert table, Grafana dashboard |
+| **Infrastructure** | Docker Compose |
+| **Validation** | Protocol fixed before evaluation, SHA-256-pinned artifacts, fresh-clone re-execution, CI on every push |
 
 The project asks one precise question:
 
@@ -31,7 +50,7 @@ SHA-256.
 
 ## Headline result
 
-![Per-family transfer results](docs/assets/transfer_results.png)
+![Per-family transfer results](assets/figures/transfer-results.png)
 
 Seven leave-one-family-out experiments on CICIDS2017, with a 5-feature
 volumetric representation and a fixed Random Forest:
@@ -234,6 +253,12 @@ demonstration API.
   by the experiments.
 - **Scientific validation.** A separate five-step validation is gated by 61
   cross-artifact consistency checks.
+- **Documentation checked against artifacts.** A test
+  (`test_documentation_coherence.py`) fails if a figure quoted in this README
+  drifts from the frozen artifacts.
+- **Continuous integration.** Every push runs the public test suite on a clean
+  Ubuntu runner (1201 passed, 75 skipped on the first run). Skipped tests need
+  undistributed Zeek logs or a PostgreSQL test database; each prints its reason.
 
 These controls make the result auditable; they do not extend its scope.
 
@@ -246,6 +271,41 @@ python -m pytest -q                                    # ~2 min, no dataset requ
 python -m scripts.run_transfer_experiment             # main experiment, ~2.5 min
 python scripts/verify_preregistration.py              # integrity checks
 ```
+
+## Demonstration API
+
+The scoring service is a FastAPI application with two endpoints and typed
+Pydantic schemas, served locally with
+`uvicorn modules.backend.app.main:app`. It sits **outside** the evaluated
+protocol and uses the legacy XGBoost models.
+
+![FastAPI OpenAPI documentation](assets/screenshots/fastapi-docs.png)
+
+## My contribution
+
+All 23 commits in this repository are my own work, carried out during the
+internship. Concretely, I:
+
+- **designed and built the data pipeline**: PCAP freezing by SHA-256,
+  deterministic Zeek replay in a digest-pinned container, a strict
+  normalisation contract with exact decimal time, and 60-second per-entity
+  windowing (`modules/detection/src/`, `scripts/`);
+- **wrote the labelling policy** that excludes uncertain windows instead of
+  treating them as benign, and diagnosed and corrected the NAT-related coverage
+  gap (M5 v3) additively, with the earlier policies left untouched;
+- **designed the evaluation protocol**: leave-one-family-out folds,
+  entity-disjoint benign validation used only for threshold calibration, and
+  freeze records written before the holdout was opened;
+- **ran and analysed the experiments**, including the negative results
+  (SSH-Patator, temporal persistence) and the exploratory Ares study;
+- **built the integrity tooling**: digest verification (83 checks),
+  cross-artifact consistency checks, and a 1,276-test suite;
+- **implemented the demonstration layer**: the FastAPI service, the PostgreSQL
+  alert sink and schema, and the provisioned Grafana dashboard;
+- **wrote the documentation**, protocol and experiment reports.
+
+Elasticsearch, Kibana and Redis appear in `docker-compose.yml` but were not
+integrated in the code, and are not claimed as part of this work.
 
 ## Limitations
 
@@ -343,7 +403,10 @@ its official page. Artifacts derived from it (windows, labels, features,
 predictions) remain subject to those terms. Zeek, PostgreSQL, Grafana and the
 Python dependencies are governed by their own licenses.
 
-## Author
+## Academic context
 
-Anasse Harki — engineering student, ENSA Fès (Computer Science, AI and Digital
-Trust). Internship carried out at UM6P, Rabat.
+Engineering internship (stage d'application), Computer Science, AI and Digital
+Trust programme, École Nationale des Sciences Appliquées de Fès. Hosted by
+Mohammed VI Polytechnic University (UM6P), Rabat, 2026.
+
+Author: Anasse Harki.
