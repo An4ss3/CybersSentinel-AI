@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RESULTS = REPO_ROOT / "artifacts" / "experiments" / "transfer_v1" / "transfer_results.json"
-OUTPUT = REPO_ROOT / "docs" / "assets" / "transfer_results.png"
+OUTPUT = REPO_ROOT / "assets" / "figures" / "transfer-results.png"
 
 # Display names, in the protocol order of the frozen artifact (not a ranking).
 LABELS = {

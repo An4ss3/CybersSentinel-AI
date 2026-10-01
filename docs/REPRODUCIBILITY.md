@@ -75,7 +75,7 @@ distributed. With the full local workspace, all 83 pass.
 python scripts/plot_transfer_results.py
 ```
 
-Writes `docs/assets/transfer_results.png`, reading only the frozen
+Writes `assets/figures/transfer-results.png`, reading only the frozen
 `transfer_results.json`.
 
 ## Demonstration services (optional)
